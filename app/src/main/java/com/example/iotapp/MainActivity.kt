@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val a:Int = 1
         val b:Int = 2
+        val c:Int = 3
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
