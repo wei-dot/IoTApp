@@ -6,24 +6,30 @@
     android:layout_height="match_parent"
     android:background="@color/creamy_white">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:cardCornerRadius="40dp"
-        android:layout_margin="5dp"
-        android:elevation="10dp">
-        <ImageView
-            android:id="@+id/view5"
-            android:layout_width="383dp"
-            android:layout_height="609dp"
-            android:layout_marginStart="109dp"
-            android:layout_marginTop="176dp"
-            android:layout_marginEnd="108dp"
-            android:layout_marginBottom="175dp"
-            android:background="@color/login_brown"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.cardview.widget.CardView>
+
+    <View
+        android:id="@+id/view5"
+        android:layout_width="470dp"
+        android:layout_height="750dp"
+        android:layout_marginStart="109dp"
+        android:layout_marginTop="176dp"
+        android:layout_marginEnd="108dp"
+        android:layout_marginBottom="175dp"
+        android:background="@color/login_brown"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="464dp"
+        android:text="@string/havent_login"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
