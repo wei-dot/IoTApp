@@ -2,6 +2,11 @@
 <resources>
     <color name="background">#86CCDB</color>
     <color name="sec_color">#FFFBF1</color>
+    <color name="brown">#C07A27</color>
+    <color name="light_brown">#CDA16D</color>
+    <color name="login_brown">#FAF0DD</color>
+    <color name="creamy_white">#FFFBF1</color>
+    <color name="red">#DF8888</color>
 
 <!--    系統內建顏色-->
     <color name="purple_200">#FFBB86FC</color>
