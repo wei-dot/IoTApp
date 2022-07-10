@@ -6,19 +6,19 @@
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:enabled="true"
-        android:title="居家狀態"
+        android:title="@string/home"
         android:icon="@drawable/button_home"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_manage"
-        android:title="家庭管理"
+        android:title="@string/family"
         android:enabled="true"
         android:orderInCategory="100"
         android:icon="@drawable/button_family"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_mode"
-        android:title="組合鍵設置"
+        android:title="@string/combination"
         android:enabled="true"
         android:orderInCategory="100"
         android:icon="@drawable/button_combination"
@@ -28,6 +28,6 @@
         android:enabled="true"
         android:icon="@drawable/button_log"
         android:orderInCategory="100"
-        android:title="設備日誌"
+        android:title="@string/log"
         app:showAsAction="never" />
 </menu>
