@@ -9,27 +9,55 @@
 
     <View
         android:id="@+id/view5"
-        android:layout_width="470dp"
-        android:layout_height="750dp"
-        android:layout_marginStart="109dp"
-        android:layout_marginTop="176dp"
-        android:layout_marginEnd="108dp"
-        android:layout_marginBottom="175dp"
+        android:layout_width="0px"
+        android:layout_height="0px"
+        android:layout_marginStart="100px"
+        android:layout_marginTop="160px"
+        android:layout_marginEnd="100px"
+        android:layout_marginBottom="160px"
         android:background="@color/login_brown"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="464dp"
         android:text="@string/havent_login"
         android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="-20dp"
+        android:layout_marginBottom="144dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="@+id/view5"
+        app:layout_constraintEnd_toStartOf="@+id/textView"
+        app:srcCompat="@drawable/login_button" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="-10dp"
+        android:layout_marginBottom="144dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="@+id/view5"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:srcCompat="@drawable/signin_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
