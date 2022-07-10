@@ -6,19 +6,19 @@
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:enabled="true"
-        android:title="@string/home"
+        android:title="@string/home_fragment"
         android:icon="@drawable/button_home"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_manage"
-        android:title="@string/family"
+        android:title="@string/family_fragment"
         android:enabled="true"
         android:orderInCategory="100"
         android:icon="@drawable/button_family"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_mode"
-        android:title="@string/combination"
+        android:title="@string/combination_fragment"
         android:enabled="true"
         android:orderInCategory="100"
         android:icon="@drawable/button_combination"
@@ -28,6 +28,6 @@
         android:enabled="true"
         android:icon="@drawable/button_log"
         android:orderInCategory="100"
-        android:title="@string/log"
+        android:title="@string/log_fragment"
         app:showAsAction="never" />
 </menu>

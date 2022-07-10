@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">IoTApp</string>
     <string name="action_settings">Settings</string>
-    <string name="home">居家狀態</string>
-    <string name="family">家庭管理</string>
-    <string name="combination">組合鍵設置</string>
-    <string name="log">設備日誌</string>
-    <string name="havent_login">尚未登入</string>
+    <string name="home_fragment">居家狀態</string>
+    <string name="family_fragment">家庭管理</string>
+    <string name="combination_fragment">組合鍵設置</string>
+    <string name="log_fragment">設備日誌</string>
+    <string name="not_login">尚未登入</string>
 
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>

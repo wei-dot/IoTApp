@@ -45,7 +45,7 @@
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="@+id/view5"
         app:layout_constraintEnd_toStartOf="@+id/textView"
-        app:srcCompat="@drawable/login_button" />
+        app:srcCompat="@drawable/button_login" />
 
     <ImageButton
         android:id="@+id/imageButton2"
@@ -58,6 +58,6 @@
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="@+id/view5"
         app:layout_constraintStart_toEndOf="@+id/textView"
-        app:srcCompat="@drawable/signin_button" />
+        app:srcCompat="@drawable/button_signup" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,7 +15,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="#86CCDB"
+            android:background="@color/background"
             app:popupTheme="@style/Theme.IoTApp.PopupOverlay" />
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -33,8 +33,8 @@
             android:id="@+id/bottom_navigation"
             android:layout_width="0px"
             android:layout_height="62dp"
-            app:itemIconTint="#14B2D4"
-            app:itemTextColor="#14B2D4"
+            app:itemIconTint="@color/button_color"
+            app:itemTextColor="@color/button_color"
             app:labelVisibilityMode="labeled"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
