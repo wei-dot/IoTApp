@@ -55,7 +55,7 @@
         app:layout_constraintStart_toStartOf="@+id/content_space"
         app:layout_constraintTop_toTopOf="@+id/content_space" />
 
-    <View
+    <ImageButton
         android:id="@+id/button_login"
         android:layout_width="108dp"
         android:layout_height="36dp"
@@ -67,7 +67,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/content_space"
         app:layout_constraintStart_toStartOf="@+id/content_space" />
 
-    <View
+    <ImageButton
         android:id="@+id/button_signup"
         android:layout_width="108dp"
         android:layout_height="36dp"
