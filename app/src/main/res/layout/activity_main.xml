@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".MainActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:theme="@style/Theme.IoTApp.AppBarOverlay">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.IoTApp.AppBarOverlay">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -22,8 +22,8 @@
 
     <include
         android:id="@+id/include"
-        android:radius="3dp"
-        layout="@layout/content_main" />
+        layout="@layout/content_main"
+        android:background="@drawable/round_rect" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -34,7 +34,7 @@
             android:id="@+id/bottom_navigation"
             android:layout_width="0px"
             android:layout_height="62dp"
-            app:backgroundTint="#FCFCFC"
+            android:background="@drawable/rectangle"
             app:itemIconTint="@color/button_color"
             app:itemTextColor="@color/button_color"
             app:labelVisibilityMode="labeled"
