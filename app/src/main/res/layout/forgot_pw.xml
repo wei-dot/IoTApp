@@ -36,14 +36,14 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="36dp"
+        android:layout_marginTop="76dp"
         android:layout_marginEnd="36dp"
-        android:layout_marginBottom="76dp"
         android:background="@drawable/content_space"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.792" />
+        app:layout_constraintVertical_bias="0.248" />
 
     <ImageButton
         android:id="@+id/button_send"
@@ -54,28 +54,28 @@
         android:layout_marginTop="461dp"
         android:background="@drawable/button_send"
         android:clickable="true"
-        app:layout_constraintBottom_toBottomOf="@+id/content_space"
-        app:layout_constraintEnd_toEndOf="@+id/content_space"
-        app:layout_constraintStart_toStartOf="@+id/content_space"
+        app:layout_constraintBottom_toBottomOf="@id/content_space"
+        app:layout_constraintEnd_toEndOf="@id/content_space"
+        app:layout_constraintStart_toStartOf="@id/content_space"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/button_back"
         android:layout_width="17dp"
         android:layout_height="17.5dp"
-        android:layout_alignStart="@+id/content_space"
-        android:layout_alignTop="@+id/forgot_psw"
+        android:layout_alignStart="@id/content_space"
+        android:layout_alignTop="@id/text_forgot_psw"
         android:layout_alignParentLeft="false"
         android:background="@drawable/button_back"
-        app:layout_constraintBottom_toBottomOf="@+id/forgot_psw"
-        app:layout_constraintEnd_toStartOf="@+id/forgot_psw"
+        app:layout_constraintBottom_toBottomOf="@id/text_forgot_psw"
+        app:layout_constraintEnd_toStartOf="@id/text_forgot_psw"
         app:layout_constraintHorizontal_bias="0.575"
-        app:layout_constraintStart_toStartOf="@+id/content_space"
-        app:layout_constraintTop_toTopOf="@+id/forgot_psw"
+        app:layout_constraintStart_toStartOf="@id/content_space"
+        app:layout_constraintTop_toTopOf="@id/text_forgot_psw"
         app:layout_constraintVertical_bias="0.253" />
 
     <TextView
-        android:id="@+id/forgot_psw"
+        android:id="@+id/text_forgot_psw"
         android:layout_width="183dp"
         android:layout_height="30dp"
         android:layout_alignStart="@+id/content_space"
