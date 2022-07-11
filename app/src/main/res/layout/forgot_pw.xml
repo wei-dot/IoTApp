@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/forgot_page"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/login_background"
+    app:layout_anchorGravity="bottom">
+
+
+    <ImageButton
+        android:id="@+id/menu_bt_box"
+        android:layout_width="28dp"
+        android:layout_height="21dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/ic_menu_bt"
+        app:layout_constraintBottom_toTopOf="@+id/content_space"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.267" />
+
+    <View
+        android:id="@+id/content_space"
+        android:layout_width="319dp"
+        android:layout_height="488dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="36dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="76dp"
+        android:background="@drawable/content_space"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.792" />
+
+    <ImageButton
+        android:id="@+id/button_send"
+        android:layout_width="166dp"
+        android:layout_height="36dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="461dp"
+        android:background="@drawable/button_send"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="@+id/content_space"
+        app:layout_constraintEnd_toEndOf="@+id/content_space"
+        app:layout_constraintStart_toStartOf="@+id/content_space"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/button_back"
+        android:layout_width="17dp"
+        android:layout_height="17.5dp"
+        android:layout_alignStart="@+id/content_space"
+        android:layout_alignTop="@+id/forgot_psw"
+        android:layout_alignParentLeft="false"
+        android:background="@drawable/button_back"
+        app:layout_constraintBottom_toBottomOf="@+id/forgot_psw"
+        app:layout_constraintEnd_toStartOf="@+id/forgot_psw"
+        app:layout_constraintHorizontal_bias="0.575"
+        app:layout_constraintStart_toStartOf="@+id/content_space"
+        app:layout_constraintTop_toTopOf="@+id/forgot_psw"
+        app:layout_constraintVertical_bias="0.253" />
+
+    <TextView
+        android:id="@+id/forgot_psw"
+        android:layout_width="183dp"
+        android:layout_height="30dp"
+        android:layout_alignStart="@+id/content_space"
+        android:layout_alignEnd="@+id/content_space"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="88dp"
+        android:gravity="center_horizontal|top"
+        android:lineSpacingExtra="8sp"
+        android:text="@string/forgot_psw"
+        android:textAppearance="@style/login_title_style"
+        android:translationY="-3.9sp"
+        app:layout_constraintBottom_toBottomOf="@+id/content_space"
+        app:layout_constraintEnd_toEndOf="@+id/content_space"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/content_space"
+        app:layout_constraintTop_toTopOf="@+id/content_space"
+        app:layout_constraintVertical_bias="0.152" />
+</androidx.constraintlayout.widget.ConstraintLayout>

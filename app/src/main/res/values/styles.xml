@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="login_title_style">
+        <item name="android:textSize">
+            24sp
+        </item>
+        <item name="android:letterSpacing">
+            0.7
+        </item>
+        <item name="android:textColor">
+            #CDA16D
+        </item>
+    </style>
+</resources>
