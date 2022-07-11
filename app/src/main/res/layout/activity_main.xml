@@ -22,6 +22,7 @@
 
     <include
         android:id="@+id/include"
+        android:radius="3dp"
         layout="@layout/content_main" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -33,6 +34,7 @@
             android:id="@+id/bottom_navigation"
             android:layout_width="0px"
             android:layout_height="62dp"
+            app:backgroundTint="#FCFCFC"
             app:itemIconTint="@color/button_color"
             app:itemTextColor="@color/button_color"
             app:labelVisibilityMode="labeled"
