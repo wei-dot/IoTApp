@@ -8,12 +8,14 @@
         android:enabled="true"
         android:title="@string/home_fragment"
         android:icon="@drawable/button_home"
+        android:onClick="onHomeClick"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_manage"
         android:title="@string/family_fragment"
         android:enabled="true"
         android:orderInCategory="100"
+        android:onClick="onFamilyClick"
         android:icon="@drawable/button_family"
         app:showAsAction="never" />
     <item

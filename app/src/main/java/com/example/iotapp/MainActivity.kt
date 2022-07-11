@@ -49,4 +49,14 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration)
                 || super.onSupportNavigateUp()
     }
+
+    fun onHomeClick(item: MenuItem) {
+        val navController = findNavController(R.id.nav_host_fragment_content_main)
+        navController.navigate(R.id.FirstFragment)
+    }
+
+    fun onFamilyClick(item: MenuItem) {
+        val navController = findNavController(R.id.nav_host_fragment_content_main)
+        navController.navigate(R.id.SecondFragment)
+    }
 }
