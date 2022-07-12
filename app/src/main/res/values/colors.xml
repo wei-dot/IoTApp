@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="toolbar_color">#86CCDB</color>
-    <color name="stroke_color">#14B2D4</color>
-    <color name="bottom_color">#FBFBFB</color>
-    <color name="sec_color">#FFFBF1</color>
-    <color name="brown">#C07A27</color>
-    <color name="light_brown">#CDA16D</color>
+    <!--Customize your color here-->
+    <color name="stroke">#14B2D4</color>
+    <color name="background_toolbar">#86CCDB</color>
+    <color name="background_content">#FFFBF1</color>
+    <color name="background_bottom">#FBFBFB</color>
+    <color name="text_login">#CDA16D</color>
     <color name="login_brown">#FAF0DD</color>
-    <color name="content_color">#FFFBF1</color>
-    <color name="red">#DF8888</color>
+    <color name="brown">#C07A27</color>
+    <color name="notice">#DF8888</color>
 
-<!--    系統內建顏色-->
+    <!--project default Color-->
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>

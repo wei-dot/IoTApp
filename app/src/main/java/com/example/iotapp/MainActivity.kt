@@ -24,6 +24,9 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false);
 
+        val tv1: TextView = findViewById(R.id.toolbar_title)
+        tv1.text = getString(R.string.home_fragment)
+
         val navController = findNavController(R.id.nav_host_fragment_content_main)
 
 //        appBarConfiguration = AppBarConfiguration(navController.graph)

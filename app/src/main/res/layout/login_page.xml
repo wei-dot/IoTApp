@@ -5,7 +5,7 @@
     android:id="@+id/some_id"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/login_background">
+    android:background="@drawable/background_login">
 
     <ImageButton
         android:id="@+id/menu_bt_box"

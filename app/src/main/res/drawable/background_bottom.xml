@@ -6,13 +6,13 @@
     android:viewportHeight="100"
     tools:ignore="VectorRaster">
     <path
-        android:fillColor="@color/bottom_color"
+        android:fillColor="@color/background_bottom"
         android:pathData="M0 0h390v135H0V0Z"/>
     <group>
         <clip-path
             android:pathData="M0 0h390v135H0V0Z"/>
         <path
-            android:fillColor="@color/stroke_color"
+            android:fillColor="@color/stroke"
             android:pathData="M0 1h390v-2H0v2Z"/>
     </group>
 </vector>

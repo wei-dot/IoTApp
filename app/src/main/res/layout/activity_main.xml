@@ -17,7 +17,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/toolbar_color"
+            android:background="@color/background_toolbar"
             app:navigationIcon="@drawable/ic_navigation_icon"
             app:popupTheme="@style/Theme.IoTApp.PopupOverlay">
 
@@ -26,7 +26,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="@string/home_fragment"
                 android:textSize="28sp"/>
 
         </androidx.appcompat.widget.Toolbar>
@@ -36,7 +35,7 @@
     <include
         android:id="@+id/include"
         layout="@layout/content_main"
-        android:background="@drawable/round_rect" />
+        android:background="@drawable/background_content" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -47,9 +46,9 @@
             android:id="@+id/bottom_navigation"
             android:layout_width="0px"
             android:layout_height="62dp"
-            android:background="@drawable/rectangle"
-            app:itemIconTint="@color/stroke_color"
-            app:itemTextColor="@color/stroke_color"
+            android:background="@drawable/background_bottom"
+            app:itemIconTint="@color/stroke"
+            app:itemTextColor="@color/stroke"
             app:labelVisibilityMode="labeled"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

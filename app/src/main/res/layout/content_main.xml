@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/toolbar_color"
+    android:background="@color/background_toolbar"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     <View
@@ -14,7 +14,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/round_rect"/>
+        android:background="@drawable/background_content"/>
 
     <fragment
         android:id="@+id/nav_host_fragment_content_main"
