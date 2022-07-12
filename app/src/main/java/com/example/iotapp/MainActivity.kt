@@ -9,6 +9,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.TextView
 import com.example.iotapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -20,8 +21,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        supportActionBar?.setDisplayShowTitleEnabled(false);
         setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false);
 
         val navController = findNavController(R.id.nav_host_fragment_content_main)
 
@@ -54,10 +55,14 @@ class MainActivity : AppCompatActivity() {
     fun onHomeClick(item: MenuItem) {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         navController.navigate(R.id.FirstFragment)
+        val tv1: TextView = findViewById(R.id.toolbar_title)
+        tv1.text = getString(R.string.home_fragment)
     }
 
     fun onFamilyClick(item: MenuItem) {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         navController.navigate(R.id.SecondFragment)
+        val tv1: TextView = findViewById(R.id.toolbar_title)
+        tv1.text = getString(R.string.family_fragment)
     }
 }
