@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/drawable/action_mode.xml" value="0.1195" />
+<<<<<<< HEAD
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/drawable/button_combination.xml" value="0.1" />
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/drawable/button_home.xml" value="0.1" />
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/drawable/button_log.xml" value="0.1" />
@@ -16,13 +17,12 @@
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/drawable/ic_log.xml" value="0.21" />
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/drawable/ic_navigation_icon.xml" value="0.2515" />
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/drawable/ic_navigationbar.xml" value="0.1815" />
+=======
+>>>>>>> origin/master
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/drawable/log.xml" value="0.1195" />
-        <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/drawable/login_button.xml" value="0.1" />
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/drawable/manage.xml" value="0.1195" />
-        <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/drawable/rectangle.xml" value="0.12" />
-        <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/drawable/round_rect.xml" value="0.1185" />
-        <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/drawable/signin_button.xml" value="0.1" />
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/drawable/state.xml" value="0.1195" />
+<<<<<<< HEAD
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/layout/activity_main.xml" value="0.16140350877192983" />
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/layout/content_main.xml" value="0.2" />
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/layout/forgot_pw.xml" value="0.2484375" />
@@ -30,9 +30,11 @@
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/layout/fragment_first.xml" value="0.1" />
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/layout/fragment_home.xml" value="0.10833333333333334" />
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/layout/fragment_login.xml" value="0.23333333333333334" />
+=======
+        <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/layout/content_main.xml" value="0.10833333333333334" />
+        <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/layout/fragment_first.xml" value="0.10833333333333334" />
+>>>>>>> origin/master
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/layout/fragment_second.xml" value="0.10833333333333334" />
-        <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/layout/login_page.xml" value="0.264" />
-        <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/menu/menu_main.xml" value="0.1" />
         <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3325" />
         <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/action_mode.xml" value="0.3325" />
         <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/button_family.xml" value="0.3325" />
@@ -49,16 +51,30 @@
         <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/layout/login_page.xml" value="0.25" />
         <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/menu/menu_main.xml" value="0.34791666666666665" />
         <entry key="..\:/Users/yes04/Desktop/Android/IoTApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="..\:/Users/yes04/Desktop/Android/IoTApp/app/src/main/res/drawable/back.xml" value="0.3385" />
         <entry key="..\:/Users/yes04/Desktop/Android/IoTApp/app/src/main/res/drawable/button_combination.xml" value="0.1" />
         <entry key="..\:/Users/yes04/Desktop/Android/IoTApp/app/src/main/res/drawable/button_family.xml" value="0.1" />
         <entry key="..\:/Users/yes04/Desktop/Android/IoTApp/app/src/main/res/drawable/button_home.xml" value="0.1" />
         <entry key="..\:/Users/yes04/Desktop/Android/IoTApp/app/src/main/res/drawable/button_log.xml" value="0.1" />
+        <entry key="..\:/Users/yes04/Desktop/Android/IoTApp/app/src/main/res/drawable/button_login.xml" value="0.252" />
+        <entry key="..\:/Users/yes04/Desktop/Android/IoTApp/app/src/main/res/drawable/button_signup.xml" value="0.252" />
+        <entry key="..\:/Users/yes04/Desktop/Android/IoTApp/app/src/main/res/drawable/forgot_pw.xml" value="0.3385" />
+        <entry key="..\:/Users/yes04/Desktop/Android/IoTApp/app/src/main/res/drawable/ic_combination.xml" value="0.1" />
+        <entry key="..\:/Users/yes04/Desktop/Android/IoTApp/app/src/main/res/drawable/ic_family.xml" value="0.1" />
+        <entry key="..\:/Users/yes04/Desktop/Android/IoTApp/app/src/main/res/drawable/ic_home.xml" value="0.1" />
         <entry key="..\:/Users/yes04/Desktop/Android/IoTApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
-        <entry key="..\:/Users/yes04/Desktop/Android/IoTApp/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/yes04/Desktop/Android/IoTApp/app/src/main/res/drawable/ic_log.xml" value="0.1" />
+        <entry key="..\:/Users/yes04/Desktop/Android/IoTApp/app/src/main/res/drawable/menu_bt.xml" value="0.3385" />
+        <entry key="..\:/Users/yes04/Desktop/Android/IoTApp/app/src/main/res/drawable/rectangle.xml" value="0.2845" />
+        <entry key="..\:/Users/yes04/Desktop/Android/IoTApp/app/src/main/res/drawable/rectangle_3.xml" value="0.3385" />
+        <entry key="..\:/Users/yes04/Desktop/Android/IoTApp/app/src/main/res/drawable/rectangle_4.xml" value="0.3385" />
+        <entry key="..\:/Users/yes04/Desktop/Android/IoTApp/app/src/main/res/drawable/send.xml" value="0.3395" />
+        <entry key="..\:/Users/yes04/Desktop/Android/IoTApp/app/src/main/res/layout/activity_main.xml" value="0.16" />
         <entry key="..\:/Users/yes04/Desktop/Android/IoTApp/app/src/main/res/layout/content_main.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/yes04/Desktop/Android/IoTApp/app/src/main/res/layout/forgot_pw.xml" value="0.33" />
         <entry key="..\:/Users/yes04/Desktop/Android/IoTApp/app/src/main/res/layout/fragment_first.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/yes04/Desktop/Android/IoTApp/app/src/main/res/layout/fragment_second.xml" value="0.3333333333333333" />
-        <entry key="..\:/Users/yes04/Desktop/Android/IoTApp/app/src/main/res/layout/login_page.xml" value="0.2" />
+        <entry key="..\:/Users/yes04/Desktop/Android/IoTApp/app/src/main/res/layout/login_page.xml" value="0.12" />
         <entry key="..\:/Users/yes04/Desktop/Android/IoTApp/app/src/main/res/menu/menu_main.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/yes04/Desktop/Android/IoTApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
       </map>
