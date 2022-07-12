@@ -17,4 +17,7 @@
     <string name="todo">TODO</string>
     <string name="forgot_psw">忘記密碼</string>
     <string name="not_login">尚未登入</string>
+    <string name="enter_email">輸入電子郵件</string>
+    <string name="enter_phone">輸入手機號碼</string>
+
 </resources>

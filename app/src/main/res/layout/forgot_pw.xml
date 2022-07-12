@@ -59,21 +59,6 @@
         app:layout_constraintStart_toStartOf="@id/content_space"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/button_back"
-        android:layout_width="17dp"
-        android:layout_height="17.5dp"
-        android:layout_alignStart="@id/content_space"
-        android:layout_alignTop="@id/text_forgot_psw"
-        android:layout_alignParentLeft="false"
-        android:background="@drawable/button_back"
-        app:layout_constraintBottom_toBottomOf="@id/text_forgot_psw"
-        app:layout_constraintEnd_toStartOf="@id/text_forgot_psw"
-        app:layout_constraintHorizontal_bias="0.575"
-        app:layout_constraintStart_toStartOf="@id/content_space"
-        app:layout_constraintTop_toTopOf="@id/text_forgot_psw"
-        app:layout_constraintVertical_bias="0.253" />
-
     <TextView
         android:id="@+id/text_forgot_psw"
         android:layout_width="183dp"
@@ -82,16 +67,41 @@
         android:layout_alignEnd="@+id/content_space"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="88dp"
         android:gravity="center_horizontal|top"
         android:lineSpacingExtra="8sp"
         android:text="@string/forgot_psw"
         android:textAppearance="@style/login_title_style"
         android:translationY="-3.9sp"
-        app:layout_constraintBottom_toBottomOf="@+id/content_space"
+        app:layout_constraintBottom_toTopOf="@+id/button_send"
         app:layout_constraintEnd_toEndOf="@+id/content_space"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/content_space"
         app:layout_constraintTop_toTopOf="@+id/content_space"
-        app:layout_constraintVertical_bias="0.152" />
+        app:layout_constraintVertical_bias="0.17" />
+
+    <EditText
+        android:layout_width="254dp"
+        android:layout_height="41dp"
+        android:hint="@string/enter_email"
+        app:layout_constraintBottom_toTopOf="@+id/button_send"
+        app:layout_constraintEnd_toEndOf="@+id/content_space"
+        app:layout_constraintStart_toStartOf="@+id/content_space"
+        app:layout_constraintTop_toTopOf="@+id/content_space"
+        android:inputType="textEmailAddress"
+        android:selectAllOnFocus="true"
+        android:background="@drawable/edit_text_box"
+        />
+
+    <EditText
+        android:layout_width="254dp"
+        android:layout_height="41dp"
+        android:background="@drawable/edit_text_box"
+        android:hint="@string/enter_email"
+        android:inputType="textEmailAddress"
+        android:selectAllOnFocus="true"
+        app:layout_constraintBottom_toTopOf="@+id/button_send"
+        app:layout_constraintEnd_toEndOf="@+id/content_space"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="@+id/content_space"
+        app:layout_constraintTop_toTopOf="@+id/content_space"
+        app:layout_constraintVertical_bias="0.687" />
 </androidx.constraintlayout.widget.ConstraintLayout>
