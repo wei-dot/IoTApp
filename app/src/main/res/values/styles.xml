@@ -4,8 +4,13 @@
     <style name="login_title_style">
         <item name="android:textSize">24sp</item>
         <item name="android:letterSpacing">0.7</item>
-        <item name="android:textColor">#CDA16D</item>
+        <item name="android:textColor">@color/text_login</item>
     </style>
 
+    <style name="title_style">
+        <item name="android:textSize">28sp</item>
+        <item name="android:letterSpacing">0.36</item>
+        <item name="android:textColor">@color/background_content</item>
+    </style>
 
 </resources>
