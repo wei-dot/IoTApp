@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setDisplayShowTitleEnabled(false);
 
         val tv1: TextView = findViewById(R.id.toolbar_title)
-        tv1.text = getString(R.string.fragment_home)
+        tv1.text = getString(R.string.home_fragment)
 
         val navController = findNavController(R.id.nav_host_fragment_content_main)
 
@@ -57,13 +57,13 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         navController.navigate(R.id.FirstFragment)
         val tv1: TextView = findViewById(R.id.toolbar_title)
-        tv1.text = getString(R.string.fragment_home)
+        tv1.text = getString(R.string.home_fragment)
     }
 
     fun onFamilyClick(item: MenuItem) {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         navController.navigate(R.id.SecondFragment)
         val tv1: TextView = findViewById(R.id.toolbar_title)
-        tv1.text = getString(R.string.fragment_family)
+        tv1.text = getString(R.string.family_fragment)
     }
 }
