@@ -95,7 +95,7 @@
         android:layout_width="254dp"
         android:layout_height="41dp"
         android:background="@drawable/edit_text_box"
-        android:hint="@string/enter_email"
+        android:hint="@string/enter_phone"
         android:inputType="textEmailAddress"
         android:selectAllOnFocus="true"
         app:layout_constraintBottom_toTopOf="@+id/button_send"
