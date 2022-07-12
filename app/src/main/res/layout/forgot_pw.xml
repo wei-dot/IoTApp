@@ -68,7 +68,7 @@
             android:layout_alignParentTop="true"
             android:gravity="center_horizontal|top"
             android:lineSpacingExtra="8sp"
-            android:text="@string/forgot_psw"
+            android:text="@string/forgot_password"
             android:textAppearance="@style/login_title_style"
             android:translationY="-3.9sp"
             app:layout_constraintBottom_toTopOf="@+id/button_send"
