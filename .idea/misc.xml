@@ -66,6 +66,7 @@
         <entry key="..\:/Users/yes04/Desktop/Android/IoTApp/app/src/main/res/drawable/ic_home.xml" value="0.1" />
         <entry key="..\:/Users/yes04/Desktop/Android/IoTApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="..\:/Users/yes04/Desktop/Android/IoTApp/app/src/main/res/drawable/ic_log.xml" value="0.1" />
+        <entry key="..\:/Users/yes04/Desktop/Android/IoTApp/app/src/main/res/drawable/ic_send_verification_code.xml" value="0.3385" />
         <entry key="..\:/Users/yes04/Desktop/Android/IoTApp/app/src/main/res/drawable/menu_bt.xml" value="0.3385" />
         <entry key="..\:/Users/yes04/Desktop/Android/IoTApp/app/src/main/res/drawable/rectangle.xml" value="0.2845" />
         <entry key="..\:/Users/yes04/Desktop/Android/IoTApp/app/src/main/res/drawable/rectangle_3.xml" value="0.3385" />
@@ -73,7 +74,7 @@
         <entry key="..\:/Users/yes04/Desktop/Android/IoTApp/app/src/main/res/drawable/send.xml" value="0.3395" />
         <entry key="..\:/Users/yes04/Desktop/Android/IoTApp/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/yes04/Desktop/Android/IoTApp/app/src/main/res/layout/content_main.xml" value="0.3333333333333333" />
-        <entry key="..\:/Users/yes04/Desktop/Android/IoTApp/app/src/main/res/layout/forgot_pw.xml" value="0.22" />
+        <entry key="..\:/Users/yes04/Desktop/Android/IoTApp/app/src/main/res/layout/forgot_pw.xml" value="0.2" />
         <entry key="..\:/Users/yes04/Desktop/Android/IoTApp/app/src/main/res/layout/fragment_family.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/yes04/Desktop/Android/IoTApp/app/src/main/res/layout/fragment_first.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/yes04/Desktop/Android/IoTApp/app/src/main/res/layout/fragment_second.xml" value="0.3333333333333333" />
