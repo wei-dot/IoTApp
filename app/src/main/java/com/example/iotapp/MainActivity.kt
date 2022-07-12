@@ -1,12 +1,10 @@
 package com.example.iotapp
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.TextView
@@ -25,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setDisplayShowTitleEnabled(false);
 
         val tv1: TextView = findViewById(R.id.toolbar_title)
-        tv1.text = getString(R.string.home_fragment)
+        tv1.text = getString(R.string.fragment_home)
 
         val navController = findNavController(R.id.nav_host_fragment_content_main)
 
@@ -59,13 +57,13 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         navController.navigate(R.id.FirstFragment)
         val tv1: TextView = findViewById(R.id.toolbar_title)
-        tv1.text = getString(R.string.home_fragment)
+        tv1.text = getString(R.string.fragment_home)
     }
 
     fun onFamilyClick(item: MenuItem) {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         navController.navigate(R.id.SecondFragment)
         val tv1: TextView = findViewById(R.id.toolbar_title)
-        tv1.text = getString(R.string.family_fragment)
+        tv1.text = getString(R.string.fragment_family)
     }
 }

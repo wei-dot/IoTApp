@@ -13,4 +13,5 @@
         <item name="android:textColor">@color/background_content</item>
     </style>
 
+
 </resources>
