@@ -98,7 +98,7 @@
         android:autofillHints="@string/enter_password"
         android:hint="@string/enter_password"
         android:background="@drawable/edit_text_box"
-        android:imeActionLabel="@string/action_sign_in_short"
+        android:imeActionLabel="@string/enter_password"
         android:imeOptions="actionDone"
         android:inputType="textPassword"
         android:selectAllOnFocus="true"

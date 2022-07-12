@@ -6,13 +6,13 @@
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:enabled="true"
-        android:title="@string/fragment_home"
+        android:title="@string/home_fragment"
         android:icon="@drawable/ic_home"
         android:onClick="onHomeClick"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_manage"
-        android:title="@string/fragment_family"
+        android:title="@string/family_fragment"
         android:enabled="true"
         android:orderInCategory="100"
         android:onClick="onFamilyClick"
@@ -20,7 +20,7 @@
         app:showAsAction="never" />
     <item
         android:id="@+id/action_mode"
-        android:title="@string/fragment_combination"
+        android:title="@string/combination_fragment"
         android:enabled="true"
         android:orderInCategory="100"
         android:icon="@drawable/ic_combination"
@@ -30,6 +30,6 @@
         android:enabled="true"
         android:icon="@drawable/ic_log"
         android:orderInCategory="100"
-        android:title="@string/fragment_log"
+        android:title="@string/log_fragment"
         app:showAsAction="never" />
 </menu>
