@@ -5,6 +5,12 @@
     <string name="family_fragment">家庭管理</string>
     <string name="combination_fragment">組合鍵設置</string>
     <string name="log_fragment">設備日誌</string>
+    <string name="forgot_psw">忘記密碼</string>
+    <string name="not_login">尚未登入</string>
+    <string name="login">用戶登入</string>
+    <string name="enter_email">輸入電子郵件</string>
+    <string name="enter_phone">輸入手機號碼</string>
+    <string name="enter_password">輸入用戶密碼</string>
 
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
@@ -15,9 +21,5 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="todo">TODO</string>
-    <string name="forgot_psw">忘記密碼</string>
-    <string name="not_login">尚未登入</string>
-    <string name="enter_email">輸入電子郵件</string>
-    <string name="enter_phone">輸入手機號碼</string>
 
 </resources>
