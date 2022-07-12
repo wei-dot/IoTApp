@@ -26,38 +26,37 @@
         app:layout_constraintVertical_bias="0.267" />
 
     <View
-        android:id="@+id/content_space"
-        android:layout_width="319dp"
-        android:layout_height="488dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="76dp"
-        android:layout_marginEnd="36dp"
-        android:background="@drawable/content_space"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.248" />
+            android:id="@+id/content_space"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="76dp"
+            android:layout_marginEnd="36dp"
+            android:background="@drawable/content_space"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.251" />
 
     <ImageButton
-        android:id="@+id/button_send"
-        android:layout_width="166dp"
-        android:layout_height="36dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="461dp"
-        android:background="@drawable/button_send"
-        android:clickable="true"
-        app:layout_constraintBottom_toBottomOf="@id/content_space"
-        app:layout_constraintEnd_toEndOf="@id/content_space"
-        app:layout_constraintStart_toStartOf="@id/content_space"
-        app:layout_constraintTop_toTopOf="parent" />
+            android:id="@+id/button_send"
+            android:layout_width="166dp"
+            android:layout_height="36dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="461dp"
+            android:background="@drawable/button_login_square"
+            android:clickable="true"
+            app:layout_constraintBottom_toBottomOf="@id/content_space"
+            app:layout_constraintEnd_toEndOf="@+id/password"
+            app:layout_constraintStart_toStartOf="@+id/password"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     <TextView
@@ -98,7 +97,7 @@
         android:autofillHints="@string/enter_password"
         android:hint="@string/enter_password"
         android:background="@drawable/edit_text_box"
-        android:imeActionLabel="@string/action_sign_in_short"
+        android:imeActionLabel="@string/password_sign"
         android:imeOptions="actionDone"
         android:inputType="textPassword"
         android:selectAllOnFocus="true"
@@ -106,5 +105,49 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username"
         />
+
+    <TextView
+            android:text="@string/login_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView"
+            app:layout_constraintEnd_toEndOf="@+id/content_space"
+            app:layout_constraintStart_toStartOf="@+id/content_space"
+            app:layout_constraintTop_toTopOf="@+id/content_space"
+            app:layout_constraintBottom_toBottomOf="@+id/content_space"
+            app:layout_constraintHorizontal_bias="0.183"
+            app:layout_constraintVertical_bias="0.45" />
+
+    <TextView
+            android:text="@string/signup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView3"
+            app:layout_constraintStart_toEndOf="@+id/button_send"
+            android:layout_marginStart="12dp"
+            app:layout_constraintEnd_toEndOf="@+id/content_space"
+            app:layout_constraintBottom_toBottomOf="@+id/content_space"
+            app:layout_constraintTop_toBottomOf="@+id/button_send" />
+
+    <TextView
+            android:text="@string/forgot_psw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView2"
+            app:layout_constraintEnd_toStartOf="@+id/button_send"
+            app:layout_constraintBottom_toBottomOf="@+id/content_space"
+            app:layout_constraintTop_toBottomOf="@+id/button_send"
+            app:layout_constraintStart_toStartOf="@+id/content_space" />
+
+    <CheckBox
+            android:text="@string/remember_me"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBox"
+            app:layout_constraintEnd_toEndOf="@+id/content_space"
+            app:layout_constraintStart_toStartOf="@+id/content_space"
+            app:layout_constraintHorizontal_bias="0.147"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintBottom_toTopOf="@+id/button_send" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
