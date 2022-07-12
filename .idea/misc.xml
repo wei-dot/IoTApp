@@ -38,12 +38,15 @@
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/drawable/text_box_login.xml" value="0.2465" />
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/layout/activity_main.xml" value="0.1919398907103825" />
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/layout/content_main.xml" value="0.10833333333333334" />
+        <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/layout/forgot_password.xml" value="0.2465846994535519" />
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/layout/forgot_pw.xml" value="0.2484375" />
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/layout/fragment_first.xml" value="0.10833333333333334" />
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/layout/fragment_home.xml" value="0.1919398907103825" />
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/layout/fragment_second.xml" value="0.10833333333333334" />
+        <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/layout/login.xml" value="0.24077868852459017" />
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/layout/login_page.xml" value="0.2581081081081081" />
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/layout/not_login.xml" value="0.1919398907103825" />
+        <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/layout/signup.xml" value="0.33" />
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/menu/menu_main.xml" value="0.1" />
         <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3325" />
         <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/action_mode.xml" value="0.3325" />
