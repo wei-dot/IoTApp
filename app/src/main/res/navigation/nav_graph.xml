@@ -7,8 +7,8 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.example.iotapp.FirstFragment"
-        tools:layout="@layout/fragment_first">
+        android:name="com.example.iotapp.HomeFragment"
+        tools:layout="@layout/fragment_home">
 
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
@@ -16,9 +16,9 @@
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="com.example.iotapp.SecondFragment"
+        android:name="com.example.iotapp.FamilyFragment"
         android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
+        tools:layout="@layout/fragment_family">
 
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
