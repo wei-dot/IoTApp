@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:elevation="0dp"
+
         android:theme="@style/Theme.IoTApp.AppBarOverlay">
 
         <androidx.appcompat.widget.Toolbar
@@ -17,7 +18,18 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/toolbar_color"
-            app:popupTheme="@style/Theme.IoTApp.PopupOverlay" />
+            app:navigationIcon="@drawable/ic_navigation_icon"
+            app:popupTheme="@style/Theme.IoTApp.PopupOverlay" >
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/home_fragment"
+                android:layout_gravity="center"
+                android:id="@+id/toolbar_title" />
+
+        </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
 

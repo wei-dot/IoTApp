@@ -14,6 +14,8 @@
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/drawable/ic_home.xml" value="0.1" />
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.165" />
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/drawable/ic_log.xml" value="0.21" />
+        <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/drawable/ic_navigation_icon.xml" value="0.2515" />
+        <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/drawable/ic_navigationbar.xml" value="0.1815" />
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/drawable/log.xml" value="0.1195" />
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/drawable/login_button.xml" value="0.1" />
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/drawable/manage.xml" value="0.1195" />
@@ -21,8 +23,9 @@
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/drawable/round_rect.xml" value="0.1185" />
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/drawable/signin_button.xml" value="0.1" />
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/drawable/state.xml" value="0.1195" />
-        <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/layout/activity_main.xml" value="0.16140350877192983" />
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/layout/content_main.xml" value="0.2" />
+        <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/layout/forgot_pw.xml" value="0.2484375" />
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/layout/fragment_family.xml" value="0.10833333333333334" />
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/layout/fragment_first.xml" value="0.1" />
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/layout/fragment_home.xml" value="0.10833333333333334" />
