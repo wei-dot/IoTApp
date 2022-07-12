@@ -19,5 +19,6 @@
     <string name="not_login">尚未登入</string>
     <string name="enter_email">輸入電子郵件</string>
     <string name="enter_phone">輸入手機號碼</string>
-
+    <string name="send_verification_code">發送驗證碼</string>
+    <string name="enter_verification_code">輸入6位數驗證碼</string>
 </resources>
