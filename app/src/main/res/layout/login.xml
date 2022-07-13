@@ -28,8 +28,8 @@
 
     <View
         android:id="@+id/content_space"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="319dp"
+        android:layout_height="488dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
@@ -58,7 +58,7 @@
         app:layout_constraintEnd_toEndOf="@+id/password"
         app:layout_constraintStart_toStartOf="@+id/password"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="TouchTargetSizeCheck" />
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
 
     <TextView
@@ -154,10 +154,10 @@
         android:text="@string/remember_me"
         android:textColor="@color/text_login"
         app:layout_constraintBottom_toTopOf="@+id/button_send"
-        app:layout_constraintEnd_toEndOf="@+id/password"
+        app:layout_constraintEnd_toEndOf="@+id/content_space"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/password"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.05" />
+        app:layout_constraintVertical_bias="0.094" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
