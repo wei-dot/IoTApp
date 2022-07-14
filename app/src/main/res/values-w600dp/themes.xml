@@ -17,6 +17,7 @@
         <item name="actionOverflowButtonStyle">@style/MyActionButtonOverflow</item>
         <!-- Customize your theme here. -->
         <item name="android:actionMenuTextAppearance">@style/MenuTextStyle</item>
+        <item name="drawerArrowStyle">@style/DrawerHamburgerStyle</item>
 
     </style>
 
@@ -41,6 +42,23 @@
         <item name="android:actionMenuTextColor">@color/stroke</item>
         <item name="itemTextColor">@color/stroke</item>
         <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="DrawerHamburgerStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <!--        Set that the nav buttons will animate -->
+        <item name="spinBars">true</item>
+        <!--       Set the bar length -->
+        <item name="barLength">64dp</item>
+        <!--        Set the space between the hamburger button bars -->
+        <item name="gapBetweenBars">10dp</item>
+        <!--        Set the thickness of the bar -->
+        <item name="thickness">@dimen/half_default_gap</item>
+        <!--        Set the color of the toggle button -->
+        <item name="color">@color/login_brown</item>
+
+        <!-- Here's how you increase the size of the back arrow icon. -->
+        <!--        <item name="arrowHeadLength">@dimen/one_and_half_default_gap</item>-->
+        <!--        <item name="arrowShaftLength">10dp</item>-->
     </style>
 
 

@@ -17,6 +17,7 @@
         <item name="actionOverflowButtonStyle">@style/MyActionButtonOverflow</item>
         <!-- Customize your theme here. -->
         <item name="android:actionMenuTextAppearance">@style/MenuTextStyle</item>
+        <item name="drawerArrowStyle">@style/DrawerHamburgerStyle</item>
     </style>
 
     <style name="Theme.IoTApp.NoActionBar">
@@ -36,9 +37,21 @@
 
     <style name="Theme.IoTApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <style name="MenuTextStyle" >
+    <style name="MenuTextStyle">
         <item name="android:actionMenuTextColor">@color/stroke</item>
         <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="DrawerHamburgerStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <!--       Set the bar length -->
+        <item name="barLength">32dp</item>
+        <!--        Set the space between the hamburger button bars -->
+        <item name="gapBetweenBars">6dp</item>
+        <!--        Set the thickness of the bar -->
+        <item name="thickness">@dimen/half_default_gap</item>
+        <!--        Set the color of the toggle button -->
+        <item name="color">@color/login_brown</item>
     </style>
 
 </resources>

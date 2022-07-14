@@ -27,7 +27,6 @@ class MainActivity : AppCompatActivity() {
         toolbar.inflateMenu(R.menu.menu_main);
         val tv1: TextView = findViewById(R.id.toolbar_title)
         tv1.text = getString(R.string.fragment_home)
-
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_Layout)
         val toggle = ActionBarDrawerToggle(
             this,
