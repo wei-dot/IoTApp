@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/forgot_page"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background_login"
+    app:layout_anchorGravity="bottom">
+
+
+    <ImageButton
+        android:id="@+id/menu_bt_box"
+        android:layout_width="78dp"
+        android:layout_height="78dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/ic_return"
+        android:contentDescription="@string/next"
+        app:layout_constraintBottom_toTopOf="@+id/content_space"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.088"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/content_space"
+        android:layout_width="699dp"
+        android:layout_height="1020dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/content_space"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_forgot_psw"
+        android:layout_width="183dp"
+        android:layout_height="30dp"
+        android:layout_alignStart="@+id/content_space"
+        android:layout_alignEnd="@+id/content_space"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="28dp"
+        android:gravity="center_horizontal|top"
+        android:lineSpacingExtra="8sp"
+        android:text="@string/title_signup"
+        android:textAppearance="@style/login_title_style"
+        android:translationY="-3.9sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView4"
+        app:layout_constraintEnd_toEndOf="@+id/content_space"
+        app:layout_constraintStart_toStartOf="@+id/content_space"
+        app:layout_constraintTop_toTopOf="@+id/content_space" />
+
+    <EditText
+        android:id="@+id/forgot_enter_email"
+        android:layout_width="254dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/background_edit_box"
+        android:hint="@string/enter_name"
+        android:inputType="textEmailAddress"
+        android:selectAllOnFocus="true"
+        app:layout_constraintEnd_toEndOf="@+id/content_space"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="@+id/content_space"
+        app:layout_constraintTop_toTopOf="@+id/content_space" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="254dp"
+        android:layout_height="48dp"
+        android:background="@drawable/background_edit_box"
+        android:hint="@string/enter_password"
+        android:inputType="textPassword"
+        android:selectAllOnFocus="true"
+        app:layout_constraintBottom_toTopOf="@+id/textView6"
+        app:layout_constraintEnd_toEndOf="@+id/content_space"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="@+id/content_space"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <EditText
+        android:id="@+id/confirm_password"
+        android:layout_width="254dp"
+        android:layout_height="48dp"
+        android:background="@drawable/background_edit_box"
+        android:hint="@string/confirm_password"
+        android:inputType="textPassword"
+        android:selectAllOnFocus="true"
+        app:layout_constraintBottom_toTopOf="@+id/textView7"
+        app:layout_constraintEnd_toEndOf="@+id/content_space"
+        app:layout_constraintStart_toStartOf="@+id/content_space"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <EditText
+        android:id="@+id/send_verification_code"
+        android:layout_width="254dp"
+        android:layout_height="48dp"
+        android:background="@drawable/background_edit_box"
+        android:hint="@string/enter_email"
+        android:inputType="phone"
+        android:selectAllOnFocus="true"
+        app:layout_constraintBottom_toTopOf="@+id/button_send"
+        app:layout_constraintEnd_toEndOf="@+id/content_space"
+        app:layout_constraintStart_toStartOf="@+id/content_space"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <ImageButton
+        android:id="@+id/button_send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/button_send"
+        android:clickable="true"
+        android:contentDescription="@string/next"
+        app:layout_constraintBottom_toBottomOf="@+id/content_space"
+        app:layout_constraintEnd_toEndOf="@+id/content_space"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="@+id/content_space"
+        app:layout_constraintTop_toBottomOf="@+id/send_verification_code" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/user_name"
+        android:textColor="@color/stroke"
+        app:layout_constraintBottom_toTopOf="@+id/forgot_enter_email"
+        app:layout_constraintStart_toStartOf="@+id/forgot_enter_email" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/set_password"
+        android:textColor="@color/stroke"
+        app:layout_constraintBottom_toTopOf="@+id/password"
+        app:layout_constraintEnd_toEndOf="@+id/content_space"
+        app:layout_constraintHorizontal_bias="0.12"
+        app:layout_constraintStart_toStartOf="@+id/content_space"
+        app:layout_constraintTop_toBottomOf="@+id/forgot_enter_email" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/confirm_password"
+        android:textColor="@color/stroke"
+        app:layout_constraintBottom_toTopOf="@+id/confirm_password"
+        app:layout_constraintEnd_toEndOf="@+id/content_space"
+        app:layout_constraintHorizontal_bias="0.12"
+        app:layout_constraintStart_toStartOf="@+id/content_space"
+        app:layout_constraintTop_toBottomOf="@+id/password" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/set_email"
+        android:textColor="@color/stroke"
+        app:layout_constraintBottom_toTopOf="@+id/send_verification_code"
+        app:layout_constraintEnd_toEndOf="@+id/content_space"
+        app:layout_constraintHorizontal_bias="0.12"
+        app:layout_constraintStart_toStartOf="@+id/content_space"
+        app:layout_constraintTop_toBottomOf="@+id/confirm_password" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
