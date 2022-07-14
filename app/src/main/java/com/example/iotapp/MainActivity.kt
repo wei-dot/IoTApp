@@ -1,13 +1,14 @@
 package com.example.iotapp
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.TextView
+import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
-import android.view.Menu
-import android.view.MenuItem
-import android.widget.TextView
 import com.example.iotapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -20,19 +21,28 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
-        supportActionBar?.setDisplayShowTitleEnabled(false);
+        supportActionBar?.setDisplayShowTitleEnabled(false)
 
         val tv1: TextView = findViewById(R.id.toolbar_title)
         tv1.text = getString(R.string.fragment_home)
 
         val navController = findNavController(R.id.nav_host_fragment_content_main)
-
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        toolbar.setNavigationOnClickListener {
+            navController.navigate(R.id.SecondFragment)
+            val tv1: TextView = findViewById(R.id.toolbar_title)
+            tv1.text = getString(R.string.fragment_family)
+        }
+//        toolbar.setOnClickListener {
+//            navController.navigate(R.id.SecondFragment)
+//        }
 //        appBarConfiguration = AppBarConfiguration(navController.graph)
 //        setupActionBarWithNavController(navController, appBarConfiguration)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
     }
@@ -41,6 +51,7 @@ class MainActivity : AppCompatActivity() {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
+
         return when (item.itemId) {
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
@@ -66,4 +77,6 @@ class MainActivity : AppCompatActivity() {
         val tv1: TextView = findViewById(R.id.toolbar_title)
         tv1.text = getString(R.string.fragment_family)
     }
+//    toolbar navigation button click
+
 }
