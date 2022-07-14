@@ -13,9 +13,30 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Navigation bar color-->
         <item name="android:navigationBarColor">@color/background_bottom</item>
-        <!--Toolbar menu icon style-->
+        <!--Toolbar style-->
         <item name="actionOverflowButtonStyle">@style/MyActionButtonOverflow</item>
         <!-- Customize your theme here. -->
+        <item name="android:actionMenuTextAppearance">@style/MenuTextStyle</item>
+    </style>
+
+    <style name="Theme.IoTApp.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="MyActionButtonOverflow" parent="android:style/Widget.Holo.Light.ActionButton.Overflow">
+        <item name="android:src">@drawable/ic_no_notice</item>
+        <item name="android:background">?android:attr/actionBarItemBackground</item>
+        <item name="android:contentDescription">"test"</item>
+    </style>
+
+    <style name="Theme.IoTApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.IoTApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="MenuTextStyle">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">16sp</item>
     </style>
 
 </resources>
