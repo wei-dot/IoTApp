@@ -47,8 +47,6 @@ class MainActivity : AppCompatActivity() {
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
 
-
-        val navigationView:NavigationView = findViewById(R.id.navigationView)
         val notLoginPageButtonLogin : ImageButton = findViewById(R.id.button_login)
         notLoginPageButtonLogin.setOnClickListener{
             val switchToLoginPage : Intent = Intent(this,LoginActivity::class.java)
@@ -60,6 +58,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(switchToSignupPage)
         }
 
+        notLoginPageButtonSignup.setOnClickListener{
+            val switchToSignupPage : Intent = Intent(this,SignupActivity::class.java)
+            startActivity(switchToSignupPage)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

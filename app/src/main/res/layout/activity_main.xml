@@ -13,12 +13,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
     </include>
-
     <com.google.android.material.navigation.NavigationView
-        android:id="@+id/navigationView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/navigationViewNotLogin"
         android:layout_gravity="start"
+<<<<<<< HEAD
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/not_login">
         <androidx.constraintlayout.widget.ConstraintLayout
