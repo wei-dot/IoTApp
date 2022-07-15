@@ -1,5 +1,6 @@
 package com.example.iotapp
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -7,11 +8,18 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.Navigation
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.example.iotapp.databinding.ActivityMainBinding
+import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,13 +40,25 @@ class MainActivity : AppCompatActivity() {
         val toggle = ActionBarDrawerToggle(
             this,
             drawerLayout,
-            findViewById(R.id.toolbar),
+            toolbar,
             R.string.drawer_open,
             R.string.drawer_close
         )
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
+
+
+        val navigationView:NavigationView = findViewById(R.id.navigationView)
+        val notLoginPageButtonLogin : ImageButton = findViewById(R.id.button_login)
+        notLoginPageButtonLogin.setOnClickListener{
+            val switchToLoginPage : Intent = Intent(this,LoginActivity::class.java)
+            startActivity(switchToLoginPage)
+        }
+        val notLoginPageButtonSignup : ImageButton = findViewById(R.id.button_signup)
+        notLoginPageButtonSignup.setOnClickListener{
+            val switchToSignupPage : Intent = Intent(this,SignupActivity::class.java)
+            startActivity(switchToSignupPage)
+        }
 
     }
 
@@ -77,4 +97,5 @@ class MainActivity : AppCompatActivity() {
         val tv1: TextView = findViewById(R.id.toolbar_title)
         tv1.text = getString(R.string.fragment_family)
     }
+
 }
