@@ -18,5 +18,8 @@
         <item name="android:letterSpacing">0.33</item>
         <item name="android:textColor">#868585</item>
     </style>
+    <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">?attr/colorPrimaryVariant</item>
+    </style>
 
 </resources>

@@ -22,9 +22,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        supportActionBar?.setDisplayShowTitleEnabled(false);
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
-        toolbar.inflateMenu(R.menu.menu_main);
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+        toolbar.inflateMenu(R.menu.menu_main)
         val tv1: TextView = findViewById(R.id.toolbar_title)
         tv1.text = getString(R.string.fragment_home)
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_Layout)
