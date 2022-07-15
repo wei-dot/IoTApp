@@ -41,6 +41,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
+                    android:text="@string/fragment_home"
                     android:layout_gravity="center_horizontal|top"
                     android:textAppearance="@style/title_style" />
 
