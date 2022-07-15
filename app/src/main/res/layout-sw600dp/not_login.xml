@@ -7,7 +7,7 @@
     android:background="@drawable/background_login">
 
     <ImageButton
-        android:id="@+id/menu_bt_box"
+        android:id="@+id/button_not_login_back"
         android:layout_width="78dp"
         android:layout_height="78dp"
         android:layout_alignParentStart="true"
