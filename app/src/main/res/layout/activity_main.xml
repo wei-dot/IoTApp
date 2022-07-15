@@ -10,7 +10,10 @@
         android:layout_height="match_parent"
         android:layout_gravity="start">
 
-        <include layout="@layout/not_login" />
+        <include
+            layout="@layout/not_login"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
     </LinearLayout>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:tools="http://schemas.android.com/tools"

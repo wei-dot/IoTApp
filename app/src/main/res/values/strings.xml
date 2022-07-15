@@ -15,7 +15,7 @@
 
     <string name="fragment_home">居家狀態</string>
     <string name="fragment_family">家庭管理</string>
-    <string name="fragment_combination">組合鍵設置</string>
+    <string name="fragment_mode">組合鍵設置</string>
     <string name="fragment_log">設備日誌</string>
 
     <string name="title_not_login">尚未登入</string>

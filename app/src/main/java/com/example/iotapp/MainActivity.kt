@@ -1,22 +1,25 @@
 package com.example.iotapp
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
+import android.widget.TextView
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
-import android.view.Menu
-import android.view.MenuItem
-import android.widget.TextView
-import androidx.appcompat.widget.Toolbar
-import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.drawerlayout.widget.DrawerLayout
 import com.example.iotapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
+    private  var navController:NavController? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         )
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
+        navController = findNavController(R.id.nav_host_fragment_content_main)
 
     }
 
@@ -65,16 +68,31 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onHomeClick(item: MenuItem) {
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        navController.navigate(R.id.FirstFragment)
+        navController?.navigate(R.id.FirstFragment)
         val tv1: TextView = findViewById(R.id.toolbar_title)
         tv1.text = getString(R.string.fragment_home)
     }
 
     fun onFamilyClick(item: MenuItem) {
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        navController.navigate(R.id.SecondFragment)
+        navController?.navigate(R.id.SecondFragment)
         val tv1: TextView = findViewById(R.id.toolbar_title)
         tv1.text = getString(R.string.fragment_family)
+    }
+
+    fun onClickLogin(view: View) {
+        navController?.navigate(R.id.SecondFragment)
+        val tv1: TextView = findViewById(R.id.toolbar_title)
+        tv1.text = getString(R.string.fragment_family)
+    }
+
+    fun onModeClick(item: MenuItem) {
+        navController?.navigate(R.id.ThirdFragment)
+        val tv1: TextView = findViewById(R.id.toolbar_title)
+        tv1.text = getString(R.string.fragment_mode)
+    }
+    fun onLogClick(item: MenuItem) {
+        navController?.navigate(R.id.FourthFragment)
+        val tv1: TextView = findViewById(R.id.toolbar_title)
+        tv1.text = getString(R.string.fragment_log)
     }
 }
