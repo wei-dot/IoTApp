@@ -70,6 +70,7 @@ class MainActivity : AppCompatActivity() {
 
     //控制底下导航栏的点击事件
     private fun onNavigationItemClick() {
+        var temp:Int=1
 
         val navigation = findViewById<BottomNavigationView>(R.id.bottom_navigation)
         navigation.setOnItemSelectedListener { item ->
