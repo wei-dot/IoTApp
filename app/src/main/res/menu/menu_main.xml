@@ -8,19 +8,17 @@
         android:enabled="true"
         android:title="@string/fragment_home"
         android:icon="@drawable/ic_home"
-        android:onClick="onHomeClick"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_manage"
         android:title="@string/fragment_family"
         android:enabled="true"
         android:orderInCategory="100"
-        android:onClick="onFamilyClick"
         android:icon="@drawable/ic_family"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_mode"
-        android:title="@string/fragment_combination"
+        android:title="@string/fragment_mode"
         android:enabled="true"
         android:orderInCategory="100"
         android:icon="@drawable/ic_combination"
