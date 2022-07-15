@@ -57,10 +57,9 @@ class MainActivity : AppCompatActivity() {
             val switchToSignupPage : Intent = Intent(this,SignupActivity::class.java)
             startActivity(switchToSignupPage)
         }
-
-        notLoginPageButtonSignup.setOnClickListener{
-            val switchToSignupPage : Intent = Intent(this,SignupActivity::class.java)
-            startActivity(switchToSignupPage)
+        val notLoginPageButtonBack : ImageButton = findViewById(R.id.button_not_login_back)
+        notLoginPageButtonBack.setOnClickListener{
+            drawerLayout.close()
         }
     }
 
