@@ -1,11 +1,14 @@
-package com.example.iotapp
+package com.example.iotapp.ui.family
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
+import androidx.lifecycle.ViewModelProvider
+import com.example.iotapp.R
 import com.example.iotapp.databinding.FragmentFamilyBinding
 
 /**
@@ -23,24 +26,21 @@ class FamilyFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
+        val familyViewModel = ViewModelProvider(this).get(FamilyViewModel::class.java)
         _binding = FragmentFamilyBinding.inflate(inflater, container, false)
-        return binding.root
+        val root: View = binding.root
+        val textView: TextView = binding.textFamily
+        familyViewModel.text.observe(viewLifecycleOwner) {
+            textView.text = it
+        }
 
+        return root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonSecond.setOnClickListener {
-            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
-
-
-        }
-
     }
-
-
 
     override fun onDestroyView() {
         super.onDestroyView()

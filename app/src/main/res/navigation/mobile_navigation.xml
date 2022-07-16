@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/mobile_navigation"
+        app:startDestination="@id/navigation_home">
+
+    <fragment
+            android:id="@+id/navigation_home"
+            android:name="com.example.iotapp.ui.home.HomeFragment"
+            android:label="@string/fragment_home"
+            tools:layout="@layout/fragment_home"/>
+    <fragment
+            android:id="@+id/navigation_family"
+            android:name="com.example.iotapp.ui.family.FamilyFragment"
+            android:label="@string/fragment_family"
+            tools:layout="@layout/fragment_family"/>
+
+    <fragment
+            android:id="@+id/navigation_mode"
+            android:name="com.example.iotapp.ui.mode.ModeFragment"
+            android:label="@string/fragment_mode"
+            tools:layout="@layout/fragment_mode"/>
+
+
+    <fragment
+            android:id="@+id/navigation_log"
+            android:name="com.example.iotapp.ui.log.LogFragment"
+            android:label="@string/fragment_log"
+            tools:layout="@layout/fragment_log"/>
+
+</navigation>

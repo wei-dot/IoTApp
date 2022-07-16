@@ -1,14 +1,16 @@
-package com.example.iotapp
+package com.example.iotapp.ui.mode
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
-import com.example.iotapp.databinding.FragmentLogBinding
+import androidx.lifecycle.ViewModelProvider
+import com.example.iotapp.databinding.FragmentModeBinding
 
-class LogFragment : Fragment() {
-    private var _binding: FragmentLogBinding? = null
+class ModeFragment : Fragment() {
+    private var _binding: FragmentModeBinding? = null
 
     private val binding get() = _binding!!
     override fun onCreateView(
@@ -16,8 +18,17 @@ class LogFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentLogBinding.inflate(inflater, container, false)
-        return binding.root
+        val modeViewModel =
+            ViewModelProvider(this).get(ModeViewModel::class.java)
+
+        _binding = FragmentModeBinding.inflate(inflater, container, false)
+        val root: View = binding.root
+
+        val textView: TextView = binding.textMode
+        modeViewModel.text.observe(viewLifecycleOwner) {
+            textView.text = it
+        }
+        return root
 
     }
 
@@ -31,6 +42,7 @@ class LogFragment : Fragment() {
 //        }
 
     }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

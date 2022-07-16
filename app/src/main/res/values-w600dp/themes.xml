@@ -16,7 +16,7 @@
         <!--Toolbar style-->
         <item name="actionOverflowButtonStyle">@style/MyActionButtonOverflow</item>
         <!-- Customize your theme here. -->
-        <item name="android:actionMenuTextAppearance">@style/MenuTextStyle</item>
+<!--        <item name="android:actionMenuTextAppearance">@style/MenuTextStyle</item>-->
         <item name="drawerArrowStyle">@style/DrawerHamburgerStyle</item>
 
     </style>

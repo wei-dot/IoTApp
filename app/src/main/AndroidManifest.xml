@@ -16,7 +16,8 @@
         <activity
                 android:name=".MainActivity"
                 android:exported="true"
-                android:theme="@style/Theme.IoTApp.NoActionBar">
+                android:theme="@style/Theme.IoTApp.NoActionBar"
+                >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,14 +25,14 @@
 
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity"
-            android:exported="true"
-            android:theme="@style/Theme.IoTApp">
-        </activity>
-        <activity android:name=".SignupActivity"
-            android:exported="true"
-            android:theme="@style/Theme.IoTApp">
-        </activity>
+        <activity
+                android:name=".LoginActivity"
+                android:exported="true"
+                android:theme="@style/Theme.IoTApp.NoActionBar" />
+        <activity
+                android:name=".SignupActivity"
+                android:exported="true"
+                android:theme="@style/Theme.IoTApp.NoActionBar" />
     </application>
 
 </manifest>

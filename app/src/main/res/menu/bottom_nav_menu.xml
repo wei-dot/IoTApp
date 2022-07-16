@@ -1,0 +1,32 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context="com.example.iotapp.MainActivity">
+    <item
+            android:id="@+id/navigation_home"
+            android:orderInCategory="100"
+            android:enabled="true"
+            android:title="@string/fragment_home"
+            android:icon="@drawable/ic_home"/>
+    <item
+            android:id="@+id/navigation_family"
+            android:title="@string/fragment_family"
+            android:enabled="true"
+            android:orderInCategory="100"
+            android:icon="@drawable/ic_family"
+            app:showAsAction="never" />
+    <item
+            android:id="@+id/navigation_mode"
+            android:title="@string/fragment_mode"
+            android:enabled="true"
+            android:orderInCategory="100"
+            android:icon="@drawable/ic_combination"
+            app:showAsAction="never" />
+    <item
+            android:id="@+id/navigation_log"
+            android:enabled="true"
+            android:icon="@drawable/ic_log"
+            android:orderInCategory="100"
+            android:title="@string/fragment_log"
+            app:showAsAction="never" />
+</menu>
