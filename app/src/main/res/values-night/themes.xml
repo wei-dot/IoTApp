@@ -16,7 +16,6 @@
         <!--Toolbar style-->
         <item name="actionOverflowButtonStyle">@style/MyActionButtonOverflow</item>
         <!-- Customize your theme here. -->
-<!--        <item name="android:actionMenuTextAppearance">@style/MenuTextStyle</item>-->
         <item name="drawerArrowStyle">@style/DrawerHamburgerStyle</item>
     </style>
 
@@ -34,11 +33,6 @@
     <style name="Theme.IoTApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.IoTApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
-    <style name="MenuTextStyle">
-        <item name="android:textColor">@android:color/white</item>
-        <item name="android:textSize">16sp</item>
-    </style>
 
     <style name="DrawerHamburgerStyle" parent="Widget.AppCompat.DrawerArrowToggle">
         <item name="spinBars">true</item>

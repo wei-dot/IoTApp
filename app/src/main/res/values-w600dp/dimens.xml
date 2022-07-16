@@ -3,4 +3,6 @@
     <dimen name="icon_size" >54dp</dimen>
     <dimen name="half_default_gap">8dp</dimen>
     <dimen name="one_and_half_default_gap" >30</dimen>
+    <dimen name="design_bottom_navigation_text_size" tools:override="true">54sp</dimen>
+    <dimen name="design_bottom_navigation_active_text_size" tools:override="true">54sp</dimen>
 </resources>
