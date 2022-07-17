@@ -22,7 +22,7 @@
         android:fitsSystemWindows="true">
         <include
             android:id="@+id/login_page"
-            layout="@layout/not_login" />
+            layout="@layout/drawer" />
 
     </com.google.android.material.navigation.NavigationView>
 
