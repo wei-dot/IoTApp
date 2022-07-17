@@ -17,5 +17,6 @@ class LoginActivity : AppCompatActivity() {
             val switchToMainPage: Intent = Intent(this, MainActivity::class.java)
             startActivity(switchToMainPage)
         }
+
     }
 }
