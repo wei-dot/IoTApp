@@ -11,6 +11,7 @@ import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.core.view.GravityCompat
 import androidx.core.view.isVisible
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
@@ -95,6 +96,15 @@ class MainActivity : AppCompatActivity() {
                 || super.onSupportNavigateUp()
     }
 
+    override fun onBackPressed() {
+        if (binding.drawerLayout.isDrawerVisible(GravityCompat.START)){
+            binding.drawerLayout.close()
+        }
+        else{
+            super.onBackPressed()
+        }
+    }
+
     private fun switchSideBarContent(isLogin:Boolean){
         if (isLogin){
             binding.notLogin?.isVisible = false
@@ -105,4 +115,5 @@ class MainActivity : AppCompatActivity() {
             binding.hasLogin?.isVisible = false
         }
     }
+
 }
