@@ -14,8 +14,7 @@ class SignupActivity :AppCompatActivity() {
         binding = SignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.btnBack.setOnClickListener {
-            val switchToMainPage: Intent = Intent(this, MainActivity::class.java)
-            startActivity(switchToMainPage)
+            finish()
         }
     }
 }

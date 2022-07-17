@@ -14,8 +14,7 @@ class LoginActivity : AppCompatActivity() {
         binding = LoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.btnBack.setOnClickListener {
-            val switchToMainPage: Intent = Intent(this, MainActivity::class.java)
-            startActivity(switchToMainPage)
+            finish()
         }
     }
 }
