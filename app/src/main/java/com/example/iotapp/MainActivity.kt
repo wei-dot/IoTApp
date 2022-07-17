@@ -1,6 +1,7 @@
 package com.example.iotapp
 
 import android.content.Intent
+import android.media.Image
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -28,18 +29,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
-        val drawerLayout: DrawerLayout = binding.drawerLayout
-
         val navView: BottomNavigationView = binding.appBarMain.bottomNavigation
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         navView.setupWithNavController(navController)
 //        監聽nav目的地變化後修改標題
-        val title: TextView = findViewById(R.id.toolbar_title)
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
-            title.text = navController.currentDestination?.label
+            binding.appBarMain.toolbarTitle.text = navController.currentDestination?.label
         }
+        val toolbar = binding.appBarMain.toolbar
+        val drawerLayout: DrawerLayout = binding.drawerLayout
         toolbar.inflateMenu(R.menu.bottom_nav_menu)
 
         val toggle = ActionBarDrawerToggle(
@@ -51,21 +49,19 @@ class MainActivity : AppCompatActivity() {
         )
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
-
-        val notLoginPageButtonLogin: ImageButton = findViewById(R.id.button_login)
-        notLoginPageButtonLogin.setOnClickListener {
+        toolbar.setNavigationIcon(R.drawable.ic_navigation_icon)
+        binding.loginPage?.btnLogin?.setOnClickListener {
             val switchToLoginPage: Intent = Intent(this, LoginActivity::class.java)
             startActivity(switchToLoginPage)
         }
-        val notLoginPageButtonSignup: ImageButton = findViewById(R.id.button_signup)
-        notLoginPageButtonSignup.setOnClickListener {
+        binding.loginPage?.btnSignup?.setOnClickListener {
             val switchToSignupPage: Intent = Intent(this, SignupActivity::class.java)
             startActivity(switchToSignupPage)
         }
-        val notLoginPageButtonBack: ImageButton = findViewById(R.id.button_not_login_back)
-        notLoginPageButtonBack.setOnClickListener {
+        binding.loginPage?.btnBack?.setOnClickListener {
             drawerLayout.close()
         }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

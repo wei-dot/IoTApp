@@ -6,11 +6,12 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@drawable/background_login"
-    app:layout_anchorGravity="bottom">
+    app:layout_anchorGravity="bottom"
+    tools:context=".SignupActivity">
 
 
     <ImageButton
-        android:id="@+id/menu_bt_box"
+        android:id="@+id/btn_back"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_alignParentStart="true"

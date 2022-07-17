@@ -39,11 +39,11 @@
     <style name="DrawerHamburgerStyle" parent="Widget.AppCompat.DrawerArrowToggle">
         <item name="spinBars">true</item>
         <!--       Set the bar length -->
-        <item name="barLength">32dp</item>
-        <!--        Set the space between the hamburger button bars -->
-        <item name="gapBetweenBars">6dp</item>
-        <!--        Set the thickness of the bar -->
-        <item name="thickness">@dimen/half_default_gap</item>
+<!--        <item name="barLength">32dp</item>-->
+<!--        &lt;!&ndash;        Set the space between the hamburger button bars &ndash;&gt;-->
+<!--        <item name="gapBetweenBars">6dp</item>-->
+<!--        &lt;!&ndash;        Set the thickness of the bar &ndash;&gt;-->
+<!--        <item name="thickness">@dimen/half_default_gap</item>-->
         <!--        Set the color of the toggle button -->
         <item name="color">@color/login_brown</item>
     </style>
