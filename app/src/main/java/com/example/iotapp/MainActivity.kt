@@ -52,15 +52,15 @@ class MainActivity : AppCompatActivity() {
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
         toolbar.setNavigationIcon(R.drawable.ic_navigation_icon)
-        findViewById<ImageButton>(R.id.btn_login).setOnClickListener {
+        binding.loginPage.btnLogin.setOnClickListener {
             val switchToLoginPage: Intent = Intent(this, LoginActivity::class.java)
             startActivity(switchToLoginPage)
         }
-        findViewById<ImageButton>(R.id.btn_signup).setOnClickListener {
+        binding.loginPage.btnSignup.setOnClickListener {
             val switchToSignupPage: Intent = Intent(this, SignupActivity::class.java)
             startActivity(switchToSignupPage)
         }
-        findViewById<ImageButton>(R.id.btn_back).setOnClickListener {
+        binding.loginPage.btnBack.setOnClickListener {
             drawerLayout.close()
         }
         findViewById<ImageButton>(R.id.btn_logout).setOnClickListener {

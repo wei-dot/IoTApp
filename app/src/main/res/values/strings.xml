@@ -37,7 +37,7 @@
     <string name="password_sign">*</string>
     <string name="user_name">用戶名稱</string>
     <string name="set_password">設置密碼</string>
-    <string name="confirm_password">確認用戶密碼</string>
+    <string name="confirm_password">確認密碼</string>
     <string name="set_email">電子信箱</string>
     <string name="drawer_open">drawer open</string>
     <string name="drawer_close">drawer close</string>
