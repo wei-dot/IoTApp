@@ -20,9 +20,23 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true">
-        <include
-            android:id="@+id/login_page"
-            layout="@layout/drawer" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/notLogin">
+            <include
+                android:id="@+id/login_page"
+                layout="@layout/drawer" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/hasLogin">
+            <include
+                android:id="@+id/profile_page"
+                layout="@layout/user_profile"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     </com.google.android.material.navigation.NavigationView>
 

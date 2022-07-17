@@ -54,33 +54,99 @@
             app:layout_constraintTop_toTopOf="@+id/content_space" />
 
     <ImageButton
-            android:id="@+id/btn_login"
-            android:layout_width="0dp"
-            android:layout_height="54dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="20dp"
-            android:background="@drawable/button_login"
-            app:layout_constraintBottom_toBottomOf="@+id/content_space"
-            app:layout_constraintEnd_toStartOf="@+id/btn_signup"
-            app:layout_constraintStart_toStartOf="@+id/content_space"
-            app:layout_constraintTop_toBottomOf="@+id/text_not_login" />
+        android:id="@+id/btn_login"
+        android:layout_width="268dp"
+        android:layout_height="81dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/button_login"
+        app:layout_constraintBottom_toBottomOf="@+id/content_space"
+        app:layout_constraintEnd_toStartOf="@+id/btn_signup"
+        app:layout_constraintStart_toStartOf="@+id/content_space"
+        app:layout_constraintTop_toBottomOf="@+id/text_not_login"
+        app:layout_constraintVertical_bias="0.515" />
 
     <ImageButton
-            android:id="@+id/btn_signup"
-            android:layout_width="0dp"
-            android:layout_height="54dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="40dp"
-            android:background="@drawable/button_signup"
-            app:layout_constraintBottom_toBottomOf="@+id/content_space"
-            app:layout_constraintEnd_toEndOf="@+id/content_space"
-            app:layout_constraintHorizontal_bias="0.128"
-            app:layout_constraintStart_toEndOf="@+id/btn_login"
-            app:layout_constraintTop_toBottomOf="@+id/text_not_login"
-            app:layout_constraintVertical_bias="0.505" />
+        android:id="@+id/btn_signup"
+        android:layout_width="287dp"
+        android:layout_height="81dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/button_signup"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_login"
+        app:layout_constraintEnd_toEndOf="@+id/content_space"
+        app:layout_constraintHorizontal_bias="0.128"
+        app:layout_constraintStart_toEndOf="@+id/btn_login"
+        app:layout_constraintTop_toTopOf="@+id/btn_login"
+        app:layout_constraintVertical_bias="0.505" />
+    <!-- 登入後元件   -->
+<!--    <View-->
+
+<!--        android:id="@+id/avatar_area"-->
+<!--        android:layout_width="77dp"-->
+<!--        android:layout_height="77dp"-->
+<!--        android:layout_alignParentLeft="true"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:background="@drawable/background_avatar"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/content_space"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/content_space"-->
+<!--        app:layout_constraintHorizontal_bias="0.197"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/content_space"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/content_space"-->
+<!--        app:layout_constraintVertical_bias="0.145"></View>-->
+
+<!--    <TextView-->
+
+<!--        android:id="@+id/username"-->
+<!--        android:layout_width="152dp"-->
+<!--        android:layout_height="36dp"-->
+<!--        android:layout_alignParentLeft="true"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:layout_marginStart="49dp"-->
+<!--        android:gravity="center_horizontal|top"-->
+<!--        android:lineSpacingExtra="0sp"-->
+<!--        android:text=""-->
+<!--        android:textAppearance="@style/title_style"-->
+<!--        android:translationY="-0.04sp"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/avatar_area"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/content_space"-->
+<!--        app:layout_constraintHorizontal_bias="0.0"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/avatar_area"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/avatar_area"-->
+<!--        app:layout_constraintVertical_bias="0.585" />-->
+
+<!--    <View-->
+
+<!--        android:id="@+id/profile_detail_place"-->
+<!--        android:layout_width="592dp"-->
+<!--        android:layout_height="498dp"-->
+<!--        android:layout_alignParentLeft="true"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:background="@drawable/background_profile_detail"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/content_space"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/content_space"-->
+<!--        app:layout_constraintHorizontal_bias="0.496"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/content_space"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/avatar_area"-->
+<!--        app:layout_constraintVertical_bias="0.241" />-->
+
+<!--    <ImageButton-->
+
+<!--        android:id="@+id/btn_logout"-->
+<!--        android:layout_width="268dp"-->
+<!--        android:layout_height="81dp"-->
+<!--        android:layout_alignParentLeft="true"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:background="@drawable/btn_logout"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/content_space"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/profile_detail_place"-->
+<!--        app:layout_constraintHorizontal_bias="0.503"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/profile_detail_place"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/profile_detail_place"-->
+<!--        app:layout_constraintVertical_bias="0.48" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
