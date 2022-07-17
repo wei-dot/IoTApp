@@ -42,9 +42,9 @@
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/layout-sw600dp/forgot_password.xml" value="0.12421875" />
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/layout-sw600dp/fragment_family.xml" value="0.12421875" />
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/layout-sw600dp/fragment_home.xml" value="0.12421875" />
-        <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/layout-sw600dp/login.xml" value="0.2" />
-        <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/layout-sw600dp/not_login.xml" value="0.12421875" />
-        <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/layout-sw600dp/signup.xml" value="0.12421875" />
+        <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/layout-sw600dp/login.xml" value="0.16" />
+        <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/layout-sw600dp/not_login.xml" value="0.18802083333333333" />
+        <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/layout-sw600dp/signup.xml" value="0.22" />
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/layout/app_main.xml" value="0.1" />
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/layout/content_main.xml" value="0.10833333333333334" />
@@ -56,7 +56,7 @@
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/layout/fragment_mode.xml" value="0.38697916666666665" />
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/layout/fragment_second.xml" value="0.10833333333333334" />
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/layout/login.xml" value="0.2039333048311244" />
-        <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/layout/not_login.xml" value="0.2039333048311244" />
+        <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/layout/not_login.xml" value="0.31765711842667804" />
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/layout/signup.xml" value="0.2039333048311244" />
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.33" />
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/menu/menu_main.xml" value="0.12421875" />
@@ -152,7 +152,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
