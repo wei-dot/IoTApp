@@ -5,11 +5,13 @@ import android.media.Image
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.core.view.isVisible
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -23,7 +25,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var appBarConfiguration: AppBarConfiguration
-
+    private var isLogin:Boolean = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,7 +63,11 @@ class MainActivity : AppCompatActivity() {
         findViewById<ImageButton>(R.id.btn_back).setOnClickListener {
             drawerLayout.close()
         }
-
+        findViewById<ImageButton>(R.id.btn_logout).setOnClickListener {
+            isLogin = false
+            switchSideBarContent(isLogin)
+        }
+        switchSideBarContent(isLogin)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -86,4 +92,24 @@ class MainActivity : AppCompatActivity() {
                 || super.onSupportNavigateUp()
     }
 
+    private fun switchSideBarContent(isLogin:Boolean){
+        if (isLogin){
+            binding.loginPage?.btnLogin?.visibility = View.GONE
+            binding.loginPage?.btnSignup?.visibility = View.GONE
+            binding.loginPage?.textNotLogin?.visibility = View.GONE
+            binding.loginPage?.avatarArea?.visibility = View.VISIBLE
+            binding.loginPage?.username?.visibility = View.VISIBLE
+            binding.loginPage?.profileDetailPlace?.visibility = View.VISIBLE
+            binding.loginPage?.btnLogout?.visibility = View.VISIBLE
+        }
+        else{
+            binding.loginPage?.btnLogin?.visibility = View.VISIBLE
+            binding.loginPage?.btnSignup?.visibility = View.VISIBLE
+            binding.loginPage?.textNotLogin?.visibility = View.VISIBLE
+            binding.loginPage?.avatarArea?.visibility = View.GONE
+            binding.loginPage?.username?.visibility = View.GONE
+            binding.loginPage?.profileDetailPlace?.visibility = View.GONE
+            binding.loginPage?.btnLogout?.visibility = View.GONE
+        }
+    }
 }
