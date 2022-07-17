@@ -63,6 +63,9 @@ class MainActivity : AppCompatActivity() {
         binding.loginPage.btnBack.setOnClickListener {
             drawerLayout.close()
         }
+        binding.profilePage?.btnBack?.setOnClickListener {
+            drawerLayout.close()
+        }
         binding.profilePage?.btnLogout?.setOnClickListener {
             isLogin = false
             switchSideBarContent(isLogin)
