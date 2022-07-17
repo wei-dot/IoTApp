@@ -27,7 +27,7 @@
 
             <include
                     android:id="@+id/login_page"
-                    layout="@layout/drawer" />
+                    layout="@layout/not_login" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.navigation.NavigationView>
 </androidx.drawerlayout.widget.DrawerLayout>

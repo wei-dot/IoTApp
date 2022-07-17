@@ -94,24 +94,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun switchSideBarContent(isLogin:Boolean){
         if (isLogin){
-//            binding.loginPage?.btnLogin?.visibility = View.GONE
-//            binding.loginPage?.btnSignup?.visibility = View.GONE
-//            binding.loginPage?.textNotLogin?.visibility = View.GONE
-//            binding.loginPage?.avatarArea?.visibility = View.VISIBLE
-//            binding.loginPage?.username?.visibility = View.VISIBLE
-//            binding.loginPage?.profileDetailPlace?.visibility = View.VISIBLE
-//            binding.loginPage?.btnLogout?.visibility = View.VISIBLE
             binding.notLogin?.isVisible = false
             binding.hasLogin?.isVisible = true
         }
         else{
-//            binding.loginPage?.btnLogin?.visibility = View.VISIBLE
-//            binding.loginPage?.btnSignup?.visibility = View.VISIBLE
-//            binding.loginPage?.textNotLogin?.visibility = View.VISIBLE
-//            binding.loginPage?.avatarArea?.visibility = View.GONE
-//            binding.loginPage?.username?.visibility = View.GONE
-//            binding.loginPage?.profileDetailPlace?.visibility = View.GONE
-//            binding.loginPage?.btnLogout?.visibility = View.GONE
             binding.notLogin?.isVisible = true
             binding.hasLogin?.isVisible = false
         }
