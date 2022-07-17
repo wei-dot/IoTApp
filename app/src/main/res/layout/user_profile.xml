@@ -69,7 +69,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/avatar_area"
         app:layout_constraintTop_toTopOf="@+id/avatar_area"
-        app:layout_constraintVertical_bias="0.585" />
+        app:layout_constraintVertical_bias="0.56" />
 
     <View
         android:id="@+id/profile_detail_place"
@@ -79,16 +79,16 @@
         android:layout_alignParentTop="true"
         android:background="@drawable/background_profile_detail"
         app:layout_constraintBottom_toBottomOf="@+id/content_space"
-        app:layout_constraintEnd_toEndOf="@+id/username"
-        app:layout_constraintHorizontal_bias="0.071"
-        app:layout_constraintStart_toStartOf="@+id/avatar_area"
+        app:layout_constraintEnd_toEndOf="@+id/content_space"
+        app:layout_constraintHorizontal_bias="0.537"
+        app:layout_constraintStart_toStartOf="@+id/content_space"
         app:layout_constraintTop_toBottomOf="@+id/avatar_area"
-        app:layout_constraintVertical_bias="0.167" />
+        app:layout_constraintVertical_bias="0.146" />
 
     <ImageButton
         android:id="@+id/btn_logout"
-        android:layout_width="74dp"
-        android:layout_height="23dp"
+        android:layout_width="122dp"
+        android:layout_height="33dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:background="@drawable/btn_logout"
