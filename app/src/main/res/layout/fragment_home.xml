@@ -26,28 +26,56 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                app:cardBackgroundColor="@color/login_brown"
-                app:cardCornerRadius="10dp"
+                android:layout_margin="20dp"
                 android:textSize="20sp"
-                android:layout_margin="20dp" >
+                app:cardBackgroundColor="@color/login_brown"
+                app:cardCornerRadius="10dp">
 
-                <TableLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
-                </TableLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="50dp"
+                        android:gravity="center"
+                        android:letterSpacing="1"
+                        android:lineSpacingMultiplier="2"
+                        android:padding="10dp"
+                        android:text="@string/room_temperature"
+                        android:textSize="20sp" />
 
-                <TextView
-                    android:layout_width="204dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:gravity="center"
-                    android:padding="10dp"
-                    android:text="設定陰影"
-                    android:textSize="20sp" />
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginEnd="95dp"
+                        android:layout_marginBottom="10dp"
+                        android:letterSpacing="0.3"
+                        android:text="20℃"
+                        android:textColor="@color/notice"
+                        android:textSize="30dp" />
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="15dp"
+                        android:src="@drawable/temperature" />
+
+                </RelativeLayout>
+
 
             </androidx.cardview.widget.CardView>
 
