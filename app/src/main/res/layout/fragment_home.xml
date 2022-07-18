@@ -7,6 +7,16 @@
 
     tools:context=".ui.home.HomeFragment">
 
+
+    <TextView
+        android:id="@+id/textHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/fragment_home"
+        android:textColor="#00ffffff"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="0dp"
@@ -30,7 +40,8 @@
                 android:textSize="20sp"
                 app:cardCornerRadius="10dp"
                 app:cardUseCompatPadding="false"
-                app:cardElevation="0px">
+                app:cardElevation="0px"
+                app:cardBackgroundColor="#00ffffff">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
