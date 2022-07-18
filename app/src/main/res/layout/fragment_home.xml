@@ -8,8 +8,8 @@
     tools:context=".ui.home.HomeFragment">
 
     <ScrollView
-        android:layout_width="409dp"
-        android:layout_height="729dp"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,7 +21,37 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:textSize="20sp"
+                app:cardCornerRadius="10dp"
+                app:cardUseCompatPadding="false"
+                app:cardElevation="0px">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="0dp"
+                        android:gravity="center"
+                        android:letterSpacing="0"
+                        android:lineSpacingMultiplier="2"
+                        android:padding="10dp"
+                        android:text="@string/dayWeekTime"
+                        android:textSize="20sp" />
+                </RelativeLayout>
+
+
+            </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -29,7 +59,9 @@
                 android:layout_margin="20dp"
                 android:textSize="20sp"
                 app:cardBackgroundColor="@color/login_brown"
-                app:cardCornerRadius="10dp">
+                app:cardCornerRadius="10dp"
+                app:cardUseCompatPadding="false"
+                app:cardElevation="0px">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -50,7 +82,7 @@
                         android:textSize="20sp" />
 
                     <TextView
-                        android:id="@+id/textView"
+                        android:id="@+id/TextView_celsius"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
@@ -60,10 +92,10 @@
                         android:letterSpacing="0.3"
                         android:text="20℃"
                         android:textColor="@color/notice"
-                        android:textSize="30dp" />
+                        android:textSize="30sp" />
 
                     <ImageView
-                        android:id="@+id/imageView2"
+                        android:id="@+id/imageView_temperature"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
@@ -73,6 +105,64 @@
                         android:layout_marginTop="20dp"
                         android:layout_marginBottom="15dp"
                         android:src="@drawable/temperature" />
+
+                </RelativeLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_margin="20dp"
+                android:textSize="20sp"
+                app:cardBackgroundColor="@color/login_brown"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="0px"
+                app:cardUseCompatPadding="false">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="50dp"
+                        android:gravity="center"
+                        android:letterSpacing="1"
+                        android:lineSpacingMultiplier="2"
+                        android:padding="10dp"
+                        android:text="@string/room_humidity"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/TextView_humidity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginEnd="95dp"
+                        android:layout_marginBottom="10dp"
+                        android:letterSpacing="0.3"
+                        android:text="60%"
+                        android:textColor="@color/stroke"
+                        android:textSize="30dp" />
+
+                    <ImageView
+                        android:id="@+id/imageView_humidity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="19dp"
+                        android:layout_marginBottom="16dp"
+                        android:src="@drawable/humidity" />
 
                 </RelativeLayout>
 

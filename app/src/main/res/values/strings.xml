@@ -42,4 +42,6 @@
     <string name="drawer_open">drawer open</string>
     <string name="drawer_close">drawer close</string>
     <string name="room_temperature">室內溫度</string>
+    <string name="dayWeekTime">2001/01/01 Mon. 00:00 a.m.</string>
+    <string name="room_humidity">室內濕度</string>
 </resources>
