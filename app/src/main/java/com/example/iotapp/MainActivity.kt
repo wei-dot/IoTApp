@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var appBarConfiguration: AppBarConfiguration
     private var isLogin: Boolean = true
-    private var isOpeningNotificationBar : Boolean = false
+    private var isOpeningNotificationBar: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,7 +44,6 @@ class MainActivity : AppCompatActivity() {
         }
         val toolbar = binding.appBarMain.toolbar
         val drawerLayout: DrawerLayout = binding.drawerLayout
-//        toolbar.inflateMenu(R.menu.bottom_nav_menu)
 
         val toggle = ActionBarDrawerToggle(
             this,
@@ -76,18 +75,17 @@ class MainActivity : AppCompatActivity() {
         }
         switchSideBarContent(isLogin)
 
-        if (!isOpeningNotificationBar){
-            binding.notificationBar?.notificationBar?.isVisible = false
+        if (!isOpeningNotificationBar) {
+            binding.notificationBar.notificationBar.isVisible = false
         }
-        binding.appBarMain.btnNotification?.setOnClickListener {
-            if (!isOpeningNotificationBar){
-                binding.notificationBar?.notificationBar?.isVisible = true
-                binding.notificationBar?.notificationBar?.let { this.openingAnimation(it) }
+        binding.appBarMain.btnNotification.setOnClickListener {
+            if (!isOpeningNotificationBar) {
+                binding.notificationBar.notificationBar.isVisible = true
+                binding.notificationBar.notificationBar.let { this.openingAnimation(it) }
                 isOpeningNotificationBar = true
-            }
-            else{
-                binding.notificationBar?.notificationBar?.isVisible = false
-                binding.notificationBar?.notificationBar?.let { this.closingAnimation(it) }
+            } else {
+                binding.notificationBar.notificationBar.isVisible = false
+                binding.notificationBar.notificationBar.let { this.closingAnimation(it) }
                 isOpeningNotificationBar = false
             }
         }
