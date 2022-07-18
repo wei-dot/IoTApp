@@ -1,32 +1,32 @@
 package com.example.iotapp
 
+import android.animation.AnimatorInflater
+import android.app.Dialog
 import android.content.Intent
-import android.media.Image
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.ImageButton
-import android.widget.TextView
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.core.view.isVisible
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupWithNavController
 import com.example.iotapp.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.coroutines.NonCancellable.start
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var appBarConfiguration: AppBarConfiguration
-    private var isLogin:Boolean = true
+    private var isLogin: Boolean = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +43,7 @@ class MainActivity : AppCompatActivity() {
         val drawerLayout: DrawerLayout = binding.drawerLayout
         toolbar.inflateMenu(R.menu.bottom_nav_menu)
 
+
         val toggle = ActionBarDrawerToggle(
             this,
             drawerLayout,
@@ -54,24 +55,27 @@ class MainActivity : AppCompatActivity() {
         toggle.syncState()
         toolbar.setNavigationIcon(R.drawable.ic_navigation_icon)
         binding.loginPage.btnLogin.setOnClickListener {
-            val switchToLoginPage: Intent = Intent(this, LoginActivity::class.java)
+            val switchToLoginPage = Intent(this, LoginActivity::class.java)
             startActivity(switchToLoginPage)
         }
         binding.loginPage.btnSignup.setOnClickListener {
-            val switchToSignupPage: Intent = Intent(this, SignupActivity::class.java)
+            val switchToSignupPage = Intent(this, SignupActivity::class.java)
             startActivity(switchToSignupPage)
         }
         binding.loginPage.btnBack.setOnClickListener {
             drawerLayout.close()
         }
-        binding.profilePage?.btnBack?.setOnClickListener {
+        binding.profilePage.btnBack.setOnClickListener {
             drawerLayout.close()
         }
-        binding.profilePage?.btnLogout?.setOnClickListener {
+        binding.profilePage.btnLogout.setOnClickListener {
             isLogin = false
             switchSideBarContent(isLogin)
         }
         switchSideBarContent(isLogin)
+        binding.notificationBar?.notificationBar?.let { this.openingAnimation(it) }
+
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -97,23 +101,32 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        if (binding.drawerLayout.isDrawerVisible(GravityCompat.START)){
+        if (binding.drawerLayout.isDrawerVisible(GravityCompat.START)) {
             binding.drawerLayout.close()
-        }
-        else{
+        } else {
             super.onBackPressed()
         }
     }
 
-    private fun switchSideBarContent(isLogin:Boolean){
-        if (isLogin){
-            binding.notLogin?.isVisible = false
-            binding.hasLogin?.isVisible = true
-        }
-        else{
-            binding.notLogin?.isVisible = true
-            binding.hasLogin?.isVisible = false
+    private fun switchSideBarContent(isLogin: Boolean) {
+        if (isLogin) {
+            binding.notLogin.isVisible = false
+            binding.hasLogin.isVisible = true
+        } else {
+            binding.notLogin.isVisible = true
+            binding.hasLogin.isVisible = false
         }
     }
 
+    fun openingAnimation(view: View) {
+        val animation: Animation =
+            AnimationUtils.loadAnimation(applicationContext, R.anim.opening_anim)
+        view.startAnimation(animation)
+    }
+
+    fun closingAnimation(view: View) {
+        val animation: Animation =
+            AnimationUtils.loadAnimation(applicationContext, R.anim.closing_anim)
+        view.startAnimation(animation)
+    }
 }

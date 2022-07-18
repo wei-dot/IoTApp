@@ -21,5 +21,10 @@
     <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">?attr/colorPrimaryVariant</item>
     </style>
-
+    <style name="anim_style">
+    <item
+        name="android:windowEnterAnimation">@anim/opening_anim </item>
+    <item
+        name="android:windowExitAnimation">@anim/closing_anim</item>
+    </style>
 </resources>
