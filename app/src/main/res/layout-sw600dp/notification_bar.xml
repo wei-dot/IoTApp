@@ -7,8 +7,8 @@
 
     <View
         android:id="@+id/notification_bar"
-        android:layout_width="668dp"
-        android:layout_height="720dp"
+        android:layout_width="472dp"
+        android:layout_height="493dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:background="@drawable/background_notification"
