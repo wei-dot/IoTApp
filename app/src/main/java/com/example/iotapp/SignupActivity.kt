@@ -1,14 +1,16 @@
 package com.example.iotapp
 
-import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import com.example.iotapp.databinding.LoginBinding
 import com.example.iotapp.databinding.SignupBinding
+import java.sql.DriverManager
+import java.sql.SQLException
+import kotlin.concurrent.thread
 
-class SignupActivity :AppCompatActivity() {
-    private  lateinit var binding: SignupBinding
+class SignupActivity : AppCompatActivity() {
+    private lateinit var binding: SignupBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = SignupBinding.inflate(layoutInflater)
@@ -16,5 +18,38 @@ class SignupActivity :AppCompatActivity() {
         binding.btnBack.setOnClickListener {
             finish()
         }
+        binding.btnSend.setOnClickListener {
+            val username: String = binding.inputUsername.text.toString()
+            var password = ""
+            if (binding.inputPassword.text.contentEquals(binding.inputConfirmPassword?.text)) {
+                password = binding.inputPassword.text.toString()
+            }
+            val email: String = binding.inputEmail.text.toString()
+            thread {
+                try {
+                    val jdbcUrl: String = "資料庫位址"
+                    val dbUser = "帳號"
+                    val dbUserPassword = "密碼"
+                    Log.v("DB", "加載驅動成功 ")
+                    val connect = DriverManager.getConnection(jdbcUrl, dbUser, dbUserPassword)
+                    val command = String.format(
+                        "INSERT INTO `account` (`uid`, `id`, `password`, `email`, `phone_num`, `authority`) VALUES ('2', '%s', '%s', '%s', '0920190409', 'temp')",
+                        username,
+                        password,
+                        email
+                    )
+                    val query = connect.prepareStatement(command)
+                    query.execute()
+                    connect.close()
+                } catch (e: SQLException) {
+                    Log.e("DB", "加載驅動失敗 ")
+                    Log.e("DB", e.toString())
+                }
+
+            }
+
+        }
     }
+
 }
+

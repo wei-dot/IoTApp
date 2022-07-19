@@ -3,6 +3,9 @@
         xmlns:tools="http://schemas.android.com/tools"
         package="com.example.iotapp">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
             android:allowBackup="true"
             android:dataExtractionRules="@xml/data_extraction_rules"
@@ -16,8 +19,7 @@
         <activity
                 android:name=".MainActivity"
                 android:exported="true"
-                android:theme="@style/Theme.IoTApp.NoActionBar"
-                >
+                android:theme="@style/Theme.IoTApp.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
