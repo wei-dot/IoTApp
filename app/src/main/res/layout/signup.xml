@@ -17,7 +17,6 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:background="@drawable/ic_return"
-            android:contentDescription="@string/next"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/content_space"
@@ -70,7 +69,8 @@
             app:layout_constraintStart_toStartOf="@+id/content_space"
             app:layout_constraintEnd_toEndOf="@+id/content_space"
             app:layout_constraintTop_toBottomOf="@+id/text_username"
-            app:layout_constraintBottom_toTopOf="@+id/text_password" />
+            app:layout_constraintBottom_toTopOf="@+id/text_password"
+            android:autofillHints="username" />
 
     <EditText
             android:id="@+id/input_password"
@@ -83,7 +83,8 @@
             app:layout_constraintStart_toStartOf="@+id/content_space"
             app:layout_constraintEnd_toEndOf="@+id/content_space"
             app:layout_constraintTop_toBottomOf="@+id/text_password"
-            app:layout_constraintBottom_toTopOf="@+id/text_confirm_password" />
+            app:layout_constraintBottom_toTopOf="@+id/text_confirm_password"
+            android:autofillHints="password" />
 
     <EditText
             android:id="@+id/input_confirm_password"
@@ -96,7 +97,8 @@
             app:layout_constraintStart_toStartOf="@+id/content_space"
             app:layout_constraintEnd_toEndOf="@+id/content_space"
             app:layout_constraintBottom_toTopOf="@+id/text_email"
-            app:layout_constraintTop_toBottomOf="@+id/text_confirm_password" />
+            app:layout_constraintTop_toBottomOf="@+id/text_confirm_password"
+            android:autofillHints="password" />
 
     <EditText
             android:id="@+id/input_email"
@@ -104,13 +106,14 @@
             android:layout_height="48dp"
             android:background="@drawable/background_edit_box"
             android:hint="@string/enter_email"
-            android:inputType="phone"
+            android:inputType="textEmailAddress"
             android:selectAllOnFocus="true"
             app:layout_constraintStart_toStartOf="@+id/content_space"
             app:layout_constraintEnd_toEndOf="@+id/content_space"
             app:layout_constraintHorizontal_bias="0.492"
             app:layout_constraintTop_toBottomOf="@+id/text_email"
-            app:layout_constraintBottom_toTopOf="@+id/btn_send" />
+            app:layout_constraintBottom_toTopOf="@+id/btn_send"
+            android:autofillHints="emailAddress" />
 
     <ImageButton
             android:id="@+id/btn_send"
@@ -120,7 +123,6 @@
             android:layout_alignParentTop="true"
             android:background="@drawable/button_send"
             android:clickable="true"
-            android:contentDescription="@string/next"
             android:minHeight="48dp"
             app:layout_constraintEnd_toEndOf="@+id/content_space"
             app:layout_constraintStart_toStartOf="@+id/content_space"
@@ -133,7 +135,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/user_name"
-            android:textColor="@color/stroke"
+            android:textColor="@color/color_14b2d4"
             app:layout_constraintStart_toStartOf="@+id/content_space"
             app:layout_constraintEnd_toEndOf="@+id/content_space"
             app:layout_constraintTop_toBottomOf="@+id/text_signup"
@@ -145,7 +147,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/set_password"
-            android:textColor="@color/stroke"
+            android:textColor="@color/color_14b2d4"
             app:layout_constraintStart_toStartOf="@+id/content_space"
             app:layout_constraintEnd_toEndOf="@+id/content_space"
             app:layout_constraintTop_toBottomOf="@+id/input_username"
@@ -157,7 +159,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/confirm_password"
-            android:textColor="@color/stroke"
+            android:textColor="@color/color_14b2d4"
             app:layout_constraintStart_toStartOf="@+id/content_space"
             app:layout_constraintEnd_toEndOf="@+id/content_space"
             app:layout_constraintBottom_toTopOf="@+id/input_confirm_password"
@@ -169,7 +171,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/set_email"
-            android:textColor="@color/stroke"
+            android:textColor="@color/color_14b2d4"
             app:layout_constraintStart_toStartOf="@+id/content_space"
             app:layout_constraintEnd_toEndOf="@+id/content_space"
             app:layout_constraintTop_toBottomOf="@+id/input_confirm_password"

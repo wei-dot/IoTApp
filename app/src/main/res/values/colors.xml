@@ -11,14 +11,14 @@
 
 
     <!--Customize your color here-->
-    <color name="stroke">#14B2D4</color>
-    <color name="background_toolbar">#86CCDB</color>
-    <color name="background_content">#FFFBF1</color>
-    <color name="background_bottom">#FBFBFB</color>
-    <color name="text_login">#CDA16D</color>
-    <color name="login_brown">#FAF0DD</color>
-    <color name="brown">#C07A27</color>
-    <color name="notice">#DF8888</color>
+    <color name="color_14b2d4">#14B2D4</color>
+    <color name="color_86ccdb">#86CCDB</color>
+    <color name="color_fffbf1">#FFFBF1</color>
+    <color name="color_fbfbfb">#FBFBFB</color>
+    <color name="color_cda16d">#CDA16D</color>
+    <color name="color_faf0dd">#FAF0DD</color>
+    <color name="color_c07a27">#C07A27</color>
+    <color name="color_df8888">#DF8888</color>
 
 
 </resources>

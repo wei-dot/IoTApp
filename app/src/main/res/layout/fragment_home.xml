@@ -57,7 +57,7 @@
                             android:letterSpacing="0"
                             android:lineSpacingMultiplier="2"
                             android:padding="10dp"
-                            android:textColor="@color/brown"
+                            android:textColor="@color/color_c07a27"
                             android:textSize="20sp"
                             android:id="@+id/date_week_time" />
                 </RelativeLayout>
@@ -70,7 +70,7 @@
                     android:layout_height="100dp"
                     android:layout_margin="20dp"
                     android:textSize="20sp"
-                    app:cardBackgroundColor="@color/login_brown"
+                    app:cardBackgroundColor="@color/color_faf0dd"
                     app:cardCornerRadius="10dp"
                     app:cardUseCompatPadding="false"
                     app:cardElevation="0px">
@@ -103,7 +103,7 @@
                             android:layout_marginBottom="10dp"
                             android:letterSpacing="0.3"
                             android:text="20℃"
-                            android:textColor="@color/notice"
+                            android:textColor="@color/color_df8888"
                             android:textSize="30sp" />
 
                     <ImageView
@@ -128,7 +128,7 @@
                     android:layout_height="100dp"
                     android:layout_margin="20dp"
                     android:textSize="20sp"
-                    app:cardBackgroundColor="@color/login_brown"
+                    app:cardBackgroundColor="@color/color_faf0dd"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="0px"
                     app:cardUseCompatPadding="false">
@@ -161,8 +161,8 @@
                             android:layout_marginBottom="10dp"
                             android:letterSpacing="0.3"
                             android:text="60%"
-                            android:textColor="@color/stroke"
-                            android:textSize="30dp" />
+                            android:textColor="@color/color_14b2d4"
+                            android:textSize="30sp" />
 
                     <ImageView
                             android:id="@+id/imageView_humidity"

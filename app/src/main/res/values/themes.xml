@@ -3,7 +3,7 @@
     <style name="Theme.IoTApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/background_toolbar</item>
+        <item name="colorPrimaryVariant">@color/color_86ccdb</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -12,7 +12,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Navigation bar color-->
-        <item name="android:navigationBarColor">@color/background_bottom</item>
+        <item name="android:navigationBarColor">@color/color_fbfbfb</item>
         <!--Toolbar style-->
         <item name="actionOverflowButtonStyle">@style/MyActionButtonOverflow</item>
         <!-- Customize your theme here. -->
@@ -38,14 +38,7 @@
 
     <style name="DrawerHamburgerStyle" parent="Widget.AppCompat.DrawerArrowToggle">
         <item name="spinBars">true</item>
-        <!--       Set the bar length -->
-<!--        <item name="barLength">32dp</item>-->
-<!--        &lt;!&ndash;        Set the space between the hamburger button bars &ndash;&gt;-->
-<!--        <item name="gapBetweenBars">6dp</item>-->
-<!--        &lt;!&ndash;        Set the thickness of the bar &ndash;&gt;-->
-<!--        <item name="thickness">@dimen/half_default_gap</item>-->
-        <!--        Set the color of the toggle button -->
-        <item name="color">@color/login_brown</item>
+        <item name="color">@color/color_faf0dd</item>
     </style>
 
 </resources>

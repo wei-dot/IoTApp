@@ -21,7 +21,7 @@
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
-                    android:background="@color/background_toolbar"
+                    android:background="@color/color_86ccdb"
                     android:layout_gravity="center_horizontal|top"
                     app:popupTheme="@style/Theme.IoTApp.PopupOverlay">
 
@@ -60,9 +60,9 @@
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:background="@drawable/background_bottom"
-            app:itemIconTint="@color/stroke"
+            app:itemIconTint="@color/color_14b2d4"
             app:itemIconSize="@dimen/icon_size"
-            app:itemTextColor="@color/stroke"
+            app:itemTextColor="@color/color_14b2d4"
             app:labelVisibilityMode="labeled"
             app:layout_constraintBottom_toBottomOf="parent"
             app:menu="@menu/bottom_nav_menu"

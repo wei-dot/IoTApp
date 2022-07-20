@@ -4,13 +4,13 @@
     <style name="login_title_style">
         <item name="android:textSize">28sp</item>
         <item name="android:letterSpacing">0.7</item>
-        <item name="android:textColor">@color/text_login</item>
+        <item name="android:textColor">@color/color_cda16d</item>
     </style>
 
     <style name="title_style">
         <item name="android:textSize">24sp</item>
         <item name="android:letterSpacing">0.36</item>
-        <item name="android:textColor">@color/background_content</item>
+        <item name="android:textColor">@color/color_fffbf1</item>
     </style>
 
     <style name="send_verification_code_button">
