@@ -40,7 +40,7 @@ class HomeFragment : Fragment() {
         }
         thread {
             while (_binding != null) {
-                val formatter = SimpleDateFormat("yyyy/MM/dd E hh:mm:ss a")
+                val formatter = SimpleDateFormat("yyyy/MM/dd  E  hh:mm:ss  a")
                 binding.dateWeekTime.text = formatter.format(Date(System.currentTimeMillis()))
                 Thread.sleep(1000)
             }

@@ -17,9 +17,9 @@ class LogFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val logViewModel =
-            ViewModelProvider(this).get(LogViewModel::class.java)
+            ViewModelProvider(this)[LogViewModel::class.java]
 
         _binding = FragmentLogBinding.inflate(inflater, container, false)
         val root: View = binding.root

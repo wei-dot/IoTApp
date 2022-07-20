@@ -7,12 +7,6 @@ import android.os.Bundle
 import android.view.*
 import android.widget.PopupWindow
 import android.widget.Toast
-import android.view.Menu
-import android.view.MenuItem
-import android.view.View
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
-import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
@@ -24,8 +18,6 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupWithNavController
 import com.example.iotapp.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import java.text.SimpleDateFormat
-import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -42,9 +34,8 @@ class MainActivity : AppCompatActivity() {
         val navView: BottomNavigationView = binding.appBarMain.bottomNavigation
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         navView.setupWithNavController(navController)
-        val dateWeekTime = findViewById<TextView>(R.id.date_week_time)
 //        監聽nav目的地變化後修改標題
-        navController.addOnDestinationChangedListener { controller, destination, arguments ->
+        navController.addOnDestinationChangedListener { _, _, _ ->
             binding.appBarMain.toolbarTitle.text = navController.currentDestination?.label
         }
         val toolbar = binding.appBarMain.toolbar
@@ -86,6 +77,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 //        //每秒更新日期時間
+//        val dateWeekTime = findViewById<TextView>(R.id.date_week_time)
 //        val thread: Thread = object : Thread() {
 //            override fun run() {
 //                try {

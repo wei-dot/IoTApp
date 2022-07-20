@@ -17,9 +17,9 @@ class ModeFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val modeViewModel =
-            ViewModelProvider(this).get(ModeViewModel::class.java)
+            ViewModelProvider(this)[ModeViewModel::class.java]
 
         _binding = FragmentModeBinding.inflate(inflater, container, false)
         val root: View = binding.root

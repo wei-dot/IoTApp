@@ -5,10 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.iotapp.R
 import com.example.iotapp.databinding.FragmentFamilyBinding
 
 /**
@@ -25,8 +23,8 @@ class FamilyFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        val familyViewModel = ViewModelProvider(this).get(FamilyViewModel::class.java)
+    ): View {
+        val familyViewModel = ViewModelProvider(this)[FamilyViewModel::class.java]
         _binding = FragmentFamilyBinding.inflate(inflater, container, false)
         val root: View = binding.root
         val textView: TextView = binding.textFamily
