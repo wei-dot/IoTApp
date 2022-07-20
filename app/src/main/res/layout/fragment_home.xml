@@ -58,6 +58,7 @@
                         android:lineSpacingMultiplier="2"
                         android:padding="10dp"
                         android:text="@string/dayWeekTime"
+                            android:textColor="@color/brown"
                         android:textSize="20sp"
                         android:id="@+id/date_week_time"/>
                 </RelativeLayout>

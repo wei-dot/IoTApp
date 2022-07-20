@@ -85,21 +85,21 @@ class MainActivity : AppCompatActivity() {
                 initPopWindow(v)
             }
         }
-        //每秒更新日期時間
-        val thread: Thread = object : Thread() {
-            override fun run() {
-                try {
-                    while (!this.isInterrupted) {
-                        sleep(1000)
-                        runOnUiThread {
-                            dateWeekTime.setText(SimpleDateFormat("YYYY/MM/dd EE hh:mm:ss").format(Date()))
-                        }
-                    }
-                } catch (e: InterruptedException) {
-                }
-            }
-        }
-        thread.start()
+//        //每秒更新日期時間
+//        val thread: Thread = object : Thread() {
+//            override fun run() {
+//                try {
+//                    while (!this.isInterrupted) {
+//                        sleep(1000)
+//                        runOnUiThread {
+//                            dateWeekTime.setText(SimpleDateFormat("YYYY/MM/dd EE hh:mm:ss").format(Date()))
+//                        }
+//                    }
+//                } catch (e: InterruptedException) {
+//                }
+//            }
+//        }
+//        thread.start()
 
     }
 
