@@ -8,7 +8,7 @@
     </style>
 
     <style name="title_style">
-        <item name="android:textSize">44sp</item>
+        <item name="android:textSize">48sp</item>
         <item name="android:letterSpacing">0.36</item>
         <item name="android:textColor">@color/background_content</item>
     </style>
@@ -24,6 +24,10 @@
         <item name="android:textColor">@color/stroke</item>
     </style>
 
+    <style name="AnimationPopup">
+        <item name="android:windowEnterAnimation">@anim/opening_anim</item>
+        <item name="android:windowExitAnimation">@anim/closing_anim</item>
+    </style>
 
 
 </resources>
