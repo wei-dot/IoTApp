@@ -1,16 +1,13 @@
 package com.example.iotapp
 
-import android.animation.AnimatorInflater
-import android.app.Dialog
 import android.content.Intent
-import android.graphics.Rect
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.view.MotionEvent
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
@@ -22,7 +19,8 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupWithNavController
 import com.example.iotapp.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import kotlinx.coroutines.NonCancellable.start
+import java.text.SimpleDateFormat
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -38,6 +36,7 @@ class MainActivity : AppCompatActivity() {
         val navView: BottomNavigationView = binding.appBarMain.bottomNavigation
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         navView.setupWithNavController(navController)
+        val dateWeekTime = findViewById<TextView>(R.id.date_week_time)
 //        監聽nav目的地變化後修改標題
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
             binding.appBarMain.toolbarTitle.text = navController.currentDestination?.label
@@ -89,6 +88,21 @@ class MainActivity : AppCompatActivity() {
                 isOpeningNotificationBar = false
             }
         }
+        //每秒更新日期時間
+        val thread: Thread = object : Thread() {
+            override fun run() {
+                try {
+                    while (!this.isInterrupted) {
+                        sleep(1000)
+                        runOnUiThread {
+                            dateWeekTime.setText(SimpleDateFormat("YYYY/MM/dd EE hh:mm:ss").format(Date()))
+                        }
+                    }
+                } catch (e: InterruptedException) {
+                }
+            }
+        }
+        thread.start()
 
     }
 
