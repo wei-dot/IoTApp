@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.util.DisplayMetrics
 import android.view.*
 import android.widget.PopupWindow
 import android.widget.Toast
@@ -36,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         navView.setupWithNavController(navController)
 //        監聽nav目的地變化後修改標題
-        navController.addOnDestinationChangedListener { controller, destination, arguments ->
+        navController.addOnDestinationChangedListener { _, _, _ ->
             binding.appBarMain.toolbarTitle.text = navController.currentDestination?.label
         }
         val toolbar = binding.appBarMain.toolbar
@@ -146,7 +145,7 @@ class MainActivity : AppCompatActivity() {
         )
         popWindow.setOnDismissListener {
             backgroundAlpha(1f)
-        };
+        }
         if (popWindow.isShowing) {
             popWindow.dismiss()
         } else {
@@ -155,14 +154,14 @@ class MainActivity : AppCompatActivity() {
             popWindow.isOutsideTouchable = true
             backgroundAlpha(0.8f)
             popWindow.setTouchInterceptor { _, _ -> false }
-            popWindow.setBackgroundDrawable(ColorDrawable(-0x00000));
+            popWindow.setBackgroundDrawable(ColorDrawable(-0x00000))
             val locate = IntArray(2)
             v.getLocationOnScreen(locate)
             popWindow.showAtLocation(
                 binding.appBarMain.btnNotification,
-                 Gravity.TOP,0,locate[1]+70
+                Gravity.TOP, 0, locate[1] + 70
             )
-            Toast.makeText(this, "X位置" + locate[0] + "\nY位置" + locate[1], Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "X位置" + locate[0] + "\nY位置" + locate[1], Toast.LENGTH_SHORT).show()
         }
 
     }
