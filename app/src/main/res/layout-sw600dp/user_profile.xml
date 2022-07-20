@@ -8,8 +8,8 @@
 
     <ImageButton
         android:id="@+id/btn_back"
-        android:layout_width="88dp"
-        android:layout_height="86dp"
+        android:layout_width="78dp"
+        android:layout_height="78dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="5dp"
@@ -23,8 +23,8 @@
 
     <View
         android:id="@+id/content_space"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="494dp"
+        android:layout_height="749dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="10dp"
@@ -34,28 +34,27 @@
         android:background="@drawable/content_space"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.3" />
 
     <View
         android:id="@+id/avatar_area"
-        android:layout_width="204dp"
-        android:layout_height="209dp"
+        android:layout_width="112dp"
+        android:layout_height="113dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="65dp"
         android:background="@drawable/background_avatar"
-        app:layout_constraintBottom_toBottomOf="@+id/content_space"
-        app:layout_constraintEnd_toEndOf="@+id/content_space"
-        app:layout_constraintHorizontal_bias="0.197"
         app:layout_constraintStart_toStartOf="@+id/content_space"
-        app:layout_constraintTop_toTopOf="@+id/content_space"
-        app:layout_constraintVertical_bias="0.145"></View>
+        app:layout_constraintTop_toTopOf="@+id/content_space"></View>
 
     <TextView
         android:id="@+id/username"
-        android:layout_width="390dp"
-        android:layout_height="109dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="49dp"
@@ -65,16 +64,16 @@
         android:textAppearance="@style/title_style"
         android:translationY="-0.04sp"
         app:layout_constraintBottom_toBottomOf="@+id/avatar_area"
-        app:layout_constraintEnd_toEndOf="@+id/content_space"
+        app:layout_constraintEnd_toEndOf="@+id/profile_detail_place"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/avatar_area"
         app:layout_constraintTop_toTopOf="@+id/avatar_area"
-        app:layout_constraintVertical_bias="0.56" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <View
         android:id="@+id/profile_detail_place"
-        android:layout_width="637dp"
-        android:layout_height="324dp"
+        android:layout_width="435dp"
+        android:layout_height="253dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:background="@drawable/background_profile_detail"
@@ -87,8 +86,8 @@
 
     <ImageButton
         android:id="@+id/btn_logout"
-        android:layout_width="210dp"
-        android:layout_height="60dp"
+        android:layout_width="214dp"
+        android:layout_height="66dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:background="@drawable/btn_logout"
