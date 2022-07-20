@@ -13,9 +13,6 @@
         layout="@layout/app_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-    <include
-        android:id="@+id/notification_bar"
-        layout="@layout/notification_bar" />
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigationViewNotLogin"

@@ -1,16 +1,13 @@
 package com.example.iotapp
 
-import android.animation.AnimatorInflater
-import android.app.Dialog
+import android.annotation.SuppressLint
 import android.content.Intent
-import android.graphics.Rect
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
-import android.view.MotionEvent
-import android.view.View
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
+import android.util.DisplayMetrics
+import android.view.*
+import android.widget.PopupWindow
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
@@ -22,7 +19,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupWithNavController
 import com.example.iotapp.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import kotlinx.coroutines.NonCancellable.start
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -75,20 +72,25 @@ class MainActivity : AppCompatActivity() {
         }
         switchSideBarContent(isLogin)
 
-        if (!isOpeningNotificationBar) {
-            binding.notificationBar.notificationBar.isVisible = false
-        }
-        binding.appBarMain.btnNotification.setOnClickListener {
+        binding.appBarMain.btnNotification.setOnClickListener { v ->
             if (!isOpeningNotificationBar) {
-                binding.notificationBar.notificationBar.isVisible = true
-                binding.notificationBar.notificationBar.let { this.openingAnimation(it) }
-                isOpeningNotificationBar = true
-            } else {
-                binding.notificationBar.notificationBar.isVisible = false
-                binding.notificationBar.notificationBar.let { this.closingAnimation(it) }
-                isOpeningNotificationBar = false
+                initPopWindow(v)
             }
         }
+//        if (!isOpeningNotificationBar) {
+//            binding.notificationBar.notificationBar.isVisible = false
+//        }
+//        binding.appBarMain.btnNotification.setOnClickListener {
+//            if (!isOpeningNotificationBar) {
+//                binding.notificationBar.notificationBar.isVisible = true
+//                binding.notificationBar.notificationBar.let { this.openingAnimation(it) }
+//                isOpeningNotificationBar = true
+//            } else {
+//                binding.notificationBar.notificationBar.isVisible = false
+//                binding.notificationBar.notificationBar.let { this.closingAnimation(it) }
+//                isOpeningNotificationBar = false
+//            }
+//        }
 
     }
 
@@ -132,16 +134,55 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun openingAnimation(view: View) {
-        val animation: Animation =
-            AnimationUtils.loadAnimation(applicationContext, R.anim.opening_anim)
-        view.startAnimation(animation)
+
+    @SuppressLint("ClickableViewAccessibility")
+    private fun initPopWindow(v: View) {
+        val view = LayoutInflater.from(this).inflate(R.layout.notification_window, null, false)
+        val popWindow = PopupWindow(
+            view,
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+            true
+        )
+        popWindow.setOnDismissListener {
+            backgroundAlpha(1f)
+        };
+        if (popWindow.isShowing) {
+            popWindow.dismiss()
+        } else {
+            popWindow.animationStyle = R.style.AnimationPopup
+            popWindow.isTouchable = true
+            popWindow.isOutsideTouchable = true
+            backgroundAlpha(0.8f)
+            popWindow.setTouchInterceptor { _, _ -> false }
+            popWindow.setBackgroundDrawable(ColorDrawable(-0x00000));
+            val locate = IntArray(2)
+            v.getLocationOnScreen(locate)
+            popWindow.showAtLocation(
+                binding.appBarMain.btnNotification,
+                 Gravity.TOP,0,locate[1]+70
+            )
+            Toast.makeText(this, "X位置" + locate[0] + "\nY位置" + locate[1], Toast.LENGTH_SHORT).show();
+        }
+
     }
 
-    fun closingAnimation(view: View) {
-        val animation: Animation =
-            AnimationUtils.loadAnimation(applicationContext, R.anim.closing_anim)
-        view.startAnimation(animation)
+    private fun backgroundAlpha(f: Float) {
+        val lp = window.attributes
+        lp.alpha = f
+        window.attributes = lp
     }
+//    private fun openingAnimation(view: View) {
+//        val animation: Animation =
+//            AnimationUtils.loadAnimation(applicationContext, R.anim.opening_anim)
+//        view.startAnimation(animation)
+//    }
+//
+//    private fun closingAnimation(view: View) {
+//        val animation: Animation =
+//            AnimationUtils.loadAnimation(applicationContext, R.anim.closing_anim)
+//        view.startAnimation(animation)
+//    }
 
 }
+
