@@ -108,16 +108,16 @@
                             android:textSize="30sp" />
 
                     <ImageView
-                            android:id="@+id/imageView_temperature"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentTop="true"
-                            android:layout_alignParentBottom="true"
-                            android:layout_marginStart="30dp"
-                            android:layout_marginTop="20dp"
-                            android:layout_marginBottom="15dp"
-                            android:src="@drawable/temperature" />
+                        android:id="@+id/imageView_temperature"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="15dp"
+                        android:src="@drawable/temperature" />
 
                 </RelativeLayout>
 
@@ -169,13 +169,13 @@
                     <ImageView
                         android:id="@+id/imageView_humidity"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="65dp"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
                         android:layout_alignParentBottom="true"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="19dp"
-                        android:layout_marginBottom="16dp"
+                        android:layout_marginStart="45dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="15dp"
                         android:src="@drawable/humidity" />
 
                 </RelativeLayout>
@@ -245,7 +245,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentBottom="true"
-                        android:layout_marginStart="45dp"
+                        android:layout_marginStart="40dp"
                         android:layout_marginBottom="30dp"
                         android:text="@string/temperature_range" />
 
