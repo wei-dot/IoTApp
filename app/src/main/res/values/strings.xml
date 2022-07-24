@@ -36,4 +36,6 @@
     <string name="drawer_close">drawer close</string>
     <string name="room_temperature">室內溫度</string>
     <string name="room_humidity">室內濕度</string>
+    <string name="today_weather">今日天氣</string>
+    <string name="temperature_range">XX℃-XX℃</string>
 </resources>
