@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import com.example.iotapp.api.MyAPIService
 import com.example.iotapp.api.RetrofitManager
 import com.example.iotapp.databinding.SignupBinding
@@ -24,6 +25,7 @@ class SignupActivity : AppCompatActivity() {
             finish()
         }
         binding.btnSend.setOnClickListener {
+            binding.loading?.isVisible = true
             val username: String = binding.inputUsername.text.toString()
             var password = ""
             if (binding.inputPassword.text.contentEquals(binding.inputConfirmPassword.text)) {
@@ -37,6 +39,7 @@ class SignupActivity : AppCompatActivity() {
                     response: retrofit2.Response<UserInfo>
                 ) {
                     if (response.isSuccessful) {
+                        binding.loading?.isVisible = false
                         Log.d("SignupActivity", "註冊成功")
                         Toast.makeText(
                             this@SignupActivity,
@@ -45,6 +48,7 @@ class SignupActivity : AppCompatActivity() {
                         ).show()
                         finish()
                     } else {
+                        binding.loading?.isVisible = false
                         Log.d("SignupActivity", "註冊失敗")
                         Toast.makeText(
                             this@SignupActivity,
@@ -55,6 +59,7 @@ class SignupActivity : AppCompatActivity() {
                 }
 
                 override fun onFailure(call: Call<UserInfo>, t: Throwable) {
+                    binding.loading?.isVisible = false
                     Toast.makeText(
                         this@SignupActivity,
                         t.message,
