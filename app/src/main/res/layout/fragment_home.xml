@@ -285,40 +285,18 @@
                         android:textColor="@color/color_c07a27"
                         android:textSize="20sp" />
 
-                    <TextView
-                        android:id="@+id/TextView_Weather_Details_"
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/test_switch"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="25dp"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentBottom="true"
-                        android:layout_marginEnd="50dp"
-                        android:layout_marginBottom="50dp"
-                        android:letterSpacing="0.3"
-                        android:text="降雨機率：XX%\n濕度：XX%\n風速：Xkm/h"
-                        android:textColor="@color/color_cda16d"
-                        android:textSize="15sp" />
-
-                    <ImageView
-                        android:id="@+id/imageView_"
-                        android:layout_width="82dp"
-                        android:layout_height="71dp"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginStart="40dp"
-                        android:layout_marginEnd="65dp"
-                        android:layout_marginBottom="50dp"
-                        android:layout_toStartOf="@+id/TextView_Weather_Details_"
-                        android:src="@drawable/cloud" />
-
-                    <TextView
-                        android:id="@+id/textView_temperature_range_"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginStart="40dp"
-                        android:layout_marginBottom="30dp"
-                        android:text="@string/temperature_range" />
+                        android:layout_marginEnd="142dp"
+                        android:layout_marginBottom="69dp"
+                        android:checked="true"
+                        app:thumbTint="@color/black"
+                        app:trackTint="@color/white"
+                        android:text="開"/>
 
                 </RelativeLayout>
 
