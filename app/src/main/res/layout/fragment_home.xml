@@ -59,7 +59,7 @@
                         android:lineSpacingMultiplier="2"
                         android:padding="10dp"
                         android:textColor="@color/color_c07a27"
-                        android:textSize="20sp" />
+                        android:textSize="24sp" />
                 </RelativeLayout>
 
 

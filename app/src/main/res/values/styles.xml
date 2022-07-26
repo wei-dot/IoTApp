@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="login_title_style">
-        <item name="android:textSize">28sp</item>
-        <item name="android:letterSpacing">0.7</item>
-        <item name="android:textColor">@color/color_cda16d</item>
-    </style>
-
     <style name="title_style">
-        <item name="android:textSize">24sp</item>
+        <item name="android:textSize">34sp</item>
         <item name="android:letterSpacing">0.36</item>
         <item name="android:textColor">@color/color_fffbf1</item>
+    </style>
+
+    <style name="text_login_title">
+        <item name="android:textSize">27sp</item>
+        <item name="android:letterSpacing">0.7</item>
+        <item name="android:textColor">@color/color_cda16d</item>
     </style>
 
     <style name="send_verification_code_button">
@@ -19,12 +19,13 @@
         <item name="android:textColor">#868585</item>
     </style>
 
-    <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">?attr/colorPrimaryVariant</item>
-    </style>
-
     <style name="AnimationPopup">
         <item name="android:windowEnterAnimation">@anim/opening_anim</item>
         <item name="android:windowExitAnimation">@anim/closing_anim</item>
     </style>
+
+    <style name="text_navigation">
+        <item name="android:textSize">16sp</item>
+    </style>
+
 </resources>

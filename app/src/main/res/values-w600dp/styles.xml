@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="login_title_style">
+    <style name="title_style">
+        <item name="android:textSize">54sp</item>
+        <item name="android:letterSpacing">0.4</item>
+        <item name="android:textColor">@color/color_fffbf1</item>
+    </style>
+
+    <style name="text_login_title">
         <item name="android:textSize">54sp</item>
         <item name="android:letterSpacing">0.7</item>
         <item name="android:textColor">@color/color_cda16d</item>
-    </style>
-
-    <style name="title_style">
-        <item name="android:textSize">48sp</item>
-        <item name="android:letterSpacing">0.36</item>
-        <item name="android:textColor">@color/color_fffbf1</item>
     </style>
 
     <style name="send_verification_code_button">
@@ -29,5 +29,8 @@
         <item name="android:windowExitAnimation">@anim/closing_anim</item>
     </style>
 
+    <style name="text_navigation">
+        <item name="android:textSize">28sp</item>
+    </style>
 
 </resources>

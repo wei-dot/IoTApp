@@ -14,11 +14,11 @@ import androidx.core.view.isVisible
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupWithNavController
 import com.example.iotapp.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import java.net.Socket
 
 
 class MainActivity : AppCompatActivity() {
@@ -26,7 +26,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var appBarConfiguration: AppBarConfiguration
     private var isLogin: Boolean = true
-    private var isOpeningNotificationBar: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,14 +33,18 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         val navView: BottomNavigationView = binding.appBarMain.bottomNavigation
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
-        navView.setupWithNavController(navController)
-//        監聽nav目的地變化後修改標題
-        navController.addOnDestinationChangedListener { _, _, _ ->
-            binding.appBarMain.toolbarTitle.text = navController.currentDestination?.label
-        }
         val toolbar = binding.appBarMain.toolbar
         val drawerLayout: DrawerLayout = binding.drawerLayout
-
+        appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.navigation_home,
+                R.id.navigation_family,
+                R.id.navigation_mode,
+                R.id.navigation_log
+            ), drawerLayout
+        )
+        NavigationUI.setupWithNavController(toolbar, navController, appBarConfiguration)
+        navView.setupWithNavController(navController)
         val toggle = ActionBarDrawerToggle(
             this,
             drawerLayout,
@@ -51,7 +54,6 @@ class MainActivity : AppCompatActivity() {
         )
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
-        toolbar.setNavigationIcon(R.drawable.ic_navigation_icon)
         binding.loginPage.btnLogin.setOnClickListener {
             val switchToLoginPage = Intent(this, LoginActivity::class.java)
             startActivity(switchToLoginPage)
@@ -73,9 +75,7 @@ class MainActivity : AppCompatActivity() {
         switchSideBarContent(isLogin)
 
         binding.appBarMain.btnNotification.setOnClickListener { v ->
-            if (!isOpeningNotificationBar) {
-                initPopWindow(v)
-            }
+            initPopWindow(v)
         }
 
     }
@@ -158,16 +158,5 @@ class MainActivity : AppCompatActivity() {
         lp.alpha = f
         window.attributes = lp
     }
-//    private fun openingAnimation(view: View) {
-//        val animation: Animation =
-//            AnimationUtils.loadAnimation(applicationContext, R.anim.opening_anim)
-//        view.startAnimation(animation)
-//    }
-//
-//    private fun closingAnimation(view: View) {
-//        val animation: Animation =
-//            AnimationUtils.loadAnimation(applicationContext, R.anim.closing_anim)
-//        view.startAnimation(animation)
-//    }
 
 }

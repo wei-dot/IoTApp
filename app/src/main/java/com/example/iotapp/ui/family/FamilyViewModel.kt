@@ -6,6 +6,6 @@ import androidx.lifecycle.ViewModel
 
 
 class FamilyViewModel : ViewModel() {
-    private val _text = MutableLiveData<String>().apply { value = "This is family Fragment" }
+    private val _text = MutableLiveData<String>().apply { value = "尚未加入家庭" }
     val text: LiveData<String> = _text
 }
