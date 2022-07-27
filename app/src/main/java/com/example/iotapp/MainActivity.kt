@@ -45,15 +45,15 @@ class MainActivity : AppCompatActivity() {
         )
         NavigationUI.setupWithNavController(toolbar, navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-        val toggle = ActionBarDrawerToggle(
-            this,
-            drawerLayout,
-            toolbar,
-            R.string.drawer_open,
-            R.string.drawer_close
-        )
-        drawerLayout.addDrawerListener(toggle)
-        toggle.syncState()
+//        val toggle = ActionBarDrawerToggle(
+//            this,
+//            drawerLayout,
+//            toolbar,
+//            R.string.drawer_open,
+//            R.string.drawer_close
+//        )
+//        drawerLayout.addDrawerListener(toggle)
+//        toggle.syncState()
         binding.loginPage.btnLogin.setOnClickListener {
             val switchToLoginPage = Intent(this, LoginActivity::class.java)
             startActivity(switchToLoginPage)
