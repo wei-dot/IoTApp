@@ -34,10 +34,7 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
+
         thread {
             while (_binding != null) {
                 val formatter = SimpleDateFormat("yyyy/MM/dd  E  hh:mm:ss  a")

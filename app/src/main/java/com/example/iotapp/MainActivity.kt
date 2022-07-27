@@ -7,14 +7,12 @@ import android.os.Bundle
 import android.view.*
 import android.widget.PopupWindow
 import android.widget.Toast
-import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.core.view.isVisible
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupWithNavController
 import com.example.iotapp.databinding.ActivityMainBinding
@@ -43,17 +41,10 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_log
             ), drawerLayout
         )
-        NavigationUI.setupWithNavController(toolbar, navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-//        val toggle = ActionBarDrawerToggle(
-//            this,
-//            drawerLayout,
-//            toolbar,
-//            R.string.drawer_open,
-//            R.string.drawer_close
-//        )
-//        drawerLayout.addDrawerListener(toggle)
-//        toggle.syncState()
+        toolbar.setupWithNavController(navController, appBarConfiguration)
+        navController.addOnDestinationChangedListener { _, _, _ -> toolbar.setNavigationIcon(R.drawable.ic_navigation_icon) }
+
         binding.loginPage.btnLogin.setOnClickListener {
             val switchToLoginPage = Intent(this, LoginActivity::class.java)
             startActivity(switchToLoginPage)
