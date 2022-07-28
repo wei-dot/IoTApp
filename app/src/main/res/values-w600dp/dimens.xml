@@ -1,4 +1,4 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <dimen name="icon_size" >78dp</dimen>
+    <dimen name="icon_size" >48dp</dimen>
     <dimen name="hamburger_gap">8dp</dimen>
 </resources>

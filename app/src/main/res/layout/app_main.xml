@@ -12,39 +12,43 @@
         tools:context=".MainActivity">
 
         <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="100dp"
+            android:background="@color/color_86ccdb"
             android:theme="@style/Theme.IoTApp.AppBarOverlay"
             app:elevation="0dp">
-
-            <com.google.android.material.appbar.MaterialToolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="@color/color_86ccdb"
-                app:popupTheme="@style/Theme.IoTApp.PopupOverlay"
-                app:titleTextAppearance="@style/title_style"
-                app:titleCentered="true">
-
-                <ImageButton
-                    android:id="@+id/btn_notification"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:background="@drawable/ic_no_notice" />
-
-            </com.google.android.material.appbar.MaterialToolbar>
 
         </com.google.android.material.appbar.AppBarLayout>
 
         <include
             android:id="@+id/include"
             layout="@layout/content_main"
-            android:background="@drawable/background_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            app:layout_anchor="@+id/appBarLayout"
+            app:layout_anchorGravity="center"
+            app:titleCentered="true"
+            app:titleTextAppearance="@style/title_style"
+            app:titleTextColor="@color/color_fffbf1">
+
+            <ImageButton
+                android:id="@+id/btn_notification"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:background="@drawable/ic_no_notice" />
+
+        </com.google.android.material.appbar.MaterialToolbar>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
