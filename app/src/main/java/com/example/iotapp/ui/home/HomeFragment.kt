@@ -32,9 +32,15 @@ class HomeFragment : Fragment() {
             ViewModelProvider(this)[HomeViewModel::class.java]
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
 
 
+
+        return binding.root
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         thread {
             while (_binding != null) {
                 val formatter = SimpleDateFormat("yyyy/MM/dd  E  hh:mm:ss  a")
@@ -42,12 +48,6 @@ class HomeFragment : Fragment() {
                 Thread.sleep(1000)
             }
         }
-        return root
-
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
     }
 
     override fun onDestroyView() {

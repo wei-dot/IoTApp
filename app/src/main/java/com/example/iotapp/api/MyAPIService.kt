@@ -1,6 +1,5 @@
 package com.example.iotapp.api
 
-import com.example.iotapp.UserInfo
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -12,6 +11,7 @@ interface MyAPIService {
     @Headers("Content-Type:application/json")
     @POST("user_info/")
     fun postUserInfo(@Body info: UserInfo): Call<UserInfo>
+
 
 
 }

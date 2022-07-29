@@ -29,13 +29,13 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".LoginActivity"
+                android:name=".AccountActivity"
                 android:exported="true"
                 android:theme="@style/Theme.IoTApp.NoActionBar" />
-        <activity
-                android:name=".SignupActivity"
-                android:exported="true"
-                android:theme="@style/Theme.IoTApp.NoActionBar" />
+<!--        <activity-->
+<!--                android:name=".SignupActivity"-->
+<!--                android:exported="true"-->
+<!--                android:theme="@style/Theme.IoTApp.NoActionBar" />-->
     </application>
 
 </manifest>

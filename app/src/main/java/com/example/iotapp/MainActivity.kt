@@ -9,7 +9,6 @@ import android.widget.PopupWindow
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
-import androidx.core.view.ViewCompat.setOverScrollMode
 import androidx.core.view.isVisible
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
@@ -48,12 +47,14 @@ class MainActivity : AppCompatActivity() {
             toolbar.setNavigationIcon(R.drawable.ic_navigation_icon)
         }
         binding.loginPage.btnLogin.setOnClickListener {
-            val switchToLoginPage = Intent(this, LoginActivity::class.java)
-            startActivity(switchToLoginPage)
+            val intent = Intent(this, AccountActivity::class.java)
+            intent.putExtra("Login","Login")
+            startActivity(intent)
         }
         binding.loginPage.btnSignup.setOnClickListener {
-            val switchToSignupPage = Intent(this, SignupActivity::class.java)
-            startActivity(switchToSignupPage)
+            val intent = Intent(this, AccountActivity::class.java)
+            intent.putExtra("Login","Signup")
+            startActivity(intent)
         }
         binding.loginPage.btnBack.setOnClickListener {
             drawerLayout.close()

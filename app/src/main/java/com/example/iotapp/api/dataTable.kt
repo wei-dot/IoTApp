@@ -1,4 +1,4 @@
-package com.example.iotapp
+package com.example.iotapp.api
 
 data class UserInfo(
     val user_name: String,
