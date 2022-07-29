@@ -5,11 +5,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.example.iotapp.MainActivity
 import com.example.iotapp.api.*
 import com.example.iotapp.databinding.FragmentSignupBinding
+import com.blankj.utilcode.constant.RegexConstants;
+import com.blankj.utilcode.util.RegexUtils
 
 class SignupFragment : Fragment() {
     private var _binging: FragmentSignupBinding? = null
@@ -34,15 +37,29 @@ class SignupFragment : Fragment() {
             startActivity(Intent(this.context, MainActivity::class.java))
         }
         binding.btnSend.setOnClickListener {
-            binding.loading.isVisible = true
+            var msg = ""
             val username: String = binding.inputUsername.text.toString()
             var password = ""
             if (binding.inputPassword.text.contentEquals(binding.inputConfirmPassword.text)) {
                 password = binding.inputPassword.text.toString()
+            } else {
+                msg = "輸入密碼不相符"
             }
             val email: String = binding.inputEmail.text.toString()
-            val user = UserInfo(username, password, "", "", email)
-            IotApi().postInfo(user, activity, binding)
+            if (username.isEmpty() && msg.isEmpty()) {
+                msg = "使用者名稱不得為空"
+            } else if (password.isEmpty() && msg.isEmpty()) {
+                msg = "使用者密碼不得為空"
+            } else if ((!RegexUtils.isEmail(email)) && msg.isEmpty()) {
+                msg = if(email.isEmpty()) "信箱不得為空" else "信箱格式錯誤"
+            }
+            if (msg.isNotEmpty()) {
+                Toast.makeText(activity, msg, Toast.LENGTH_SHORT).show()
+            }else{
+                val user = UserInfo(username, password, "", "", email)
+                binding.loading.isVisible = true
+                IotApi().postInfo(user, activity, binding)
+            }
         }
     }
 

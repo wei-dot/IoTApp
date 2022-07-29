@@ -35,7 +35,7 @@ class IotApi {
             onFailure = {
                 signup.loading.isVisible = false
                 Log.d("IotApi", "postInfo: ${it?.message}")
-                Toast.makeText(activity, "실패", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, "註冊錯誤", Toast.LENGTH_SHORT).show()
             }
         }
     }
