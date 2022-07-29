@@ -22,4 +22,12 @@ class LoginFragment : Fragment() {
         val root = binding.root
         return root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.btnBack.setOnClickListener{
+            activity?.finish()
+        }
+        binding.textSignup.setOnClickListener {  }
+    }
 }

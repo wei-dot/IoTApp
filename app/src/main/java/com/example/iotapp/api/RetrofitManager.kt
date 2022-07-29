@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class RetrofitManager {
     companion object {
-        private const val BASE_URL = "https://api.bap5.cc"
+        private const val BASE_URL = "http://192.168.100.5:8000/"
         private var retrofit: Retrofit? = null
 
         private val interceptor: HttpLoggingInterceptor = HttpLoggingInterceptor().apply {

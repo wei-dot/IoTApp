@@ -29,7 +29,7 @@ class IotApi {
                 } else {
                     signup.loading.isVisible = false
                     Log.d("IotApi", "postInfo: 註冊失敗")
-                    Toast.makeText(activity, "註冊失敗", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(activity, it.body().toString(), Toast.LENGTH_SHORT).show()
                 }
             }
             onFailure = {

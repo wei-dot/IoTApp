@@ -34,7 +34,7 @@ class SignupFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.btnBack.setOnClickListener {
             activity?.finish()
-            startActivity(Intent(this.context, MainActivity::class.java))
+//            startActivity(Intent(this.context, MainActivity::class.java))
         }
         binding.btnSend.setOnClickListener {
             var msg = ""
