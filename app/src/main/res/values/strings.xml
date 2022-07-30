@@ -38,4 +38,7 @@
     <string name="room_humidity">室內濕度</string>
     <string name="today_weather">今日天氣</string>
     <string name="temperature_range">XX℃-XX℃</string>
+    <string name="switch_turn_on">開</string>
+    <string name="switch_turn_off">關</string>
+    <string name="text_tplink_switch">廷長線開關</string>
 </resources>
