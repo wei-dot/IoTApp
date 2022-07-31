@@ -2,8 +2,8 @@ package com.example.iotapp.api
 
 data class UserInfo(
     val username: String,
-    val password1: String,
-    val password2: String,
+    val password: String,
+    val re_password: String,
     val user_nickname: String,
     val user_phone: String,
     val email: String

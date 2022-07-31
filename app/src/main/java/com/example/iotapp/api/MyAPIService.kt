@@ -10,7 +10,7 @@ interface MyAPIService {
     fun Login(@Body info: LoginInfo): Call<LoginInfo>
 
     @Headers("Content-Type:application/json")
-    @POST("dj-rest-auth/registration/")
+    @POST("auth/users/")
     fun postUserInfo(@Body info: UserInfo): Call<UserInfo>
 
 
