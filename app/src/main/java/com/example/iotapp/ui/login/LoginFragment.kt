@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.iotapp.R
 import com.example.iotapp.databinding.FragmentLoginBinding
 
@@ -25,9 +26,17 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btnBack.setOnClickListener{
+        binding.btnBack.setOnClickListener {
             activity?.finish()
         }
-        binding.textSignup.setOnClickListener {  }
+        binding.btnSend.setOnClickListener {
+
+        }
+        binding.textForgotPassword.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_resetPasswordFragment)
+        }
+        binding.textSignup.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_signupFragment)
+        }
     }
 }

@@ -1,6 +1,5 @@
 package com.example.iotapp.ui.signup
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,11 +7,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import com.example.iotapp.MainActivity
-import com.example.iotapp.api.*
-import com.example.iotapp.databinding.FragmentSignupBinding
-import com.blankj.utilcode.constant.RegexConstants;
 import com.blankj.utilcode.util.RegexUtils
+import com.example.iotapp.api.IotApi
+import com.example.iotapp.api.MyAPIService
+import com.example.iotapp.api.RetrofitManager
+import com.example.iotapp.api.UserInfo
+import com.example.iotapp.databinding.FragmentSignupBinding
 
 class SignupFragment : Fragment() {
     private var _binging: FragmentSignupBinding? = null
@@ -39,10 +39,9 @@ class SignupFragment : Fragment() {
         binding.btnSend.setOnClickListener {
             var msg = ""
             val username: String = binding.inputUsername.text.toString()
-            var password = ""
-            if (binding.inputPassword.text.contentEquals(binding.inputConfirmPassword.text)) {
-                password = binding.inputPassword.text.toString()
-            } else {
+            val password = binding.inputPassword.text.toString()
+            val password2 = binding.inputPassword2.text.toString()
+            if (password != password2) {
                 msg = "輸入密碼不相符"
             }
             val email: String = binding.inputEmail.text.toString()
@@ -51,12 +50,12 @@ class SignupFragment : Fragment() {
             } else if (password.isEmpty() && msg.isEmpty()) {
                 msg = "使用者密碼不得為空"
             } else if ((!RegexUtils.isEmail(email)) && msg.isEmpty()) {
-                msg = if(email.isEmpty()) "信箱不得為空" else "信箱格式錯誤"
+                msg = if (email.isEmpty()) "信箱不得為空" else "信箱格式錯誤"
             }
             if (msg.isNotEmpty()) {
                 Toast.makeText(activity, msg, Toast.LENGTH_SHORT).show()
-            }else{
-                val user = UserInfo(username, password, "", "", email)
+            } else {
+                val user = UserInfo(username, password, password2,"", "", email)
                 binding.loading.isVisible = true
                 IotApi().postInfo(user, activity, binding)
             }

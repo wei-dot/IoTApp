@@ -5,7 +5,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.iotapp.databinding.FragmentHomeBinding
@@ -52,18 +51,18 @@ class HomeFragment : Fragment() {
             }
         }
         //預設全部開關關閉
-        binding.tplinkSwitch1?.isChecked = false
-        binding.tplinkSwitch2?.isChecked = false
-        binding.tplinkSwitch3?.isChecked = false
-        binding.tplinkSwitch4?.isChecked = false
-        binding.tplinkSwitch5?.isChecked = false
-        binding.tplinkSwitch6?.isChecked = false
+        binding.tplinkSwitch1.isChecked = false
+        binding.tplinkSwitch2.isChecked = false
+        binding.tplinkSwitch3.isChecked = false
+        binding.tplinkSwitch4.isChecked = false
+        binding.tplinkSwitch5.isChecked = false
+        binding.tplinkSwitch6.isChecked = false
 
 
         //測試廷長線開關
-        _binding!!.tplinkSwitch1?.setOnCheckedChangeListener { _, isChecked ->
+        _binding!!.tplinkSwitch1.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                _binding!!.tplinkSwitch1?.setText("開")
+                _binding!!.tplinkSwitch1.text = "開"
                 thread{
                     val socket = Socket("192.168.0.10", 7559)
                     val out = DataOutputStream(socket.getOutputStream())
@@ -75,7 +74,7 @@ class HomeFragment : Fragment() {
 
                 }
             } else {
-                _binding!!.tplinkSwitch1?.setText("關")
+                _binding!!.tplinkSwitch1.text = "關"
                 thread{
                     val socket = Socket("192.168.0.10",7559)
                     val out = DataOutputStream(socket.getOutputStream())
@@ -86,9 +85,9 @@ class HomeFragment : Fragment() {
                 }
             }
         }
-        _binding!!.tplinkSwitch2?.setOnCheckedChangeListener { _, isChecked ->
+        _binding!!.tplinkSwitch2.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                _binding!!.tplinkSwitch2?.setText("開")
+                _binding!!.tplinkSwitch2.text = "開"
                 thread{
                     val socket = Socket("192.168.0.10", 7559)
                     val out = DataOutputStream(socket.getOutputStream())
@@ -100,7 +99,7 @@ class HomeFragment : Fragment() {
 
                 }
             } else {
-                _binding!!.tplinkSwitch2?.setText("關")
+                _binding!!.tplinkSwitch2.text = "關"
                 thread{
                     val socket = Socket("192.168.0.10",7559)
                     val out = DataOutputStream(socket.getOutputStream())
@@ -112,9 +111,9 @@ class HomeFragment : Fragment() {
             }
         }
 
-        _binding!!.tplinkSwitch3?.setOnCheckedChangeListener { _, isChecked ->
+        _binding!!.tplinkSwitch3.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                _binding!!.tplinkSwitch3?.setText("開")
+                _binding!!.tplinkSwitch3.text = "開"
                 thread{
                     val socket = Socket("192.168.0.10", 7559)
                     val out = DataOutputStream(socket.getOutputStream())
@@ -126,7 +125,7 @@ class HomeFragment : Fragment() {
 
                 }
             } else {
-                _binding!!.tplinkSwitch3?.setText("關")
+                _binding!!.tplinkSwitch3.text = "關"
                 thread{
                     val socket = Socket("192.168.0.10",7559)
                     val out = DataOutputStream(socket.getOutputStream())
@@ -138,9 +137,9 @@ class HomeFragment : Fragment() {
             }
         }
 
-        _binding!!.tplinkSwitch4?.setOnCheckedChangeListener { _, isChecked ->
+        _binding!!.tplinkSwitch4.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                _binding!!.tplinkSwitch4?.setText("開")
+                _binding!!.tplinkSwitch4.text = "開"
                 thread{
                     val socket = Socket("192.168.0.10", 7559)
                     val out = DataOutputStream(socket.getOutputStream())
@@ -152,7 +151,7 @@ class HomeFragment : Fragment() {
 
                 }
             } else {
-                _binding!!.tplinkSwitch4?.setText("關")
+                _binding!!.tplinkSwitch4.text = "關"
                 thread{
                     val socket = Socket("192.168.0.10",7559)
                     val out = DataOutputStream(socket.getOutputStream())
@@ -164,23 +163,23 @@ class HomeFragment : Fragment() {
             }
         }
 
-        _binding!!.tplinkSwitch5?.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                _binding!!.tplinkSwitch5?.setText("開")
-                thread{
+        _binding!!.tplinkSwitch5.setOnCheckedChangeListener { _, isChecked ->
+           if (isChecked) {
+                _binding!!.tplinkSwitch5.text = "開"
+                thread {
                     val socket = Socket("192.168.0.10", 7559)
                     val out = DataOutputStream(socket.getOutputStream())
                     out.writeUTF("5on")
-                    Log.d("HomeFragment","on")
+                    Log.d("HomeFragment", "on")
                     out.close()
                     socket.close()
                     println("finish on")
 
                 }
             } else {
-                _binding!!.tplinkSwitch5?.setText("關")
-                thread{
-                    val socket = Socket("192.168.0.10",7559)
+                _binding!!.tplinkSwitch5.text = "關"
+                thread {
+                    val socket = Socket("192.168.0.10", 7559)
                     val out = DataOutputStream(socket.getOutputStream())
                     out.writeUTF("5off")
                     out.close()
@@ -190,9 +189,9 @@ class HomeFragment : Fragment() {
             }
         }
 
-        _binding!!.tplinkSwitch6?.setOnCheckedChangeListener { _, isChecked ->
+        _binding!!.tplinkSwitch6.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                _binding!!.tplinkSwitch6?.setText("開")
+                _binding!!.tplinkSwitch6.text = "開"
                 thread{
                     val socket = Socket("192.168.0.10", 7559)
                     val out = DataOutputStream(socket.getOutputStream())
@@ -204,7 +203,7 @@ class HomeFragment : Fragment() {
 
                 }
             } else {
-                _binding!!.tplinkSwitch6?.setText("關")
+                _binding!!.tplinkSwitch6.text = "關"
                 thread{
                     val socket = Socket("192.168.0.10",7559)
                     val out = DataOutputStream(socket.getOutputStream())

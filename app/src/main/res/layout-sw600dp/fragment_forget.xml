@@ -2,11 +2,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/forgot_page"
+        android:id="@+id/forget_page"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:background="@drawable/background_login"
-        app:layout_anchorGravity="bottom">
+        app:layout_anchorGravity="bottom"
+        tools:context=".ui.forget.ForgetPasswordFragment">
 
 
     <ImageButton
@@ -42,7 +43,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.248" />
+            app:layout_constraintVertical_bias="0.269" />
 
     <ImageButton
             android:id="@+id/button_send"
@@ -60,8 +61,8 @@
 
     <TextView
             android:id="@+id/text_forgot_psw"
-            android:layout_width="183dp"
-            android:layout_height="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignStart="@+id/content_space"
             android:layout_alignEnd="@+id/content_space"
             android:layout_alignParentStart="true"
@@ -69,7 +70,7 @@
             android:gravity="center_horizontal|top"
             android:lineSpacingExtra="8sp"
             android:text="@string/title_forgot_password"
-            android:textAppearance="@style/send_verification_code_button"
+            android:textAppearance="@style/text_login_title"
             android:translationY="-3.9sp"
             app:layout_constraintBottom_toTopOf="@+id/button_send"
             app:layout_constraintEnd_toEndOf="@+id/content_space"
@@ -82,7 +83,7 @@
             android:layout_width="254dp"
             android:layout_height="41dp"
             android:background="@drawable/background_edit_box"
-            android:hint="@string/enter_name"
+            android:hint="@string/hint_name"
             android:inputType="textEmailAddress"
             android:selectAllOnFocus="true"
             app:layout_constraintBottom_toTopOf="@+id/forgot_enter_phone"
@@ -97,7 +98,7 @@
             android:layout_width="254dp"
             android:layout_height="41dp"
             android:background="@drawable/background_edit_box"
-            android:hint="@string/enter_phone"
+            android:hint="@string/hint_phone"
             android:inputType="phone"
             android:selectAllOnFocus="true"
             app:layout_constraintBottom_toTopOf="@id/button_send"
@@ -139,7 +140,7 @@
             android:layout_width="254dp"
             android:layout_height="41dp"
             android:background="@drawable/background_edit_box"
-            android:hint="@string/enter_verification_code"
+            android:hint="@string/hint_verify"
             android:inputType="phone"
             android:selectAllOnFocus="true"
             app:layout_constraintBottom_toTopOf="@id/button_send"

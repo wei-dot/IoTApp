@@ -5,13 +5,13 @@ import retrofit2.http.*
 
 interface MyAPIService {
 
-    @GET("user_info/{id}")
-    fun getUserInfoById(@Path("id") id: Int): Call<UserInfo>
+    @Headers("Content-Type: application/json")
+    @POST("dj-rest-auth/login/")
+    fun Login(@Body info: LoginInfo): Call<LoginInfo>
 
     @Headers("Content-Type:application/json")
-    @POST("user_info/")
+    @POST("dj-rest-auth/registration/")
     fun postUserInfo(@Body info: UserInfo): Call<UserInfo>
-
 
 
 }
