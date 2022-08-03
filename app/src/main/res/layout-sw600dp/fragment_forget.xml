@@ -52,7 +52,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginTop="461dp"
-            android:background="@drawable/button_send"
+            android:background="@drawable/btn_send"
             android:clickable="true"
             app:layout_constraintBottom_toBottomOf="@id/content_space"
             app:layout_constraintEnd_toEndOf="@id/content_space"
@@ -115,7 +115,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginTop="8dp"
-            android:background="@drawable/button_send_verification_code"
+            android:background="@drawable/btn_send_verification_code"
             android:contextClickable="false"
             app:layout_constraintStart_toStartOf="@+id/forgot_enter_phone"
             app:layout_constraintTop_toBottomOf="@+id/forgot_enter_phone" />

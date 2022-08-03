@@ -44,7 +44,7 @@
             android:layout_height="48dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:background="@drawable/button_send"
+            android:background="@drawable/btn_send"
             android:clickable="true"
             app:layout_constraintBottom_toBottomOf="@+id/content_space"
             app:layout_constraintStart_toStartOf="@+id/content_space"

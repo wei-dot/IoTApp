@@ -9,15 +9,12 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.blankj.utilcode.util.RegexUtils
 import com.example.iotapp.api.IotApi
-import com.example.iotapp.api.MyAPIService
-import com.example.iotapp.api.RetrofitManager
 import com.example.iotapp.api.UserInfo
 import com.example.iotapp.databinding.FragmentSignupBinding
 
 class SignupFragment : Fragment() {
     private var _binging: FragmentSignupBinding? = null
     private val binding get() = _binging!!
-    private var myAPIService: MyAPIService? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,7 +23,6 @@ class SignupFragment : Fragment() {
     ): View {
         _binging = FragmentSignupBinding.inflate(inflater, container, false)
         val root = binding.root
-        myAPIService = RetrofitManager.getInstance().create(MyAPIService::class.java)
         return root
     }
 
@@ -55,9 +51,9 @@ class SignupFragment : Fragment() {
             if (msg.isNotEmpty()) {
                 Toast.makeText(activity, msg, Toast.LENGTH_SHORT).show()
             } else {
-                val user = UserInfo(username, password, password2,"", "", email)
+                val user = UserInfo(username, password, password2, "", "", email)
                 binding.loading.isVisible = true
-                IotApi().postInfo(user, activity, binding)
+                IotApi().signup(user, activity, binding)
             }
         }
     }
