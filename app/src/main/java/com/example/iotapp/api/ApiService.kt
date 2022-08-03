@@ -16,7 +16,11 @@ interface ApiService {
 
     @Headers("Content-Type:application/json")
     @GET(Constants.GET_USER_URL)
-    fun getinfo(@Header("Authorization") token: String): Call<UserInfo>
+    fun getInfo(@Header("Authorization") token: String): Call<UserInfo>
+
+    @Headers("Content-Type:application/json")
+    @POST(Constants.LOGOUT_URL)
+    fun logout(@Header("Authorization") token: String): Call<Void>
 
 
 }

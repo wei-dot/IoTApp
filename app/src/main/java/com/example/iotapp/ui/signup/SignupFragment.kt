@@ -1,5 +1,6 @@
 package com.example.iotapp.ui.signup
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.blankj.utilcode.util.RegexUtils
+import com.example.iotapp.MainActivity
 import com.example.iotapp.api.IotApi
 import com.example.iotapp.api.UserInfo
 import com.example.iotapp.databinding.FragmentSignupBinding
@@ -30,7 +32,7 @@ class SignupFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.btnBack.setOnClickListener {
             activity?.finish()
-//            startActivity(Intent(this.context, MainActivity::class.java))
+            startActivity(Intent(this.context, MainActivity::class.java))
         }
         binding.btnSend.setOnClickListener {
             var msg = ""

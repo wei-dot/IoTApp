@@ -1,8 +1,9 @@
 package com.example.iotapp.api
 
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.widget.Toast
-import androidx.annotation.MainThread
 import androidx.core.view.isVisible
 import androidx.fragment.app.FragmentActivity
 import com.example.iotapp.MainActivity
@@ -15,16 +16,20 @@ import retrofit2.http.Body
 
 
 class IotApi {
-    private lateinit var sessionManager: SessionManager
-    private lateinit var apiClient: ApiService
 
+
+    private lateinit var sessionManager: SessionManager
+
+    companion object {
+        var apiClient: ApiService = ApiClient.getApiService()
+        var globalVar = false
+    }
 
     fun signup(
         @Body info: UserInfo,
         activity: FragmentActivity?,
         signup: FragmentSignupBinding
     ) {
-        apiClient = ApiClient.getApiService()
         apiClient.signup(info).enqueue {
             onResponse = {
                 if (it.isSuccessful) {
@@ -57,8 +62,9 @@ class IotApi {
         @Body info: Login, activity: FragmentActivity?,
         login: FragmentLoginBinding
     ) {
-        apiClient = ApiClient.getApiService()
         sessionManager = SessionManager(activity!!)
+
+
         apiClient.login(info).enqueue {
             onResponse = {
                 val loginResponse = it.body()
@@ -68,7 +74,6 @@ class IotApi {
                     sessionManager.saveAuthToken(loginResponse!!.authToken)
                     Toast.makeText(activity, "登入成功", Toast.LENGTH_SHORT).show()
                     Log.d("IotApi Token:", loginResponse.toString())
-                    activity.finish()
                 } else {
                     login.loading.isVisible = false
                     Log.d("IotApi", "getToken: 登入失敗")
@@ -86,22 +91,28 @@ class IotApi {
             }
         }
 
+        Handler(Looper.getMainLooper()).postDelayed({
+            // Your Code
+            getInfo(activity)
+        }, 3000)
+
+
     }
 
-    fun getInfo(activity: FragmentActivity?): Boolean {
-        var isLogin = false
+    fun getInfo(activity: FragmentActivity?) {
+
         apiClient = ApiClient.getApiService()
         sessionManager = SessionManager(activity!!)
-        apiClient.getinfo(token = "Token ${sessionManager.fetchAuthToken()}")
+        apiClient.getInfo(token = "Token ${sessionManager.fetchAuthToken()}")
             .enqueue {
                 onResponse = {
                     if (it.isSuccessful) {
                         Log.d("IotApi", "getInfo: 取得成功")
                         val user = it.body()!!
-                        isLogin = true
                         Log.d("IotApi", user.toString())
                         Toast.makeText(activity, "歡迎 ${user!!.username} 回來", Toast.LENGTH_SHORT)
                             .show()
+                        globalVar = true
 
                     } else {
                         Log.d("IotApi", "getInfo: 取得失敗")
@@ -117,7 +128,25 @@ class IotApi {
                     Toast.makeText(activity, "取得失敗", Toast.LENGTH_SHORT).show()
                 }
             }
-        return isLogin
+    }
+
+    fun logout(activity: MainActivity) {
+        sessionManager = SessionManager(activity)
+        apiClient.logout(token = "Token ${sessionManager.fetchAuthToken()}")
+            .enqueue(object : Callback<Void> {
+                override fun onFailure(call: Call<Void>, t: Throwable) {
+                    Log.d("IotApi", "logout: ${t.message}")
+                }
+
+                override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                    if (response.isSuccessful) {
+                        Log.d("IotApi", "logout: 登出成功")
+                        globalVar = false
+                    } else {
+                        Log.d("IotApi", "logout: 登出失敗")
+                    }
+                }
+            })
     }
 
 

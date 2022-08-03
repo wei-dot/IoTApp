@@ -5,4 +5,5 @@ object Constants  {
     const val LOGIN_URL = "auth/token/login"
     const val Signup_URL = "auth/users/"
     const val GET_USER_URL = "auth/users/me/"
+    const val LOGOUT_URL = "auth/token/logout/"
 }

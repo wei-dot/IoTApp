@@ -1,9 +1,12 @@
 package com.example.iotapp
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Intent
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.*
 import android.widget.PopupWindow
 import android.widget.Toast
@@ -16,9 +19,10 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupWithNavController
 import com.example.iotapp.api.IotApi
-import com.example.iotapp.api.UserInfo
 import com.example.iotapp.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import java.lang.ref.WeakReference
+import kotlin.concurrent.thread
 
 
 class MainActivity : AppCompatActivity() {
@@ -31,6 +35,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        isLogin = IotApi.globalVar
+        Toast.makeText(this, "isLogin: $isLogin", Toast.LENGTH_SHORT).show()
         switchSideBarContent(isLogin)
         val navView: BottomNavigationView = binding.appBarMain.bottomNavigation
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
@@ -51,12 +57,13 @@ class MainActivity : AppCompatActivity() {
         }
         binding.loginPage.btnLogin.setOnClickListener {
             val intent = Intent(this, AccountActivity::class.java)
-            intent.putExtra("Login","Login")
+            intent.putExtra("Login", "Login")
+            finish()
             startActivity(intent)
         }
         binding.loginPage.btnSignup.setOnClickListener {
             val intent = Intent(this, AccountActivity::class.java)
-            intent.putExtra("Login","Signup")
+            intent.putExtra("Login", "Signup")
             startActivity(intent)
         }
         binding.loginPage.btnBack.setOnClickListener {
@@ -66,10 +73,15 @@ class MainActivity : AppCompatActivity() {
             drawerLayout.close()
         }
         binding.profilePage.btnLogout.setOnClickListener {
-            isLogin = false
-            switchSideBarContent(isLogin)
+            IotApi().logout(this)
+
+            Handler(Looper.getMainLooper()).postDelayed({
+                // Your Code
+                finish();
+                startActivity(intent);
+            }, 3000)
+
         }
-        switchSideBarContent(isLogin)
 
         binding.appBarMain.btnNotification.setOnClickListener { v ->
             initPopWindow(v)
@@ -107,7 +119,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-     fun switchSideBarContent(isLogin: Boolean) {
+    private fun switchSideBarContent(isLogin: Boolean) {
         if (isLogin) {
             binding.notLogin.isVisible = false
             binding.hasLogin.isVisible = true
@@ -155,5 +167,23 @@ class MainActivity : AppCompatActivity() {
         lp.alpha = f
         window.attributes = lp
     }
+
+    private class MyHandler : Handler()
+
+    private val mHandler = MyHandler()
+
+    class MyRunnable(activity: Activity?) : Runnable {
+        private val mActivity: WeakReference<Activity>
+        override fun run() {
+            val activity: Activity = mActivity.get()!!
+        }
+
+        init {
+            mActivity = WeakReference(activity)
+        }
+    }
+
+    private val mRunnable = MyRunnable(this)
+
 
 }

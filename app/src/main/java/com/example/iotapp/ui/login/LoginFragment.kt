@@ -1,6 +1,9 @@
 package com.example.iotapp.ui.login
 
+import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +11,7 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.iotapp.MainActivity
 import com.example.iotapp.R
 import com.example.iotapp.api.*
 import com.example.iotapp.databinding.FragmentLoginBinding
@@ -33,6 +37,7 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.btnBack.setOnClickListener {
+            startActivity(Intent(activity, MainActivity::class.java))
             activity?.finish()
         }
         binding.btnSend.setOnClickListener {
@@ -41,8 +46,12 @@ class LoginFragment : Fragment() {
             val login = Login(username, password)
             binding.loading.isVisible = true
             IotApi().login(login, activity, binding)
+            Handler(Looper.getMainLooper()).postDelayed({
+                // Your Code
+                startActivity(Intent(activity, MainActivity::class.java))
+                activity?.finish()
+            }, 3000)
 
-            IotApi().getInfo(activity)
 
 
         }
