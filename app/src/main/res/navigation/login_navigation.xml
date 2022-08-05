@@ -30,14 +30,7 @@
             android:id="@+id/forgetPasswordFragment"
             android:name="com.example.iotapp.ui.forget.ForgetPasswordFragment"
             android:label="fragment_reset"
-            tools:layout="@layout/fragment_forget" >
-
-        <action
-                android:id="@+id/action_forgetPasswordFragment_to_resetPasswordFragment"
-                app:destination="@id/resetPasswordFragment"
-                app:enterAnim="@android:anim/slide_in_left"
-                app:exitAnim="@android:anim/slide_out_right" />
-    </fragment>
+            tools:layout="@layout/fragment_forget" />
     <fragment
             android:id="@+id/resetPasswordFragment"
             android:name="com.example.iotapp.ui.reset.ResetPasswordFragment"

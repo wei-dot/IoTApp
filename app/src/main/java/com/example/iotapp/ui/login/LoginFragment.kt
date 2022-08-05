@@ -7,17 +7,15 @@ import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.iotapp.MainActivity
 import com.example.iotapp.R
-import com.example.iotapp.api.*
+import com.example.iotapp.api.IotApi
+import com.example.iotapp.api.Login
 import com.example.iotapp.databinding.FragmentLoginBinding
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class LoginFragment : Fragment() {
 
@@ -45,13 +43,13 @@ class LoginFragment : Fragment() {
             val password = binding.inputPassword.text.toString()
             val login = Login(username, password)
             binding.loading.isVisible = true
-            IotApi().login(login, activity, binding)
+            IotApi().login(login, activity)
             Handler(Looper.getMainLooper()).postDelayed({
                 // Your Code
                 startActivity(Intent(activity, MainActivity::class.java))
+                binding.loading.isInvisible = false
                 activity?.finish()
             }, 3000)
-
 
 
         }

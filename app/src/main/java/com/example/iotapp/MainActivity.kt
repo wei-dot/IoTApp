@@ -1,7 +1,6 @@
 package com.example.iotapp
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.content.Intent
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -21,8 +20,6 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.iotapp.api.IotApi
 import com.example.iotapp.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import java.lang.ref.WeakReference
-import kotlin.concurrent.thread
 
 
 class MainActivity : AppCompatActivity() {
@@ -73,12 +70,13 @@ class MainActivity : AppCompatActivity() {
             drawerLayout.close()
         }
         binding.profilePage.btnLogout.setOnClickListener {
+            binding.loading?.isVisible = true
             IotApi().logout(this)
-
             Handler(Looper.getMainLooper()).postDelayed({
                 // Your Code
-                finish();
-                startActivity(intent);
+                binding.loading?.isVisible = false
+                finish()
+                startActivity(intent)
             }, 3000)
 
         }
@@ -169,23 +167,6 @@ class MainActivity : AppCompatActivity() {
         lp.alpha = f
         window.attributes = lp
     }
-
-    private class MyHandler : Handler()
-
-    private val mHandler = MyHandler()
-
-    class MyRunnable(activity: Activity?) : Runnable {
-        private val mActivity: WeakReference<Activity>
-        override fun run() {
-            val activity: Activity = mActivity.get()!!
-        }
-
-        init {
-            mActivity = WeakReference(activity)
-        }
-    }
-
-    private val mRunnable = MyRunnable(this)
 
 
 }
