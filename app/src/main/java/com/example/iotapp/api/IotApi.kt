@@ -89,7 +89,7 @@ class IotApi {
         Handler(Looper.getMainLooper()).postDelayed({
             // Your Code
             getInfo(activity)
-        }, 3000)
+        }, 2000)
 
 
     }
