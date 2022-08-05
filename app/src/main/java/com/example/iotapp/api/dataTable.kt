@@ -34,7 +34,17 @@ data class LoginResponse(
     @SerializedName("auth_token")
     var authToken: String,
 )
+
 data class ResetPassword(
     @SerializedName("email")
     val email: String
+)
+
+data class SetPassword(
+    @SerializedName("current_password")
+    val password_old: String,
+    @SerializedName("new_password")
+    val password: String,
+    @SerializedName("re_new_password")
+    val re_password: String
 )

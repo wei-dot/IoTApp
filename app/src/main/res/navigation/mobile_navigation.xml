@@ -9,24 +9,24 @@
             android:id="@+id/navigation_home"
             android:name="com.example.iotapp.ui.home.HomeFragment"
             android:label="@string/fragment_home"
-            tools:layout="@layout/fragment_home"/>
+            tools:layout="@layout/fragment_main_home"/>
     <fragment
             android:id="@+id/navigation_family"
             android:name="com.example.iotapp.ui.family.FamilyFragment"
             android:label="@string/fragment_family"
-            tools:layout="@layout/fragment_family"/>
+            tools:layout="@layout/fragment_main_family"/>
 
     <fragment
             android:id="@+id/navigation_mode"
             android:name="com.example.iotapp.ui.mode.ModeFragment"
             android:label="@string/fragment_mode"
-            tools:layout="@layout/fragment_mode"/>
+            tools:layout="@layout/fragment_main_mode"/>
 
 
     <fragment
             android:id="@+id/navigation_log"
             android:name="com.example.iotapp.ui.log.LogFragment"
             android:label="@string/fragment_log"
-            tools:layout="@layout/fragment_log"/>
+            tools:layout="@layout/fragment_main_log"/>
 
 </navigation>

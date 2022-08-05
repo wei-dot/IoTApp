@@ -15,11 +15,11 @@ import com.example.iotapp.MainActivity
 import com.example.iotapp.R
 import com.example.iotapp.api.IotApi
 import com.example.iotapp.api.Login
-import com.example.iotapp.databinding.FragmentLoginBinding
+import com.example.iotapp.databinding.FragmentAccountLoginBinding
 
 class LoginFragment : Fragment() {
 
-    private var _binging: FragmentLoginBinding? = null
+    private var _binging: FragmentAccountLoginBinding? = null
     private val binding get() = _binging!!
 
     override fun onCreateView(
@@ -27,7 +27,7 @@ class LoginFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binging = FragmentLoginBinding.inflate(inflater, container, false)
+        _binging = FragmentAccountLoginBinding.inflate(inflater, container, false)
         val root = binding.root
         return root
     }
@@ -39,16 +39,21 @@ class LoginFragment : Fragment() {
             activity?.finish()
         }
         binding.btnSend.setOnClickListener {
-            val username = binding.inputUsername.text.toString()
-            val password = binding.inputPassword.text.toString()
+            val username = binding.etUsername.text.toString()
+            val password = binding.etPassword?.text.toString()
             val login = Login(username, password)
             binding.loading.isVisible = true
+            binding.btnSend.isEnabled = false
+            binding.btnBack.isEnabled = false
+            binding.textForgotPassword.isEnabled = false
+            binding.textSignup.isEnabled = false
             IotApi().login(login, activity)
+
             Handler(Looper.getMainLooper()).postDelayed({
                 // Your Code
-                startActivity(Intent(activity, MainActivity::class.java))
                 binding.loading.isInvisible = false
                 activity?.finish()
+                startActivity(Intent(activity, MainActivity::class.java))
             }, 3000)
 
 

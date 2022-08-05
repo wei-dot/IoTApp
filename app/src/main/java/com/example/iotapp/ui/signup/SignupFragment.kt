@@ -12,10 +12,10 @@ import com.blankj.utilcode.util.RegexUtils
 import com.example.iotapp.MainActivity
 import com.example.iotapp.api.IotApi
 import com.example.iotapp.api.UserInfo
-import com.example.iotapp.databinding.FragmentSignupBinding
+import com.example.iotapp.databinding.FragmentAccountSignupBinding
 
 class SignupFragment : Fragment() {
-    private var _binging: FragmentSignupBinding? = null
+    private var _binging: FragmentAccountSignupBinding? = null
     private val binding get() = _binging!!
 
     override fun onCreateView(
@@ -23,7 +23,7 @@ class SignupFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binging = FragmentSignupBinding.inflate(inflater, container, false)
+        _binging = FragmentAccountSignupBinding.inflate(inflater, container, false)
         val root = binding.root
         return root
     }
@@ -36,13 +36,13 @@ class SignupFragment : Fragment() {
         }
         binding.btnSend.setOnClickListener {
             var msg = ""
-            val username: String = binding.inputUsername.text.toString()
-            val password = binding.inputPassword.text.toString()
-            val password2 = binding.inputPassword2.text.toString()
+            val username: String = binding.etUsername.text.toString()
+            val password = binding.etPassword?.text.toString()
+            val password2 = binding.etPasswordConfirm?.text.toString()
             if (password != password2) {
                 msg = "輸入密碼不相符"
             }
-            val email: String = binding.inputEmail.text.toString()
+            val email: String = binding.etEmail.text.toString()
             if (username.isEmpty() && msg.isEmpty()) {
                 msg = "使用者名稱不得為空"
             } else if (password.isEmpty() && msg.isEmpty()) {

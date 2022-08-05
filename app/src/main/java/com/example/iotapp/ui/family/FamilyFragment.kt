@@ -7,14 +7,14 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.iotapp.databinding.FragmentFamilyBinding
+import com.example.iotapp.databinding.FragmentMainFamilyBinding
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
 class FamilyFragment : Fragment() {
 
-    private var _binding: FragmentFamilyBinding? = null
+    private var _binding: FragmentMainFamilyBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -25,7 +25,7 @@ class FamilyFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val familyViewModel = ViewModelProvider(this)[FamilyViewModel::class.java]
-        _binding = FragmentFamilyBinding.inflate(inflater, container, false)
+        _binding = FragmentMainFamilyBinding.inflate(inflater, container, false)
         val root: View = binding.root
         val textView: TextView = binding.textFamily
         familyViewModel.text.observe(viewLifecycleOwner) {

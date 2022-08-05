@@ -7,7 +7,7 @@
         android:layout_height="fill_parent"
         android:background="@drawable/background_login"
         app:layout_anchorGravity="bottom"
-        tools:context=".ui.reset.ResetPasswordFragment">
+        tools:context=".ui.set.SetPasswordFragment">
 
 
     <ImageButton
@@ -69,10 +69,10 @@
             app:layout_constraintStart_toStartOf="@+id/content_space"
             app:layout_constraintEnd_toEndOf="@+id/content_space"
             app:layout_constraintTop_toTopOf="@+id/content_space"
-            app:layout_constraintBottom_toTopOf="@+id/input_password" />
+            app:layout_constraintBottom_toTopOf="@+id/et_password_new" />
 
     <EditText
-            android:id="@+id/input_password"
+            android:id="@+id/et_password_new"
             android:layout_width="254dp"
             android:layout_height="48dp"
             android:autofillHints="password"
@@ -99,7 +99,7 @@
             android:selectAllOnFocus="true"
             app:layout_constraintStart_toStartOf="@+id/content_space"
             app:layout_constraintEnd_toEndOf="@+id/content_space"
-            app:layout_constraintTop_toBottomOf="@+id/input_password"
+            app:layout_constraintTop_toBottomOf="@+id/et_password_new"
             app:layout_constraintBottom_toTopOf="@+id/btn_send" />
 
 

@@ -12,17 +12,17 @@ import com.example.iotapp.MainActivity
 import com.example.iotapp.R
 import com.example.iotapp.api.IotApi
 import com.example.iotapp.api.ResetPassword
-import com.example.iotapp.databinding.FragmentForgetBinding
+import com.example.iotapp.databinding.FragmentAccountForgetBinding
 
 class ForgetPasswordFragment : Fragment() {
-    private var _binding: FragmentForgetBinding? = null
+    private var _binding: FragmentAccountForgetBinding? = null
     private val binding get() = _binding!!
     override fun onCreateView(
         inflater: android.view.LayoutInflater,
         container: android.view.ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentForgetBinding.inflate(inflater, container, false)
+        _binding = FragmentAccountForgetBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -32,9 +32,9 @@ class ForgetPasswordFragment : Fragment() {
             findNavController().navigate(R.id.loginFragment)
         }
         binding.btnSend.setOnClickListener {
-            val email = binding.inputEmail.text.toString()
+            val email = binding.etEmail.text.toString()
             if (email.isEmpty()) {
-                binding.inputEmail.error = "信箱不能為空"
+                binding.etEmail.error = "信箱不能為空"
             } else {
                 binding.loading.isVisible = true
                 IotApi().resetPassword(ResetPassword(email), activity,binding)

@@ -7,8 +7,9 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.FragmentActivity
 import com.example.iotapp.MainActivity
-import com.example.iotapp.databinding.FragmentForgetBinding
-import com.example.iotapp.databinding.FragmentSignupBinding
+import com.example.iotapp.databinding.FragmentAccountForgetBinding
+import com.example.iotapp.databinding.FragmentAccountSetBinding
+import com.example.iotapp.databinding.FragmentAccountSignupBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -28,19 +29,19 @@ class IotApi {
     fun signup(
         @Body info: UserInfo,
         activity: FragmentActivity?,
-        signup: FragmentSignupBinding
+        binding: FragmentAccountSignupBinding
     ) {
         apiClient.signup(info).enqueue {
             onResponse = {
                 if (it.isSuccessful) {
-                    signup.loading.isVisible = false
+                    binding.loading.isVisible = false
                     val user: UserInfo = it.body()!!
                     Log.d("IotApi", "postInfo: 註冊成功")
                     Toast.makeText(activity, "註冊成功", Toast.LENGTH_SHORT).show()
                     Log.d("IotApi", user.toString())
                     activity?.finish()
                 } else {
-                    signup.loading.isVisible = false
+                    binding.loading.isVisible = false
                     Log.d("IotApi", "postInfo: 註冊失敗")
                     Toast.makeText(
                         activity,
@@ -50,7 +51,7 @@ class IotApi {
                 }
             }
             onFailure = {
-                signup.loading.isVisible = false
+                binding.loading.isVisible = false
 
                 Log.d("IotApi", "postInfo: ${it?.message}")
                 Toast.makeText(activity, "註冊錯誤", Toast.LENGTH_SHORT).show()
@@ -65,9 +66,7 @@ class IotApi {
         apiClient.login(info).enqueue {
             onResponse = {
                 val loginResponse = it.body()
-
                 if (it.isSuccessful) {
-
                     sessionManager.saveAuthToken(loginResponse!!.authToken)
                     Toast.makeText(activity, "登入成功", Toast.LENGTH_SHORT).show()
                     Log.d("IotApi Token:", loginResponse.toString())
@@ -85,13 +84,10 @@ class IotApi {
                 Toast.makeText(activity, "登入錯誤", Toast.LENGTH_SHORT).show()
             }
         }
-
         Handler(Looper.getMainLooper()).postDelayed({
             // Your Code
             getInfo(activity)
-        }, 3000)
-
-
+        }, 2000)
     }
 
     fun getInfo(activity: FragmentActivity?) {
@@ -100,14 +96,12 @@ class IotApi {
             .enqueue {
                 onResponse = {
                     if (it.isSuccessful) {
-
                         Log.d("IotApi", "getInfo: 取得成功")
                         val user = it.body()!!
                         Log.d("IotApi", user.toString())
                         Toast.makeText(activity, "歡迎 ${user.username} 回來", Toast.LENGTH_SHORT)
                             .show()
                         globalVar = true
-
                     } else {
                         Log.d("IotApi", "getInfo: 取得失敗")
                         Toast.makeText(
@@ -119,7 +113,7 @@ class IotApi {
                 }
                 onFailure = {
                     Log.d("IotApi", "getInfo: ${it?.message}")
-                    Toast.makeText(activity, "取得失敗", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(activity, "取得錯誤40", Toast.LENGTH_SHORT).show()
                 }
             }
     }
@@ -152,16 +146,16 @@ class IotApi {
     fun resetPassword(
         @Body info: ResetPassword,
         activity: FragmentActivity?,
-        forgetBinding: FragmentForgetBinding
+        binding: FragmentAccountForgetBinding
     ) {
         apiClient.resetPassword(info).enqueue {
             onResponse = {
                 if (it.isSuccessful) {
-                    forgetBinding.loading.isVisible = false
+                    binding.loading.isVisible = false
                     Log.d("IotApi", "resetPassword: 重設密碼連結寄送成功")
                     Toast.makeText(activity, "重設密碼連結寄送成功", Toast.LENGTH_SHORT).show()
                 } else {
-                    forgetBinding.loading.isVisible = false
+                    binding.loading.isVisible = false
                     Log.d("IotApi", "resetPassword: 重設密碼連結寄送失敗")
                     Toast.makeText(
                         activity,
@@ -171,13 +165,43 @@ class IotApi {
                 }
             }
             onFailure = {
-                forgetBinding.loading.isVisible = false
+                binding.loading.isVisible = false
                 Log.d("IotApi", "resetPassword: ${it?.message}")
                 Toast.makeText(activity, "重設密碼連結寄送失敗", Toast.LENGTH_SHORT).show()
             }
         }
+    }
 
+    fun setPassword(
+        @Body info: SetPassword,
+        activity: FragmentActivity?,
+        binding: FragmentAccountSetBinding
+    ) {
+        sessionManager = SessionManager(activity!!)
+        apiClient.setPassword(token = "Token ${sessionManager.fetchAuthToken()}", info)
+            .enqueue {
+                onResponse = {
 
+                    if (it.isSuccessful) {
+                        binding.loading?.isVisible = false
+                        Log.d("IotApi", "setPassword: 設定密碼成功")
+                        Toast.makeText(activity, "設定密碼成功", Toast.LENGTH_SHORT).show()
+                    } else {
+                        binding.loading?.isVisible = false
+                        Log.d("IotApi", "setPassword: 設定密碼失敗")
+                        Toast.makeText(
+                            activity,
+                            "設定密碼失敗: ${it.errorBody()?.string()} ",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+                onFailure = {
+                    binding.loading?.isVisible = false
+                    Log.d("IotApi", "setPassword: ${it?.message}")
+                    Toast.makeText(activity, "設定密碼失敗", Toast.LENGTH_SHORT).show()
+                }
+            }
     }
 
 
