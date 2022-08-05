@@ -14,11 +14,7 @@
             android:id="@+id/navigation_family"
             android:name="com.example.iotapp.ui.family.FamilyNotinFragment"
             android:label="@string/fragment_family"
-<<<<<<< HEAD
             tools:layout="@layout/fragment_family_notin"/>
-=======
-            tools:layout="@layout/fragment_main_family"/>
->>>>>>> 7f8ee60fd16e313e169e92aa5d812400530943b4
 
     <fragment
             android:id="@+id/navigation_mode"

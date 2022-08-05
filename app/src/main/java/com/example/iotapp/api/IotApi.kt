@@ -88,11 +88,6 @@ class IotApi {
             // Your Code
             getInfo(activity)
         }, 2000)
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 7f8ee60fd16e313e169e92aa5d812400530943b4
     }
 
     fun getInfo(activity: FragmentActivity?) {
