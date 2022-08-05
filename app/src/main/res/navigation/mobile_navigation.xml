@@ -12,9 +12,9 @@
             tools:layout="@layout/fragment_home"/>
     <fragment
             android:id="@+id/navigation_family"
-            android:name="com.example.iotapp.ui.family.FamilyFragment"
+            android:name="com.example.iotapp.ui.family.FamilyNotinFragment"
             android:label="@string/fragment_family"
-            tools:layout="@layout/fragment_family"/>
+            tools:layout="@layout/fragment_family_notin"/>
 
     <fragment
             android:id="@+id/navigation_mode"

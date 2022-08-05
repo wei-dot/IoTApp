@@ -16,19 +16,6 @@ class AccountActivity : AppCompatActivity() {
         if (intent.getStringExtra("Login")=="Signup"){
             findNavController(R.id.nav_host_fragment_activity_login).navigate(R.id.signupFragment)
         }
-//        if (savedInstanceState == null) {
-//
-//            when (intent.getStringExtra("Login")) {
-//                "Login" -> supportFragmentManager.beginTransaction()
-//                    .replace(R.id.activity_login, LoginFragment())
-//                    .commitNow()
-//                "Signup" ->
-//                    findNavController(R.id.nav_host_fragment_activity_login).navigate(R.id.signupFragment)
-//                    supportFragmentManager.beginTransaction()
-//                    .replace(R.id.activity_login, SignupFragment())
-//                    .commitNow()
-//            }
-//        }
 
     }
 }

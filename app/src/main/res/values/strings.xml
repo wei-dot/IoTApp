@@ -29,7 +29,6 @@
     <string name="hint_email">輸入電子郵件</string>
 
 
-
     <!--customize your string here-->
     <string name="app_name">IoTApp</string>
     <string name="send_verification_code">發送驗證碼</string>
@@ -50,4 +49,6 @@
     <string name="switch_turn_on">開</string>
     <string name="switch_turn_off">關</string>
     <string name="text_tplink_switch">廷長線開關</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
