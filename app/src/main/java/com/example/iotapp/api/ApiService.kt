@@ -22,5 +22,9 @@ interface ApiService {
     @POST(Constants.LOGOUT_URL)
     fun logout(@Header("Authorization") token: String): Call<Void>
 
+    @Headers("Content-Type:application/json")
+    @POST(Constants.RESET_PASSWORD_URL)
+    fun resetPassword(@Body info: ResetPassword): Call<Void>
+
 
 }

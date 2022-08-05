@@ -16,18 +16,6 @@ data class UserInfo(
     @SerializedName("email")
     val email: String
 )
-data class ErrorUser(
-    @SerializedName("username")
-    val username: ArrayList<String>,
-    @SerializedName("password")
-    val password: ArrayList<String>,
-    @SerializedName("user_nickname")
-    val user_nickname: String,
-    @SerializedName("user_phone")
-    val user_phone: String,
-    @SerializedName("email")
-    val email: String
-)
 
 data class Category(
     val category_name: String,
@@ -45,4 +33,8 @@ data class Login(
 data class LoginResponse(
     @SerializedName("auth_token")
     var authToken: String,
+)
+data class ResetPassword(
+    @SerializedName("email")
+    val email: String
 )

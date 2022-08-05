@@ -19,7 +19,6 @@
     <style name="Theme.IoTApp.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="drawerArrowStyle">@style/DrawerHamburgerStyle</item>
     </style>
 
     <style name="Theme.IoTApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
@@ -27,16 +26,13 @@
     <style name="Theme.IoTApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <!--Customize Your Style -->
-
-    <style name="DrawerHamburgerStyle" parent="@style/Widget.AppCompat.DrawerArrowToggle">
-        <item name="spinBars">true</item>
-        <!--       Set the bar length -->
-        <item name="barLength">64dp</item>
-        <!--        Set the space between the hamburger button bars -->
-        <item name="gapBetweenBars">10dp</item>
-        <!--        Set the thickness of the bar -->
-        <item name="thickness">@dimen/hamburger_gap</item>
-        <!--        Set the color of the toggle button -->
-        <item name="color">@color/color_faf0dd</item>
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash</item>
+        <item name="android:windowFullscreen">true</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/color_FDF5E1</item>
+        <!-- Navigation bar color-->
+        <item name="android:navigationBarColor">@color/color_FDF5E1</item>
     </style>
+
 </resources>
