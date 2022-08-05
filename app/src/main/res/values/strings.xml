@@ -22,6 +22,7 @@
     <string name="enter_phone">輸入手機號碼</string>
     <string name="hint_password">輸入用戶密碼</string>
     <string name="hint_password_confirm">確認用戶密碼</string>
+    <string name="hint_password_old">確認舊密碼</string>
     <string name="hint_password_new">輸入新密碼</string>
     <string name="hint_password_new_confirm">確認新密碼</string>
     <string name="hint_verify">輸入6位數驗證碼</string>

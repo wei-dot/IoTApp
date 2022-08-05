@@ -56,7 +56,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/content_space"
         app:layout_constraintEnd_toEndOf="@+id/content_space"
         app:layout_constraintStart_toStartOf="@+id/content_space"
-        app:layout_constraintTop_toBottomOf="@+id/input_password"
+        app:layout_constraintTop_toBottomOf="@+id/et_password_new"
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
 
@@ -70,14 +70,14 @@
         android:text="@string/title_login"
         android:textAppearance="@style/text_login_title"
         android:translationY="-3.9sp"
-        app:layout_constraintBottom_toTopOf="@+id/input_username"
+        app:layout_constraintBottom_toTopOf="@+id/et_username"
         app:layout_constraintEnd_toEndOf="@+id/content_space"
         app:layout_constraintStart_toStartOf="@+id/content_space"
         app:layout_constraintTop_toTopOf="@+id/content_space"
         tools:ignore="TextContrastCheck" />
 
     <EditText
-        android:id="@+id/input_username"
+        android:id="@+id/et_username"
         android:layout_width="254dp"
         android:layout_height="48dp"
         android:autofillHints="@string/hint_email"
@@ -86,13 +86,13 @@
         android:inputType="textEmailAddress"
         android:textColor="@color/black"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/input_password"
+        app:layout_constraintBottom_toBottomOf="@+id/et_password_new"
         app:layout_constraintEnd_toEndOf="@+id/content_space"
         app:layout_constraintStart_toStartOf="@+id/content_space"
         app:layout_constraintTop_toBottomOf="@+id/text_login" />
 
     <EditText
-        android:id="@+id/input_password"
+        android:id="@+id/et_password_new"
         android:layout_width="254dp"
         android:layout_height="48dp"
         android:autofillHints="@string/hint_password"
@@ -106,7 +106,7 @@
         app:layout_constraintBottom_toTopOf="@+id/text_wrong"
         app:layout_constraintEnd_toEndOf="@+id/content_space"
         app:layout_constraintStart_toStartOf="@+id/content_space"
-        app:layout_constraintTop_toBottomOf="@+id/input_username" />
+        app:layout_constraintTop_toBottomOf="@+id/et_username" />
 
     <TextView
         android:id="@+id/text_wrong"

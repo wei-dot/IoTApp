@@ -42,7 +42,7 @@
         android:id="@+id/avatar_area"
         android:layout_width="77dp"
         android:layout_height="77dp"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:background="@drawable/background_avatar"
         app:layout_constraintBottom_toBottomOf="@+id/content_space"
@@ -50,13 +50,13 @@
         app:layout_constraintHorizontal_bias="0.197"
         app:layout_constraintStart_toStartOf="@+id/content_space"
         app:layout_constraintTop_toTopOf="@+id/content_space"
-        app:layout_constraintVertical_bias="0.145"/>
+        app:layout_constraintVertical_bias="0.145" />
 
     <TextView
         android:id="@+id/username"
         android:layout_width="152dp"
         android:layout_height="36dp"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="49dp"
         android:gravity="center_horizontal|top"
@@ -75,7 +75,7 @@
         android:id="@+id/profile_detail_place"
         android:layout_width="264dp"
         android:layout_height="154dp"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:background="@drawable/background_profile_detail"
         app:layout_constraintBottom_toBottomOf="@+id/content_space"
@@ -86,6 +86,19 @@
         app:layout_constraintVertical_bias="0.146" />
 
     <ImageButton
+        android:id="@+id/btn_set"
+        android:layout_width="122dp"
+        android:layout_height="33dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/btn_set"
+        app:layout_constraintBottom_toTopOf="@+id/btn_logout"
+        app:layout_constraintEnd_toEndOf="@+id/content_space"
+        app:layout_constraintStart_toStartOf="@+id/content_space"
+        app:layout_constraintTop_toBottomOf="@+id/profile_detail_place" />
+
+    <ImageButton
         android:id="@+id/btn_logout"
         android:layout_width="122dp"
         android:layout_height="33dp"
@@ -93,8 +106,8 @@
         android:layout_alignParentTop="true"
         android:background="@drawable/btn_logout"
         app:layout_constraintBottom_toBottomOf="@+id/content_space"
-        app:layout_constraintEnd_toEndOf="@+id/profile_detail_place"
-        app:layout_constraintStart_toStartOf="@+id/profile_detail_place"
-        app:layout_constraintTop_toBottomOf="@+id/profile_detail_place" />
+        app:layout_constraintEnd_toEndOf="@+id/content_space"
+        app:layout_constraintStart_toStartOf="@+id/content_space"
+        app:layout_constraintTop_toBottomOf="@+id/btn_set" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

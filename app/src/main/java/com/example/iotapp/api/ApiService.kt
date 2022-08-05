@@ -26,5 +26,9 @@ interface ApiService {
     @POST(Constants.RESET_PASSWORD_URL)
     fun resetPassword(@Body info: ResetPassword): Call<Void>
 
+    @Headers("Content-Type:application/json")
+    @POST(Constants.SET_PASSWORD_URL)
+    fun setPassword(@Header("Authorization") token: String, @Body info: SetPassword): Call<Void>
+
 
 }

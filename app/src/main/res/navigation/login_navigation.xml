@@ -9,7 +9,7 @@
         android:id="@+id/loginFragment"
         android:name="com.example.iotapp.ui.login.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login">
+        tools:layout="@layout/fragment_account_login">
         <action
             android:id="@+id/action_loginFragment_to_signupFragment"
             app:destination="@id/signupFragment"
@@ -25,15 +25,15 @@
         android:id="@+id/signupFragment"
         android:name="com.example.iotapp.ui.signup.SignupFragment"
         android:label="fragment_signup"
-        tools:layout="@layout/fragment_signup" />
+        tools:layout="@layout/fragment_account_signup" />
     <fragment
             android:id="@+id/forgetPasswordFragment"
             android:name="com.example.iotapp.ui.forget.ForgetPasswordFragment"
             android:label="fragment_reset"
-            tools:layout="@layout/fragment_forget" />
+            tools:layout="@layout/fragment_account_forget" />
     <fragment
             android:id="@+id/resetPasswordFragment"
-            android:name="com.example.iotapp.ui.reset.ResetPasswordFragment"
+            android:name="com.example.iotapp.ui.set.SetPasswordFragment"
             android:label="fragment_reset"
-            tools:layout="@layout/fragment_reset" />
+            tools:layout="@layout/fragment_account_set" />
 </navigation>

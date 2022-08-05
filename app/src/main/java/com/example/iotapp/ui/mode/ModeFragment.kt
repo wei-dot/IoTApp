@@ -7,10 +7,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.iotapp.databinding.FragmentModeBinding
+import com.example.iotapp.databinding.FragmentMainModeBinding
 
 class ModeFragment : Fragment() {
-    private var _binding: FragmentModeBinding? = null
+    private var _binding: FragmentMainModeBinding? = null
 
     private val binding get() = _binding!!
     override fun onCreateView(
@@ -21,7 +21,7 @@ class ModeFragment : Fragment() {
         val modeViewModel =
             ViewModelProvider(this)[ModeViewModel::class.java]
 
-        _binding = FragmentModeBinding.inflate(inflater, container, false)
+        _binding = FragmentMainModeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView = binding.textMode

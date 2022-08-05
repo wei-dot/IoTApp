@@ -54,7 +54,6 @@ class MainActivity : AppCompatActivity() {
         }
         binding.loginPage.btnLogin.setOnClickListener {
             val intent = Intent(this, AccountActivity::class.java)
-            intent.putExtra("Login", "Login")
             finish()
             startActivity(intent)
         }
@@ -71,14 +70,20 @@ class MainActivity : AppCompatActivity() {
         }
         binding.profilePage.btnLogout.setOnClickListener {
             binding.loading?.isVisible = true
+            binding.profilePage.btnLogout.isEnabled = false
             IotApi().logout(this)
             Handler(Looper.getMainLooper()).postDelayed({
                 // Your Code
                 binding.loading?.isVisible = false
                 finish()
                 startActivity(intent)
-            }, 3000)
+            }, 1000)
 
+        }
+        binding.profilePage.btnSet?.setOnClickListener{
+            val intent = Intent(this, AccountActivity::class.java)
+            intent.putExtra("Login", "SetPassword")
+            startActivity(intent)
         }
 
         binding.appBarMain.btnNotification.setOnClickListener { v ->

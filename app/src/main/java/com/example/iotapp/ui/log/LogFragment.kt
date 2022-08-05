@@ -7,10 +7,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.iotapp.databinding.FragmentLogBinding
+import com.example.iotapp.databinding.FragmentMainLogBinding
 
 class LogFragment : Fragment() {
-    private var _binding: FragmentLogBinding? = null
+    private var _binding: FragmentMainLogBinding? = null
 
     private val binding get() = _binding!!
     override fun onCreateView(
@@ -21,7 +21,7 @@ class LogFragment : Fragment() {
         val logViewModel =
             ViewModelProvider(this)[LogViewModel::class.java]
 
-        _binding = FragmentLogBinding.inflate(inflater, container, false)
+        _binding = FragmentMainLogBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView = binding.textLog
