@@ -4,7 +4,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.notLogin.NotLoginFragment">
+        tools:context=".ui.notLogin.notLoginFragment">
 
 
     <ImageButton
@@ -22,7 +22,7 @@
             app:layout_constraintVertical_bias="0.754" />
 
     <TextView
-            android:id="@+id/some_id"
+            android:id="@+id/text_unlogin"
             android:layout_width="221dp"
             android:layout_height="35dp"
             android:layout_alignParentStart="true"

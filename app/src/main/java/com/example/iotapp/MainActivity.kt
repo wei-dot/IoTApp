@@ -53,18 +53,17 @@ class MainActivity : AppCompatActivity() {
 
 
         if (!isLogin) {
+            toolbar.setNavigationIcon(R.drawable.ic_navigation_icon)
+            toolbar.setNavigationOnClickListener(View.OnClickListener {
+                drawerLayout.openDrawer(GravityCompat.START)
+            })
             navController.navigate(R.id.navigation_notLogin)
-
             navView.setOnItemSelectedListener {
                 when (it.title.toString()) {
                     "居家狀態" -> toolbar.title = "居家狀態"
                     "家庭管理" -> toolbar.title = "家庭管理"
                     "組合鍵設置" -> toolbar.title = "組合鍵設置"
                     "設備日誌" -> toolbar.title = "設備日誌"
-                }
-                toolbar.setNavigationIcon(R.drawable.ic_navigation_icon)
-                toolbar.setNavigationOnClickListener {
-                    drawerLayout.openDrawer(GravityCompat.START)
                 }
                 return@setOnItemSelectedListener true
             }
@@ -75,6 +74,8 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, _, _ ->
             toolbar.setNavigationIcon(R.drawable.ic_navigation_icon)
         }
+
+
         binding.loginPage.btnLogin.setOnClickListener {
             val intent = Intent(this, AccountActivity::class.java)
             finish()
@@ -141,7 +142,11 @@ class MainActivity : AppCompatActivity() {
     override fun onBackPressed() {
         if (binding.drawerLayout.isDrawerVisible(GravityCompat.START)) {
             binding.drawerLayout.close()
-        } else {
+        }
+        else if (R.id.navigation_notLogin == findNavController(R.id.nav_host_fragment_activity_main).currentDestination?.id) {
+            //防止在未登入頁面觸發back鍵
+        }
+        else {
             super.onBackPressed()
         }
     }
