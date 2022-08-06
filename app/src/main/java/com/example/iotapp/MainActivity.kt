@@ -7,11 +7,11 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.*
+import android.widget.ImageButton
 import android.widget.PopupWindow
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
-import androidx.core.view.get
 import androidx.core.view.isVisible
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
@@ -20,6 +20,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupWithNavController
 import com.example.iotapp.api.IotApi
 import com.example.iotapp.databinding.ActivityMainBinding
+import com.example.iotapp.databinding.FragmentMainUnloginBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
@@ -53,7 +54,17 @@ class MainActivity : AppCompatActivity() {
 
 
         if (!isLogin) {
+<<<<<<< HEAD
             navController.navigate(R.id.navigation_notLogin)
+=======
+            toolbar.setNavigationIcon(R.drawable.ic_navigation_icon)
+            toolbar.setNavigationOnClickListener {
+                drawerLayout.openDrawer(GravityCompat.START)
+            }
+            navController.navigate(R.id.navigation_notLogin)
+            toolbar.title = "居家狀態"
+            binding.appBarMain.btnNotification.isVisible = false
+>>>>>>> 5ad7e7207727823769e51cc97942585e87fd7a1e
             navView.setOnItemSelectedListener {
                 when (it.title.toString()) {
                     "居家狀態" -> toolbar.title = "居家狀態"
@@ -71,16 +82,15 @@ class MainActivity : AppCompatActivity() {
             toolbar.setNavigationIcon(R.drawable.ic_navigation_icon)
         }
 
-
         binding.loginPage.btnLogin.setOnClickListener {
-            val intent = Intent(this, AccountActivity::class.java)
-            finish()
-            startActivity(intent)
-        }
+                val intent = Intent(this, AccountActivity::class.java)
+                finish()
+                startActivity(intent)
+            }
         binding.loginPage.btnSignup.setOnClickListener {
-            val intent = Intent(this, AccountActivity::class.java)
-            intent.putExtra("Login", "Signup")
-            startActivity(intent)
+                val intent = Intent(this, AccountActivity::class.java)
+                intent.putExtra("Login", "Signup")
+                startActivity(intent)
         }
         binding.loginPage.btnBack.setOnClickListener {
             drawerLayout.close()

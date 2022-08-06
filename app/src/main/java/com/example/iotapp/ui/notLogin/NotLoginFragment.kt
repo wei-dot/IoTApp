@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.iotapp.AccountActivity
 import com.example.iotapp.databinding.FragmentMainUnloginBinding
 
-class NotLoginFragment : Fragment() {
+class notLoginFragment : Fragment() {
     private var _binding: FragmentMainUnloginBinding? = null
 
     private val binding get() = _binding!!
@@ -21,27 +21,33 @@ class NotLoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val notLoginViewModel =
-            ViewModelProvider(this)[NotLoginViewModel::class.java]
+            ViewModelProvider(this)[notLoginViewModel::class.java]
 
         _binding = FragmentMainUnloginBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        binding.btnLogin?.setOnClickListener {
-            startActivity(Intent(activity, AccountActivity::class.java))
-            activity?.finish()
+        val textView: TextView? = binding.textUnlogin
+        notLoginViewModel.text.observe(viewLifecycleOwner) {
+            textView?.text = it
         }
+
+        binding.btnLogin?.setOnClickListener {
+            val intent = Intent(activity, AccountActivity::class.java)
+            activity?.finish()
+            startActivity(intent)
+        }
+
         return root
+
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-    super.onViewCreated(view, savedInstanceState)
-
-}
-
-override fun onDestroyView() {
-    super.onDestroyView()
-    _binding = null
-}
+    }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 
 }
