@@ -7,11 +7,11 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.*
+import android.widget.ImageButton
 import android.widget.PopupWindow
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
-import androidx.core.view.get
 import androidx.core.view.isVisible
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
@@ -20,6 +20,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupWithNavController
 import com.example.iotapp.api.IotApi
 import com.example.iotapp.databinding.ActivityMainBinding
+import com.example.iotapp.databinding.FragmentMainUnloginBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
@@ -54,19 +55,18 @@ class MainActivity : AppCompatActivity() {
 
         if (!isLogin) {
             toolbar.setNavigationIcon(R.drawable.ic_navigation_icon)
-            toolbar.setNavigationOnClickListener(View.OnClickListener {
+            toolbar.setNavigationOnClickListener {
                 drawerLayout.openDrawer(GravityCompat.START)
-            })
+            }
             navController.navigate(R.id.navigation_notLogin)
-            toolbar.setTitle("居家狀態")
+            toolbar.title = "居家狀態"
             binding.appBarMain.btnNotification.isVisible = false
             navView.setOnItemSelectedListener {
-                var selectedText = it.title.toString()
-                when (selectedText) {
-                    "居家狀態" -> toolbar.setTitle("居家狀態")
-                    "家庭管理" -> toolbar.setTitle("家庭管理")
-                    "組合鍵設置" -> toolbar.setTitle("組合鍵設置")
-                    "設備日誌" -> toolbar.setTitle("設備日誌")
+                when (it.title.toString()) {
+                    "居家狀態" -> toolbar.title = "居家狀態"
+                    "家庭管理" -> toolbar.title = "家庭管理"
+                    "組合鍵設置" -> toolbar.title = "組合鍵設置"
+                    "設備日誌" -> toolbar.title = "設備日誌"
                 }
                 return@setOnItemSelectedListener true
             }
@@ -79,16 +79,15 @@ class MainActivity : AppCompatActivity() {
             toolbar.setNavigationIcon(R.drawable.ic_navigation_icon)
         }
 
-
         binding.loginPage.btnLogin.setOnClickListener {
-            val intent = Intent(this, AccountActivity::class.java)
-            finish()
-            startActivity(intent)
-        }
+                val intent = Intent(this, AccountActivity::class.java)
+                finish()
+                startActivity(intent)
+            }
         binding.loginPage.btnSignup.setOnClickListener {
-            val intent = Intent(this, AccountActivity::class.java)
-            intent.putExtra("Login", "Signup")
-            startActivity(intent)
+                val intent = Intent(this, AccountActivity::class.java)
+                intent.putExtra("Login", "Signup")
+                startActivity(intent)
         }
         binding.loginPage.btnBack.setOnClickListener {
             drawerLayout.close()
