@@ -14,7 +14,7 @@ import com.example.iotapp.databinding.FragmentFamilyNotinBinding
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
-class FamilyNotinFragment : Fragment() {
+class FamilyFragment : Fragment() {
 
     private var _binding: FragmentFamilyNotinBinding? = null
 
