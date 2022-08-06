@@ -59,6 +59,7 @@ class MainActivity : AppCompatActivity() {
             })
             navController.navigate(R.id.navigation_notLogin)
             toolbar.setTitle("居家狀態")
+            binding.appBarMain.btnNotification.isVisible = false
             navView.setOnItemSelectedListener {
                 var selectedText = it.title.toString()
                 when (selectedText) {
