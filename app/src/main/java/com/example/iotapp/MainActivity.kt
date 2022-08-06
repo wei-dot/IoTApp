@@ -53,10 +53,6 @@ class MainActivity : AppCompatActivity() {
 
 
         if (!isLogin) {
-            toolbar.setNavigationIcon(R.drawable.ic_navigation_icon)
-            toolbar.setNavigationOnClickListener(View.OnClickListener {
-                drawerLayout.openDrawer(GravityCompat.START)
-            })
             navController.navigate(R.id.navigation_notLogin)
             navView.setOnItemSelectedListener {
                 when (it.title.toString()) {
