@@ -63,7 +63,7 @@
             android:layout_alignParentTop="true"
             android:gravity="center_horizontal|top"
             android:lineSpacingExtra="8sp"
-            android:text="@string/title_reset"
+            android:text="@string/fragment_account_reset"
             android:textAppearance="@style/text_login_title"
             android:translationY="-3.9sp"
             app:layout_constraintStart_toStartOf="@+id/content_space"

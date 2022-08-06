@@ -65,7 +65,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="30dp"
-        android:text="@string/title_reset"
+        android:text="@string/fragment_account_reset"
         android:textAppearance="@style/text_login_title"
         app:layout_constraintBottom_toTopOf="@+id/et_password_old"
         app:layout_constraintEnd_toEndOf="@+id/content_space"

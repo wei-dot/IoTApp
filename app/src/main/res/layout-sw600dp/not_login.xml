@@ -46,7 +46,7 @@
         android:layout_alignParentTop="true"
         android:gravity="center_horizontal|top"
         android:lineSpacingExtra="8sp"
-        android:text="@string/title_not_login"
+        android:text="@string/not_login"
         android:textAppearance="@style/text_login_title"
         android:translationY="-3.9sp"
         app:layout_constraintBottom_toBottomOf="@+id/content_space"
