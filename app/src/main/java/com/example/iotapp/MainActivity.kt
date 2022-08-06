@@ -53,6 +53,10 @@ class MainActivity : AppCompatActivity() {
 
 
         if (!isLogin) {
+            toolbar.setNavigationIcon(R.drawable.ic_navigation_icon)
+            toolbar.setNavigationOnClickListener(View.OnClickListener {
+                drawerLayout.openDrawer(GravityCompat.START)
+            })
             navController.navigate(R.id.navigation_notLogin)
             toolbar.setTitle("居家狀態")
             navView.setOnItemSelectedListener {
@@ -63,10 +67,6 @@ class MainActivity : AppCompatActivity() {
                     "組合鍵設置" -> toolbar.setTitle("組合鍵設置")
                     "設備日誌" -> toolbar.setTitle("設備日誌")
                 }
-                toolbar.setNavigationIcon(R.drawable.ic_navigation_icon)
-                toolbar.setNavigationOnClickListener(View.OnClickListener {
-                    drawerLayout.openDrawer(GravityCompat.START)
-                })
                 return@setOnItemSelectedListener true
             }
         }
