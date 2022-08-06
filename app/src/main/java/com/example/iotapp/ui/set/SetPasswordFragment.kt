@@ -27,9 +27,9 @@ class SetPasswordFragment : Fragment() {
             activity?.finish()
         }
         binding.btnSend.setOnClickListener {
-            val passwordOld = binding.etPasswordOld?.text.toString()
-            val passwordNew = binding.etPasswordNew.text.toString()
-            val passwordConfirm = binding.etPasswordConfirm?.text.toString()
+            val passwordOld = binding.tilPasswordOld?.editText?.text.toString()
+            val passwordNew = binding.tilPasswordNew?.editText?.text.toString()
+            val passwordConfirm = binding.tilPasswordConfirm?.editText?.text.toString()
             val setPassword = SetPassword(passwordOld, passwordNew, passwordConfirm)
             binding.loading?.isEnabled = true
             binding.btnSend.isEnabled = false

@@ -54,26 +54,24 @@ class MainActivity : AppCompatActivity() {
 
         if (!isLogin) {
             navController.navigate(R.id.navigation_notLogin)
-            toolbar.setTitle("居家狀態")
+
             navView.setOnItemSelectedListener {
-                var selectedText = it.title.toString()
-                when (selectedText) {
-                    "居家狀態" -> toolbar.setTitle("居家狀態")
-                    "家庭管理" -> toolbar.setTitle("家庭管理")
-                    "組合鍵設置" -> toolbar.setTitle("組合鍵設置")
-                    "設備日誌" -> toolbar.setTitle("設備日誌")
+                when (it.title.toString()) {
+                    "居家狀態" -> toolbar.title = "居家狀態"
+                    "家庭管理" -> toolbar.title = "家庭管理"
+                    "組合鍵設置" -> toolbar.title = "組合鍵設置"
+                    "設備日誌" -> toolbar.title = "設備日誌"
                 }
                 toolbar.setNavigationIcon(R.drawable.ic_navigation_icon)
-                toolbar.setNavigationOnClickListener(View.OnClickListener {
+                toolbar.setNavigationOnClickListener {
                     drawerLayout.openDrawer(GravityCompat.START)
-                })
+                }
                 return@setOnItemSelectedListener true
             }
-        }
-        else{
+        } else {
             navView.setupWithNavController(navController)
-            toolbar.setupWithNavController(navController, appBarConfiguration)
         }
+        toolbar.setupWithNavController(navController, appBarConfiguration)
         navController.addOnDestinationChangedListener { _, _, _ ->
             toolbar.setNavigationIcon(R.drawable.ic_navigation_icon)
         }
@@ -105,7 +103,7 @@ class MainActivity : AppCompatActivity() {
             }, 1000)
 
         }
-        binding.profilePage.btnSet?.setOnClickListener{
+        binding.profilePage.btnSet?.setOnClickListener {
             val intent = Intent(this, AccountActivity::class.java)
             intent.putExtra("Login", "SetPassword")
             startActivity(intent)
@@ -114,7 +112,6 @@ class MainActivity : AppCompatActivity() {
         binding.appBarMain.btnNotification.setOnClickListener { v ->
             initPopWindow(v)
         }
-
 
 
     }

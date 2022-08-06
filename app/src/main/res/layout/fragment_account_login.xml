@@ -44,6 +44,70 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0" />
 
+
+    <TextView
+            android:id="@+id/text_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            android:text="@string/fragment_account_login"
+            android:textAppearance="@style/text_login_title"
+            app:layout_constraintBottom_toTopOf="@+id/til_email"
+            app:layout_constraintEnd_toEndOf="@+id/content_space"
+            app:layout_constraintStart_toStartOf="@+id/content_space"
+            app:layout_constraintTop_toTopOf="@+id/content_space"
+            tools:ignore="TextContrastCheck" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_email"
+            android:layout_width="@dimen/input_width"
+            android:layout_height="@dimen/input_height"
+            style="@style/TextInputEditText_style"
+            app:layout_constraintBottom_toBottomOf="@+id/til_password"
+            app:layout_constraintEnd_toEndOf="@+id/content_space"
+            app:layout_constraintStart_toStartOf="@+id/content_space"
+            app:layout_constraintTop_toBottomOf="@+id/text_login">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/hint_email"
+                android:textColor="@color/black"
+                android:autofillHints="emailAddress"
+                android:inputType="textEmailAddress"
+                android:selectAllOnFocus="true" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_password"
+            android:layout_width="@dimen/input_width"
+            android:layout_height="@dimen/input_height"
+            style="@style/TextInputEditText_style"
+            app:passwordToggleEnabled="true"
+            app:layout_constraintBottom_toTopOf="@+id/btn_send"
+            app:layout_constraintEnd_toEndOf="@+id/content_space"
+            app:layout_constraintStart_toStartOf="@+id/content_space"
+            app:layout_constraintTop_toBottomOf="@+id/til_email">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_password"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:autofillHints="password"
+                android:hint="@string/hint_password"
+                android:textColor="@color/black"
+                android:inputType="textPassword"
+                android:nextFocusForward="@id/btn_send"
+                android:selectAllOnFocus="true" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
     <ImageButton
             android:id="@+id/btn_send"
             android:layout_width="@dimen/btn_width"
@@ -56,55 +120,8 @@
             app:layout_constraintBottom_toBottomOf="@+id/content_space"
             app:layout_constraintEnd_toEndOf="@+id/content_space"
             app:layout_constraintStart_toStartOf="@+id/content_space"
-            app:layout_constraintTop_toBottomOf="@+id/et_password"
+            app:layout_constraintTop_toBottomOf="@+id/til_password"
             tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-
-
-    <TextView
-            android:id="@+id/text_login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="30dp"
-            android:text="@string/fragment_account_login"
-            android:textAppearance="@style/text_login_title"
-            app:layout_constraintBottom_toTopOf="@+id/et_username"
-            app:layout_constraintEnd_toEndOf="@+id/content_space"
-            app:layout_constraintStart_toStartOf="@+id/content_space"
-            app:layout_constraintTop_toTopOf="@+id/content_space"
-            tools:ignore="TextContrastCheck" />
-
-    <EditText
-            android:id="@+id/et_username"
-            android:layout_width="@dimen/input_width"
-            android:layout_height="@dimen/input_height"
-            android:autofillHints="@string/hint_email"
-            android:background="@drawable/background_edit_box"
-            android:hint="@string/hint_name"
-            android:inputType="textEmailAddress"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="@+id/et_password"
-            app:layout_constraintEnd_toEndOf="@+id/content_space"
-            app:layout_constraintStart_toStartOf="@+id/content_space"
-            app:layout_constraintTop_toBottomOf="@+id/text_login" />
-
-    <EditText
-            android:id="@+id/et_password"
-            android:layout_width="@dimen/input_width"
-            android:layout_height="@dimen/input_height"
-            android:autofillHints="@string/hint_password"
-            android:background="@drawable/background_edit_box"
-            android:hint="@string/hint_password"
-            android:imeOptions="actionDone"
-            android:inputType="textPassword"
-            android:selectAllOnFocus="true"
-            android:textColor="@color/black"
-            app:layout_constraintBottom_toTopOf="@+id/btn_send"
-            app:layout_constraintEnd_toEndOf="@+id/content_space"
-            app:layout_constraintStart_toStartOf="@+id/content_space"
-            app:layout_constraintTop_toBottomOf="@+id/et_username" />
-
 
     <TextView
             android:id="@+id/text_signup"
