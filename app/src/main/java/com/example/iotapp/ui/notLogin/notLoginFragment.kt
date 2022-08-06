@@ -7,11 +7,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.iotapp.databinding.FragmentNotLoginBinding
-import com.example.iotapp.ui.log.LogViewModel
+import com.example.iotapp.databinding.FragmentMainUnloginBinding
 
 class notLoginFragment : Fragment() {
-    private var _binding: FragmentNotLoginBinding? = null
+    private var _binding: FragmentMainUnloginBinding? = null
 
     private val binding get() = _binding!!
     override fun onCreateView(
@@ -22,7 +21,7 @@ class notLoginFragment : Fragment() {
         val notLoginViewModel =
             ViewModelProvider(this)[notLoginViewModel::class.java]
 
-        _binding = FragmentNotLoginBinding.inflate(inflater, container, false)
+        _binding = FragmentMainUnloginBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView? = binding.textNotLogin

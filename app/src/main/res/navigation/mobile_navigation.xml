@@ -32,7 +32,7 @@
         android:id="@+id/navigation_notLogin"
         android:name="com.example.iotapp.ui.notLogin.notLoginFragment"
         android:label="notLoginFragment"
-        tools:layout="@layout/fragment_not_login">
+        tools:layout="@layout/fragment_main_unlogin">
         <action
             android:id="@+id/action_navigation_notLogin_to_navigation_home"
             app:destination="@id/navigation_home" />

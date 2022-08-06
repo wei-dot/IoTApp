@@ -11,6 +11,7 @@ import android.widget.PopupWindow
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
+import androidx.core.view.get
 import androidx.core.view.isVisible
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
@@ -49,17 +50,30 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_notLogin
             ), drawerLayout
         )
+
+
         if (!isLogin) {
             navController.navigate(R.id.navigation_notLogin)
-            navView.setOnItemReselectedListener {
-                navController.navigate(R.id.navigation_notLogin)
+            toolbar.setTitle("居家狀態")
+            navView.setOnItemSelectedListener {
+                var selectedText = it.title.toString()
+                when (selectedText) {
+                    "居家狀態" -> toolbar.setTitle("居家狀態")
+                    "家庭管理" -> toolbar.setTitle("家庭管理")
+                    "組合鍵設置" -> toolbar.setTitle("組合鍵設置")
+                    "設備日誌" -> toolbar.setTitle("設備日誌")
+                }
+                toolbar.setNavigationIcon(R.drawable.ic_navigation_icon)
+                toolbar.setNavigationOnClickListener(View.OnClickListener {
+                    drawerLayout.openDrawer(GravityCompat.START)
+                })
+                return@setOnItemSelectedListener true
             }
         }
         else{
             navView.setupWithNavController(navController)
+            toolbar.setupWithNavController(navController, appBarConfiguration)
         }
-
-        toolbar.setupWithNavController(navController, appBarConfiguration)
         navController.addOnDestinationChangedListener { _, _, _ ->
             toolbar.setNavigationIcon(R.drawable.ic_navigation_icon)
         }
