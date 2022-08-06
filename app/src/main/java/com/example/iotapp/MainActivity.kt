@@ -77,6 +77,8 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, _, _ ->
             toolbar.setNavigationIcon(R.drawable.ic_navigation_icon)
         }
+
+
         binding.loginPage.btnLogin.setOnClickListener {
             val intent = Intent(this, AccountActivity::class.java)
             finish()
@@ -144,7 +146,11 @@ class MainActivity : AppCompatActivity() {
     override fun onBackPressed() {
         if (binding.drawerLayout.isDrawerVisible(GravityCompat.START)) {
             binding.drawerLayout.close()
-        } else {
+        }
+        else if (R.id.navigation_notLogin == findNavController(R.id.nav_host_fragment_activity_main).currentDestination?.id) {
+            //防止在未登入頁面觸發back鍵
+        }
+        else {
             super.onBackPressed()
         }
     }
