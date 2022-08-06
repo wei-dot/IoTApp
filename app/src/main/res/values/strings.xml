@@ -1,46 +1,40 @@
 <resources>
-    <!-- Strings used for fragments for navigation -->
-    <string name="fragment_home">居家狀態</string>
-    <string name="fragment_family">家庭管理</string>
-    <string name="fragment_mode">組合鍵設置</string>
-    <string name="fragment_log">設備日誌</string>
+    <!-- Fragment Title String for MainActivity -->
+    <string name="fragment_main_home">居家狀態</string>
+    <string name="fragment_main_family">家庭管理</string>
+    <string name="fragment_main_mode">組合鍵設置</string>
+    <string name="fragment_main_log">設備日誌</string>
+    <string name="fragment_main_notLogin">尚未登入</string>
 
 
-    <!--Strings used for login page title-->
-    <string name="title_not_login">尚未登入</string>
-    <string name="title_login">用戶登入</string>
-    <string name="title_forgot_password">忘記密碼</string>
-    <string name="title_reset_password">重設密碼</string>
-    <string name="title_signup">用戶註冊</string>
-    <string name="title_reset">設定新密碼</string>
+    <!--Fragment Title String for AccountActivity-->
+    <string name="fragment_account_login">用戶登入</string>
+    <string name="fragment_account_forgot">忘記密碼</string>
+    <string name="fragment_account_signup">用戶註冊</string>
+    <string name="fragment_account_reset">設定新密碼</string>
 
+    <!--Fragment String for MainActivity-->
+    <string name="not_login">尚未登入</string>
 
-    <!--Strings used for edittext hint-->
+    <!--Fragment Label String for AccountActivity-->
+    <string name="label_setUserName">用戶名稱</string>
+    <string name="label_setPassword">設置密碼</string>
+    <string name="label_setConfirmPassword">確認密碼</string>
+    <string name="label_setEmail">電子信箱</string>
+    <string name="label_signUp">註冊帳號</string>
+
+    <!--Fragment hint String for AccountActivity-->
     <string name="hint_name">輸入用戶名稱</string>
-    <string name="enter_name">輸入用戶名稱</string>
-    <string name="hint_phone">輸入手機號碼</string>
-    <string name="enter_phone">輸入手機號碼</string>
     <string name="hint_password">輸入用戶密碼</string>
     <string name="hint_password_confirm">確認用戶密碼</string>
     <string name="hint_password_old">確認舊密碼</string>
     <string name="hint_password_new">輸入新密碼</string>
     <string name="hint_password_new_confirm">確認新密碼</string>
-    <string name="hint_verify">輸入6位數驗證碼</string>
-    <string name="enter_verification_code">輸入6位數驗證碼</string>
     <string name="hint_email">輸入電子郵件</string>
 
 
     <!--customize your string here-->
     <string name="app_name">IoTApp</string>
-    <string name="send_verification_code">發送驗證碼</string>
-    <string name="signup">註冊帳號</string>
-    <string name="remember_me">記住我</string>
-    <string name="login_error">帳號或密碼輸入錯誤</string>
-    <string name="password_sign">*</string>
-    <string name="user_name">用戶名稱</string>
-    <string name="set_password">設置密碼</string>
-
-    <string name="set_email">電子信箱</string>
     <string name="drawer_open">drawer open</string>
     <string name="drawer_close">drawer close</string>
     <string name="room_temperature">室內溫度</string>
@@ -50,6 +44,5 @@
     <string name="switch_turn_on">開</string>
     <string name="switch_turn_off">關</string>
     <string name="text_tplink_switch">廷長線開關</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

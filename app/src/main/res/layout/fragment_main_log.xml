@@ -10,7 +10,7 @@
             android:id="@+id/text_log"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/fragment_log"
+            android:text="@string/fragment_main_log"
             android:textColor="@color/black"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"

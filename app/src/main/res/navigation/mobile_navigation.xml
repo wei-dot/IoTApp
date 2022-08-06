@@ -8,25 +8,25 @@
     <fragment
             android:id="@+id/navigation_home"
             android:name="com.example.iotapp.ui.home.HomeFragment"
-            android:label="@string/fragment_home"
+            android:label="@string/fragment_main_home"
             tools:layout="@layout/fragment_main_home"/>
     <fragment
             android:id="@+id/navigation_family"
             android:name="com.example.iotapp.ui.family.FamilyNotinFragment"
-            android:label="@string/fragment_family"
+            android:label="@string/fragment_main_family"
             tools:layout="@layout/fragment_family_notin"/>
 
     <fragment
             android:id="@+id/navigation_mode"
             android:name="com.example.iotapp.ui.mode.ModeFragment"
-            android:label="@string/fragment_mode"
+            android:label="@string/fragment_main_mode"
             tools:layout="@layout/fragment_main_mode"/>
 
 
     <fragment
             android:id="@+id/navigation_log"
             android:name="com.example.iotapp.ui.log.LogFragment"
-            android:label="@string/fragment_log"
+            android:label="@string/fragment_main_log"
             tools:layout="@layout/fragment_main_log"/>
     <fragment
         android:id="@+id/navigation_notLogin"
@@ -46,5 +46,11 @@
             android:id="@+id/action_navigation_notLogin_to_navigation_log"
             app:destination="@id/navigation_log" />
     </fragment>
+
+    <fragment
+            android:id="@+id/notLoginFragment"
+            android:name="com.example.iotapp.ui.notLogin.NotLoginFragment"
+            android:label="@string/fragment_main_notLogin"
+            tools:layout="@layout/fragment_main_unlogin" />
 
 </navigation>
