@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.iotapp.AccountActivity
 import com.example.iotapp.databinding.FragmentMainUnloginBinding
 
-class notLoginFragment : Fragment() {
+class NotLoginFragment : Fragment() {
     private var _binding: FragmentMainUnloginBinding? = null
 
     private val binding get() = _binding!!
@@ -21,7 +21,7 @@ class notLoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val notLoginViewModel =
-            ViewModelProvider(this)[notLoginViewModel::class.java]
+            ViewModelProvider(this)[NotLoginViewModel::class.java]
 
         _binding = FragmentMainUnloginBinding.inflate(inflater, container, false)
         val root: View = binding.root
