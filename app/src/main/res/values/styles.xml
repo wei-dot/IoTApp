@@ -38,20 +38,24 @@
         <item name="android:textColor">@color/color_14b2d4</item>
         <item name="android:background">@drawable/background_login_box</item>
     </style>
-    <style name="text_notlogin_fragment_style">
 
-        <item name="android:textSize">
-            24sp
-        </item>
+    <style name="text_notLogin_fragment_style">
 
-        <item name="android:letterSpacing">
-            0.79
-        </item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:letterSpacing">0.79</item>
+        <item name="android:textColor">#DF8888</item>
 
-        <item name="android:textColor">
-            #DF8888
-        </item>
+    </style>
 
+    <style name="TextInputEditText_style" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxCornerRadiusBottomEnd">10dp</item>
+        <item name="boxCornerRadiusBottomStart">10dp</item>
+        <item name="boxCornerRadiusTopEnd">10dp</item>
+        <item name="boxCornerRadiusTopStart">10dp</item>
+        <item name="boxStrokeColor">#AAAAAA</item>
+        <item name="boxBackgroundColor">@color/white</item>
+        <item name="android:textColorHint">#AAAAAA</item>
+        <item name="passwordToggleTint">@color/black</item>
     </style>
 
 </resources>

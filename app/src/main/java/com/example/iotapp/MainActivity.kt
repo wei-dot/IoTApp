@@ -54,13 +54,7 @@ class MainActivity : AppCompatActivity() {
 
 
         if (!isLogin) {
-            toolbar.setNavigationIcon(R.drawable.ic_navigation_icon)
-            toolbar.setNavigationOnClickListener {
-                drawerLayout.openDrawer(GravityCompat.START)
-            }
             navController.navigate(R.id.navigation_notLogin)
-            toolbar.title = "居家狀態"
-            binding.appBarMain.btnNotification.isVisible = false
             navView.setOnItemSelectedListener {
                 when (it.title.toString()) {
                     "居家狀態" -> toolbar.title = "居家狀態"
@@ -70,24 +64,23 @@ class MainActivity : AppCompatActivity() {
                 }
                 return@setOnItemSelectedListener true
             }
-        }
-        else{
+        } else {
             navView.setupWithNavController(navController)
-            toolbar.setupWithNavController(navController, appBarConfiguration)
         }
+        toolbar.setupWithNavController(navController, appBarConfiguration)
         navController.addOnDestinationChangedListener { _, _, _ ->
             toolbar.setNavigationIcon(R.drawable.ic_navigation_icon)
         }
 
         binding.loginPage.btnLogin.setOnClickListener {
-                val intent = Intent(this, AccountActivity::class.java)
-                finish()
-                startActivity(intent)
-            }
+            val intent = Intent(this, AccountActivity::class.java)
+            finish()
+            startActivity(intent)
+        }
         binding.loginPage.btnSignup.setOnClickListener {
-                val intent = Intent(this, AccountActivity::class.java)
-                intent.putExtra("Login", "Signup")
-                startActivity(intent)
+            val intent = Intent(this, AccountActivity::class.java)
+            intent.putExtra("Login", "Signup")
+            startActivity(intent)
         }
         binding.loginPage.btnBack.setOnClickListener {
             drawerLayout.close()
@@ -107,7 +100,7 @@ class MainActivity : AppCompatActivity() {
             }, 1000)
 
         }
-        binding.profilePage.btnSet?.setOnClickListener{
+        binding.profilePage.btnSet?.setOnClickListener {
             val intent = Intent(this, AccountActivity::class.java)
             intent.putExtra("Login", "SetPassword")
             startActivity(intent)
@@ -116,7 +109,6 @@ class MainActivity : AppCompatActivity() {
         binding.appBarMain.btnNotification.setOnClickListener { v ->
             initPopWindow(v)
         }
-
 
 
     }
@@ -146,11 +138,9 @@ class MainActivity : AppCompatActivity() {
     override fun onBackPressed() {
         if (binding.drawerLayout.isDrawerVisible(GravityCompat.START)) {
             binding.drawerLayout.close()
-        }
-        else if (R.id.navigation_notLogin == findNavController(R.id.nav_host_fragment_activity_main).currentDestination?.id) {
+        } else if (R.id.navigation_notLogin == findNavController(R.id.nav_host_fragment_activity_main).currentDestination?.id) {
             //防止在未登入頁面觸發back鍵
-        }
-        else {
+        } else {
             super.onBackPressed()
         }
     }

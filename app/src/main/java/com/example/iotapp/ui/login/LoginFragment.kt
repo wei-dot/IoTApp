@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,8 +40,9 @@ class LoginFragment : Fragment() {
             activity?.finish()
         }
         binding.btnSend.setOnClickListener {
-            val username = binding.etUsername.text.toString()
-            val password = binding.etPassword?.text.toString()
+            val username = binding.tilEmail?.editText?.text.toString()
+            val password = binding.tilPassword?.editText?.text.toString()
+            Log.d("LoginFragment", "username: $username, password: $password")
             val login = Login(username, password)
             binding.loading.isVisible = true
             binding.btnSend.isEnabled = false

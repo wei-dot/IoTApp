@@ -6,6 +6,6 @@
     <dimen name="btn_width" >220dp</dimen>
     <dimen name="btn_height" >48dp</dimen>
     <dimen name="input_width" >260dp</dimen>
-    <dimen name="input_height" >48dp</dimen>
+    <dimen name="input_height" >60dp</dimen>
     <dimen name="hamburger_gap">5dp</dimen>
 </resources>

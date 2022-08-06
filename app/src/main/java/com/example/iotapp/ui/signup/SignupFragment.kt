@@ -36,13 +36,13 @@ class SignupFragment : Fragment() {
         }
         binding.btnSend.setOnClickListener {
             var msg = ""
-            val username: String = binding.etUsername.text.toString()
-            val password = binding.etPassword?.text.toString()
-            val password2 = binding.etPasswordConfirm?.text.toString()
+            val username: String = binding.tilUsername?.editText?.text.toString()
+            val password = binding.tilPassword?.editText?.text.toString()
+            val password2 = binding.tilPasswordConfirm?.editText?.text.toString()
             if (password != password2) {
                 msg = "輸入密碼不相符"
             }
-            val email: String = binding.etEmail.text.toString()
+            val email: String = binding.tilEmail?.editText?.text.toString()
             if (username.isEmpty() && msg.isEmpty()) {
                 msg = "使用者名稱不得為空"
             } else if (password.isEmpty() && msg.isEmpty()) {

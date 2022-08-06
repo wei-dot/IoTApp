@@ -30,27 +30,10 @@
             tools:layout="@layout/fragment_main_log"/>
     <fragment
         android:id="@+id/navigation_notLogin"
-        android:name="com.example.iotapp.ui.notLogin.notLoginFragment"
-        android:label="notLoginFragment"
-        tools:layout="@layout/fragment_main_unlogin">
-        <action
-            android:id="@+id/action_navigation_notLogin_to_navigation_home"
-            app:destination="@id/navigation_home" />
-        <action
-            android:id="@+id/action_navigation_notLogin_to_navigation_family"
-            app:destination="@id/navigation_family" />
-        <action
-            android:id="@+id/action_navigation_notLogin_to_navigation_mode"
-            app:destination="@id/navigation_mode" />
-        <action
-            android:id="@+id/action_navigation_notLogin_to_navigation_log"
-            app:destination="@id/navigation_log" />
-    </fragment>
+        android:name="com.example.iotapp.ui.notLogin.NotLoginFragment"
+        android:label="居家狀態"
+        tools:layout="@layout/fragment_main_unlogin"/>
 
-    <fragment
-            android:id="@+id/notLoginFragment"
-            android:name="com.example.iotapp.ui.notLogin.NotLoginFragment"
-            android:label="@string/fragment_main_notLogin"
-            tools:layout="@layout/fragment_main_unlogin" />
+
 
 </navigation>
