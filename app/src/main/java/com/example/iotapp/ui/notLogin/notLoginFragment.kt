@@ -4,19 +4,42 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
-import com.example.iotapp.R
+import androidx.lifecycle.ViewModelProvider
 import com.example.iotapp.databinding.FragmentNotLoginBinding
+import com.example.iotapp.ui.log.LogViewModel
 
-class notLoginFragment {
-    private val _binding: FragmentNotLoginBinding? = null
-    class notLoginFragment : Fragment() {
-        override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
-        ): View? {
-            return inflater.inflate(R.layout.fragment_not_login, container, false)
+class notLoginFragment : Fragment() {
+    private var _binding: FragmentNotLoginBinding? = null
+
+    private val binding get() = _binding!!
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        val notLoginViewModel =
+            ViewModelProvider(this)[notLoginViewModel::class.java]
+
+        _binding = FragmentNotLoginBinding.inflate(inflater, container, false)
+        val root: View = binding.root
+
+        val textView: TextView? = binding.textNotLogin
+        notLoginViewModel.text.observe(viewLifecycleOwner) {
+            textView?.text = it
         }
+        return root
+
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+    }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
 }

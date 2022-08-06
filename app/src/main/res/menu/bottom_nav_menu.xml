@@ -29,4 +29,5 @@
         android:orderInCategory="100"
         android:title="@string/fragment_log"
         app:showAsAction="never" />
+
 </menu>

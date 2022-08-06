@@ -39,15 +39,26 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         val toolbar = binding.appBarMain.toolbar
         val drawerLayout: DrawerLayout = binding.drawerLayout
+
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.navigation_home,
                 R.id.navigation_family,
                 R.id.navigation_mode,
-                R.id.navigation_log
+                R.id.navigation_log,
+                R.id.navigation_notLogin
             ), drawerLayout
         )
-        navView.setupWithNavController(navController)
+        if (!isLogin) {
+            navController.navigate(R.id.navigation_notLogin)
+            navView.setOnItemReselectedListener {
+                navController.navigate(R.id.navigation_notLogin)
+            }
+        }
+        else{
+            navView.setupWithNavController(navController)
+        }
+
         toolbar.setupWithNavController(navController, appBarConfiguration)
         navController.addOnDestinationChangedListener { _, _, _ ->
             toolbar.setNavigationIcon(R.drawable.ic_navigation_icon)

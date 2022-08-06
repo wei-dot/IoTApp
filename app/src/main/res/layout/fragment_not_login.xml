@@ -23,20 +23,14 @@
         app:layout_constraintVertical_bias="0.754" />
 
     <TextView
-        android:id="@+id/some_id"
-        android:layout_width="221dp"
-        android:layout_height="35dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:gravity="center_horizontal|top"
-        android:lineSpacingExtra="8sp"
-        android:text="@string/title_not_login"
-        android:textAppearance="@style/text_notlogin_fragment_style"
-        android:translationY="-3.9sp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_add_family"
+        android:id="@+id/textNotLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/color_df8888"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.885" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     ></androidx.constraintlayout.widget.ConstraintLayout>
