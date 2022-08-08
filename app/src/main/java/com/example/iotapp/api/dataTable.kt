@@ -35,9 +35,9 @@ data class LoginResponse(
     var authToken: String,
 )
 
-data class ResetPassword(
+data class SendEmail(
     @SerializedName("email")
-    val email: String
+    var email: String
 )
 
 data class SetPassword(

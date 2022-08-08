@@ -15,8 +15,8 @@ class SplashActivity : AppCompatActivity() {
         IotApi().getInfo(this)
         Handler(Looper.getMainLooper()).postDelayed({
             // Your Code
-            startActivity(Intent(this, MainActivity::class.java))
             finish()
+            startActivity(Intent(this, MainActivity::class.java))
         }, 2000)
 
     }

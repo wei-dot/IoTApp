@@ -18,22 +18,49 @@
         <action
                 android:id="@+id/action_loginFragment_to_resetPasswordFragment"
                 app:destination="@id/forgetPasswordFragment"
-                app:enterAnim="@android:anim/slide_in_left"
-                app:exitAnim="@android:anim/slide_out_right" />
+                app:enterAnim="@android:anim/fade_in"
+                app:exitAnim="@android:anim/fade_out" />
+        <action
+                android:id="@+id/action_loginFragment_to_resetPasswordFragment2"
+                app:destination="@id/resetPasswordFragment"
+                app:enterAnim="@android:anim/fade_in" />
     </fragment>
     <fragment
         android:id="@+id/signupFragment"
         android:name="com.example.iotapp.ui.signup.SignupFragment"
         android:label="fragment_signup"
-        tools:layout="@layout/fragment_account_signup" />
+        tools:layout="@layout/fragment_account_signup" >
+        <action
+                android:id="@+id/action_signupFragment_to_resendFragment"
+                app:destination="@id/resendFragment"
+                app:enterAnim="@android:anim/fade_in"
+                app:exitAnim="@android:anim/fade_out" />
+    </fragment>
     <fragment
             android:id="@+id/forgetPasswordFragment"
             android:name="com.example.iotapp.ui.forget.ForgetPasswordFragment"
             android:label="fragment_reset"
-            tools:layout="@layout/fragment_account_forget" />
+            tools:layout="@layout/fragment_account_forget" >
+        <action
+                android:id="@+id/action_forgetPasswordFragment_to_loginFragment"
+                app:destination="@id/loginFragment"
+                app:enterAnim="@android:anim/fade_in"
+                app:exitAnim="@android:anim/fade_out" />
+    </fragment>
     <fragment
             android:id="@+id/resetPasswordFragment"
             android:name="com.example.iotapp.ui.set.SetPasswordFragment"
             android:label="fragment_reset"
             tools:layout="@layout/fragment_account_set" />
+    <fragment
+            android:id="@+id/resendFragment"
+            android:name="com.example.iotapp.ui.resend.ResendFragment"
+            android:label="fragment_resend"
+            tools:layout="@layout/fragment_resend" >
+        <action
+                android:id="@+id/action_resendFragment_to_loginFragment"
+                app:destination="@id/loginFragment"
+                app:enterAnim="@android:anim/fade_in"
+                app:exitAnim="@android:anim/fade_out" />
+    </fragment>
 </navigation>

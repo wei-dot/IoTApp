@@ -5,13 +5,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
-import com.example.iotapp.MainActivity
-import com.example.iotapp.R
-import com.example.iotapp.api.IotApi
 import com.example.iotapp.databinding.FragmentMainHomeBinding
 import java.io.DataOutputStream
 import java.net.Socket
@@ -53,7 +48,7 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         thread {
             while (_binding != null) {
-                val formatter = SimpleDateFormat("yyyy/MM/dd  E  hh:mm:ss  a")
+                val formatter = SimpleDateFormat("yyyy/MM/dd  E  hh:mm:ss  a", Locale.CHINESE)
                 binding.dateWeekTime.text = formatter.format(Date(System.currentTimeMillis()))
                 Thread.sleep(1000)
             }

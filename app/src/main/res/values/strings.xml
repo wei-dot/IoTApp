@@ -12,6 +12,7 @@
     <string name="fragment_account_forgot">忘記密碼</string>
     <string name="fragment_account_signup">用戶註冊</string>
     <string name="fragment_account_reset">設定新密碼</string>
+    <string name="fragment_account_resend">已寄出驗證信</string>
 
     <!--Fragment String for MainActivity-->
     <string name="not_login">尚未登入</string>

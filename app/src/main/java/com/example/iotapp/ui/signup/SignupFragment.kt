@@ -2,14 +2,21 @@ package com.example.iotapp.ui.signup
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
+import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResult
+import androidx.navigation.fragment.findNavController
 import com.blankj.utilcode.util.RegexUtils
 import com.example.iotapp.MainActivity
+import com.example.iotapp.R
 import com.example.iotapp.api.IotApi
 import com.example.iotapp.api.UserInfo
 import com.example.iotapp.databinding.FragmentAccountSignupBinding
@@ -56,6 +63,11 @@ class SignupFragment : Fragment() {
                 val user = UserInfo(username, password, password2, "", "", email)
                 binding.loading.isVisible = true
                 IotApi().signup(user, activity, binding)
+                setFragmentResult("requestKey", bundleOf("bundleKey" to email))
+                Handler(Looper.getMainLooper()).postDelayed({
+                    // Your Code
+                    findNavController().navigate(R.id.action_signupFragment_to_resendFragment)
+                }, 2000)
             }
         }
     }
