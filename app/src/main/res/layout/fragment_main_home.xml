@@ -271,29 +271,27 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView3">
 
-                        <TextView
-                            android:id="@+id/textView_switch1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="35dp"
-                            android:text="開關1"
-                            android:textSize="20sp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
                         <com.google.android.material.switchmaterial.SwitchMaterial
                             android:id="@+id/tplink_switch1"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_marginEnd="35dp"
                             android:checked="true"
-                            android:text="@string/switch_turn_off"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:thumbTint="@color/color_c07a27"
                             app:trackTint="@color/color_cda16d" />
+
+                        <ImageView
+                            android:id="@+id/imageView_power_plugs1"
+                            android:layout_width="53dp"
+                            android:layout_height="41dp"
+                            android:layout_marginStart="24dp"
+                            android:src="@drawable/power_plugs_logo_on"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -307,13 +305,13 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
-                        <TextView
-                            android:id="@+id/textView_switch2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="35dp"
-                            android:text="開關2"
-                            android:textSize="20sp"
+
+                        <ImageView
+                            android:id="@+id/imageView_power_plugs2"
+                            android:layout_width="53dp"
+                            android:layout_height="41dp"
+                            android:layout_marginStart="24dp"
+                            android:src="@drawable/power_plugs_logo_on"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -324,7 +322,6 @@
                             android:layout_height="match_parent"
                             android:layout_marginEnd="35dp"
                             android:checked="true"
-                            android:text="@string/switch_turn_off"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
@@ -343,13 +340,13 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
 
-                        <TextView
-                            android:id="@+id/textView_switch3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="35dp"
-                            android:text="開關3"
-                            android:textSize="20sp"
+
+                        <ImageView
+                            android:id="@+id/imageView_power_plugs3"
+                            android:layout_width="53dp"
+                            android:layout_height="41dp"
+                            android:layout_marginStart="24dp"
+                            android:src="@drawable/power_plugs_logo_on"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -360,7 +357,6 @@
                             android:layout_height="match_parent"
                             android:layout_marginEnd="35dp"
                             android:checked="true"
-                            android:text="@string/switch_turn_off"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
@@ -378,13 +374,13 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
 
-                        <TextView
-                            android:id="@+id/textView_switch4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="35dp"
-                            android:text="開關4"
-                            android:textSize="20sp"
+
+                        <ImageView
+                            android:id="@+id/imageView_power_plugs4"
+                            android:layout_width="53dp"
+                            android:layout_height="41dp"
+                            android:layout_marginStart="24dp"
+                            android:src="@drawable/power_plugs_logo_on"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -395,7 +391,6 @@
                             android:layout_height="match_parent"
                             android:layout_marginEnd="35dp"
                             android:checked="true"
-                            android:text="@string/switch_turn_off"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
@@ -413,13 +408,13 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
 
-                        <TextView
-                            android:id="@+id/textView_switch5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="35dp"
-                            android:text="開關5"
-                            android:textSize="20sp"
+
+                        <ImageView
+                            android:id="@+id/imageView_power_plugs5"
+                            android:layout_width="53dp"
+                            android:layout_height="41dp"
+                            android:layout_marginStart="24dp"
+                            android:src="@drawable/power_plugs_logo_on"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -430,7 +425,6 @@
                             android:layout_height="match_parent"
                             android:layout_marginEnd="35dp"
                             android:checked="true"
-                            android:text="@string/switch_turn_off"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
@@ -447,13 +441,13 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/constraintLayout5">
 
-                        <TextView
-                            android:id="@+id/textView_switch6"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="35dp"
-                            android:text="開關6"
-                            android:textSize="20sp"
+
+                        <ImageView
+                            android:id="@+id/imageView_power_plugs6"
+                            android:layout_width="53dp"
+                            android:layout_height="41dp"
+                            android:layout_marginStart="24dp"
+                            android:src="@drawable/power_plugs_logo_on"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -464,7 +458,6 @@
                             android:layout_height="match_parent"
                             android:layout_marginEnd="35dp"
                             android:checked="true"
-                            android:text="@string/switch_turn_off"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
