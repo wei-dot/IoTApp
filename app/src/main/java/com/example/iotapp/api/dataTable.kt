@@ -1,8 +1,9 @@
 package com.example.iotapp.api
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
-data class UserInfo(
+data class UserInfo (
     @SerializedName("username")
     val username: String,
     @SerializedName("password")
@@ -15,7 +16,7 @@ data class UserInfo(
     val user_phone: String,
     @SerializedName("email")
     val email: String
-)
+):Serializable
 
 data class Category(
     val category_name: String,

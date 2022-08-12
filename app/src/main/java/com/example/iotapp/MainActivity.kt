@@ -6,6 +6,7 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -21,6 +22,8 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupWithNavController
 import com.example.iotapp.api.IotApi
+import com.example.iotapp.api.SessionManager
+import com.example.iotapp.api.UserInfo
 import com.example.iotapp.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -35,8 +38,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        isLogin = IotApi.globalVar
-        Toast.makeText(this, "isLogin: $isLogin", Toast.LENGTH_SHORT).show()
+        Log.d("userinfo", (intent.getSerializableExtra("userInfo") != null).toString())
+        if (intent.getSerializableExtra("userInfo") != null) {
+            val userinfo = intent.getSerializableExtra("userInfo") as UserInfo
+            binding.profilePage.username.text = userinfo.username
+            isLogin = true
+        }
+        isLogin = SessionManager(this).fetchAuthToken() != null
         switchSideBarContent(isLogin)
         val navView: BottomNavigationView = binding.appBarMain.bottomNavigation
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
@@ -72,12 +80,14 @@ class MainActivity : AppCompatActivity() {
                 }
                 return@setOnItemSelectedListener true
             }
+//            binding.profilePage.username.text = userinfo?.username
         } else {
             navView.setupWithNavController(navController)
         }
         toolbar.setupWithNavController(navController, appBarConfiguration)
         navController.addOnDestinationChangedListener { _, _, _ ->
             toolbar.setNavigationIcon(R.drawable.ic_navigation_icon)
+
         }
 
         binding.loginPage.btnLogin.setOnClickListener {
@@ -100,13 +110,13 @@ class MainActivity : AppCompatActivity() {
         binding.profilePage.btnLogout.setOnClickListener {
             binding.loading?.isVisible = true
             binding.profilePage.btnLogout.isEnabled = false
-            IotApi().logout(this)
+            IotApi.logout(this, SessionManager(this))
+            SessionManager(this).clearAuthToken()
+            binding.loading?.isVisible = false
+            finish()
+            startActivity(intent)
             Handler(Looper.getMainLooper()).postDelayed({
-                // Your Code
-                binding.loading?.isVisible = false
-                finish()
-                startActivity(intent)
-            }, 2000)
+            }, 500)
 
         }
         binding.profilePage.btnSet?.setOnClickListener {
@@ -119,6 +129,7 @@ class MainActivity : AppCompatActivity() {
         binding.appBarMain.btnNotification.setOnClickListener { v ->
             initPopWindow(v)
         }
+//        val temp :StringRequest=
 
 
     }

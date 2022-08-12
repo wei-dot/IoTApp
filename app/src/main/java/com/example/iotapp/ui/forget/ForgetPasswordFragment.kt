@@ -34,15 +34,16 @@ class ForgetPasswordFragment : Fragment() {
         binding.btnSend.setOnClickListener {
             val email = binding.tilUsername?.editText?.text.toString()
             if (email.isEmpty()) {
-                binding.tilUsername?.editText?.error  = "信箱不能為空"
+                binding.tilUsername?.editText?.error = "信箱不能為空"
             } else {
                 binding.loading.isVisible = true
-                IotApi().resetPassword(SendEmail(email), activity,binding)
+                IotApi.sendResetPassword(SendEmail(email), activity)
                 Handler(Looper.getMainLooper()).postDelayed({
-                    // Your Code
+                    // Your Code\
+                    binding.loading.isVisible = false
                     activity?.finish()
                     startActivity(Intent(activity, MainActivity::class.java))
-                }, 3000)
+                }, 500)
             }
 
         }

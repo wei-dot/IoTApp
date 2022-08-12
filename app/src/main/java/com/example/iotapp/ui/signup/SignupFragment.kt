@@ -62,7 +62,7 @@ class SignupFragment : Fragment() {
             } else {
                 val user = UserInfo(username, password, password2, "", "", email)
                 binding.loading.isVisible = true
-                IotApi().signup(user, activity, binding)
+                IotApi.signup(user, activity, binding)
                 setFragmentResult("requestKey", bundleOf("bundleKey" to email))
                 Handler(Looper.getMainLooper()).postDelayed({
                     // Your Code

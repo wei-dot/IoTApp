@@ -4,8 +4,9 @@ import android.content.Context
 import android.content.SharedPreferences
 import com.example.iotapp.R
 
-class SessionManager (context: Context) {
-    private var prefs: SharedPreferences = context.getSharedPreferences(context.getString(R.string.app_name), Context.MODE_PRIVATE)
+class SessionManager(context: Context) {
+    private var prefs: SharedPreferences =
+        context.getSharedPreferences(context.getString(R.string.app_name), Context.MODE_PRIVATE)
 
     companion object {
         const val USER_TOKEN = "user_token"
@@ -25,5 +26,14 @@ class SessionManager (context: Context) {
      */
     fun fetchAuthToken(): String? {
         return prefs.getString(USER_TOKEN, null)
+    }
+
+    /**
+     * Function to clear auth token
+     */
+    fun clearAuthToken() {
+        val editor = prefs.edit()
+        editor.remove(USER_TOKEN)
+        editor.apply()
     }
 }

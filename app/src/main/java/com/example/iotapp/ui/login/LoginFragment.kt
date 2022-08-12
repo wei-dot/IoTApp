@@ -4,18 +4,17 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.os.Message
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.iotapp.MainActivity
 import com.example.iotapp.R
-import com.example.iotapp.api.IotApi
-import com.example.iotapp.api.Login
+import com.example.iotapp.api.*
 import com.example.iotapp.databinding.FragmentAccountLoginBinding
 
 class LoginFragment : Fragment() {
@@ -49,15 +48,36 @@ class LoginFragment : Fragment() {
             binding.btnBack.isEnabled = false
             binding.textForgotPassword.isEnabled = false
             binding.textSignup.isEnabled = false
-            IotApi().login(login, activity)
-
-            Handler(Looper.getMainLooper()).postDelayed({
-                // Your Code
-                binding.loading.isInvisible = false
-                activity?.finish()
-                startActivity(Intent(activity, MainActivity::class.java))
-            }, 3000)
-
+            IotApi.login(login, requireActivity())
+            IotApi.handler = object : Handler(Looper.getMainLooper()) {
+                override fun handleMessage(msg: Message) {
+                    super.handleMessage(msg)
+                    val intent = Intent(activity, MainActivity::class.java)
+                    if (msg.obj != null) {
+                        val response = msg.obj as LoginResponse
+                        SessionManager(requireActivity()).saveAuthToken(response.authToken)
+                        IotApi.getInfo(requireActivity(), SessionManager(requireActivity()))
+                        IotApi.handler = object : Handler(Looper.getMainLooper()) {
+                            override fun handleMessage(msg: Message) {
+                                super.handleMessage(msg)
+                                binding.loading.isVisible = false
+                                if (msg.obj != null) {
+                                    val userinfo = msg.obj as UserInfo
+                                    intent.putExtra("userInfo", userinfo)
+                                }
+                                activity?.finish()
+                                startActivity(intent)
+                            }
+                        }
+                    }else{
+                        binding.loading.isVisible = false
+                        binding.btnSend.isEnabled = true
+                        binding.btnBack.isEnabled = true
+                        binding.textForgotPassword.isEnabled = true
+                        binding.textSignup.isEnabled = true
+                    }
+                }
+            }
 
         }
         binding.textForgotPassword.setOnClickListener {

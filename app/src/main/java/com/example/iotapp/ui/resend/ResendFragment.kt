@@ -58,7 +58,7 @@ class ResendFragment : Fragment() {
                 }
                 countDownTimer.start()
                 it.setOnClickListener { _ ->
-                    IotApi().resendActivation(SendEmail(temp), activity)
+                    IotApi.resendActivation(SendEmail(temp), activity)
                     countDownTimer.start()
                     it.isEnabled = false
                     it.setTextColor(ContextCompat.getColor(requireContext(), R.color.color_AAAAAA))

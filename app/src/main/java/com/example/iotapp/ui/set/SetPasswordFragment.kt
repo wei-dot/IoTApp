@@ -6,6 +6,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.iotapp.MainActivity
 import com.example.iotapp.api.IotApi
+import com.example.iotapp.api.SessionManager
 import com.example.iotapp.api.SetPassword
 import com.example.iotapp.databinding.FragmentAccountSetBinding
 
@@ -37,7 +38,7 @@ class SetPasswordFragment : Fragment() {
             binding.loading?.isEnabled = true
             binding.btnSend.isEnabled = false
             binding.btnBack.isEnabled = false
-            IotApi().setPassword(setPassword, activity, binding)
+            IotApi.setPassword(setPassword, activity, binding, SessionManager(requireActivity()))
             activity?.finish()
             startActivity(Intent(activity, MainActivity::class.java))
         }
