@@ -4,8 +4,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import com.example.iotapp.databinding.ActivityLoginBinding
-import com.example.iotapp.ui.login.LoginFragment
-import com.example.iotapp.ui.signup.SignupFragment
 
 class AccountActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding

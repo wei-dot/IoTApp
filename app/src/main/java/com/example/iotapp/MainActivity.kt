@@ -57,18 +57,13 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_family,
                 R.id.navigation_mode,
                 R.id.navigation_log,
-                R.id.navigation_notLogin
+                R.id.navigation_notLogin,
+                R.id.navigation_family_in
             ), drawerLayout
         )
 
 
         if (!isLogin) {
-            toolbar.setNavigationIcon(R.drawable.ic_navigation_icon)
-            toolbar.setNavigationOnClickListener {
-                drawerLayout.openDrawer(GravityCompat.START)
-            }
-            navController.navigate(R.id.navigation_notLogin)
-            toolbar.title = "居家狀態"
             binding.appBarMain.btnNotification.isVisible = false
             navController.navigate(R.id.navigation_notLogin)
             navView.setOnItemSelectedListener {
@@ -80,7 +75,6 @@ class MainActivity : AppCompatActivity() {
                 }
                 return@setOnItemSelectedListener true
             }
-//            binding.profilePage.username.text = userinfo?.username
         } else {
             navView.setupWithNavController(navController)
         }
@@ -130,6 +124,7 @@ class MainActivity : AppCompatActivity() {
             initPopWindow(v)
         }
 //        val temp :StringRequest=
+
 
 
     }

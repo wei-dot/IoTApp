@@ -32,5 +32,36 @@
     <style name="text_navigation">
         <item name="android:textSize">24sp</item>
     </style>
+    <style name="text_family_infomation_style">
+
+        <item name="android:textSize">
+            18sp
+        </item>
+
+        <item name="android:letterSpacing">
+            1.41
+        </item>
+
+        <item name="android:textColor">
+            #C07A27
+        </item>
+    </style>
+    <style name="text_family_member_style">
+
+        <item name="android:textSize">
+            18sp
+        </item>
+
+        <item name="android:letterSpacing">
+            1.41
+        </item>
+
+        <item name="android:textColor">
+            #C07A27
+        </item>
+
+    </style>
+
+
 
 </resources>

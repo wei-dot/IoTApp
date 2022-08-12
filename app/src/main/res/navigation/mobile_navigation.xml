@@ -14,7 +14,16 @@
             android:id="@+id/navigation_family"
             android:name="com.example.iotapp.ui.family.FamilyFragment"
             android:label="@string/fragment_main_family"
-            tools:layout="@layout/fragment_family_notin"/>
+            tools:layout="@layout/fragment_family_notin">
+        <action
+            android:id="@+id/action_navigation_family_to_navigation_family_in"
+            app:destination="@id/navigation_family_in" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_family_in"
+        android:name="com.example.iotapp.ui.family.FamilyFragmentIn"
+        android:label="@string/fragment_main_family"
+        tools:layout="@layout/fragment_family_in"/>
 
     <fragment
             android:id="@+id/navigation_mode"

@@ -57,5 +57,68 @@
         <item name="android:textColorHint">#AAAAAA</item>
         <item name="passwordToggleTint">@color/black</item>
     </style>
+    <style name="text_family_infomation_style">
+
+        <item name="android:textSize">
+            18sp
+        </item>
+
+        <item name="android:letterSpacing">
+            1.41
+        </item>
+
+        <item name="android:textColor">
+            #C07A27
+        </item>
+
+    </style>
+    <style name="text_family_member_style">
+
+        <item name="android:textSize">
+            18sp
+        </item>
+
+        <item name="android:letterSpacing">
+            1.41
+        </item>
+
+        <item name="android:textColor">
+            #C07A27
+        </item>
+
+    </style>
+    <style name="text_popup_userinfo_nickname_style">
+
+        <item name="android:textSize">
+            24sp
+        </item>
+
+        <item name="android:letterSpacing">
+            0.79
+        </item>
+
+        <item name="android:textColor">
+            #C07A27
+        </item>
+
+    </style>
+    <style name="text_popup_userinfo_user_style">
+
+        <item name="android:textSize">
+            15sp
+        </item>
+
+        <item name="android:letterSpacing">
+            0.16
+        </item>
+
+        <item name="android:textColor">
+            #CDA16D
+        </item>
+
+    </style>
+
+
+
 
 </resources>

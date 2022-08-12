@@ -36,6 +36,10 @@
                 android:name=".AccountActivity"
                 android:exported="true"
                 android:theme="@style/Theme.IoTApp.NoActionBar" />
+        <activity
+                android:name=".FamilyActivity"
+                android:exported="true"
+                android:theme="@style/Theme.IoTApp.NoActionBar" />
 <!--        <activity-->
 <!--                android:name=".SignupActivity"-->
 <!--                android:exported="true"-->

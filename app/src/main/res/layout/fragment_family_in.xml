@@ -1,6 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.family.FamilyFragmentIn">
 
+    <View
+        android:id="@+id/family_infomation_box"
+        android:layout_width="314dp"
+        android:layout_height="260dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:alpha="0.88"
+        android:background="@drawable/background_family_infomation"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.161" />
+
+    <TextView
+        android:id="@+id/text_family_infomation"
+        android:layout_width="187dp"
+        android:layout_height="31dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:gravity="center_horizontal|top"
+        android:lineSpacingExtra="6sp"
+        android:text="@string/text_family_infomation"
+        android:textAppearance="@style/text_family_infomation_style"
+        android:translationY="-2.93sp"
+        app:layout_constraintBottom_toBottomOf="@+id/family_infomation_box"
+        app:layout_constraintEnd_toEndOf="@+id/family_infomation_box"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="@+id/family_infomation_box"
+        app:layout_constraintTop_toTopOf="@+id/family_infomation_box"
+        app:layout_constraintVertical_bias="0.078" />
+
+    <View
+        android:id="@+id/btn_family_setting"
+        android:layout_width="23dp"
+        android:layout_height="24dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/btn_setting"
+        app:layout_constraintBottom_toBottomOf="@+id/text_family_infomation"
+        app:layout_constraintEnd_toEndOf="@+id/family_infomation_box"
+        app:layout_constraintHorizontal_bias="0.375"
+        app:layout_constraintStart_toEndOf="@+id/text_family_infomation"
+        app:layout_constraintTop_toTopOf="@+id/text_family_infomation"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <View
+        android:id="@+id/family_member_box"
+        android:layout_width="314dp"
+        android:layout_height="154dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/background_family_member"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/family_infomation_box"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/family_infomation_box"
+        app:layout_constraintTop_toBottomOf="@+id/family_infomation_box"
+        app:layout_constraintVertical_bias="0.368" />
+
+    <TextView
+        android:id="@+id/family_member_text"
+        android:layout_width="187dp"
+        android:layout_height="31dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:gravity="center_horizontal|top"
+        android:lineSpacingExtra="6sp"
+        android:text="@string/text_family_member"
+        android:textAppearance="@style/text_family_member_style"
+        android:translationY="-2.93sp"
+        app:layout_constraintBottom_toBottomOf="@+id/family_member_box"
+        app:layout_constraintEnd_toEndOf="@+id/family_member_box"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="@+id/family_member_box"
+        app:layout_constraintTop_toTopOf="@+id/family_member_box"
+        app:layout_constraintVertical_bias="0.138" />
+
+    <View
+        android:id="@+id/btn_family_edit"
+        android:layout_width="23dp"
+        android:layout_height="24dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/btn_family_edit"
+        app:layout_constraintBottom_toBottomOf="@+id/family_member_text"
+        app:layout_constraintEnd_toEndOf="@+id/family_member_box"
+        app:layout_constraintHorizontal_bias="0.375"
+        app:layout_constraintStart_toEndOf="@+id/family_member_text"
+        app:layout_constraintTop_toTopOf="@+id/family_member_text"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <include
+        android:id="@+id/family_member_list"
+        layout="@layout/fragment_family_in_horizonbar"
+        android:layout_width="314dp"
+        android:layout_height="58dp"
+        app:layout_constraintBottom_toBottomOf="@+id/family_member_box"
+        app:layout_constraintEnd_toEndOf="@+id/family_member_box"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/family_member_box"
+        app:layout_constraintTop_toBottomOf="@+id/family_member_text"
+        app:layout_constraintVertical_bias="0.529" />
 </androidx.constraintlayout.widget.ConstraintLayout>
