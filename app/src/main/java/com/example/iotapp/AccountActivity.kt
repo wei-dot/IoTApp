@@ -16,7 +16,7 @@ class AccountActivity : AppCompatActivity() {
                 findNavController(R.id.nav_host_fragment_activity_login).navigate(R.id.resetPasswordFragment)
             }
             "Signup" -> {
-                findNavController(R.id.nav_host_fragment_activity_login).navigate(R.id.signupFragment)
+                findNavController(R.id.nav_host_fragment_activity_login).navigate(R.id.action_loginFragment_to_signupFragment)
             }
         }
 

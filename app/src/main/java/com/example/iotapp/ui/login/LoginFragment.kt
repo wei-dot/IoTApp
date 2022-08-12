@@ -20,15 +20,15 @@ import com.example.iotapp.databinding.FragmentAccountLoginBinding
 
 class LoginFragment : Fragment() {
 
-    private var _binging: FragmentAccountLoginBinding? = null
-    private val binding get() = _binging!!
+    private var _binding: FragmentAccountLoginBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binging = FragmentAccountLoginBinding.inflate(inflater, container, false)
+        _binding = FragmentAccountLoginBinding.inflate(inflater, container, false)
         val root = binding.root
         return root
     }
@@ -36,8 +36,8 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.btnBack.setOnClickListener {
-            startActivity(Intent(activity, MainActivity::class.java))
             activity?.finish()
+            startActivity(Intent(activity, MainActivity::class.java))
         }
         binding.btnSend.setOnClickListener {
             val username = binding.tilEmail?.editText?.text.toString()

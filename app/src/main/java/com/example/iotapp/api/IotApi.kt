@@ -22,7 +22,7 @@ class IotApi {
     private lateinit var sessionManager: SessionManager
 
     companion object {
-        var apiClient: ApiService = ApiClient.getApiService()
+        val apiClient: ApiService = ApiClient.getApiService()
         var globalVar = false
     }
 
@@ -39,7 +39,6 @@ class IotApi {
                     Log.d("IotApi", "postInfo: 註冊成功")
                     Toast.makeText(activity, "註冊成功", Toast.LENGTH_SHORT).show()
                     Log.d("IotApi", user.toString())
-                    activity?.finish()
                 } else {
                     binding.loading.isVisible = false
                     Log.d("IotApi", "postInfo: 註冊失敗")
@@ -144,7 +143,7 @@ class IotApi {
     }
 
     fun resetPassword(
-        @Body info: ResetPassword,
+        @Body info: SendEmail,
         activity: FragmentActivity?,
         binding: FragmentAccountForgetBinding
     ) {
@@ -202,6 +201,27 @@ class IotApi {
                     Toast.makeText(activity, "設定密碼失敗", Toast.LENGTH_SHORT).show()
                 }
             }
+    }
+    fun resendActivation(@Body info: SendEmail,activity: FragmentActivity?) {
+        apiClient.resendEmail(info).enqueue {
+            onResponse = {
+                if (it.isSuccessful) {
+                    Log.d("IotApi", "resendActivation: 重新寄送激活信成功")
+                    Toast.makeText(activity, "重新寄送激活信成功", Toast.LENGTH_SHORT).show()
+                } else {
+                    Log.d("IotApi", "resendActivation: 重新寄送激活信失敗")
+                    Toast.makeText(
+                        activity,
+                        "重新寄送激活信失敗: ${it.errorBody()?.string()} ",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+            onFailure = {
+                Log.d("IotApi", "resendActivation: ${it?.message}")
+                Toast.makeText(activity, "重新寄送激活信失敗", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
 

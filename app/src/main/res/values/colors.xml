@@ -5,7 +5,6 @@
     <color name="white">#FFFFFFFF</color>
 
 
-
     <!--Customize your color here-->
     <color name="color_14b2d4">#14B2D4</color>
     <color name="color_86ccdb">#86CCDB</color>
@@ -16,6 +15,7 @@
     <color name="color_c07a27">#C07A27</color>
     <color name="color_df8888">#DF8888</color>
     <color name="color_FDF5E1">#FDF5E1</color>
+    <color name="color_AAAAAA">#AAAAAA</color>
 
 
 </resources>

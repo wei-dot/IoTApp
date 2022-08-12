@@ -8,4 +8,5 @@ object Constants  {
     const val LOGOUT_URL = "auth/token/logout/"
     const val RESET_PASSWORD_URL = "auth/users/reset_password/"
     const val SET_PASSWORD_URL = "auth/users/set_password/"
+    const val RESEND_ACTIVATION_URL = "auth/users/resend_activation/"
 }

@@ -80,6 +80,7 @@ class MainActivity : AppCompatActivity() {
         binding.loginPage.btnSignup.setOnClickListener {
             val intent = Intent(this, AccountActivity::class.java)
             intent.putExtra("Login", "Signup")
+            finish()
             startActivity(intent)
         }
         binding.loginPage.btnBack.setOnClickListener {
@@ -97,12 +98,13 @@ class MainActivity : AppCompatActivity() {
                 binding.loading?.isVisible = false
                 finish()
                 startActivity(intent)
-            }, 1000)
+            }, 2000)
 
         }
         binding.profilePage.btnSet?.setOnClickListener {
             val intent = Intent(this, AccountActivity::class.java)
             intent.putExtra("Login", "SetPassword")
+            finish()
             startActivity(intent)
         }
 
@@ -112,22 +114,6 @@ class MainActivity : AppCompatActivity() {
 
 
 
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.bottom_nav_menu, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        return when (item.itemId) {
-            R.id.navigation_home -> true
-            else -> super.onOptionsItemSelected(item)
-        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -157,7 +143,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    @SuppressLint("ClickableViewAccessibility")
+    @SuppressLint("ClickableViewAccessibility", "InflateParams")
     private fun initPopWindow(v: View) {
         val view = LayoutInflater.from(this).inflate(R.layout.notification_window, null, false)
         val popWindow = PopupWindow(

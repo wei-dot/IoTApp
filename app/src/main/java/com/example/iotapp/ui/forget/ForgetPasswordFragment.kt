@@ -11,7 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.iotapp.MainActivity
 import com.example.iotapp.R
 import com.example.iotapp.api.IotApi
-import com.example.iotapp.api.ResetPassword
+import com.example.iotapp.api.SendEmail
 import com.example.iotapp.databinding.FragmentAccountForgetBinding
 
 class ForgetPasswordFragment : Fragment() {
@@ -29,7 +29,7 @@ class ForgetPasswordFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.btnBack.setOnClickListener {
-            findNavController().navigate(R.id.loginFragment)
+            findNavController().navigate(R.id.action_forgetPasswordFragment_to_loginFragment)
         }
         binding.btnSend.setOnClickListener {
             val email = binding.tilUsername?.editText?.text.toString()
@@ -37,11 +37,11 @@ class ForgetPasswordFragment : Fragment() {
                 binding.tilUsername?.editText?.error  = "信箱不能為空"
             } else {
                 binding.loading.isVisible = true
-                IotApi().resetPassword(ResetPassword(email), activity,binding)
+                IotApi().resetPassword(SendEmail(email), activity,binding)
                 Handler(Looper.getMainLooper()).postDelayed({
                     // Your Code
-                    startActivity(Intent(activity, MainActivity::class.java))
                     activity?.finish()
+                    startActivity(Intent(activity, MainActivity::class.java))
                 }, 3000)
             }
 
