@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.*
-import android.widget.ImageButton
 import android.widget.PopupWindow
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -20,7 +19,6 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupWithNavController
 import com.example.iotapp.api.IotApi
 import com.example.iotapp.databinding.ActivityMainBinding
-import com.example.iotapp.databinding.FragmentMainUnloginBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
@@ -48,18 +46,13 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_family,
                 R.id.navigation_mode,
                 R.id.navigation_log,
-                R.id.navigation_notLogin
+                R.id.navigation_notLogin,
+                R.id.navigation_family_in
             ), drawerLayout
         )
 
 
         if (!isLogin) {
-            toolbar.setNavigationIcon(R.drawable.ic_navigation_icon)
-            toolbar.setNavigationOnClickListener {
-                drawerLayout.openDrawer(GravityCompat.START)
-            }
-            navController.navigate(R.id.navigation_notLogin)
-            toolbar.title = "居家狀態"
             binding.appBarMain.btnNotification.isVisible = false
             navController.navigate(R.id.navigation_notLogin)
             navView.setOnItemSelectedListener {
@@ -116,6 +109,7 @@ class MainActivity : AppCompatActivity() {
         binding.appBarMain.btnNotification.setOnClickListener { v ->
             initPopWindow(v)
         }
+
 
 
     }
