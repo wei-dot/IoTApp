@@ -24,9 +24,13 @@
         <item name="android:textColor">#868585</item>
     </style>
 
-    <style name="AnimationPopup">
-        <item name="android:windowEnterAnimation">@anim/opening_anim</item>
-        <item name="android:windowExitAnimation">@anim/closing_anim</item>
+    <style name="notificationAnimationPopup">
+        <item name="android:windowEnterAnimation">@anim/notification_opening_anim</item>
+        <item name="android:windowExitAnimation">@anim/notification_closing_anim</item>
+    </style>
+    <style name="normalAnimationPopup">
+        <item name="android:windowEnterAnimation">@anim/normal_popup_opening_anim</item>
+        <item name="android:windowExitAnimation">@anim/normal_popup_ending_anim</item>
     </style>
 
     <style name="text_navigation">

@@ -1,7 +1,9 @@
 package com.example.iotapp.ui.family
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.graphics.drawable.ColorDrawable
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
 import android.view.Gravity
@@ -16,6 +18,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.iotapp.R
 import com.example.iotapp.databinding.FragmentFamilyInBinding
 import android.widget.PopupWindow
+import androidx.core.content.ContextCompat
 
 
 /**
@@ -43,7 +46,6 @@ class FamilyFragmentIn : Fragment() {
 
         val root: View = binding.root
         val memberList : LinearLayout? = binding.familyMemberBoxLinearlayout
-
         for(i in 0 until member_num.size){
             val memberToAdd = View.inflate(context, R.layout.member, null)
             memberToAdd.id = i
@@ -54,9 +56,25 @@ class FamilyFragmentIn : Fragment() {
             }
             memberList?.addView(memberToAdd)
             memberToAdd.setOnClickListener{
-                Log.d("member", "member" + i.toString())
+                Toast.makeText(context, member_num[i], Toast.LENGTH_SHORT).show()
             }
         }
+        binding.btnFamilyEdit.setOnClickListener{
+            val popupWindow = PopupWindow(context)
+            val view = layoutInflater.inflate(R.layout.popup_edit_member, null)
+            popupWindow.contentView = view
+            popupWindow.width = LinearLayout.LayoutParams.WRAP_CONTENT
+            popupWindow.height = LinearLayout.LayoutParams.WRAP_CONTENT
+            popupWindow.isFocusable = true
+            popupWindow.isOutsideTouchable = true
+            popupWindow.animationStyle = R.style.normalAnimationPopup
+            popupWindow.setBackgroundDrawable(context?.let { it1 ->
+                ContextCompat.getColor(
+                    it1, com.google.android.material.R.color.mtrl_btn_transparent_bg_color)
+            }?.let { it2 -> ColorDrawable(it2) })
+            popupWindow.showAtLocation(root, Gravity.CENTER, 0, 0)
+        }
+
         return root
     }
 

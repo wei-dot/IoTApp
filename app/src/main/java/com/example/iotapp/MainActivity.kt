@@ -171,7 +171,7 @@ class MainActivity : AppCompatActivity() {
         if (popWindow.isShowing) {
             popWindow.dismiss()
         } else {
-            popWindow.animationStyle = R.style.AnimationPopup
+            popWindow.animationStyle = R.style.notificationAnimationPopup
             popWindow.isTouchable = true
             popWindow.isOutsideTouchable = true
             backgroundAlpha(0.8f)
