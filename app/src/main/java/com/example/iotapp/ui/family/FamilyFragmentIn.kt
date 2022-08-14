@@ -5,6 +5,7 @@ import android.content.Context
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.text.Layout
 import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -56,12 +57,28 @@ class FamilyFragmentIn : Fragment() {
             }
             memberList?.addView(memberToAdd)
             memberToAdd.setOnClickListener{
-                Toast.makeText(context, member_num[i], Toast.LENGTH_SHORT).show()
+                popupByClick(R.layout.popup_userinfo)
             }
         }
         binding.btnFamilyEdit.setOnClickListener{
-            val popupWindow = PopupWindow(context)
-            val view = layoutInflater.inflate(R.layout.popup_edit_member, null)
+            popupByClick(R.layout.popup_edit_member)
+        }
+
+
+        return root
+    }
+
+    private fun popupByClick(layoutID: Int){
+        val popupWindow = PopupWindow(context)
+        val view = layoutInflater.inflate(layoutID, null)
+        popupWindow.setOnDismissListener {
+            backgroundAlpha(1f)
+        }
+        if (popupWindow.isShowing) {
+            popupWindow.dismiss()
+        }
+        else{
+            backgroundAlpha(0.8f)
             popupWindow.contentView = view
             popupWindow.width = LinearLayout.LayoutParams.WRAP_CONTENT
             popupWindow.height = LinearLayout.LayoutParams.WRAP_CONTENT
@@ -70,12 +87,17 @@ class FamilyFragmentIn : Fragment() {
             popupWindow.animationStyle = R.style.normalAnimationPopup
             popupWindow.setBackgroundDrawable(context?.let { it1 ->
                 ContextCompat.getColor(
-                    it1, com.google.android.material.R.color.mtrl_btn_transparent_bg_color)
+                    it1, com.google.android.material.R.color.mtrl_btn_transparent_bg_color
+                )
             }?.let { it2 -> ColorDrawable(it2) })
-            popupWindow.showAtLocation(root, Gravity.CENTER, 0, 0)
+            popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0)
         }
+    }
 
-        return root
+    private fun backgroundAlpha(f: Float) {
+        val lp = activity?.window?.attributes
+        lp?.alpha = f
+        activity?.window?.attributes = lp
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
