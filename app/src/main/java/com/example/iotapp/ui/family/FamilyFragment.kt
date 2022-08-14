@@ -18,7 +18,11 @@ import com.example.iotapp.databinding.FragmentFamilyNotinBinding
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
+
 class FamilyFragment : Fragment() {
+
+    //testMode *if inside Family
+    var testMode = true
 
     private var _binding: FragmentFamilyNotinBinding? = null
 
@@ -30,6 +34,9 @@ class FamilyFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        if (testMode){
+            findNavController().navigate(R.id.action_navigation_family_to_navigation_family_in)
+        }
         val familyViewModel = ViewModelProvider(this)[FamilyViewModel::class.java]
         _binding = FragmentFamilyNotinBinding.inflate(inflater, container, false)
 
@@ -41,6 +48,7 @@ class FamilyFragment : Fragment() {
         binding.btnAddFamily?.setOnClickListener{
             findNavController().navigate(R.id.action_navigation_family_to_navigation_family_in)
         }
+
 
 
         return root
@@ -56,3 +64,4 @@ class FamilyFragment : Fragment() {
         _binding = null
     }
 }
+
