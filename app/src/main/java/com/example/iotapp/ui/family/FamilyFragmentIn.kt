@@ -41,7 +41,7 @@ class FamilyFragmentIn : Fragment() {
         _binding = FragmentFamilyInBinding.inflate(inflater, container, false)
 
         //test
-        val member_num : List<String> = listOf("島輝","偷刀","馬吉亞米","番仔","盲胞","歐巴馬")
+        val member_num : List<String> = listOf("島輝","偷刀","馬吉亞米","番仔","盲胞","歐巴馬","勞贖")
         val king : String = "島輝"
         //test
 
