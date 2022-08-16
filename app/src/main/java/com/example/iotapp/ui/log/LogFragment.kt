@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.example.iotapp.R
 import com.example.iotapp.databinding.FragmentMainLogBinding
 
 class LogFragment : Fragment() {
@@ -18,6 +20,7 @@ class LogFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
         val logViewModel =
             ViewModelProvider(this)[LogViewModel::class.java]
 

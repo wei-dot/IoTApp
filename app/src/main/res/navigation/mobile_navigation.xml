@@ -10,20 +10,13 @@
             android:name="com.example.iotapp.ui.home.HomeFragment"
             android:label="@string/fragment_main_home"
             tools:layout="@layout/fragment_main_home"/>
+
     <fragment
-            android:id="@+id/navigation_family"
-            android:name="com.example.iotapp.ui.family.FamilyFragment"
-            android:label="@string/fragment_main_family"
-            tools:layout="@layout/fragment_family_notin">
-        <action
-            android:id="@+id/action_navigation_family_to_navigation_family_in"
-            app:destination="@id/navigation_family_in" />
-    </fragment>
-    <fragment
-        android:id="@+id/navigation_family_in"
-        android:name="com.example.iotapp.ui.family.FamilyFragmentIn"
+        android:id="@+id/navigation_family"
+        android:name="com.example.iotapp.ui.family.FamilyFragment"
         android:label="@string/fragment_main_family"
-        tools:layout="@layout/fragment_family_in"/>
+        tools:layout="@layout/fragment_family_in">
+    </fragment>
 
     <fragment
             android:id="@+id/navigation_mode"

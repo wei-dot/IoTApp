@@ -1,32 +1,33 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        tools:context="com.example.iotapp.MainActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.iotapp.MainActivity">
     <item
-            android:id="@+id/navigation_home"
-            android:enabled="true"
-            android:icon="@drawable/selector_home"
-            android:orderInCategory="100"
-            android:title="@string/fragment_main_home" />
+        android:id="@+id/navigation_home"
+        android:enabled="true"
+        android:icon="@drawable/selector_home"
+        android:orderInCategory="100"
+        android:title="@string/fragment_main_home" />
     <item
-            android:id="@+id/navigation_family"
-            android:enabled="true"
-            android:icon="@drawable/selector_family"
-            android:orderInCategory="100"
-            android:title="@string/fragment_main_family"
-            app:showAsAction="never" />
+        android:id="@+id/navigation_family"
+        android:enabled="true"
+        android:icon="@drawable/selector_family"
+        android:orderInCategory="100"
+        android:visible="true"
+        android:title="@string/fragment_main_family" />
     <item
-            android:id="@+id/navigation_mode"
-            android:enabled="true"
-            android:icon="@drawable/selector_mode"
-            android:orderInCategory="100"
-            android:title="@string/fragment_main_mode"
-            app:showAsAction="never" />
+        android:id="@+id/navigation_mode"
+        android:enabled="true"
+        android:icon="@drawable/selector_mode"
+        android:orderInCategory="100"
+        android:title="@string/fragment_main_mode"
+        app:showAsAction="never" />
     <item
-            android:id="@+id/navigation_log"
-            android:enabled="true"
-            android:icon="@drawable/selector_log"
-            android:orderInCategory="100"
-            android:title="@string/fragment_main_log"
-            app:showAsAction="never" />
+        android:id="@+id/navigation_log"
+        android:enabled="true"
+        android:icon="@drawable/selector_log"
+        android:orderInCategory="100"
+        android:title="@string/fragment_main_log"
+        app:showAsAction="never" />
+
 </menu>

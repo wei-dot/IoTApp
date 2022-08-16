@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.blankj.utilcode.util.ThreadUtils.runOnUiThread
 import com.example.iotapp.R
 import com.example.iotapp.databinding.FragmentMainHomeBinding
