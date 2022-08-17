@@ -44,7 +44,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <View
+    <ImageButton
         android:id="@+id/popup_edit_member_add_member"
         android:layout_width="99.5dp"
         android:layout_height="108.05dp"
@@ -56,9 +56,10 @@
         app:layout_constraintHorizontal_bias="0.109"
         app:layout_constraintStart_toStartOf="@+id/popup_edit_member_insidebox"
         app:layout_constraintTop_toTopOf="@+id/popup_edit_member_insidebox"
-        app:layout_constraintVertical_bias="0.607" />
+        app:layout_constraintVertical_bias="0.607"
+        />
 
-    <View
+    <ImageButton
         android:id="@+id/popup_edit_member_edit_member"
         android:layout_width="99.5dp"
         android:layout_height="108.05dp"

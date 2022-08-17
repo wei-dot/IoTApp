@@ -47,6 +47,6 @@
     <string name="text_tplink_switch">廷長線開關</string>
     <string name="text_family_infomation">家庭資訊</string>
     <string name="text_family_member">家庭成員</string>
-    <string name ="text_edit_member">編輯成員</string>
+    <string name="text_edit_member">編輯成員</string>
 
 </resources>

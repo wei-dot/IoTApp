@@ -1,10 +1,8 @@
 package com.example.iotapp.ui.family
-
-import android.R
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.text.Layout
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +13,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
+import com.example.iotapp.FamilyMemberActivity
 import com.example.iotapp.databinding.FragmentMainFamilyBinding
 
 
@@ -25,23 +24,24 @@ class FamilyFragment : Fragment() {
 
     private var _binding: FragmentMainFamilyBinding? = null
     //testMode *if inside Family
-    var testMode = true
+    private var testMode = true
 
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+    @SuppressLint("InflateParams")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentMainFamilyBinding.inflate(inflater, container, false)
         val root: View = binding.root
-        val FamilyViewModel = ViewModelProvider(this).get(FamilyViewModel::class.java)
+        val FamilyViewModel = ViewModelProvider(this)[FamilyViewModel::class.java]
         if (testMode) {
             binding.btnAddFamily.isVisible = false
             //test
             val member_num: List<String> = listOf("島輝", "偷刀", "馬吉亞米", "番仔", "盲胞", "歐巴馬", "勞贖")
-            val king: String = "島輝"
+            val king = "島輝"
             //test
             val memberList: LinearLayout = binding.familyMemberBoxLinearlayout
             for (i in member_num.indices) {
@@ -97,7 +97,12 @@ class FamilyFragment : Fragment() {
                 val view = layoutInflater.inflate(com.example.iotapp.R.layout.popup_edit_member, null)
                 val btn_addmember = view.findViewById<ImageButton>(com.example.iotapp.R.id.popup_edit_member_add_member)
                 val btn_editmember = view.findViewById<ImageButton>(com.example.iotapp.R.id.popup_edit_member_edit_member)
-
+                btn_addmember.setOnClickListener{
+                    val intent = Intent(context, FamilyMemberActivity::class.java)
+                    intent.putExtra("FamilyMemberActivity", "addMember")
+                    startActivity(intent)
+                    popupWindow.dismiss()
+                }
                 popupWindow.setOnDismissListener {
                     backgroundAlpha(1f)
                 }
