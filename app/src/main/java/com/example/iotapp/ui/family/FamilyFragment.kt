@@ -17,7 +17,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
-import com.example.iotapp.databinding.FragmentFamilyInBinding
+import com.example.iotapp.databinding.FragmentMainFamilyBinding
 
 
 /**
@@ -25,7 +25,7 @@ import com.example.iotapp.databinding.FragmentFamilyInBinding
  */
 class FamilyFragment : Fragment() {
 
-    private var _binding: FragmentFamilyInBinding? = null
+    private var _binding: FragmentMainFamilyBinding? = null
     //testMode *if inside Family
     var testMode = true
 
@@ -36,7 +36,7 @@ class FamilyFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentFamilyInBinding.inflate(inflater, container, false)
+        _binding = FragmentMainFamilyBinding.inflate(inflater, container, false)
         val root: View = binding.root
         val FamilyViewModel = ViewModelProvider(this).get(FamilyViewModel::class.java)
         if (testMode) {
@@ -70,7 +70,7 @@ class FamilyFragment : Fragment() {
             FamilyViewModel.text.observe(viewLifecycleOwner) {
                 textView.text = it
             }
-            binding.btnAddFamily?.setOnClickListener{
+            binding.btnAddFamily.setOnClickListener{
 //                popupByClick(R.layout.popup_add_member)
                 testMode = true
                 refreshFragment()

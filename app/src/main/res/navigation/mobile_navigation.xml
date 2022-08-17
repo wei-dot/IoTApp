@@ -15,7 +15,7 @@
         android:id="@+id/navigation_family"
         android:name="com.example.iotapp.ui.family.FamilyFragment"
         android:label="@string/fragment_main_family"
-        tools:layout="@layout/fragment_family_in">
+        tools:layout="@layout/fragment_main_family">
     </fragment>
 
     <fragment

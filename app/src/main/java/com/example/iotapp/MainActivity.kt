@@ -54,7 +54,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_home,
                 R.id.navigation_family,
                 R.id.navigation_mode,
-                R.id.navigation_log
+                R.id.navigation_log,
+                R.id.navigation_notLogin
             ), drawerLayout
         )
 
