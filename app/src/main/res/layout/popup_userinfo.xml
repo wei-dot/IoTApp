@@ -33,8 +33,8 @@
         app:layout_constraintVertical_bias="0.107" />
 
     <TextView
-        android:id="@+id/family_nickname"
-        android:layout_width="67dp"
+        android:id="@+id/popup_username"
+        android:layout_width="86dp"
         android:layout_height="36dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
@@ -49,7 +49,7 @@
         app:layout_constraintTop_toTopOf="@+id/view" />
 
     <TextView
-        android:id="@+id/wanny33"
+        android:id="@+id/popup_user"
         android:layout_width="85dp"
         android:layout_height="23dp"
         android:layout_alignParentLeft="true"
@@ -58,9 +58,9 @@
         android:lineSpacingExtra="5sp"
         android:textAppearance="@style/text_popup_userinfo_user_style"
         android:translationY="-2.44sp"
-        app:layout_constraintEnd_toEndOf="@+id/family_nickname"
-        app:layout_constraintStart_toStartOf="@+id/family_nickname"
-        app:layout_constraintTop_toBottomOf="@+id/family_nickname" />
+        app:layout_constraintEnd_toEndOf="@+id/popup_username"
+        app:layout_constraintStart_toStartOf="@+id/popup_username"
+        app:layout_constraintTop_toBottomOf="@+id/popup_username" />
 
     <ImageButton
         android:id="@+id/btn_kickmember"
@@ -70,10 +70,10 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="8dp"
         android:background="@drawable/btn_kickmember"
-        app:layout_constraintEnd_toEndOf="@+id/wanny33"
+        app:layout_constraintEnd_toEndOf="@+id/popup_user"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/wanny33"
-        app:layout_constraintTop_toBottomOf="@+id/wanny33" />
+        app:layout_constraintStart_toStartOf="@+id/popup_user"
+        app:layout_constraintTop_toBottomOf="@+id/popup_user" />
 
     <View
         android:id="@+id/rectangle_2"

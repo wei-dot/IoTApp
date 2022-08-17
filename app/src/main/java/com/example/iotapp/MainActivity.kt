@@ -120,10 +120,6 @@ class MainActivity : AppCompatActivity() {
         binding.appBarMain.btnNotification.setOnClickListener { v ->
             initPopWindow(v)
         }
-//        val temp :StringRequest=
-
-
-
     }
 
     override fun onSupportNavigateUp(): Boolean {

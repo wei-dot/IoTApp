@@ -59,7 +59,7 @@
         app:layout_constraintVertical_bias="0.607" />
 
     <View
-        android:id="@+id/some_id"
+        android:id="@+id/popup_edit_member_edit_member"
         android:layout_width="99.5dp"
         android:layout_height="108.05dp"
         android:layout_alignParentLeft="true"
