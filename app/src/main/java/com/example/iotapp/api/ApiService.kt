@@ -34,6 +34,13 @@ interface ApiService {
     @POST(Constants.RESEND_ACTIVATION_URL)
     fun resendEmail(@Body info: SendEmail): Call<Void>
 
+    @Headers("Content-Type:application/json")
+    @POST(Constants.FAMILY_URL)
+    fun createFamily(@Header("Authorization") token: String): Call<Family>
+
+    @Headers("Content-Type:application/json")
+    @GET(Constants.FAMILY_ADMIN_URL)
+    fun getFamilyAdmin(@Header("Authorization") token: String): Call<FamilyAdmin>
 
 
 }

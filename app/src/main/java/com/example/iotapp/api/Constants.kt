@@ -9,4 +9,7 @@ object Constants  {
     const val RESET_PASSWORD_URL = "auth/users/reset_password/"
     const val SET_PASSWORD_URL = "auth/users/set_password/"
     const val RESEND_ACTIVATION_URL = "auth/users/resend_activation/"
+    const val FAMILY_URL="/auth/home_list/"
+    const val FAMILY_ADMIN_URL="/auth/home_admin/"
+
 }

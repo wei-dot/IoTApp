@@ -49,3 +49,29 @@ data class SetPassword(
     @SerializedName("re_new_password")
     val re_password: String
 )
+data class FamilyAdmin(
+    @SerializedName("family_name")
+    val family_name: String,
+    @SerializedName("family_description")
+    val family_description: String,
+    @SerializedName("family_admin")
+    val family_admin: String,
+    @SerializedName("family_admin_phone")
+    val family_admin_phone: String,
+    @SerializedName("family_admin_email")
+    val family_admin_email: String
+)
+data class Family(
+    @SerializedName("family_name")
+    val family_name: String,
+    @SerializedName("family_description")
+    val family_description: String,
+    @SerializedName("family_admin")
+    val family_admin: String,
+    @SerializedName("family_admin_phone")
+    val family_admin_phone: String,
+    @SerializedName("family_admin_email")
+    val family_admin_email: String,
+    @SerializedName("family_id")
+    val family_id: String
+)
