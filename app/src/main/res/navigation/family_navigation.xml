@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/family_navigation"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/navigation_family_edit">
+    <fragment
+        android:id="@+id/navigation_family_edit"
+        android:name="com.example.iotapp.ui.familyEdit.FamilyEditFragment"
+        android:label="@string/text_edit_family"
+        tools:layout="@layout/fragment_family_edit"/>
+    <fragment
+        android:id="@+id/navigation_family_member_add"
+        android:name="com.example.iotapp.ui.familyEdit.FamilyMemberAddFragment"
+        android:label="@string/text_add_member"
+        tools:layout="@layout/fragment_family_member_add"/>
+</navigation>

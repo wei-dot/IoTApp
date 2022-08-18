@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
 import com.example.iotapp.FamilyMemberActivity
+import com.example.iotapp.SplashActivity
 import com.example.iotapp.databinding.FragmentMainFamilyBinding
 
 
@@ -24,8 +25,7 @@ class FamilyFragment : Fragment() {
 
     private var _binding: FragmentMainFamilyBinding? = null
     //testMode *if inside Family
-    private var testMode = true
-
+    var testMode = true
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -34,9 +34,12 @@ class FamilyFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
         _binding = FragmentMainFamilyBinding.inflate(inflater, container, false)
         val root: View = binding.root
         val FamilyViewModel = ViewModelProvider(this)[FamilyViewModel::class.java]
+
+        Toast.makeText(context, testMode.toString(), Toast.LENGTH_SHORT).show()
         if (testMode) {
             binding.btnAddFamily.isVisible = false
             //test
@@ -103,6 +106,12 @@ class FamilyFragment : Fragment() {
                     startActivity(intent)
                     popupWindow.dismiss()
                 }
+                btn_editmember.setOnClickListener{
+                    val intent = Intent(context, FamilyMemberActivity::class.java)
+                    intent.putExtra("FamilyMemberActivity", "editMember")
+                    startActivity(intent)
+                    popupWindow.dismiss()
+                }
                 popupWindow.setOnDismissListener {
                     backgroundAlpha(1f)
                 }
@@ -146,32 +155,6 @@ class FamilyFragment : Fragment() {
         NavHostFragment.findNavController(this).navigate(com.example.iotapp.R.id.navigation_family)
     }
 
-    private fun popupByClick(layoutID: Int){
-        val popupWindow = PopupWindow(context)
-        val view = layoutInflater.inflate(layoutID, null)
-        popupWindow.setOnDismissListener {
-            backgroundAlpha(1f)
-        }
-        if (popupWindow.isShowing) {
-            popupWindow.dismiss()
-        }
-        else{
-            backgroundAlpha(0.8f)
-            popupWindow.contentView = view
-            popupWindow.width = LinearLayout.LayoutParams.WRAP_CONTENT
-            popupWindow.height = LinearLayout.LayoutParams.WRAP_CONTENT
-            popupWindow.isFocusable = true
-            popupWindow.isOutsideTouchable = true
-            popupWindow.animationStyle = com.example.iotapp.R.style.normalAnimationPopup
-            popupWindow.setBackgroundDrawable(context?.let { it1 ->
-                ContextCompat.getColor(
-                    it1, com.google.android.material.R.color.mtrl_btn_transparent_bg_color
-                )
-            }?.let { it2 -> ColorDrawable(it2) })
-            popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0)
-        }
-    }
-
     private fun backgroundAlpha(f: Float) {
         val lp = activity?.window?.attributes
         lp?.alpha = f
@@ -188,3 +171,4 @@ class FamilyFragment : Fragment() {
         _binding = null
     }
 }
+

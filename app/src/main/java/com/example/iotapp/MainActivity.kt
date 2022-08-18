@@ -23,6 +23,8 @@ import com.example.iotapp.api.IotApi
 import com.example.iotapp.api.SessionManager
 import com.example.iotapp.api.UserInfo
 import com.example.iotapp.databinding.ActivityMainBinding
+import com.example.iotapp.databinding.FragmentMainFamilyBinding
+import com.example.iotapp.ui.family.FamilyFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
@@ -78,7 +80,6 @@ class MainActivity : AppCompatActivity() {
         toolbar.setupWithNavController(navController, appBarConfiguration)
         navController.addOnDestinationChangedListener { _, _, _ ->
             toolbar.setNavigationIcon(R.drawable.ic_navigation_icon)
-
         }
 
         binding.loginPage.btnLogin.setOnClickListener {
@@ -176,7 +177,6 @@ class MainActivity : AppCompatActivity() {
                 binding.appBarMain.btnNotification,
                 Gravity.TOP, 0, locate[1] + 70
             )
-            Toast.makeText(this, "X位置" + locate[0] + "\nY位置" + locate[1], Toast.LENGTH_SHORT).show()
         }
 
     }

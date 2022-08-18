@@ -35,7 +35,4 @@
         android:name="com.example.iotapp.ui.notLogin.NotLoginFragment"
         android:label="居家狀態"
         tools:layout="@layout/fragment_main_unlogin"/>
-
-
-
 </navigation>
