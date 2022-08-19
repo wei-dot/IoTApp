@@ -48,5 +48,7 @@
     <string name="text_family_infomation">家庭資訊</string>
     <string name="text_family_member">家庭成員</string>
     <string name="text_edit_member">編輯成員</string>
+    <string name="text_edit_family">編輯家庭</string>
+    <string name="text_add_member">新增成員</string>
 
 </resources>

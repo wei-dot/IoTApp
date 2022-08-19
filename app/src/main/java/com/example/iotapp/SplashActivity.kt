@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.iotapp.api.IotApi
 import com.example.iotapp.api.SessionManager
 import com.example.iotapp.api.UserInfo
-import java.io.Serializable
+import com.example.iotapp.ui.family.FamilyFragment
 
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {
@@ -31,6 +31,8 @@ class SplashActivity : AppCompatActivity() {
                         val response = msg.obj as UserInfo
                         intent.putExtra("userInfo", response)
                     }
+
+                    //exit SplashActivity
                     finish()
                     startActivity(intent)
                 }
