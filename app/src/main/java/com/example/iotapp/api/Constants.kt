@@ -1,7 +1,8 @@
 package com.example.iotapp.api
 
 object Constants  {
-    const val BASE_URL = "https://api.bap5.cc/"
+//    const val BASE_URL = "https://api.bap5.cc/"
+    const val BASE_URL = "http://192.168.100.2:8000/"
     const val LOGIN_URL = "auth/token/login"
     const val Signup_URL = "auth/users/"
     const val GET_USER_URL = "auth/users/me/"
@@ -11,5 +12,6 @@ object Constants  {
     const val RESEND_ACTIVATION_URL = "auth/users/resend_activation/"
     const val FAMILY_URL="/auth/home_list/"
     const val FAMILY_ADMIN_URL="/auth/home_admin/"
+    const val Power_Strip_URL="/ws/strip/temp/"
 
 }
