@@ -14,4 +14,8 @@
         android:name="com.example.iotapp.ui.familyEdit.FamilyMemberAddFragment"
         android:label="@string/text_add_member"
         tools:layout="@layout/fragment_family_member_add"/>
+    <fragment
+        android:id="@+id/navigation_family_add"
+        android:name="com.example.iotapp.ui.familyEdit.FamilyAddFragment"
+        tools:layout="@layout/fragment_family_add"/>
 </navigation>

@@ -6,15 +6,14 @@ import android.os.Looper
 import android.os.Message
 import android.util.Log
 import android.view.View
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.core.view.isVisible
 import androidx.fragment.app.FragmentActivity
+import com.example.iotapp.FamilyMemberActivity
 import com.example.iotapp.MainActivity
 import com.example.iotapp.R
 import com.example.iotapp.databinding.*
+import com.example.iotapp.ui.familyEdit.FamilyAddFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -318,6 +317,13 @@ class IotApi {
                                     Toast.makeText(activity, "已選擇此家庭", Toast.LENGTH_SHORT).show()
                                 }
                             }
+                        }
+                        val btn_addFamily = View.inflate(activity, com.example.iotapp.R.layout.add_family_item, null)
+                        myFamilyList?.addView(btn_addFamily)
+                        btn_addFamily.findViewById<ImageButton>(R.id.add_family_item).setOnClickListener{
+                            val intent = Intent(activity, FamilyMemberActivity::class.java)
+                            intent.putExtra("FamilyMemberActivity", "addFamily")
+                            activity?.startActivity(intent)
                         }
                     } else {
 //                        binding.loading?.isVisible = false

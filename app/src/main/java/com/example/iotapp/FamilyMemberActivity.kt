@@ -9,7 +9,7 @@ import androidx.navigation.findNavController
 import com.example.iotapp.databinding.ActivityFamilyEditBinding
 
 
-class FamilyMemberActivity : AppCompatActivity(){
+class FamilyMemberActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFamilyEditBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,11 +17,13 @@ class FamilyMemberActivity : AppCompatActivity(){
         setContentView(binding.root)
         when (intent.getStringExtra("FamilyMemberActivity")) {
             "addMember" -> {
-                Toast.makeText(this, "add", Toast.LENGTH_SHORT).show()
                 findNavController(R.id.nav_host_fragment_family_edit).navigate(R.id.navigation_family_member_add)
             }
             "editMember" -> {
                 Toast.makeText(this, "edit", Toast.LENGTH_SHORT).show()
+            }
+            "addFamily" -> {
+                findNavController(R.id.nav_host_fragment_family_edit).navigate(R.id.navigation_family_add)
             }
         }
     }
