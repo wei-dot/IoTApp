@@ -26,7 +26,7 @@ class FamilyFragment : Fragment() {
 
     private var _binding: FragmentMainFamilyBinding? = null
     //testMode *if inside Family
-    var testMode = true
+    var hasFamily = true
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -39,18 +39,17 @@ class FamilyFragment : Fragment() {
         _binding = FragmentMainFamilyBinding.inflate(inflater, container, false)
         val root: View = binding.root
         val FamilyViewModel = ViewModelProvider(this)[FamilyViewModel::class.java]
-
-        if (testMode) {
+        val familyMemberList : List<String>? = SessionManager(requireActivity()).fetchFamilyMembers()?.toList()
+        Log.d("familyMemberList", familyMemberList.toString())
+        if (familyMemberList!!.isEmpty()){
+            hasFamily = false
+        }
+        if (hasFamily) {
             binding.btnAddFamily.isVisible = false
             //test
 //            val familyMemberList: List<String> = listOf("島輝", "偷刀", "馬吉亞米", "番仔", "盲胞", "歐巴馬", "勞贖")
             val king = "島輝"
             //test
-
-            val familyMemberList : List<String>? = SessionManager(requireActivity()).fetchFamilyMembers()?.toList()
-            Log.d("familyMemberList", familyMemberList.toString())
-
-
             val memberList: LinearLayout = binding.familyMemberBoxLinearlayout
             for (i in familyMemberList!!.indices) {
                 val memberToAdd = View.inflate(context, com.example.iotapp.R.layout.member, null)
@@ -148,17 +147,14 @@ class FamilyFragment : Fragment() {
                 textView.text = it
             }
             binding.btnAddFamily.setOnClickListener{
-//                popupByClick(R.layout.popup_add_member)
-                testMode = true
-                refreshFragment()
+                val intent = Intent(context, FamilyMemberActivity::class.java)
+                intent.putExtra("FamilyMemberActivity", "addFamily")
+                startActivity(intent)
             }
         }
         return root
     }
-    private fun refreshFragment() {
-        // This method refreshes the fragment
-        NavHostFragment.findNavController(this).navigate(com.example.iotapp.R.id.navigation_family)
-    }
+
 
     private fun backgroundAlpha(f: Float) {
         val lp = activity?.window?.attributes
