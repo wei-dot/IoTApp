@@ -24,6 +24,7 @@ import com.example.iotapp.api.SessionManager
 import com.example.iotapp.api.UserInfo
 import com.example.iotapp.databinding.ActivityMainBinding
 import com.example.iotapp.databinding.FragmentMainFamilyBinding
+import com.example.iotapp.databinding.UserProfileBinding
 import com.example.iotapp.ui.family.FamilyFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -81,6 +82,8 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, _, _ ->
             toolbar.setNavigationIcon(R.drawable.ic_navigation_icon)
         }
+
+        IotApi.getFamily(this,binding.profilePage,SessionManager(this))
 
         binding.loginPage.btnLogin.setOnClickListener {
             val intent = Intent(this, AccountActivity::class.java)

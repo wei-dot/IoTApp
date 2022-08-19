@@ -122,7 +122,20 @@
 
     </style>
 
+    <style name="text_family_item_style">
 
+        <item name="android:textSize">
+            16sp
+        </item>
 
+        <item name="android:letterSpacing">
+            0.36
+        </item>
+
+        <item name="android:textColor">
+            #CDA16D
+        </item>
+
+    </style>
 
 </resources>

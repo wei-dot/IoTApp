@@ -2,6 +2,8 @@ package com.example.iotapp.api
 
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
+import java.util.*
+import kotlin.collections.ArrayList
 
 data class UserInfo (
     @SerializedName("username")

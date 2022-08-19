@@ -14,7 +14,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
 import com.example.iotapp.FamilyMemberActivity
-import com.example.iotapp.SplashActivity
+import com.example.iotapp.api.IotApi
+import com.example.iotapp.api.SessionManager
 import com.example.iotapp.databinding.FragmentMainFamilyBinding
 
 
@@ -39,13 +40,17 @@ class FamilyFragment : Fragment() {
         val root: View = binding.root
         val FamilyViewModel = ViewModelProvider(this)[FamilyViewModel::class.java]
 
-        Toast.makeText(context, testMode.toString(), Toast.LENGTH_SHORT).show()
         if (testMode) {
             binding.btnAddFamily.isVisible = false
             //test
             val member_num: List<String> = listOf("島輝", "偷刀", "馬吉亞米", "番仔", "盲胞", "歐巴馬", "勞贖")
             val king = "島輝"
             //test
+
+            IotApi.getFamilyMember(activity,binding,SessionManager(requireActivity()))
+
+
+
             val memberList: LinearLayout = binding.familyMemberBoxLinearlayout
             for (i in member_num.indices) {
                 val memberToAdd = View.inflate(context, com.example.iotapp.R.layout.member, null)

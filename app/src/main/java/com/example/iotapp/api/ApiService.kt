@@ -39,6 +39,10 @@ interface ApiService {
     fun createFamily(@Header("Authorization") token: String, @Body info: Home): Call<Home>
 
     @Headers("Content-Type:application/json")
+    @GET(Constants.FAMILY_URL)
+    fun getFamily(@Header("Authorization") token: String): Call<ArrayList<Home>>
+
+    @Headers("Content-Type:application/json")
     @GET(Constants.FAMILY_ADMIN_URL)
     fun getFamilyAdmin(@Header("Authorization") token: String): Call<FamilyAdmin>
 

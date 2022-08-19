@@ -1,15 +1,20 @@
 package com.example.iotapp.api
 
+import android.content.Intent
 import android.os.Handler
 import android.os.Looper
 import android.os.Message
 import android.util.Log
+import android.view.View
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.FragmentActivity
 import com.example.iotapp.MainActivity
-import com.example.iotapp.databinding.FragmentAccountSetBinding
-import com.example.iotapp.databinding.FragmentAccountSignupBinding
+import com.example.iotapp.R
+import com.example.iotapp.databinding.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -244,34 +249,108 @@ class IotApi {
             }
         }
 
-        fun createHome(@Body info: Home,
-                       activity: FragmentActivity?,
-                       binding: FragmentAccountSetBinding,
-                       sessionManager: SessionManager) {
-            apiClient.createFamily(token = "Token ${sessionManager.fetchAuthToken()}", info).enqueue {
+//        fun createHome(@Body info: Home,
+//                       activity: FragmentActivity?,
+//                       binding: /*todo*/,
+//                       sessionManager: SessionManager) {
+//            apiClient.createFamily(token = "Token ${sessionManager.fetchAuthToken()}", info).enqueue {
+//                onResponse = {
+//                    if (it.isSuccessful) {
+//                        binding.loading?.isVisible = false
+//                        Log.d("IotApi", "createHome: 建立家庭成功")
+//                        Toast.makeText(activity, "建立家庭成功", Toast.LENGTH_SHORT).show()
+//                    } else {
+//                        binding.loading?.isVisible = false
+//                        Log.d("IotApi", "createHome: 建立家庭失敗")
+//                        Toast.makeText(
+//                            activity,
+//                            "建立家庭失敗: ${it.errorBody()?.string()} ",
+//                            Toast.LENGTH_SHORT
+//                        ).show()
+//                    }
+//                }
+//                onFailure = {
+//                    binding.loading?.isVisible = false
+//                    Log.d("IotApi", "createHome: ${it?.message}")
+//                    Toast.makeText(activity, "建立家庭失敗", Toast.LENGTH_SHORT).show()
+//                }
+//            }
+//        }
+        fun getFamily(activity: FragmentActivity?,
+                      binding: UserProfileBinding,
+                      sessionManager: SessionManager) {
+            apiClient.getFamily(token = "Token ${sessionManager.fetchAuthToken()}").enqueue {
                 onResponse = {
                     if (it.isSuccessful) {
-                        binding.loading?.isVisible = false
-                        Log.d("IotApi", "createHome: 建立家庭成功")
-                        Toast.makeText(activity, "建立家庭成功", Toast.LENGTH_SHORT).show()
+                        val response = it.body()!!
+                        Log.d("IotApi", response.toString())
+                        var familyList : List<String> = response.map { it.home_name }
+                        Log.d("IotApi", familyList.toString())
+                        val myFamilyList : LinearLayout? = binding.myFamilyList
+
+                        familyList.forEach {
+                            val familyItem = View.inflate(activity, com.example.iotapp.R.layout.family_item, null)
+                            familyItem.findViewById<TextView>(com.example.iotapp.R.id.family_name).text = it
+                            familyItem.setPadding(0, 30, 0, 30)
+                            myFamilyList?.addView(familyItem)
+                            if (sessionManager.fetchFamilyName() == null){
+                                sessionManager.saveFamilyName(familyList[0])
+                                familyItem.findViewById<ImageView>(R.id.now_family).isVisible = true
+                            }
+                            else{
+                                if (sessionManager.fetchFamilyName() == it){
+                                    familyItem.findViewById<ImageView>(R.id.now_family).isVisible = true
+                                }
+                            }
+                            familyItem.setOnClickListener{
+                                if (sessionManager.fetchFamilyName() != it.findViewById<TextView>(com.example.iotapp.R.id.family_name).text.toString()) {
+                                    sessionManager.saveFamilyName(it.findViewById<TextView>(com.example.iotapp.R.id.family_name).text.toString())
+                                    Log.d("IotApi", "getFamily: ${sessionManager.fetchFamilyName()}")
+                                    activity?.startActivity(Intent(activity, MainActivity::class.java))
+                                }
+                                else {
+                                    Log.d("IotApi", "getFamily: 已選擇此家庭")
+                                    Toast.makeText(activity, "已選擇此家庭", Toast.LENGTH_SHORT).show()
+                                }
+                            }
+                        }
                     } else {
-                        binding.loading?.isVisible = false
-                        Log.d("IotApi", "createHome: 建立家庭失敗")
+//                        binding.loading?.isVisible = false
+                        Log.d("IotApi", "getFamily: 取得家庭失敗")
                         Toast.makeText(
                             activity,
-                            "建立家庭失敗: ${it.errorBody()?.string()} ",
+                            "取得家庭失敗: ${it.errorBody()?.string()} ",
                             Toast.LENGTH_SHORT
                         ).show()
                     }
                 }
                 onFailure = {
-                    binding.loading?.isVisible = false
-                    Log.d("IotApi", "createHome: ${it?.message}")
-                    Toast.makeText(activity, "建立家庭失敗", Toast.LENGTH_SHORT).show()
+//                    binding.loading?.isVisible = false
+                    Log.d("IotApi", "getFamily: ${it?.message}")
+                    Toast.makeText(activity, "取得家庭失敗", Toast.LENGTH_SHORT).show()
                 }
             }
         }
 
+        fun getFamilyMember(activity: FragmentActivity?,
+                      binding: FragmentMainFamilyBinding,
+                      sessionManager: SessionManager) {
+            apiClient.getFamily(token = "Token ${sessionManager.fetchAuthToken()}").enqueue {
+                onResponse = {
+                    if (it.isSuccessful) {
+                        val response = it.body()!!
+
+                    } else {
+
+                    }
+                }
+                onFailure = {
+//                    binding.loading?.isVisible = false
+                    Log.d("IotApi", "getFamily: ${it?.message}")
+                    Toast.makeText(activity, "取得家庭失敗", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
 
         private fun <T> Call<T>.enqueue(callback: CallBackKt<T>.() -> Unit) {
             val callBackKt = CallBackKt<T>()

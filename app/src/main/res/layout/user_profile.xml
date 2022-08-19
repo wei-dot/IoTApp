@@ -69,7 +69,7 @@
             android:layout_marginStart="20dp"
             app:layout_constraintVertical_bias="0.2" />
 
-    <View
+    <ScrollView
             android:id="@+id/profile_detail_place"
             android:layout_width="264dp"
             android:layout_height="154dp"
@@ -81,7 +81,16 @@
             app:layout_constraintHorizontal_bias="0.537"
             app:layout_constraintStart_toStartOf="@+id/content_space"
             app:layout_constraintTop_toBottomOf="@+id/avatar_area"
-            app:layout_constraintVertical_bias="0.146" />
+            app:layout_constraintVertical_bias="0.146">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/my_family_list"
+            android:layout_marginLeft="13dp"
+            android:orientation="vertical">
+
+        </LinearLayout>
+    </ScrollView>
 
     <ImageButton
             android:id="@+id/btn_set"

@@ -10,6 +10,7 @@ class SessionManager(context: Context) {
 
     companion object {
         const val USER_TOKEN = "user_token"
+        const val NOW_FAMILY = "now_family"
     }
 
     /**
@@ -26,6 +27,48 @@ class SessionManager(context: Context) {
      */
     fun fetchAuthToken(): String? {
         return prefs.getString(USER_TOKEN, null)
+    }
+
+    /**
+     * Function to save family id
+     */
+
+    fun saveFamilyName(familyId: String) {
+        val editor = prefs.edit()
+        editor.putString(NOW_FAMILY, familyId)
+        editor.apply()
+    }
+
+    /**
+     * Function to fetch family id
+     */
+    fun fetchFamilyName(): String? {
+        return prefs.getString(NOW_FAMILY, null)
+    }
+
+    /**
+     * Function to clear family id token
+     */
+    fun clearFamilyId() {
+        val editor = prefs.edit()
+        editor.remove(NOW_FAMILY)
+        editor.apply()
+    }
+
+    /**
+     * Function to store family members
+     */
+    fun storeFamilyMembers(familyMembers: ArrayList<String>) {
+        val editor = prefs.edit()
+        editor.putStringSet(NOW_FAMILY, familyMembers.toSet())
+        editor.apply()
+    }
+
+    /**
+     * Function to fetch family members
+     */
+    fun fetchFamilyMembers(): Set<String>? {
+        return prefs.getStringSet(NOW_FAMILY, null)
     }
 
     /**
