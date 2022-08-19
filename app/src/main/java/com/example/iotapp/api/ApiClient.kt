@@ -13,7 +13,7 @@ class ApiClient {
         fun getApiService(): ApiService {
             if (!::apiService.isInitialized) {
                 val okHttpClient = OkHttpClient.Builder()
-                    .connectTimeout(2, TimeUnit.SECONDS)
+                    .connectTimeout(250, TimeUnit.MILLISECONDS)
                     .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BASIC))
                     .build()
 

@@ -61,17 +61,11 @@ data class FamilyAdmin(
     @SerializedName("family_admin_email")
     val family_admin_email: String
 )
-data class Family(
-    @SerializedName("family_name")
-    val family_name: String,
-    @SerializedName("family_description")
-    val family_description: String,
-    @SerializedName("family_admin")
-    val family_admin: String,
-    @SerializedName("family_admin_phone")
-    val family_admin_phone: String,
-    @SerializedName("family_admin_email")
-    val family_admin_email: String,
-    @SerializedName("family_id")
-    val family_id: String
+data class Home(
+    @SerializedName("user")
+    val family_admin: ArrayList<String>,
+    @SerializedName("home_name")
+    val home_name: String,
+    @SerializedName("home_id")
+    val id: String
 )

@@ -244,6 +244,34 @@ class IotApi {
             }
         }
 
+        fun createHome(@Body info: Home,
+                       activity: FragmentActivity?,
+                       binding: FragmentAccountSetBinding,
+                       sessionManager: SessionManager) {
+            apiClient.createFamily(token = "Token ${sessionManager.fetchAuthToken()}", info).enqueue {
+                onResponse = {
+                    if (it.isSuccessful) {
+                        binding.loading?.isVisible = false
+                        Log.d("IotApi", "createHome: 建立家庭成功")
+                        Toast.makeText(activity, "建立家庭成功", Toast.LENGTH_SHORT).show()
+                    } else {
+                        binding.loading?.isVisible = false
+                        Log.d("IotApi", "createHome: 建立家庭失敗")
+                        Toast.makeText(
+                            activity,
+                            "建立家庭失敗: ${it.errorBody()?.string()} ",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+                onFailure = {
+                    binding.loading?.isVisible = false
+                    Log.d("IotApi", "createHome: ${it?.message}")
+                    Toast.makeText(activity, "建立家庭失敗", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+
 
         private fun <T> Call<T>.enqueue(callback: CallBackKt<T>.() -> Unit) {
             val callBackKt = CallBackKt<T>()
