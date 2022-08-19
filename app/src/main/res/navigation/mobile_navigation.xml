@@ -10,20 +10,57 @@
             android:name="com.example.iotapp.ui.home.HomeFragment"
             android:label="@string/fragment_main_home"
             tools:layout="@layout/fragment_main_home"/>
+    <fragment
+            android:id="@+id/navigation_family"
+            android:name="com.example.iotapp.ui.family.FamilyFragment"
+            android:label="@string/fragment_main_family"
+            tools:layout="@layout/fragment_family_notin">
+        <action
+            android:id="@+id/action_navigation_family_to_navigation_family_in"
+            app:destination="@id/navigation_family_in" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_family_in"
+        android:name="com.example.iotapp.ui.family.FamilyFragmentIn"
+        android:label="@string/fragment_main_family"
+        tools:layout="@layout/fragment_family_in"/>
 
     <fragment
-        android:id="@+id/navigation_family"
-        android:name="com.example.iotapp.ui.family.FamilyFragment"
-        android:label="@string/fragment_main_family"
-        tools:layout="@layout/fragment_main_family">
+        android:id="@+id/navigation_mode"
+        android:name="com.example.iotapp.ui.mode.ModeFragment"
+        android:label="@string/fragment_main_mode"
+        tools:layout="@layout/fragment_main_mode">
+        <action
+            android:id="@+id/action_navigation_mode_to_navigation_mode_1_switch_set"
+            app:destination="@id/navigation_mode_1_switch_set" />
     </fragment>
 
     <fragment
-            android:id="@+id/navigation_mode"
-            android:name="com.example.iotapp.ui.mode.ModeFragment"
-            android:label="@string/fragment_main_mode"
-            tools:layout="@layout/fragment_main_mode"/>
+        android:id="@+id/navigation_mode_1_switch_set"
+        android:name="com.example.iotapp.ui.mode.ModeSetSwitchFragment"
+        android:label="@string/fragment_main_mode"
+        tools:layout="@layout/fragment_main_mode_1_tplink_switch_setting">
+        <action
+            android:id="@+id/action_navigation_mode_1_switch_set_to_navigation_mode_2_ac_set"
+            app:destination="@id/navigation_mode_2_ac_set" />
+    </fragment>
 
+    <fragment
+        android:id="@+id/navigation_mode_2_ac_set"
+        android:name="com.example.iotapp.ui.mode.ModeSetAcFragment"
+        android:label="@string/fragment_main_mode"
+        tools:layout="@layout/fragment_main_mode_2_ac_setting">
+        <action
+            android:id="@+id/action_navigation_mode_2_ac_set_to_navigation_mode_3_naming"
+            app:destination="@id/navigation_mode_3_naming" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_mode_3_naming"
+        android:name="com.example.iotapp.ui.mode.ModeSetNamingFragment"
+        android:label="@string/fragment_main_mode"
+        tools:layout="@layout/fragment_main_mode_3_naming">
+    </fragment>
 
     <fragment
             android:id="@+id/navigation_log"

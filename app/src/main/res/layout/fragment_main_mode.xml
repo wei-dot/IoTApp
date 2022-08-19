@@ -6,16 +6,108 @@
     android:layout_height="match_parent"
     tools:context=".ui.mode.ModeFragment">
 
-    <TextView
-            android:id="@+id/text_mode"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/fragment_main_mode"
-            android:textColor="@color/color_df8888"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+<!--    android:id="@+id/nav_host_fragment_activity_main_mode"-->
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:layout_margin="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="111dp"
+        android:textSize="20sp"
+        app:cardBackgroundColor="@color/color_faf0dd"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="0px"
+        app:cardUseCompatPadding="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/button_mode_key_1"
+                        android:layout_width="300dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:backgroundTint="@color/color_14b2d4"
+                        android:text="@string/mode_key_1"
+                        android:textSize="25sp"
+                        android:textColor="@color/color_faf0dd" />
+
+                    <Button
+                        android:id="@+id/button_mode_key_2"
+                        android:layout_width="300dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:backgroundTint="@color/color_14b2d4"
+                        android:text="@string/mode_key_2"
+                        android:textSize="25sp"
+                        android:textColor="@color/color_faf0dd" />
+
+                    <Button
+                        android:id="@+id/button_mode_key_3"
+                        android:layout_width="300dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:backgroundTint="@color/color_14b2d4"
+                        android:text="@string/mode_key_3"
+                        android:textSize="25sp"
+                        android:textColor="@color/color_faf0dd" />
+
+                    <Button
+                        android:id="@+id/button_mode_key_4"
+                        android:layout_width="300dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:backgroundTint="@color/color_14b2d4"
+                        android:text="@string/mode_key_4"
+                        android:textSize="25sp"
+                        android:textColor="@color/color_faf0dd" />
+
+                    <Button
+                        android:id="@+id/button_mode_key_5"
+                        android:layout_width="300dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:backgroundTint="@color/color_14b2d4"
+                        android:text="@string/mode_key_5"
+                        android:textSize="25sp"
+                        android:textColor="@color/color_faf0dd" />
+
+                    <Button
+                        android:id="@+id/button_mode_key_6"
+                        android:layout_width="300dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:backgroundTint="@color/color_14b2d4"
+                        android:text="@string/mode_key_6"
+                        android:textSize="25sp"
+                        android:textColor="@color/color_faf0dd" />
+
+                </LinearLayout>
+            </ScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

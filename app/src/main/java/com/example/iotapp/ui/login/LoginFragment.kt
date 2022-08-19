@@ -56,7 +56,7 @@ class LoginFragment : Fragment() {
                     if (msg.obj != null) {
                         val response = msg.obj as LoginResponse
                         SessionManager(requireActivity()).saveAuthToken(response.authToken)
-                        IotApi.getInfo(requireActivity(), SessionManager(requireActivity()))
+                        IotApi.getInfo(requireActivity(), SessionManager(requireActivity())).toString()
                         IotApi.handler = object : Handler(Looper.getMainLooper()) {
                             override fun handleMessage(msg: Message) {
                                 super.handleMessage(msg)
