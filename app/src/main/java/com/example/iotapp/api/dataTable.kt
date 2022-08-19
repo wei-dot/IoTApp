@@ -71,3 +71,4 @@ data class Home(
     @SerializedName("home_id")
     val id: String
 )
+

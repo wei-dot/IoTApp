@@ -293,13 +293,18 @@ class IotApi {
                             familyItem.findViewById<TextView>(com.example.iotapp.R.id.family_name).text = it
                             familyItem.setPadding(0, 30, 0, 30)
                             myFamilyList?.addView(familyItem)
+
                             if (sessionManager.fetchFamilyName() == null){
                                 sessionManager.saveFamilyName(familyList[0])
                                 familyItem.findViewById<ImageView>(R.id.now_family).isVisible = true
+                                val manberList = response.find { it.home_name == familyList[0] }!!.family_admin
+                                sessionManager.storeFamilyMembers(manberList)
                             }
                             else{
                                 if (sessionManager.fetchFamilyName() == it){
                                     familyItem.findViewById<ImageView>(R.id.now_family).isVisible = true
+                                    val manberList = response.find { it.home_name == sessionManager.fetchFamilyName() }!!.family_admin
+                                    sessionManager.storeFamilyMembers(manberList)
                                 }
                             }
                             familyItem.setOnClickListener{
@@ -332,25 +337,6 @@ class IotApi {
             }
         }
 
-        fun getFamilyMember(activity: FragmentActivity?,
-                      binding: FragmentMainFamilyBinding,
-                      sessionManager: SessionManager) {
-            apiClient.getFamily(token = "Token ${sessionManager.fetchAuthToken()}").enqueue {
-                onResponse = {
-                    if (it.isSuccessful) {
-                        val response = it.body()!!
-
-                    } else {
-
-                    }
-                }
-                onFailure = {
-//                    binding.loading?.isVisible = false
-                    Log.d("IotApi", "getFamily: ${it?.message}")
-                    Toast.makeText(activity, "取得家庭失敗", Toast.LENGTH_SHORT).show()
-                }
-            }
-        }
 
         private fun <T> Call<T>.enqueue(callback: CallBackKt<T>.() -> Unit) {
             val callBackKt = CallBackKt<T>()

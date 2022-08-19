@@ -3,6 +3,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -14,7 +15,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
 import com.example.iotapp.FamilyMemberActivity
-import com.example.iotapp.api.IotApi
 import com.example.iotapp.api.SessionManager
 import com.example.iotapp.databinding.FragmentMainFamilyBinding
 
@@ -43,21 +43,21 @@ class FamilyFragment : Fragment() {
         if (testMode) {
             binding.btnAddFamily.isVisible = false
             //test
-            val member_num: List<String> = listOf("島輝", "偷刀", "馬吉亞米", "番仔", "盲胞", "歐巴馬", "勞贖")
+//            val familyMemberList: List<String> = listOf("島輝", "偷刀", "馬吉亞米", "番仔", "盲胞", "歐巴馬", "勞贖")
             val king = "島輝"
             //test
 
-            IotApi.getFamilyMember(activity,binding,SessionManager(requireActivity()))
-
+            val familyMemberList : List<String>? = SessionManager(requireActivity()).fetchFamilyMembers()?.toList()
+            Log.d("familyMemberList", familyMemberList.toString())
 
 
             val memberList: LinearLayout = binding.familyMemberBoxLinearlayout
-            for (i in member_num.indices) {
+            for (i in familyMemberList!!.indices) {
                 val memberToAdd = View.inflate(context, com.example.iotapp.R.layout.member, null)
                 memberToAdd.id = i
-                memberToAdd.findViewById<TextView>(com.example.iotapp.R.id.text_member_name).text = member_num[i]
+                memberToAdd.findViewById<TextView>(com.example.iotapp.R.id.text_member_name).text = familyMemberList[i]
                 memberToAdd.setPadding(38, 0, 38, 0)
-                if (member_num[i] == king) {
+                if (familyMemberList[i] == king) {
                     memberToAdd.findViewById<ImageView>(com.example.iotapp.R.id.ic_admin).isVisible = true
                 }
                 memberList.addView(memberToAdd)
@@ -67,14 +67,14 @@ class FamilyFragment : Fragment() {
                     val popup_username = view.findViewById<TextView>(com.example.iotapp.R.id.popup_username)
                     val popup_user = view.findViewById<TextView>(com.example.iotapp.R.id.popup_user)
                     val kickMember = view.findViewById<ImageButton>(com.example.iotapp.R.id.btn_kickmember)
-                    popup_username.text = member_num[i]
-                    popup_user.text = member_num[i]
-                    if (member_num[i] == king) {
+                    popup_username.text = familyMemberList[i]
+                    popup_user.text = familyMemberList[i]
+                    if (familyMemberList[i] == king) {
                         kickMember.isVisible = false
                     }
                     kickMember.setOnClickListener{
                         memberList.removeView(memberToAdd)
-                        member_num.drop(i)
+                        familyMemberList.drop(i)
                         popupWindow.dismiss()
                     }
                     popupWindow.setOnDismissListener {

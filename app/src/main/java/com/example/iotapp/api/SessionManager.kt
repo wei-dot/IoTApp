@@ -1,7 +1,9 @@
 package com.example.iotapp.api
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
+import android.util.Log
 import com.example.iotapp.R
 
 class SessionManager(context: Context) {
@@ -11,6 +13,7 @@ class SessionManager(context: Context) {
     companion object {
         const val USER_TOKEN = "user_token"
         const val NOW_FAMILY = "now_family"
+        const val NOW_FAMILY_MEMBER = "now_family_member"
     }
 
     /**
@@ -58,9 +61,11 @@ class SessionManager(context: Context) {
     /**
      * Function to store family members
      */
+    @SuppressLint("CommitPrefEdits")
     fun storeFamilyMembers(familyMembers: ArrayList<String>) {
+        Log.d("putIn", familyMembers.toString())
         val editor = prefs.edit()
-        editor.putStringSet(NOW_FAMILY, familyMembers.toSet())
+        editor.putStringSet(NOW_FAMILY_MEMBER, familyMembers.toSet())
         editor.apply()
     }
 
@@ -68,7 +73,7 @@ class SessionManager(context: Context) {
      * Function to fetch family members
      */
     fun fetchFamilyMembers(): Set<String>? {
-        return prefs.getStringSet(NOW_FAMILY, null)
+        return prefs.getStringSet(NOW_FAMILY_MEMBER, null)
     }
 
     /**
