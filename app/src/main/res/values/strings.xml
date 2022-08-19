@@ -47,7 +47,20 @@
     <string name="text_tplink_switch">廷長線開關</string>
     <string name="text_family_infomation">家庭資訊</string>
     <string name="text_family_member">家庭成員</string>
-    <string name="text_edit_member">編輯成員</string>
+    <string name="mode_key_1">組合鍵1</string>
+    <string name="mode_key_2">組合鍵2</string>
+    <string name="mode_key_3">組合鍵3</string>
+    <string name="mode_key_4">組合鍵4</string>
+    <string name="mode_key_5">組合鍵5</string>
+    <string name="mode_key_6">組合鍵6</string>
+    <string name="confirm">確定</string>
+    <string name="mode_key_setting">組合鍵設置</string>
+    <string name ="text_edit_member">編輯成員</string>
+    <string name="next_step">下一步</string>
+    <string name="hint_mode_key_name">輸入組合鍵名稱</string>
+    <string name="complete">完成</string>
+    <string name="ac_temperature">冷氣溫度</string>
+    <string name="ac_switch">冷氣開關</string>
     <string name="text_edit_family">編輯家庭</string>
     <string name="text_add_member">新增成員</string>
 

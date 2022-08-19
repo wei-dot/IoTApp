@@ -49,6 +49,22 @@ data class SetPassword(
     @SerializedName("re_new_password")
     val re_password: String
 )
+
+ data class GetModeKeyDataInfo(
+    @SerializedName("mode_key_data_id")
+    val mode_key_data_id: Int,
+    @SerializedName("home_id")
+    val home_id: Int,
+    @SerializedName("tplink_switch_mode_key")
+    val tplink_switch_mode_key: String,
+):Serializable
+
+data class PostModeKeyDataInfo(
+    @SerializedName("home_id")
+    val home_id: Int,
+    @SerializedName("tplink_switch_mode_key")
+    val tplink_switch_mode_key: String
+)
 data class FamilyAdmin(
     @SerializedName("family_name")
     val family_name: String,

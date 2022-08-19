@@ -1,20 +1,32 @@
 package com.example.iotapp.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.blankj.utilcode.util.ThreadUtils.runOnUiThread
+import com.example.iotapp.R
 import com.example.iotapp.api.Constants
 import com.example.iotapp.api.WsListener
 import com.example.iotapp.databinding.FragmentMainHomeBinding
+import org.java_websocket.client.WebSocketClient
+import org.java_websocket.drafts.Draft_6455
+import org.java_websocket.handshake.ServerHandshake
+import java.io.DataInputStream
+import java.io.DataOutputStream
+import java.net.Socket
+import java.net.URI
+import java.nio.charset.StandardCharsets.UTF_8
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.WebSocket
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.TimeUnit
+import javax.net.ssl.SSLParameters
 import kotlin.concurrent.thread
 
 
@@ -28,9 +40,10 @@ class HomeFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+    private val host: String = "192.168.0.10"
 
     //    private val host: String = "192.168.0.15"
-    private val mWbSocketUrl = "ws://192.168.100.2:8000" + Constants.Power_Strip_URL
+    private val mWbSocketUrl = "ws://192.168.0.10:8000" + Constants.Power_Strip_URL
     private lateinit var mClient: OkHttpClient
     private lateinit var request: Request
     private lateinit var mWebSocket: WebSocket
@@ -146,5 +159,3 @@ class HomeFragment : Fragment() {
         _binding = null
     }
 }
-
-

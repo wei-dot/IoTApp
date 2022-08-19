@@ -5,6 +5,9 @@ import retrofit2.http.*
 
 interface ApiService {
 
+    @Headers("Content-Type:application/json")
+    @GET(Constants.GET_MODE_KEY_DATA)
+    fun getModeKeyDataInfo(@Header("Authorization") token: String): Call<GetModeKeyDataInfo>
 
     @Headers("Content-Type:application/json")
     @POST(Constants.Signup_URL)
@@ -42,5 +45,8 @@ interface ApiService {
     @GET(Constants.FAMILY_ADMIN_URL)
     fun getFamilyAdmin(@Header("Authorization") token: String): Call<FamilyAdmin>
 
+    @Headers("Content-Type:application/json")
+    @POST(Constants.POST_MODE_KEY_DATA)
+    fun postModeKeyDataInfo(@Header("Authorization") token: String, @Body info: PostModeKeyDataInfo): Call<Void>
 
 }

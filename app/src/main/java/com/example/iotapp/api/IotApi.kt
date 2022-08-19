@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentActivity
 import com.example.iotapp.MainActivity
 import com.example.iotapp.databinding.FragmentAccountSetBinding
 import com.example.iotapp.databinding.FragmentAccountSignupBinding
+import com.example.iotapp.databinding.FragmentMainModeBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -268,6 +269,34 @@ class IotApi {
                     binding.loading?.isVisible = false
                     Log.d("IotApi", "createHome: ${it?.message}")
                     Toast.makeText(activity, "建立家庭失敗", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+
+        /**
+         * Function to get Mode Key Info
+         */
+//        @Body info: GetModeKeyDataInfo,
+        fun getModeKeyInfo(activity: FragmentActivity?, sessionManager: SessionManager) {
+            apiClient.getModeKeyDataInfo(token = "Token ${sessionManager.fetchAuthToken()}").enqueue {
+                onResponse = {
+                    if (it.isSuccessful) {
+                        Log.d("IotApi", "getModeKeyInfo: 取得組合鍵金鑰成功")
+                        Toast.makeText(activity, "取得組合鍵金鑰成功", Toast.LENGTH_SHORT).show()
+                        val response = it.body()!!
+                        Log.d("IotApi", response.toString())
+                    } else {
+                        Log.d("IotApi", "getModeKeyInfo: 取得組合鍵金鑰失敗")
+                        Toast.makeText(
+                            activity,
+                            "取得組合鍵金鑰失敗: ${it.errorBody()?.string()} ",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+                onFailure = {
+                    Log.d("IotApi", "getModeKeyInfo: ${it?.message}")
+                    Toast.makeText(activity, "取得組合鍵金鑰失敗", Toast.LENGTH_SHORT).show()
                 }
             }
         }

@@ -11,7 +11,6 @@ import android.view.*
 import android.widget.PopupWindow
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.view.SupportMenuInflater
 import androidx.core.view.GravityCompat
 import androidx.core.view.isVisible
 import androidx.drawerlayout.widget.DrawerLayout
@@ -44,6 +43,9 @@ class MainActivity : AppCompatActivity() {
             binding.profilePage.username.text = userinfo.username
             isLogin = true
         }
+
+        Log.d("MainActivity receive switchKey", intent.getSerializableExtra("switchKey").toString())
+
         isLogin = SessionManager(this).fetchAuthToken() != null
         switchSideBarContent(isLogin)
         val navView: BottomNavigationView = binding.appBarMain.bottomNavigation
@@ -121,6 +123,7 @@ class MainActivity : AppCompatActivity() {
         binding.appBarMain.btnNotification.setOnClickListener { v ->
             initPopWindow(v)
         }
+
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -186,6 +189,5 @@ class MainActivity : AppCompatActivity() {
         lp.alpha = f
         window.attributes = lp
     }
-
 
 }
