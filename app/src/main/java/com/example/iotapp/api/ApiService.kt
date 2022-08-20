@@ -39,7 +39,7 @@ interface ApiService {
 
     @Headers("Content-Type:application/json")
     @POST(Constants.FAMILY_URL)
-    fun createFamily(@Header("Authorization") token: String, @Body info: Home): Call<Home>
+    fun createFamily(@Header("Authorization") token: String, @Body info: CreateHome): Call<Home>
 
     @Headers("Content-Type:application/json")
     @GET(Constants.FAMILY_URL)

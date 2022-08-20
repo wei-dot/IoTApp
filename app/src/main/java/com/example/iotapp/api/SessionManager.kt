@@ -14,6 +14,7 @@ class SessionManager(context: Context) {
         const val USER_TOKEN = "user_token"
         const val NOW_FAMILY = "now_family"
         const val NOW_FAMILY_MEMBER = "now_family_member"
+        const val NOW_FAMILY_ID = "now_family_id"
     }
 
     /**
@@ -42,11 +43,21 @@ class SessionManager(context: Context) {
         editor.apply()
     }
 
+    fun saveFamilyid(familyId: String) {
+        val editor = prefs.edit()
+        editor.putString(NOW_FAMILY_ID, familyId)
+        editor.apply()
+    }
+
     /**
      * Function to fetch family id
      */
     fun fetchFamilyName(): String? {
         return prefs.getString(NOW_FAMILY, null)
+    }
+
+    fun fetchFamilyid(): String? {
+        return prefs.getString(NOW_FAMILY_ID, null)
     }
 
     /**

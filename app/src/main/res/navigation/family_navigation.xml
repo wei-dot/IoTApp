@@ -18,4 +18,9 @@
         android:id="@+id/navigation_family_add"
         android:name="com.example.iotapp.ui.familyEdit.FamilyAddFragment"
         tools:layout="@layout/fragment_family_add"/>
+    <fragment
+        android:id="@+id/navigation_create_family"
+        android:name="com.example.iotapp.ui.familyEdit.FamilyCreateFragment"
+        tools:layout="@layout/fragment_family_create"
+        android:label="@string/text_create_family"/>
 </navigation>

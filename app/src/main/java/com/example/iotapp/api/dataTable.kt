@@ -88,3 +88,9 @@ data class Home(
     val id: String
 )
 
+data class CreateHome(
+    @SerializedName("home_name")
+    val home_name: String,
+    @SerializedName("home_admin")
+    val home_admin: String
+)

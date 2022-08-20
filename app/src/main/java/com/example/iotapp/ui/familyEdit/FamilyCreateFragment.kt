@@ -1,29 +1,21 @@
 package com.example.iotapp.ui.familyEdit
-
-import android.content.ClipData.newIntent
-import android.content.Intent
 import android.os.Bundle
-
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
-
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
-import com.example.iotapp.MainActivity
 import com.example.iotapp.R
-import com.example.iotapp.databinding.FragmentFamilyAddBinding
+import com.example.iotapp.databinding.FragmentFamilyCreateBinding
 
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
-class FamilyAddFragment : Fragment() {
+class FamilyCreateFragment : Fragment() {
 
-    private var _binding: FragmentFamilyAddBinding? = null
+    private var _binding: FragmentFamilyCreateBinding? = null
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -32,13 +24,17 @@ class FamilyAddFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentFamilyAddBinding.inflate(inflater, container, false)
+        _binding = FragmentFamilyCreateBinding.inflate(inflater, container, false)
         val root: View = binding.root
         binding.btnBack.setOnClickListener {
-            activity?.finish()
+            findNavController().navigate(R.id.navigation_family_add)
         }
-        binding.createFamily.setOnClickListener() {
-            findNavController().navigate(R.id.navigation_create_family)
+        binding.btnSendFamilyName.setOnClickListener {
+            if (binding.tilFamilyName.editText?.text!!.isNotEmpty() && binding.tilFamilyName.editText!!.text.isNotBlank()) {
+                Toast.makeText(context, "Family name: ${binding.tilFamilyName.editText?.text!!}", Toast.LENGTH_LONG).show()
+            } else {
+                Toast.makeText(context, "家庭名稱欄位不得為空", Toast.LENGTH_LONG).show()
+            }
         }
 
         return root
