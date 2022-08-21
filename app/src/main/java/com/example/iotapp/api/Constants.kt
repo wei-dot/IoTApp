@@ -14,5 +14,4 @@ object Constants  {
     const val FAMILY_URL="/auth/home_list/"
     const val FAMILY_ADMIN_URL="/auth/home_admin/"
     const val Power_Strip_URL="/ws/strip/temp/"
-    const val POST_MODE_KEY_DATA_ADMIN = "auth/home_admin/"
 }
