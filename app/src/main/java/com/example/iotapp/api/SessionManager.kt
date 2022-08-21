@@ -11,10 +11,19 @@ class SessionManager(context: Context) {
         context.getSharedPreferences(context.getString(R.string.app_name), Context.MODE_PRIVATE)
 
     companion object {
+        const val USERNAME = "username"
         const val USER_TOKEN = "user_token"
         const val NOW_FAMILY = "now_family"
         const val NOW_FAMILY_MEMBER = "now_family_member"
         const val NOW_FAMILY_ID = "now_family_id"
+    }
+
+
+    fun saveUserName(userName: String) {
+        prefs.edit().putString(USERNAME, userName).apply()
+    }
+    fun fetchUserName(): String? {
+        return prefs.getString(USERNAME, null)
     }
 
     /**

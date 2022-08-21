@@ -78,7 +78,7 @@ class IotApi {
                         msg.obj = loginResponse
                         handler.sendMessage(msg)
                     } else {
-                        Log.d("IotApi", "getToken: 登入失敗")
+                        Log.d("IotApi", "getToken: \"登入失敗: ${it.errorBody()?.string()} \"")
                         Toast.makeText(
                             activity,
                             "登入失敗: ${it.errorBody()?.string()} ",
@@ -250,26 +250,24 @@ class IotApi {
 
         fun createHome(@Body info: CreateHome,
                        activity: FragmentActivity?,
-                       binding: FamilyCreateFragment,
+                       binding: FragmentFamilyCreateBinding,
                        sessionManager: SessionManager) {
             apiClient.createFamily(token = "Token ${sessionManager.fetchAuthToken()}", info).enqueue {
                 onResponse = {
                     if (it.isSuccessful) {
-//                        binding.loading?.isVisible = false
+                        binding.loading?.isVisible = false
                         Log.d("IotApi", "createHome: 建立家庭成功")
                         Toast.makeText(activity, "建立家庭成功", Toast.LENGTH_SHORT).show()
+                        sessionManager.saveFamilyName(info.home_name)
+                        activity?.finish()
+                        activity?.startActivity(Intent(activity, MainActivity::class.java))
                     } else {
-//                        binding.loading?.isVisible = false
-                        Log.d("IotApi", "createHome: 建立家庭失敗")
-                        Toast.makeText(
-                            activity,
-                            "建立家庭失敗: ${it.errorBody()?.string()} ",
-                            Toast.LENGTH_SHORT
-                        ).show()
+                        binding.loading?.isVisible = false
+                        Log.d("IotApi", "建立家庭失敗: ${it.errorBody()?.string()} ")
                     }
                 }
                 onFailure = {
-//                    binding.loading?.isVisible = false
+                    binding.loading?.isVisible = false
                     Log.d("IotApi", "createHome: ${it?.message}")
                     Toast.makeText(activity, "建立家庭失敗", Toast.LENGTH_SHORT).show()
                 }

@@ -1,12 +1,19 @@
 package com.example.iotapp.ui.familyEdit
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.iotapp.MainActivity
 import com.example.iotapp.R
+import com.example.iotapp.api.CreateHome
+import com.example.iotapp.api.IotApi
+import com.example.iotapp.api.SessionManager
 import com.example.iotapp.databinding.FragmentFamilyCreateBinding
 
 
@@ -30,8 +37,11 @@ class FamilyCreateFragment : Fragment() {
             findNavController().navigate(R.id.navigation_family_add)
         }
         binding.btnSendFamilyName.setOnClickListener {
+            binding.loading.isVisible = true
             if (binding.tilFamilyName.editText?.text!!.isNotEmpty() && binding.tilFamilyName.editText!!.text.isNotBlank()) {
-                Toast.makeText(context, "Family name: ${binding.tilFamilyName.editText?.text!!}", Toast.LENGTH_LONG).show()
+                val createHome = CreateHome(binding.tilFamilyName.editText?.text!!.toString(), arrayListOf(SessionManager(requireContext()).fetchUserName()) as ArrayList<String>)
+                IotApi.createHome(createHome, activity,binding, SessionManager(requireContext()))
+
             } else {
                 Toast.makeText(context, "家庭名稱欄位不得為空", Toast.LENGTH_LONG).show()
             }

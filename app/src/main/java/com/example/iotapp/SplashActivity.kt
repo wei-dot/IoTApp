@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.os.Message
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.iotapp.api.IotApi
 import com.example.iotapp.api.SessionManager
@@ -30,8 +31,9 @@ class SplashActivity : AppCompatActivity() {
                     if (msg.obj != null) {
                         val response = msg.obj as UserInfo
                         intent.putExtra("userInfo", response)
+                        Log.d("userInfo", response.toString())
+                        SessionManager(this@SplashActivity).saveUserName(response.username)
                     }
-
                     //exit SplashActivity
                     finish()
                     startActivity(intent)
