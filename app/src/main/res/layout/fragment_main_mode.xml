@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".ui.mode.ModeFragment">
 
-<!--    android:id="@+id/nav_host_fragment_activity_main_mode"-->
+    <!--    android:id="@+id/nav_host_fragment_activity_main_mode"-->
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -43,65 +43,85 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
+
+                    <ImageView
+                        android:id="@+id/imageView3"
+                        android:layout_width="350dp"
+                        android:layout_gravity="center"
+                        android:layout_height="100dp"
+                        android:src="@drawable/btn_mode_key_set_top" />
+
                     <Button
                         android:id="@+id/button_mode_key_1"
-                        android:layout_width="300dp"
+                        android:layout_width="350dp"
                         android:layout_height="60dp"
                         android:layout_gravity="center"
-                        android:backgroundTint="@color/color_14b2d4"
+                        app:backgroundTint="@null"
+                        android:textColor="@color/color_cda16d"
+                        android:background="@drawable/btn_mode_key_button_background"
                         android:text="@string/mode_key_1"
                         android:textSize="25sp"
-                        android:textColor="@color/color_faf0dd" />
+                        android:layout_margin="5dp"/>
 
                     <Button
                         android:id="@+id/button_mode_key_2"
-                        android:layout_width="300dp"
+                        android:layout_width="350dp"
                         android:layout_height="60dp"
                         android:layout_gravity="center"
-                        android:backgroundTint="@color/color_14b2d4"
                         android:text="@string/mode_key_2"
+                        app:backgroundTint="@null"
+                        android:textColor="@color/color_cda16d"
+                        android:background="@drawable/btn_mode_key_button_background"
                         android:textSize="25sp"
-                        android:textColor="@color/color_faf0dd" />
+                        android:layout_margin="5dp"/>
 
                     <Button
                         android:id="@+id/button_mode_key_3"
-                        android:layout_width="300dp"
+                        android:layout_width="350dp"
                         android:layout_height="60dp"
                         android:layout_gravity="center"
-                        android:backgroundTint="@color/color_14b2d4"
+                        app:backgroundTint="@null"
+                        android:textColor="@color/color_cda16d"
+                        android:background="@drawable/btn_mode_key_button_background"
                         android:text="@string/mode_key_3"
                         android:textSize="25sp"
-                        android:textColor="@color/color_faf0dd" />
+                        android:layout_margin="5dp"/>
 
                     <Button
                         android:id="@+id/button_mode_key_4"
-                        android:layout_width="300dp"
+                        android:layout_width="350dp"
                         android:layout_height="60dp"
                         android:layout_gravity="center"
-                        android:backgroundTint="@color/color_14b2d4"
+                        app:backgroundTint="@null"
+                        android:textColor="@color/color_cda16d"
+                        android:background="@drawable/btn_mode_key_button_background"
                         android:text="@string/mode_key_4"
                         android:textSize="25sp"
-                        android:textColor="@color/color_faf0dd" />
+                        android:layout_margin="5dp" />
 
                     <Button
                         android:id="@+id/button_mode_key_5"
-                        android:layout_width="300dp"
+                        android:layout_width="350dp"
                         android:layout_height="60dp"
                         android:layout_gravity="center"
-                        android:backgroundTint="@color/color_14b2d4"
+                        app:backgroundTint="@null"
+                        android:textColor="@color/color_cda16d"
+                        android:background="@drawable/btn_mode_key_button_background"
                         android:text="@string/mode_key_5"
                         android:textSize="25sp"
-                        android:textColor="@color/color_faf0dd" />
+                        android:layout_margin="5dp"/>
 
                     <Button
                         android:id="@+id/button_mode_key_6"
-                        android:layout_width="300dp"
+                        android:layout_width="350dp"
                         android:layout_height="60dp"
                         android:layout_gravity="center"
-                        android:backgroundTint="@color/color_14b2d4"
+                        app:backgroundTint="@null"
+                        android:background="@drawable/btn_mode_key_button_background"
+                        android:textColor="@color/color_cda16d"
                         android:text="@string/mode_key_6"
                         android:textSize="25sp"
-                        android:textColor="@color/color_faf0dd" />
+                        android:layout_margin="5dp"/>
 
                 </LinearLayout>
             </ScrollView>

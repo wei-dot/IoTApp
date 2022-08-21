@@ -67,23 +67,62 @@
         <entry key="..\:/Sync/Code/Kotlin/tku_project/IoTApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1195" />
         <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3325" />
         <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/action_mode.xml" value="0.3325" />
+        <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/background_avatar.xml" value="0.216" />
+        <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/background_bottom.xml" value="0.216" />
+        <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/background_content.xml" value="0.216" />
+        <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/background_edit_box.xml" value="0.216" />
+        <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/background_family_avatar.xml" value="0.216" />
+        <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/background_family_infomation.xml" value="0.216" />
+        <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/background_family_item.xml" value="0.216" />
+        <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/background_family_member.xml" value="0.216" />
         <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/background_login.xml" value="0.269" />
+        <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/background_login_box.xml" value="0.216" />
+        <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/background_notification.xml" value="0.216" />
+        <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/background_popup_edit_member.xml" value="0.216" />
+        <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/background_popup_edit_member_insidebox.xml" value="0.216" />
+        <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/background_popup_userinfo.xml" value="0.216" />
+        <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/background_popup_userinfo_detail.xml" value="0.216" />
+        <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/btn_add_family.xml" value="0.215" />
+        <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/btn_add_family_s.xml" value="0.215" />
+        <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/btn_add_member.xml" value="0.215" />
+        <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/btn_create_family.xml" value="0.215" />
+        <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/btn_edit_add_member.xml" value="0.215" />
+        <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/btn_edit_family.xml" value="0.215" />
+        <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/btn_family_edit.xml" value="0.215" />
+        <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/btn_login.xml" value="0.215" />
+        <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/btn_login_square.xml" value="0.215" />
+        <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/btn_mode_key_set_ac_top.xml" value="0.2265" />
+        <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/btn_mode_key_set_top.xml" value="0.215" />
         <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/button_family.xml" value="0.3325" />
         <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/cloud.xml" value="0.3485" />
         <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/humidity.xml" value="0.3495" />
+        <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/ic_admin.xml" value="0.215" />
         <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3325" />
+        <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/ic_mode.xml" value="0.216" />
+        <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/ic_return.xml" value="0.216" />
         <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/log.xml" value="0.33" />
         <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/login_button.xml" value="0.3325" />
         <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/manage.xml" value="0.3325" />
+        <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/ntn_mode_key_button_image.xml" value="0.215" />
+        <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/ntn_mode_key_next_step.xml" value="0.3325" />
         <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/power_plugs_logo.xml" value="0.3485" />
         <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/power_plugs_logo_off.xml" value="0.3325" />
+        <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/power_plugs_logo_on.xml" value="0.216" />
+        <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/selector_family.xml" value="0.216" />
+        <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/selector_home.xml" value="0.216" />
+        <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/selector_log.xml" value="0.216" />
+        <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/selector_mode.xml" value="0.216" />
         <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/signin_button.xml" value="0.3325" />
+        <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/splash.xml" value="0.216" />
         <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/state.xml" value="0.3325" />
         <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/temperature.xml" value="0.2965" />
+        <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/title_create_family.xml" value="0.216" />
         <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/layout-sw600dp/activity_login.xml" value="0.1" />
         <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/layout-sw600dp/activity_main.xml" value="0.2459016393442623" />
         <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/layout-sw600dp/app_main.xml" value="0.14549180327868852" />
+        <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/layout-sw600dp/fragment_account_signup.xml" value="0.2609375" />
         <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/layout-sw600dp/fragment_main_mode.xml" value="0.2609375" />
+        <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/layout/activity_family_edit.xml" value="0.34791666666666665" />
         <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/layout/activity_login.xml" value="0.34791666666666665" />
         <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/layout/app_main.xml" value="0.33" />
@@ -100,14 +139,15 @@
         <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/layout/fragment_main_family.xml" value="0.1691995947315096" />
         <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/layout/fragment_main_home.xml" value="0.5" />
         <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/layout/fragment_main_mode.xml" value="0.34791666666666665" />
-        <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/layout/fragment_main_mode_1_tplink_switch_setting.xml" value="0.2803442028985507" />
+        <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/layout/fragment_main_mode_1_tplink_switch_setting.xml" value="0.34791666666666665" />
         <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/layout/fragment_main_mode_2_AC_setting.xml" value="0.34791666666666665" />
-        <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/layout/fragment_main_mode_2_ac_setting.xml" value="0.34791666666666665" />
+        <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/layout/fragment_main_mode_2_ac_setting.xml" value="0.5" />
         <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/layout/fragment_main_mode_3_naming.xml" value="0.25" />
         <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/layout/fragment_main_unlogin.xml" value="0.16077898550724637" />
         <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/layout/fragment_resend.xml" value="0.34791666666666665" />
         <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/layout/fragment_second.xml" value="0.34791666666666665" />
         <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/layout/login_page.xml" value="0.25" />
+        <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/layout/popup_userinfo.xml" value="0.34791666666666665" />
         <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/layout/user_profile.xml" value="0.16077898550724637" />
         <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.34791666666666665" />
         <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/menu/menu_main.xml" value="0.34791666666666665" />
