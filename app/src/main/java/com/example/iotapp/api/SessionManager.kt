@@ -46,13 +46,13 @@ class SessionManager(context: Context) {
      * Function to save family id
      */
 
-    fun saveFamilyName(familyId: String) {
+    fun saveFamilyName(familyId: String?) {
         val editor = prefs.edit()
         editor.putString(NOW_FAMILY, familyId)
         editor.apply()
     }
 
-    fun saveFamilyid(familyId: String) {
+    fun saveFamilyid(familyId: String?) {
         val editor = prefs.edit()
         editor.putString(NOW_FAMILY_ID, familyId)
         editor.apply()

@@ -39,9 +39,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         Log.d("userinfo", (intent.getSerializableExtra("userInfo") != null).toString())
-        if (intent.getSerializableExtra("userInfo") != null) {
-            val userinfo = intent.getSerializableExtra("userInfo") as UserInfo
-            binding.profilePage.username.text = userinfo.username
+        val userName = SessionManager(this).fetchUserName()
+        if (userName != null && userName.isNotEmpty() && userName.isNotBlank()) {
+            binding.profilePage.username.text = userName
             isLogin = true
         }
 

@@ -53,4 +53,7 @@ interface ApiService {
     @POST(Constants.POST_MODE_KEY_DATA)
     fun postModeKeyDataInfo(@Header("Authorization") token: String, @Body info: PostModeKeyDataInfo): Call<Void>
 
+    @Headers("Content-Type:application/json")
+    @POST(Constants.POST_MODE_KEY_DATA_ADMIN)
+    fun setAdmin(@Header("Authorization") token: String, @Body info: setAdmin): Call<Void>
 }

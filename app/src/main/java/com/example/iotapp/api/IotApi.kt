@@ -13,7 +13,6 @@ import com.example.iotapp.FamilyMemberActivity
 import com.example.iotapp.MainActivity
 import com.example.iotapp.R
 import com.example.iotapp.databinding.*
-import com.example.iotapp.ui.familyEdit.FamilyCreateFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -248,43 +247,85 @@ class IotApi {
             }
         }
 
-        fun createHome(@Body info: CreateHome,
-                       activity: FragmentActivity?,
-                       binding: FragmentFamilyCreateBinding,
-                       sessionManager: SessionManager) {
-            apiClient.createFamily(token = "Token ${sessionManager.fetchAuthToken()}", info).enqueue {
-                onResponse = {
-                    if (it.isSuccessful) {
+        fun createHome(
+            @Body info: CreateHome,
+            activity: FragmentActivity?,
+            binding: FragmentFamilyCreateBinding,
+            sessionManager: SessionManager
+        ) {
+            apiClient.createFamily(token = "Token ${sessionManager.fetchAuthToken()}", info)
+                .enqueue {
+                    onResponse = {
+                        if (it.isSuccessful) {
+                            Log.d("IotApi", "createHome: 建立家庭成功")
+                            Toast.makeText(activity, "建立家庭成功", Toast.LENGTH_SHORT).show()
+                            sessionManager.saveFamilyName(info.home_name)
+
+                            val setAdminInfo = sessionManager.fetchUserName()
+                                ?.let { it1 -> setAdmin(info.home_name, it1) }
+                            if (setAdminInfo != null) {
+                                setAdmin(setAdminInfo, activity, binding, sessionManager)
+                            }
+                        } else {
+                            binding.loading?.isVisible = false
+                            Log.d("IotApi", "建立家庭失敗: ${it.errorBody()?.string()} ")
+                        }
+                    }
+                    onFailure = {
                         binding.loading?.isVisible = false
-                        Log.d("IotApi", "createHome: 建立家庭成功")
-                        Toast.makeText(activity, "建立家庭成功", Toast.LENGTH_SHORT).show()
-                        sessionManager.saveFamilyName(info.home_name)
-                        activity?.finish()
-                        activity?.startActivity(Intent(activity, MainActivity::class.java))
-                    } else {
-                        binding.loading?.isVisible = false
-                        Log.d("IotApi", "建立家庭失敗: ${it.errorBody()?.string()} ")
+                        Log.d("IotApi", "createHome: ${it?.message}")
+                        Toast.makeText(activity, "建立家庭失敗", Toast.LENGTH_SHORT).show()
                     }
                 }
-                onFailure = {
-                    binding.loading?.isVisible = false
-                    Log.d("IotApi", "createHome: ${it?.message}")
-                    Toast.makeText(activity, "建立家庭失敗", Toast.LENGTH_SHORT).show()
-                }
-            }
         }
-        fun getFamily(activity: FragmentActivity?,
-                      binding: UserProfileBinding,
-                      sessionManager: SessionManager) {
+
+        fun setAdmin(
+            @Body setAdmin: setAdmin,
+            activity: FragmentActivity?,
+            binding: FragmentFamilyCreateBinding,
+            sessionManager: SessionManager
+        ) {
+            apiClient.setAdmin(token = "Token ${sessionManager.fetchAuthToken()}", setAdmin)
+                .enqueue {
+                    onResponse = {
+                        if (it.isSuccessful) {       //這裡目前不清楚為何會明明成功卻掉到"設定家庭成功，但設定管理員失敗"，非延遲問題
+                            Log.d("IotApi", "setAdmin: 設定管理員成功")
+                            binding.loading.isVisible = false
+                            activity?.finish()
+                            activity?.finish()
+                            activity?.startActivity(Intent(activity, MainActivity::class.java))
+                        } else {
+                            Log.d("IotApi", "setAdmin: 設定家庭成功，但設定管理員失敗")
+                            binding.loading.isVisible = false
+                            activity?.finish()
+                            activity?.finish()
+                            activity?.startActivity(Intent(activity, MainActivity::class.java))
+                        }
+                    }
+                    onFailure = {
+                        Log.d("IotApi", "setAdmin: ${it?.message}")
+                        binding.loading.isVisible = false
+                        activity?.finish()
+                        activity?.finish()
+                        activity?.startActivity(Intent(activity, MainActivity::class.java))
+                    }
+                }
+        }
+
+        fun getFamily(
+            activity: FragmentActivity?,
+            binding: UserProfileBinding,
+            sessionManager: SessionManager
+        ) {
             apiClient.getFamily(token = "Token ${sessionManager.fetchAuthToken()}").enqueue {
                 onResponse = {
                     if (it.isSuccessful) {
                         val response = it.body()!!
                         Log.d("IotApi", response.toString())
-                        var familyList : List<String> = response.map { it.home_name }
+                        var familyList: List<String> = response.map { it.home_name }
                         Log.d("IotApi", familyList.toString())
-                        val myFamilyList : LinearLayout? = binding.myFamilyList
-                        if (familyList.isNotEmpty()){
+                        val myFamilyList: LinearLayout? = binding.myFamilyList
+                        if (familyList.isNotEmpty()) {
                             familyList.forEach {
                                 val familyItem = View.inflate(
                                     activity,
@@ -337,17 +378,22 @@ class IotApi {
                                     }
                                 }
                             }
-                        }else{
+                        } else {
                             Log.d("IotApi", "getFamily: 沒有家庭")
                             sessionManager.storeFamilyMembers(arrayListOf())
                         }
-                        val btn_addFamily = View.inflate(activity, com.example.iotapp.R.layout.add_family_item, null)
+                        val btn_addFamily = View.inflate(
+                            activity,
+                            com.example.iotapp.R.layout.add_family_item,
+                            null
+                        )
                         myFamilyList?.addView(btn_addFamily)
-                        btn_addFamily.findViewById<ImageButton>(R.id.add_family_item).setOnClickListener{
-                            val intent = Intent(activity, FamilyMemberActivity::class.java)
-                            intent.putExtra("FamilyMemberActivity", "addFamily")
-                            activity?.startActivity(intent)
-                        }
+                        btn_addFamily.findViewById<ImageButton>(R.id.add_family_item)
+                            .setOnClickListener {
+                                val intent = Intent(activity, FamilyMemberActivity::class.java)
+                                intent.putExtra("FamilyMemberActivity", "addFamily")
+                                activity?.startActivity(intent)
+                            }
                     } else {
 //                        binding.loading?.isVisible = false
                         Log.d("IotApi", "getFamily: 取得家庭失敗")
@@ -371,27 +417,28 @@ class IotApi {
          */
 //        @Body info: GetModeKeyDataInfo,
         fun getModeKeyInfo(activity: FragmentActivity?, sessionManager: SessionManager) {
-            apiClient.getModeKeyDataInfo(token = "Token ${sessionManager.fetchAuthToken()}").enqueue {
-                onResponse = {
-                    if (it.isSuccessful) {
-                        Log.d("IotApi", "getModeKeyInfo: 取得組合鍵金鑰成功")
-                        Toast.makeText(activity, "取得組合鍵金鑰成功", Toast.LENGTH_SHORT).show()
-                        val response = it.body()!!
-                        Log.d("IotApi", response.toString())
-                    } else {
-                        Log.d("IotApi", "getModeKeyInfo: 取得組合鍵金鑰失敗")
-                        Toast.makeText(
-                            activity,
-                            "取得組合鍵金鑰失敗: ${it.errorBody()?.string()} ",
-                            Toast.LENGTH_SHORT
-                        ).show()
+            apiClient.getModeKeyDataInfo(token = "Token ${sessionManager.fetchAuthToken()}")
+                .enqueue {
+                    onResponse = {
+                        if (it.isSuccessful) {
+                            Log.d("IotApi", "getModeKeyInfo: 取得組合鍵金鑰成功")
+                            Toast.makeText(activity, "取得組合鍵金鑰成功", Toast.LENGTH_SHORT).show()
+                            val response = it.body()!!
+                            Log.d("IotApi", response.toString())
+                        } else {
+                            Log.d("IotApi", "getModeKeyInfo: 取得組合鍵金鑰失敗")
+                            Toast.makeText(
+                                activity,
+                                "取得組合鍵金鑰失敗: ${it.errorBody()?.string()} ",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+                    onFailure = {
+                        Log.d("IotApi", "getModeKeyInfo: ${it?.message}")
+                        Toast.makeText(activity, "取得組合鍵金鑰失敗", Toast.LENGTH_SHORT).show()
                     }
                 }
-                onFailure = {
-                    Log.d("IotApi", "getModeKeyInfo: ${it?.message}")
-                    Toast.makeText(activity, "取得組合鍵金鑰失敗", Toast.LENGTH_SHORT).show()
-                }
-            }
         }
 
 

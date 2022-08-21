@@ -65,6 +65,8 @@ class LoginFragment : Fragment() {
                                     val userinfo = msg.obj as UserInfo
                                     intent.putExtra("userInfo", userinfo)
                                 }
+                                SessionManager(requireActivity()).saveFamilyid(null)
+                                SessionManager(requireActivity()).saveFamilyName(null)
                                 activity?.finish()
                                 startActivity(intent)
                             }
