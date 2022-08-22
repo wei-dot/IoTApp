@@ -85,6 +85,7 @@ class FamilyFragment : Fragment() {
                         kickMember.isVisible = false
                     }
                     kickMember.setOnClickListener {
+                        binding.loading?.isVisible = true
                         memberList.removeView(memberToAdd)
                         familyMemberList.removeAt(i)
                         val arrayList_familyMemberList = ArrayList(familyMemberList)
@@ -93,7 +94,6 @@ class FamilyFragment : Fragment() {
                             SessionManager(requireActivity()).fetchFamilyName().toString(),
                             arrayList_familyMemberList
                         )
-
                         Log.d("AlterHome", AlterHome.toString())
                         IotApi.delFamilyMember(activity , binding , SessionManager(requireActivity()),AlterHome)
                         popupWindow.dismiss()
