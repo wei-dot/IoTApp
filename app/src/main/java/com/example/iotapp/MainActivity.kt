@@ -92,7 +92,6 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, _, _ ->
             toolbar.setNavigationIcon(R.drawable.ic_navigation_icon)
         }
-
         IotApi.getFamily(this,binding.profilePage,SessionManager(this))
 
         binding.loginPage.btnLogin.setOnClickListener {

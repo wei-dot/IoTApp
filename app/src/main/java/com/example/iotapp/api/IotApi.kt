@@ -318,6 +318,7 @@ class IotApi {
             binding: UserProfileBinding,
             sessionManager: SessionManager
         ) {
+            binding.loading?.isVisible = true
             apiClient.getFamily(token = "Token ${sessionManager.fetchAuthToken()}").enqueue {
                 onResponse = {
                     if (it.isSuccessful) {
@@ -395,8 +396,9 @@ class IotApi {
                                 intent.putExtra("FamilyMemberActivity", "addFamily")
                                 activity?.startActivity(intent)
                             }
+                        binding.loading?.isVisible = false
                     } else {
-//                        binding.loading?.isVisible = false
+                        binding.loading?.isVisible = false
                         Log.d("IotApi", "getFamily: 取得家庭失敗")
                         Toast.makeText(
                             activity,
@@ -406,7 +408,7 @@ class IotApi {
                     }
                 }
                 onFailure = {
-//                    binding.loading?.isVisible = false
+                    binding.loading?.isVisible = false
                     Log.d("IotApi", "getFamily: ${it?.message}")
                     Toast.makeText(activity, "取得家庭失敗", Toast.LENGTH_SHORT).show()
                 }
