@@ -7,9 +7,11 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
-import android.view.*
+import android.view.Gravity
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.PopupWindow
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.core.view.isVisible
@@ -22,9 +24,6 @@ import com.example.iotapp.api.IotApi
 import com.example.iotapp.api.SessionManager
 import com.example.iotapp.api.UserInfo
 import com.example.iotapp.databinding.ActivityMainBinding
-import com.example.iotapp.databinding.FragmentMainFamilyBinding
-import com.example.iotapp.databinding.UserProfileBinding
-import com.example.iotapp.ui.family.FamilyFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
@@ -48,7 +47,13 @@ class MainActivity : AppCompatActivity() {
             isLogin = true
         }
 
-        Log.d("MainActivity receive switchKey", intent.getSerializableExtra("switchKey").toString())
+        Log.d(
+            "MainActivity receive switchKey",
+            (intent.getSerializableExtra("switchKey") != null).toString()
+        )
+
+
+
 
         isLogin = SessionManager(this).fetchAuthToken() != null
         switchSideBarContent(isLogin)
