@@ -96,6 +96,8 @@ class SessionManager(context: Context) {
         return prefs.getStringSet(NOW_FAMILY_MEMBER, null)
     }
 
+
+
     /**
      * Function to clear auth token
      */

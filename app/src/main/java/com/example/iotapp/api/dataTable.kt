@@ -94,9 +94,16 @@ data class CreateHome(
     @SerializedName("user")
     val home_admin: ArrayList<String>,
 )
-data class setAdmin(
+data class SetAdmin(
     @SerializedName("home_name")
     val home_name: String,
     @SerializedName("user")
     val user: String
+)
+
+data class AlterHome(
+    @SerializedName("home_name")
+    val home_name: String,
+    @SerializedName("user")
+    val user: ArrayList<String>
 )

@@ -1,5 +1,7 @@
 package com.example.iotapp.api
 
+import android.content.Intent
+
 object Constants  {
     const val BASE_URL = "https://api.bap5.cc/"
     const val LOGIN_URL = "auth/token/login"
@@ -12,6 +14,7 @@ object Constants  {
     const val GET_MODE_KEY_DATA = "auth/mode_key_data/"
     const val POST_MODE_KEY_DATA = "auth/mode_key_data/"
     const val FAMILY_URL="/auth/home_list/"
+    const val FAMILY_URL_ID="/auth/home_list/{id}/"
     const val FAMILY_ADMIN_URL="/auth/home_admin/"
     const val Power_Strip_URL="/ws/strip/temp/"
 }

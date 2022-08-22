@@ -1,5 +1,7 @@
 package com.example.iotapp.api
 
+import androidx.room.*
+import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -51,9 +53,20 @@ interface ApiService {
 
     @Headers("Content-Type:application/json")
     @POST(Constants.POST_MODE_KEY_DATA)
-    fun postModeKeyDataInfo(@Header("Authorization") token: String, @Body info: PostModeKeyDataInfo): Call<Void>
+    fun postModeKeyDataInfo(
+        @Header("Authorization") token: String,
+        @Body info: PostModeKeyDataInfo
+    ): Call<Void>
 
     @Headers("Content-Type:application/json")
     @POST(Constants.FAMILY_ADMIN_URL)
-    fun setAdmin(@Header("Authorization") token: String, @Body info: setAdmin): Call<Void>
+    fun setAdmin(@Header("Authorization") token: String, @Body info: SetAdmin): Call<Void>
+
+    @Headers("Content-Type:application/json")
+    @PUT(Constants.FAMILY_URL_ID)
+    fun alterFamily(
+        @Path("id") id: String,
+        @Header("Authorization") token: String,
+        @Body info: AlterHome
+    ): Call<Void>
 }

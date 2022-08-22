@@ -13,6 +13,7 @@ import com.example.iotapp.FamilyMemberActivity
 import com.example.iotapp.MainActivity
 import com.example.iotapp.R
 import com.example.iotapp.databinding.*
+import com.example.iotapp.ui.family.FamilyFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -262,7 +263,7 @@ class IotApi {
                             sessionManager.saveFamilyName(info.home_name)
 
                             val setAdminInfo = sessionManager.fetchUserName()
-                                ?.let { it1 -> setAdmin(info.home_name, it1) }
+                                ?.let { it1 -> SetAdmin(info.home_name, it1) }
                             if (setAdminInfo != null) {
                                 setAdmin(setAdminInfo, activity, binding, sessionManager)
                             }
@@ -280,7 +281,7 @@ class IotApi {
         }
 
         fun setAdmin(
-            @Body setAdmin: setAdmin,
+            @Body setAdmin: SetAdmin,
             activity: FragmentActivity?,
             binding: FragmentFamilyCreateBinding,
             sessionManager: SessionManager
@@ -408,6 +409,34 @@ class IotApi {
 //                    binding.loading?.isVisible = false
                     Log.d("IotApi", "getFamily: ${it?.message}")
                     Toast.makeText(activity, "取得家庭失敗", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+
+        fun delFamilyMember(
+            activity: FragmentActivity?,
+            binding: FragmentMainFamilyBinding,
+            sessionManager: SessionManager,
+            @Body info : AlterHome
+        )
+        {
+            apiClient.alterFamily(sessionManager.fetchFamilyid().toString() , token = "Token ${sessionManager.fetchAuthToken()}" , info).enqueue {
+                onResponse = {
+                    if (it.isSuccessful) {
+                        Log.d("IotApi", "delFamilyMember: 刪除成功")
+                        Toast.makeText(activity, "刪除成功", Toast.LENGTH_SHORT).show()
+                        binding.loading?.isVisible = false
+                    } else {
+                        Log.d("IotApi", "delFamilyMember: 刪除失敗")
+                        Toast.makeText(binding.root.context, "刪除失敗", Toast.LENGTH_SHORT).show()
+                        //todo 目前還沒想到比較好的方法去回滾FamilyFragment已被移除顯示familyMemberList的內容
+                        binding.loading?.isVisible = false
+                    }
+                }
+                onFailure = {
+                    Log.d("IotApi", "delFamilyMember: ${it?.message}")
+                    Toast.makeText(binding.root.context, "刪除失敗", Toast.LENGTH_SHORT).show()
+                    binding.loading?.isVisible = false
                 }
             }
         }
