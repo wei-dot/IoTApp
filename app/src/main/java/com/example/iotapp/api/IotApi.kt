@@ -426,6 +426,7 @@ class IotApi {
                         Log.d("IotApi", "delFamilyMember: 刪除成功")
                         Toast.makeText(activity, "刪除成功", Toast.LENGTH_SHORT).show()
                         binding.loading?.isVisible = false
+                        sessionManager.storeFamilyMembers(info.user)
                     } else {
                         Log.d("IotApi", "delFamilyMember: 刪除失敗")
                         Toast.makeText(binding.root.context, "刪除失敗", Toast.LENGTH_SHORT).show()

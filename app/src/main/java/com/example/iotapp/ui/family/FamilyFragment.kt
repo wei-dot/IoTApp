@@ -93,6 +93,7 @@ class FamilyFragment : Fragment() {
                             SessionManager(requireActivity()).fetchFamilyName().toString(),
                             arrayList_familyMemberList
                         )
+
                         Log.d("AlterHome", AlterHome.toString())
                         IotApi.delFamilyMember(activity , binding , SessionManager(requireActivity()),AlterHome)
                         popupWindow.dismiss()
