@@ -31,10 +31,10 @@ class ModeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
-        val modeViewModel =
-            ViewModelProvider(this)[ModeViewModel::class.java]
-
+        val ModeViewModel =
+            activity?.run { ViewModelProvider(this)[ModeViewModel::class.java] } ?: throw Exception(
+                "Invalid Activity"
+            )
         _binding = FragmentMainModeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 

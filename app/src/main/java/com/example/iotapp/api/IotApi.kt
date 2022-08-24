@@ -473,6 +473,31 @@ class IotApi {
                 }
         }
 
+        fun postModeKeyInfo(activity: FragmentActivity?, sessionManager: SessionManager, @Body info: PostModeKeyDataInfo) {
+            apiClient.postModeKeyDataInfo(token = "Token ${sessionManager.fetchAuthToken()}",info)
+                .enqueue {
+                    onResponse = {
+                        if (it.isSuccessful) {
+                            Log.d("IotApi", "getModeKeyInfo: 取得組合鍵金鑰成功")
+                            Toast.makeText(activity, "取得組合鍵金鑰成功", Toast.LENGTH_SHORT).show()
+//                            val response = it.body()!!
+//                            Log.d("IotApi", response.toString())
+                        } else {
+                            Log.d("IotApi", "getModeKeyInfo: 取得組合鍵金鑰失敗")
+                            Toast.makeText(
+                                activity,
+                                "取得組合鍵金鑰失敗: ${it.errorBody()?.string()} ",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+                    onFailure = {
+                        Log.d("IotApi", "getModeKeyInfo: ${it?.message}")
+                        Toast.makeText(activity, "取得組合鍵金鑰失敗", Toast.LENGTH_SHORT).show()
+                    }
+                }
+        }
+
 
         private fun <T> Call<T>.enqueue(callback: CallBackKt<T>.() -> Unit) {
             val callBackKt = CallBackKt<T>()

@@ -1,11 +1,13 @@
 package com.example.iotapp
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.AttributeSet
 import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -22,10 +24,9 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupWithNavController
 import com.example.iotapp.api.IotApi
 import com.example.iotapp.api.SessionManager
-import com.example.iotapp.api.UserInfo
 import com.example.iotapp.databinding.ActivityMainBinding
+import com.example.iotapp.ui.mode.ModeSetNamingFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-
 
 
 class MainActivity : AppCompatActivity() {
@@ -34,6 +35,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private var isLogin: Boolean = false
 
+    override fun onCreateView(name: String, context: Context, attrs: AttributeSet): View? {
+        return super.onCreateView(name, context, attrs)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -47,13 +51,11 @@ class MainActivity : AppCompatActivity() {
             isLogin = true
         }
 
-        Log.d(
-            "MainActivity receive switchKey",
-            (intent.getSerializableExtra("switchKey") != null).toString()
-        )
-
-
-
+//        Log.d("MainActivity receive switchKey info:", intent.getSerializableExtra("switchKey").toString())
+        val bundle = Bundle()
+        bundle.putString("familyId", SessionManager(this).fetchFamilyid())
+        val modeSetNamingFragment = ModeSetNamingFragment()
+        modeSetNamingFragment.arguments = bundle
 
         isLogin = SessionManager(this).fetchAuthToken() != null
         switchSideBarContent(isLogin)
@@ -92,7 +94,7 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, _, _ ->
             toolbar.setNavigationIcon(R.drawable.ic_navigation_icon)
         }
-        IotApi.getFamily(this,binding.profilePage,SessionManager(this))
+        IotApi. getFamily(this, binding.profilePage, SessionManager(this))
 
         binding.loginPage.btnLogin.setOnClickListener {
             val intent = Intent(this, AccountActivity::class.java)
@@ -199,5 +201,6 @@ class MainActivity : AppCompatActivity() {
         lp.alpha = f
         window.attributes = lp
     }
+
 
 }

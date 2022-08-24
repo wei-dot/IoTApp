@@ -14,13 +14,11 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.NavHostFragment
 import com.example.iotapp.FamilyMemberActivity
 import com.example.iotapp.api.AlterHome
 import com.example.iotapp.api.IotApi
 import com.example.iotapp.api.SessionManager
 import com.example.iotapp.databinding.FragmentMainFamilyBinding
-import kotlin.math.log
 
 
 /**

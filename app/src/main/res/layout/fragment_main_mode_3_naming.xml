@@ -32,10 +32,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
-                android:src="@drawable/btn_mode_key_set_top" />
+                android:src="@drawable/btn_mode_key_set_top"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_mode_key_name"
                 style="@style/TextInputEditText_style"
                 android:layout_width="@dimen/input_width"
                 android:layout_height="@dimen/input_height"
@@ -45,6 +47,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/til_mode_key_name"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:autofillHints="username"

@@ -54,7 +54,7 @@ data class SetPassword(
 
  data class GetModeKeyDataInfo(
     @SerializedName("mode_key_data_id")
-    val mode_key_data_id: Int,
+    val mode_key_data_id: String,
     @SerializedName("home_id")
     val home_id: Int,
     @SerializedName("tplink_switch_mode_key")
@@ -63,9 +63,13 @@ data class SetPassword(
 
 data class PostModeKeyDataInfo(
     @SerializedName("home_id")
-    val home_id: Int,
+    val home_id: String,
     @SerializedName("tplink_switch_mode_key")
-    val tplink_switch_mode_key: String
+    val tplink_switch_mode_key: String,
+    @SerializedName("ac_temperature")
+    val ac_temperature: Int,
+    @SerializedName("ac_switch")
+    val ac_switch: Boolean,
 )
 data class FamilyAdmin(
     @SerializedName("family_name")
