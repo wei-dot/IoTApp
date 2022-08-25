@@ -12,10 +12,7 @@ import com.iotApp.databinding.FragmentMainHomeBinding
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.WebSocket
-import java.text.SimpleDateFormat
-import java.util.*
 import java.util.concurrent.TimeUnit
-import kotlin.concurrent.thread
 
 
 /**
@@ -54,13 +51,8 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        thread{
-            while (_binding != null) {
-                val formatter = SimpleDateFormat("yyyy/MM/dd  E  hh:mm:ss  a", Locale.CHINESE)
-                binding.dateWeekTime.text = formatter.format(Date(System.currentTimeMillis()))
-                Thread.sleep(1000)
-            }
-        }
+
+
         //設定全部開關文字
         binding.tplinkSwitch1.text = "開關1 開"
         binding.tplinkSwitch2.text = "開關2 開"
