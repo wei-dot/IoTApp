@@ -7,7 +7,7 @@
     android:layout_height="fill_parent"
     android:background="@drawable/background_fullscreen"
     app:layout_anchorGravity="bottom"
-    tools:context=".ui.forget.ForgetPasswordFragment">
+    tools:context="com.iotApp.ui.forget.ForgetPasswordFragment">
 
 
     <ImageButton

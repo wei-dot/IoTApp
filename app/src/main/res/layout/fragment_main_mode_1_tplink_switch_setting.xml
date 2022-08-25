@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".ui.mode.ModeSetSwitchFragment">
+    tools:context="com.iotApp.ui.mode.ModeSetSwitchFragment">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"

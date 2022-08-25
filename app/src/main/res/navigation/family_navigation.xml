@@ -6,21 +6,21 @@
     app:startDestination="@id/navigation_family_edit">
     <fragment
         android:id="@+id/navigation_family_edit"
-        android:name="com.example.iotapp.ui.familyEdit.FamilyEditFragment"
+        android:name="com.iotApp.ui.familyEdit.FamilyEditFragment"
         android:label="@string/text_edit_family"
         tools:layout="@layout/fragment_family_edit"/>
     <fragment
         android:id="@+id/navigation_family_member_add"
-        android:name="com.example.iotapp.ui.familyEdit.FamilyMemberAddFragment"
+        android:name="com.iotApp.ui.familyEdit.FamilyMemberAddFragment"
         android:label="@string/text_add_member"
         tools:layout="@layout/fragment_family_member_add"/>
     <fragment
         android:id="@+id/navigation_family_add"
-        android:name="com.example.iotapp.ui.familyEdit.FamilyAddFragment"
+        android:name="com.iotApp.ui.familyEdit.FamilyAddFragment"
         tools:layout="@layout/fragment_family_add"/>
     <fragment
         android:id="@+id/navigation_create_family"
-        android:name="com.example.iotapp.ui.familyEdit.FamilyCreateFragment"
+        android:name="com.iotApp.ui.familyEdit.FamilyCreateFragment"
         tools:layout="@layout/fragment_family_create"
         android:label="@string/text_create_family"/>
 </navigation>

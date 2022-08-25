@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/background_content"
     app:layout_scrollEffect="compress"
-    tools:context=".ui.home.HomeFragment">
+    tools:context="com.iotApp.ui.home.HomeFragment">
 
 
     <TextView

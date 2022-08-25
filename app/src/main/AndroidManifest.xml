@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        package="com.example.iotapp">
+        package="com.iotApp">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -18,11 +18,11 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".FamilyMemberActivity"
+            android:name="com.iotApp.FamilyMemberActivity"
             android:exported="true"
             android:theme="@style/Theme.IoTApp.NoActionBar"/>
         <activity
-            android:name=".SplashActivity"
+            android:name="com.iotApp.SplashActivity"
             android:exported="true"
             android:theme="@style/SplashTheme">
             <intent-filter>
@@ -33,11 +33,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name="com.iotApp.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.IoTApp.NoActionBar" />
         <activity
-            android:name=".AccountActivity"
+            android:name="com.iotApp.AccountActivity"
             android:exported="true"
             android:theme="@style/Theme.IoTApp.NoActionBar" />
     </application>
