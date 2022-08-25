@@ -18,7 +18,7 @@
             android:layout_margin="30dp"
             android:gravity="center"
             android:padding="10dp"
-            android:format12Hour="yyyy/MM/dd E h:mm a"
+            android:format12Hour="yyyy/MM/dd  E  h:mm a"
             android:textColor="@color/color_c07a27"
             android:textSize="22sp"
             app:layout_constraintBottom_toTopOf="@+id/scrollView3"

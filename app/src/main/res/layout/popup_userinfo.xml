@@ -8,8 +8,8 @@
 
     <View
         android:id="@+id/view"
-        android:layout_width="274dp"
-        android:layout_height="279dp"
+        android:layout_width="280dp"
+        android:layout_height="280dp"
         android:background="@drawable/background_popup_userinfo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,7 +23,7 @@
         android:id="@+id/avatar"
         android:layout_width="84dp"
         android:layout_height="84dp"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="28dp"
         android:background="@drawable/background_family_avatar"
