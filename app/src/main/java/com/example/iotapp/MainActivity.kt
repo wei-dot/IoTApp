@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
 
 //        Log.d("MainActivity receive switchKey info:", intent.getSerializableExtra("switchKey").toString())
         val bundle = Bundle()
-        bundle.putString("familyId", SessionManager(this).fetchFamilyid())
+        bundle.putString("familyId", SessionManager(this).fetchFamilyId())
         val modeSetNamingFragment = ModeSetNamingFragment()
         modeSetNamingFragment.arguments = bundle
 

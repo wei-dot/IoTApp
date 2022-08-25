@@ -40,7 +40,7 @@ class ModeSetNamingFragment : Fragment() {
             IotApi. getFamily(requireActivity(), ActivityMainBinding.inflate(layoutInflater).profilePage, SessionManager(requireActivity()))
             if(binding.tilModeKeyName.text?.isNotEmpty() == true){
                 val mode_key_data_id = modeViewModel?.getTplinkSwitch()
-                val home_id = SessionManager(requireActivity()).fetchFamilyid()
+                val home_id = SessionManager(requireActivity()).fetchFamilyId()
 //                val home_id = "1"
                 val ac_temperature = modeViewModel?.getAcTemperature()
                 val ac_switch = modeViewModel?.getAcSwitch()
