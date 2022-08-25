@@ -20,7 +20,7 @@ class ModeSetAcFragment : Fragment() {
     override fun onCreateView(
         inflater: android.view.LayoutInflater,
         container: android.view.ViewGroup?,
-        savedInstanceState: android.os.Bundle?
+        savedInstanceState: Bundle?
     ): View {
         _binding = FragmentMainMode2AcSettingBinding.inflate(inflater, container, false)
         modeViewModel = activity?.run {

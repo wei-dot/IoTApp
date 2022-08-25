@@ -1,10 +1,8 @@
 package com.example.iotapp
 
-import android.content.ClipData.newIntent
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import com.example.iotapp.databinding.ActivityFamilyEditBinding
 

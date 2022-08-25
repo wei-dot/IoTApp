@@ -1,19 +1,11 @@
 package com.example.iotapp.ui.familyEdit
 
-import android.content.ClipData.newIntent
-import android.content.Intent
 import android.os.Bundle
-
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
-
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
-import com.example.iotapp.MainActivity
 import com.example.iotapp.R
 import com.example.iotapp.databinding.FragmentFamilyAddBinding
 
@@ -37,16 +29,11 @@ class FamilyAddFragment : Fragment() {
         binding.btnBack.setOnClickListener {
             activity?.finish()
         }
-        binding.createFamily.setOnClickListener() {
+        binding.createFamily.setOnClickListener {
             findNavController().navigate(R.id.navigation_create_family)
         }
 
         return root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
     }
 
     override fun onDestroyView() {

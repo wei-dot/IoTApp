@@ -1,8 +1,11 @@
 package com.example.iotapp.api
 
-object Constants  {
-//    const val BASE_URL = "https://api.bap5.cc/"
-    const val BASE_URL = "http://192.168.0.13:8000/"
+import android.content.Intent
+
+object Constants {
+    const val BASE_URL = "https://api.bap5.cc/"
+
+    //    const val BASE_URL = "http://192.168.0.10:8000/"
     const val LOGIN_URL = "auth/token/login"
     const val Signup_URL = "auth/users/"
     const val GET_USER_URL = "auth/users/me/"

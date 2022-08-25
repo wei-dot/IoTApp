@@ -31,7 +31,7 @@ class NotLoginFragment : Fragment() {
             textView?.text = it
         }
 
-        binding.btnLogin?.setOnClickListener {
+        binding.btnLogin.setOnClickListener {
             val intent = Intent(activity, AccountActivity::class.java)
             activity?.finish()
             startActivity(intent)
@@ -41,10 +41,6 @@ class NotLoginFragment : Fragment() {
 
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-    }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

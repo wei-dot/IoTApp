@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.iotapp.api.IotApi
 import com.example.iotapp.api.SessionManager
 import com.example.iotapp.api.UserInfo
-import com.example.iotapp.ui.family.FamilyFragment
 
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {

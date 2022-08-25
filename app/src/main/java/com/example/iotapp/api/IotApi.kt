@@ -13,7 +13,6 @@ import com.example.iotapp.FamilyMemberActivity
 import com.example.iotapp.MainActivity
 import com.example.iotapp.R
 import com.example.iotapp.databinding.*
-import com.example.iotapp.ui.family.FamilyFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -268,12 +267,12 @@ class IotApi {
                                 setAdmin(setAdminInfo, activity, binding, sessionManager)
                             }
                         } else {
-                            binding.loading?.isVisible = false
+                            binding.loading.isVisible = false
                             Log.d("IotApi", "建立家庭失敗: ${it.errorBody()?.string()} ")
                         }
                     }
                     onFailure = {
-                        binding.loading?.isVisible = false
+                        binding.loading.isVisible = false
                         Log.d("IotApi", "createHome: ${it?.message}")
                         Toast.makeText(activity, "建立家庭失敗", Toast.LENGTH_SHORT).show()
                     }
@@ -320,48 +319,48 @@ class IotApi {
         ) {
             binding.loading?.isVisible = true
             apiClient.getFamily(token = "Token ${sessionManager.fetchAuthToken()}").enqueue {
-                onResponse = {
+                onResponse = { it ->
                     if (it.isSuccessful) {
                         val response = it.body()!!
                         Log.d("IotApi", response.toString())
-                        var familyList: List<String> = response.map { it.home_name }
+                        val familyList: List<String> = response.map { num->num.home_name }
                         Log.d("IotApi", familyList.toString())
                         val myFamilyList: LinearLayout? = binding.myFamilyList
                         if (familyList.isNotEmpty()) {
                             familyList.forEach {
                                 val familyItem = View.inflate(
                                     activity,
-                                    com.example.iotapp.R.layout.family_item,
+                                    R.layout.family_item,
                                     null
                                 )
-                                familyItem.findViewById<TextView>(com.example.iotapp.R.id.family_name).text =
+                                familyItem.findViewById<TextView>(R.id.family_name).text =
                                     it
                                 familyItem.setPadding(0, 30, 0, 30)
                                 myFamilyList?.addView(familyItem)
 
                                 if (sessionManager.fetchFamilyName() == null) {
                                     sessionManager.saveFamilyName(familyList[0])
-                                    sessionManager.saveFamilyid(response[0].id)
+                                    sessionManager.saveFamilyId(response[0].id)
                                     familyItem.findViewById<ImageView>(R.id.now_family).isVisible =
                                         true
-                                    val manberList =
-                                        response.find { it.home_name == familyList[0] }!!.family_admin
-                                    sessionManager.storeFamilyMembers(manberList)
+                                    val memberList =
+                                        response.find {num->num.home_name == familyList[0] }!!.family_admin
+                                    sessionManager.storeFamilyMembers(memberList)
                                 } else {
                                     if (sessionManager.fetchFamilyName() == it) {
                                         familyItem.findViewById<ImageView>(R.id.now_family).isVisible =
                                             true
-                                        val manberList =
-                                            response.find { it.home_name == sessionManager.fetchFamilyName() }!!.family_admin
-                                        sessionManager.storeFamilyMembers(manberList)
+                                        val memberList =
+                                            response.find { num->num.home_name == sessionManager.fetchFamilyName() }!!.family_admin
+                                        sessionManager.storeFamilyMembers(memberList)
                                     }
                                 }
-                                familyItem.setOnClickListener {
-                                    if (sessionManager.fetchFamilyName() != it.findViewById<TextView>(
-                                            com.example.iotapp.R.id.family_name
+                                familyItem.setOnClickListener {view->
+                                    if (sessionManager.fetchFamilyName() != view.findViewById<TextView>(
+                                            R.id.family_name
                                         ).text.toString()
                                     ) {
-                                        sessionManager.saveFamilyName(it.findViewById<TextView>(com.example.iotapp.R.id.family_name).text.toString())
+                                        sessionManager.saveFamilyName(view.findViewById<TextView>(R.id.family_name).text.toString())
                                         Log.d(
                                             "IotApi",
                                             "getFamily: ${sessionManager.fetchFamilyName()}"
@@ -384,13 +383,13 @@ class IotApi {
                             Log.d("IotApi", "getFamily: 沒有家庭")
                             sessionManager.storeFamilyMembers(arrayListOf())
                         }
-                        val btn_addFamily = View.inflate(
+                        val btnAddFamily = View.inflate(
                             activity,
-                            com.example.iotapp.R.layout.add_family_item,
+                            R.layout.add_family_item,
                             null
                         )
-                        myFamilyList?.addView(btn_addFamily)
-                        btn_addFamily.findViewById<ImageButton>(R.id.add_family_item)
+                        myFamilyList?.addView(btnAddFamily)
+                        btnAddFamily.findViewById<ImageButton>(R.id.add_family_item)
                             .setOnClickListener {
                                 val intent = Intent(activity, FamilyMemberActivity::class.java)
                                 intent.putExtra("FamilyMemberActivity", "addFamily")
@@ -422,7 +421,7 @@ class IotApi {
             @Body info : AlterHome
         )
         {
-            apiClient.alterFamily(sessionManager.fetchFamilyid().toString() , token = "Token ${sessionManager.fetchAuthToken()}" , info).enqueue {
+            apiClient.alterFamily(sessionManager.fetchFamilyId().toString() , token = "Token ${sessionManager.fetchAuthToken()}" , info).enqueue {
                 onResponse = {
                     if (it.isSuccessful) {
                         Log.d("IotApi", "delFamilyMember: 刪除成功")

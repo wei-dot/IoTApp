@@ -52,7 +52,7 @@ class SessionManager(context: Context) {
         editor.apply()
     }
 
-    fun saveFamilyid(familyId: String?) {
+    fun saveFamilyId(familyId: String?) {
         val editor = prefs.edit()
         editor.putString(NOW_FAMILY_ID, familyId)
         editor.apply()
@@ -65,7 +65,7 @@ class SessionManager(context: Context) {
         return prefs.getString(NOW_FAMILY, null)
     }
 
-    fun fetchFamilyid(): String? {
+    fun fetchFamilyId(): String? {
         return prefs.getString(NOW_FAMILY_ID, null)
     }
 

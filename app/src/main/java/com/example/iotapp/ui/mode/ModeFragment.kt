@@ -1,24 +1,14 @@
 package com.example.iotapp.ui.mode
 
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.findFragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
-import com.example.iotapp.R
 import androidx.navigation.Navigation
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
-import com.example.iotapp.api.IotApi
-import com.example.iotapp.api.SessionManager
-import com.example.iotapp.api.UserInfo
+import com.example.iotapp.R
 import com.example.iotapp.databinding.FragmentMainModeBinding
 
 
@@ -46,21 +36,18 @@ class ModeFragment : Fragment() {
 
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 //        Log.d("modeFragment",IotApi.getModeKeyInfo(requireActivity(),SessionManager(requireActivity())).toString())
         try {
-            _binding?.buttonModeKey1?.setOnClickListener(View.OnClickListener {
+            _binding?.buttonModeKey1?.setOnClickListener {
 //                Handler(Looper.getMainLooper()).postDelayed({
 ////                findNavController().navigate(R.id.action_navigation_mode_to_navigation_mode_1_switch_set)
 //                },2000)
-                Navigation.findNavController(it).navigate(R.id.action_navigation_mode_to_navigation_mode_1_switch_set)
+                Navigation.findNavController(it)
+                    .navigate(R.id.action_navigation_mode_to_navigation_mode_1_switch_set)
 
-            })
+            }
         }catch (e: Exception) {
             Log.d("modeFragment",e.toString())
         }

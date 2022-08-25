@@ -29,7 +29,7 @@ class FamilyFragment : Fragment() {
     private var _binding: FragmentMainFamilyBinding? = null
 
     //testMode *if inside Family
-    var hasFamily = true
+    private var hasFamily = true
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -43,7 +43,7 @@ class FamilyFragment : Fragment() {
 
         _binding = FragmentMainFamilyBinding.inflate(inflater, container, false)
         val root: View = binding.root
-        val FamilyViewModel = ViewModelProvider(this)[FamilyViewModel::class.java]
+        val familyViewModel = ViewModelProvider(this)[FamilyViewModel::class.java]
         val familyMemberList: MutableList<String>? =
             SessionManager(requireActivity()).fetchFamilyMembers()?.toMutableList()
         Log.d("familyMemberList", familyMemberList.toString())
@@ -57,7 +57,7 @@ class FamilyFragment : Fragment() {
             val king = "島輝"
             //test
             val memberList: LinearLayout = binding.familyMemberBoxLinearlayout
-            for (i in familyMemberList!!.indices) {
+            for (i in familyMemberList.indices) {
                 val memberToAdd = View.inflate(context, com.example.iotapp.R.layout.member, null)
                 memberToAdd.id = i
                 memberToAdd.findViewById<TextView>(com.example.iotapp.R.id.text_member_name).text =
@@ -72,13 +72,13 @@ class FamilyFragment : Fragment() {
                     val popupWindow = PopupWindow(context)
                     val view =
                         layoutInflater.inflate(com.example.iotapp.R.layout.popup_userinfo, null)
-                    val popup_username =
+                    val popupUsername =
                         view.findViewById<TextView>(com.example.iotapp.R.id.popup_username)
-                    val popup_user = view.findViewById<TextView>(com.example.iotapp.R.id.popup_user)
+                    val popupUser = view.findViewById<TextView>(com.example.iotapp.R.id.popup_user)
                     val kickMember =
                         view.findViewById<ImageButton>(com.example.iotapp.R.id.btn_kickmember)
-                    popup_username.text = familyMemberList[i]
-                    popup_user.text = familyMemberList[i]
+                    popupUsername.text = familyMemberList[i]
+                    popupUser.text = familyMemberList[i]
                     if (familyMemberList[i] == king) {
                         kickMember.isVisible = false
                     }
@@ -86,14 +86,14 @@ class FamilyFragment : Fragment() {
                         binding.loading?.isVisible = true
                         memberList.removeView(memberToAdd)
                         familyMemberList.removeAt(i)
-                        val arrayList_familyMemberList = ArrayList(familyMemberList)
-                        Log.d("familyMemberListA", arrayList_familyMemberList.toString())
-                        val AlterHome = AlterHome(
+                        val familyMemberListView = ArrayList(familyMemberList)
+                        Log.d("familyMemberListA", familyMemberListView.toString())
+                        val alterHome = AlterHome(
                             SessionManager(requireActivity()).fetchFamilyName().toString(),
-                            arrayList_familyMemberList
+                            familyMemberListView
                         )
-                        Log.d("AlterHome", AlterHome.toString())
-                        IotApi.delFamilyMember(activity , binding , SessionManager(requireActivity()),AlterHome)
+                        Log.d("AlterHome", alterHome.toString())
+                        IotApi.delFamilyMember(activity , binding , SessionManager(requireActivity()),alterHome)
                         popupWindow.dismiss()
                     }
                     popupWindow.setOnDismissListener {
@@ -123,17 +123,17 @@ class FamilyFragment : Fragment() {
                 val popupWindow = PopupWindow(context)
                 val view =
                     layoutInflater.inflate(com.example.iotapp.R.layout.popup_edit_member, null)
-                val btn_addmember =
+                val btnAddMember =
                     view.findViewById<ImageButton>(com.example.iotapp.R.id.popup_edit_member_add_member)
-                val btn_editmember =
+                val btnEditMember =
                     view.findViewById<ImageButton>(com.example.iotapp.R.id.popup_edit_member_edit_member)
-                btn_addmember.setOnClickListener {
+                btnAddMember.setOnClickListener {
                     val intent = Intent(context, FamilyMemberActivity::class.java)
                     intent.putExtra("FamilyMemberActivity", "addMember")
                     startActivity(intent)
                     popupWindow.dismiss()
                 }
-                btn_editmember.setOnClickListener {
+                btnEditMember.setOnClickListener {
                     val intent = Intent(context, FamilyMemberActivity::class.java)
                     intent.putExtra("FamilyMemberActivity", "editMember")
                     startActivity(intent)
@@ -164,7 +164,7 @@ class FamilyFragment : Fragment() {
             binding.btnFamilyEdit.isVisible = false
             binding.btnFamilySetting.isVisible = false
             val textView: TextView = binding.textFamily
-            FamilyViewModel.text.observe(viewLifecycleOwner) {
+            familyViewModel.text.observe(viewLifecycleOwner) {
                 textView.text = it
             }
             binding.btnAddFamily.setOnClickListener {
@@ -181,11 +181,6 @@ class FamilyFragment : Fragment() {
         val lp = activity?.window?.attributes
         lp?.alpha = f
         activity?.window?.attributes = lp
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
     }
 
     override fun onDestroyView() {
