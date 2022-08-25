@@ -54,7 +54,7 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        thread {
+        thread{
             while (_binding != null) {
                 val formatter = SimpleDateFormat("yyyy/MM/dd  E  hh:mm:ss  a", Locale.CHINESE)
                 binding.dateWeekTime.text = formatter.format(Date(System.currentTimeMillis()))

@@ -9,7 +9,7 @@
         android:orderInCategory="100"
         android:title="@string/fragment_main_home" />
     <item
-        android:id="@+id/navigation_family"
+        android:id="@+id/navigation_family_in"
         android:enabled="true"
         android:icon="@drawable/selector_family"
         android:orderInCategory="100"

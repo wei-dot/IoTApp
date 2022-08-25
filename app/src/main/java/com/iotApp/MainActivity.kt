@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.navigation_home,
-                R.id.navigation_family,
+                R.id.navigation_family_in,
                 R.id.navigation_mode,
                 R.id.navigation_log,
                 R.id.navigation_notLogin
@@ -88,7 +88,7 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, _, _ ->
             toolbar.setNavigationIcon(R.drawable.ic_navigation_icon)
         }
-        IotApi. getFamily(this, binding.profilePage, SessionManager(this))
+        IotApi.getFamily(this, binding.profilePage, SessionManager(this))
 
         binding.loginPage.btnLogin.setOnClickListener {
             val intent = Intent(this, AccountActivity::class.java)
