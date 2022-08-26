@@ -17,6 +17,8 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.http.Body
+import com.iotApp.databinding.FragmentMainModeBinding
+
 
 
 class IotApi {
@@ -448,16 +450,19 @@ class IotApi {
          */
 //        @Body info: GetModeKeyDataInfo,
         fun getModeKeyInfo(activity: FragmentActivity?, sessionManager: SessionManager) {
+            Log.d("IotApi", "getModeKeyInfo: Token ${sessionManager.fetchAuthToken()}")
             apiClient.getModeKeyDataInfo(token = "Token ${sessionManager.fetchAuthToken()}")
                 .enqueue {
                     onResponse = {
-                        if (it.isSuccessful) {
+                        if (it  .isSuccessful) {
                             Log.d("IotApi", "getModeKeyInfo: 取得組合鍵金鑰成功")
                             Toast.makeText(activity, "取得組合鍵金鑰成功", Toast.LENGTH_SHORT).show()
                             val response = it.body()!!
-                            Log.d("IotApi", response.toString())
+                            Log.d("IotApi", response[0].toString())
+                            Log.d("IotApi", response[0].mode_key_time.toString())
+                            sessionManager.saveModeKeyData(response)
                         } else {
-                            Log.d("IotApi", "getModeKeyInfo: 取得組合鍵金鑰失敗")
+                            Log.d("IotApi onResponse ", "getModeKeyInfo: 取得組合鍵金鑰失敗")
                             Toast.makeText(
                                 activity,
                                 "取得組合鍵金鑰失敗: ${it.errorBody()?.string()} ",
@@ -466,7 +471,8 @@ class IotApi {
                         }
                     }
                     onFailure = {
-                        Log.d("IotApi", "getModeKeyInfo: ${it?.message}")
+//                        val users = gson.fromJson<ArrayList<GetModeKeyDataInfo>>(it, type)
+//                        Log.d("IotApi onFailure", "getModeKeyInfo data : ${it?.toString()}")
                         Toast.makeText(activity, "取得組合鍵金鑰失敗", Toast.LENGTH_SHORT).show()
                     }
                 }

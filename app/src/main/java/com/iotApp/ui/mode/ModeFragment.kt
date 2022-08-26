@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.iotApp.R
+import com.iotApp.api.IotApi
+import com.iotApp.api.SessionManager
 import com.iotApp.databinding.FragmentMainModeBinding
 
 
@@ -38,11 +40,13 @@ class ModeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 //        Log.d("modeFragment",IotApi.getModeKeyInfo(requireActivity(),SessionManager(requireActivity())).toString())
+        IotApi.getModeKeyInfo(requireActivity(), SessionManager(requireActivity()))
+//        Log.d("ModeFragment type of api get mode key info:",IotApi.getModeKeyInfo(requireActivity(), SessionManager(requireActivity())).javaClass.kotlin.toString())
+        if(SessionManager(requireActivity()).fetchModeKeyData().size > 0){
+            binding.buttonModeKey1?.text = SessionManager(requireActivity()).fetchModeKeyData()[0].mode_key_name
+        }
         try {
-            _binding?.buttonModeKey1?.setOnClickListener {
-//                Handler(Looper.getMainLooper()).postDelayed({
-////                findNavController().navigate(R.id.action_navigation_mode_to_navigation_mode_1_switch_set)
-//                },2000)
+            _binding?.floatingActionButtonModeKeyAdd?.setOnClickListener {
                 Navigation.findNavController(it)
                     .navigate(R.id.action_navigation_mode_to_navigation_mode_1_switch_set)
 

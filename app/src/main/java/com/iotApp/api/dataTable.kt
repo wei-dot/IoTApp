@@ -2,6 +2,8 @@ package com.iotApp.api
 
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
+import java.util.*
+import kotlin.collections.ArrayList
 
 data class UserInfo (
     @SerializedName("username")
@@ -51,19 +53,29 @@ data class SetPassword(
 )
 
  data class GetModeKeyDataInfo(
-    @SerializedName("mode_key_data_id")
-    val mode_key_data_id: String,
-    @SerializedName("home_id")
-    val home_id: Int,
-    @SerializedName("tplink_switch_mode_key")
-    val tplink_switch_mode_key: String,
-):Serializable
+     @SerializedName("mode_key_data_id")
+     val mode_key_data_id: Int,
+     @SerializedName("mode_key_name")
+     val mode_key_name: String,
+     @SerializedName("home_id")
+     val home_id: Int,
+     @SerializedName("tplink_switch_mode_key")
+     val tplink_switch_mode_key: String,
+     @SerializedName("ac_temperature")
+     val ac_temperature: Int,
+     @SerializedName("ac_switch")
+     val ac_switch: Boolean,
+     @SerializedName("mode_key_time")
+        val mode_key_time: Date,
+ ):Serializable
 
 data class PostModeKeyDataInfo(
     @SerializedName("home_id")
     val home_id: String,
     @SerializedName("tplink_switch_mode_key")
     val tplink_switch_mode_key: String,
+    @SerializedName("mode_key_name")
+    val mode_key_name: String,
     @SerializedName("ac_temperature")
     val ac_temperature: Int,
     @SerializedName("ac_switch")

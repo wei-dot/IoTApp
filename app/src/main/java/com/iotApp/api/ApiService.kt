@@ -7,7 +7,7 @@ interface ApiService {
 
     @Headers("Content-Type:application/json")
     @GET(Constants.GET_MODE_KEY_DATA)
-    fun getModeKeyDataInfo(@Header("Authorization") token: String): Call<GetModeKeyDataInfo>
+    fun getModeKeyDataInfo(@Header("Authorization") token: String): Call<ArrayList<GetModeKeyDataInfo>>
 
     @Headers("Content-Type:application/json")
     @POST(Constants.Signup_URL)

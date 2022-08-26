@@ -8,6 +8,20 @@
 
     <!--    android:id="@+id/nav_host_fragment_activity_main_mode"-->
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton_mode_key_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="120dp"
+        android:clickable="true"
+        android:src="@drawable/btn_mode_key_add"
+        app:tint="@color/color_fbfbfb"
+        app:backgroundTint="@color/color_14b2d4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:rippleColor="@color/color_fbfbfb" />
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="600dp"

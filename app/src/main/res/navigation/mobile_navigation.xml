@@ -52,6 +52,9 @@
         android:name="com.iotApp.ui.mode.ModeSetNamingFragment"
         android:label="@string/fragment_main_mode"
         tools:layout="@layout/fragment_main_mode_3_naming">
+        <action
+            android:id="@+id/action_navigation_mode_3_naming_to_navigation_mode"
+            app:destination="@id/navigation_mode" />
     </fragment>
 
     <fragment

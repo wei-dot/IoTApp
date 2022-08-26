@@ -6,6 +6,8 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
+import com.iotApp.R
 import com.iotApp.api.IotApi
 import com.iotApp.api.PostModeKeyDataInfo
 import com.iotApp.api.SessionManager
@@ -40,12 +42,15 @@ class ModeSetNamingFragment : Fragment() {
                 val mode_key_data_id = modeViewModel?.getTplinkSwitch()
                 val home_id = SessionManager(requireActivity()).fetchFamilyId()
 //                val home_id = "1"
+                val mode_key_name = binding.tilModeKeyName.text.toString()
                 val ac_temperature = modeViewModel?.getAcTemperature()
                 val ac_switch = modeViewModel?.getAcSwitch()
                 if (mode_key_data_id != null && home_id != null && ac_temperature != null && ac_switch != null) {
-                    val modeKey = PostModeKeyDataInfo(home_id,mode_key_data_id,ac_temperature,ac_switch)
+                    val modeKey = PostModeKeyDataInfo(home_id,mode_key_data_id,mode_key_name,ac_temperature,ac_switch)
                     IotApi.postModeKeyInfo(requireActivity(),
                         SessionManager(requireActivity()),modeKey)
+                    Navigation.findNavController(it)
+                        .navigate(R.id.action_navigation_mode_3_naming_to_navigation_mode)
                 }else{
                     Log.d("ModeSetNamingFragment","mode_key_data_id fail")
                 }

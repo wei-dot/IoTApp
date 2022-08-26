@@ -16,6 +16,7 @@ class SessionManager(context: Context) {
         const val NOW_FAMILY = "now_family"
         const val NOW_FAMILY_MEMBER = "now_family_member"
         const val NOW_FAMILY_ID = "now_family_id"
+        val MODE_KEY_NAME:ArrayList<GetModeKeyDataInfo> = ArrayList()
     }
 
 
@@ -92,7 +93,7 @@ class SessionManager(context: Context) {
     /**
      * Function to fetch family members
      */
-    fun fetchFamilyMembers(): Set<String>? {
+        fun fetchFamilyMembers(): Set<String>? {
         return prefs.getStringSet(NOW_FAMILY_MEMBER, null)
     }
 
@@ -105,5 +106,14 @@ class SessionManager(context: Context) {
         val editor = prefs.edit()
         editor.remove(USER_TOKEN)
         editor.apply()
+    }
+    // Function to save mode key data
+    fun saveModeKeyData(modeKeyData: ArrayList<GetModeKeyDataInfo>) {
+        MODE_KEY_NAME.clear()
+        MODE_KEY_NAME.addAll(modeKeyData)
+    }
+    // Function to fetch mode key data
+    fun fetchModeKeyData(): ArrayList<GetModeKeyDataInfo> {
+        return MODE_KEY_NAME
     }
 }
