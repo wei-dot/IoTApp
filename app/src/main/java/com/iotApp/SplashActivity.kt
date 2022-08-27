@@ -1,20 +1,23 @@
 package com.iotApp
 
 import android.annotation.SuppressLint
+import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.os.Message
 import android.util.Log
-import androidx.appcompat.app.AppCompatActivity
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.iotApp.api.IotApi
 import com.iotApp.api.SessionManager
 import com.iotApp.api.UserInfo
 
 @SuppressLint("CustomSplashScreen")
-class SplashActivity : AppCompatActivity() {
+class SplashActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        installSplashScreen()
         super.onCreate(savedInstanceState)
         if (SessionManager(this).fetchAuthToken() == null) {
             Handler(Looper.getMainLooper()).postDelayed({

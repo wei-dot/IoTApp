@@ -48,37 +48,8 @@ class LoginFragment : Fragment() {
             binding.textForgotPassword.isEnabled = false
             binding.textSignup.isEnabled = false
             IotApi.login(login, requireActivity())
-            IotApi.handler = object : Handler(Looper.getMainLooper()) {
-                override fun handleMessage(msg: Message) {
-                    super.handleMessage(msg)
-                    val intent = Intent(activity, MainActivity::class.java)
-                    if (msg.obj != null) {
-                        val response = msg.obj as LoginResponse
-                        SessionManager(requireActivity()).saveAuthToken(response.authToken)
-                        IotApi.getInfo(requireActivity(), SessionManager(requireActivity())).toString()
-                        IotApi.handler = object : Handler(Looper.getMainLooper()) {
-                            override fun handleMessage(msg: Message) {
-                                super.handleMessage(msg)
-                                binding.loading.isVisible = false
-                                if (msg.obj != null) {
-                                    val userinfo = msg.obj as UserInfo
-                                    intent.putExtra("userInfo", userinfo)
-                                }
-                                SessionManager(requireActivity()).saveFamilyId(null)
-                                SessionManager(requireActivity()).saveFamilyName(null)
-                                activity?.finish()
-                                startActivity(intent)
-                            }
-                        }
-                    }else{
-                        binding.loading.isVisible = false
-                        binding.btnSend.isEnabled = true
-                        binding.btnBack.isEnabled = true
-                        binding.textForgotPassword.isEnabled = true
-                        binding.textSignup.isEnabled = true
-                    }
-                }
-            }
+            onLogin()
+
 
         }
         binding.textForgotPassword.setOnClickListener {
@@ -86,6 +57,40 @@ class LoginFragment : Fragment() {
         }
         binding.textSignup.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_signupFragment)
+        }
+    }
+
+    private fun onLogin() {
+        IotApi.handler = object : Handler(Looper.getMainLooper()) {
+            override fun handleMessage(msg: Message) {
+                super.handleMessage(msg)
+                val intent = Intent(activity, MainActivity::class.java)
+                if (msg.obj != null) {
+                    val response = msg.obj as LoginResponse
+                    SessionManager(requireActivity()).saveAuthToken(response.authToken)
+                    IotApi.getInfo(requireActivity(), SessionManager(requireActivity()))
+                    IotApi.handler = object : Handler(Looper.getMainLooper()) {
+                        override fun handleMessage(msg: Message) {
+                            super.handleMessage(msg)
+                            binding.loading.isVisible = false
+                            if (msg.obj != null) {
+                                val userinfo = msg.obj as UserInfo
+                                intent.putExtra("userInfo", userinfo)
+                            }
+                            SessionManager(requireActivity()).saveFamilyId(null)
+                            SessionManager(requireActivity()).saveFamilyName(null)
+                            activity?.finish()
+                            startActivity(intent)
+                        }
+                    }
+                } else {
+                    binding.loading.isVisible = false
+                    binding.btnSend.isEnabled = true
+                    binding.btnBack.isEnabled = true
+                    binding.textForgotPassword.isEnabled = true
+                    binding.textSignup.isEnabled = true
+                }
+            }
         }
     }
 }

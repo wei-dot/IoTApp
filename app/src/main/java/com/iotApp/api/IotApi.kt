@@ -1,5 +1,6 @@
 package com.iotApp.api
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Handler
 import android.os.Looper
@@ -17,8 +18,6 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.http.Body
-import com.iotApp.databinding.FragmentMainModeBinding
-
 
 
 class IotApi {
@@ -100,7 +99,7 @@ class IotApi {
         /**
          * Function to get UserInfo
          */
-        fun getInfo(activity: FragmentActivity?, sessionManager: SessionManager) {
+        fun getInfo(activity: Activity?, sessionManager: SessionManager) {
             apiClient.getInfo(token = "Token ${sessionManager.fetchAuthToken()}")
                 .enqueue {
                     onResponse = {
@@ -202,11 +201,11 @@ class IotApi {
                     onResponse = {
 
                         if (it.isSuccessful) {
-                            binding.loading?.isVisible = false
+                            binding.loading.isVisible = false
                             Log.d("IotApi", "setPassword: 設定密碼成功")
                             Toast.makeText(activity, "設定密碼成功", Toast.LENGTH_SHORT).show()
                         } else {
-                            binding.loading?.isVisible = false
+                            binding.loading.isVisible = false
                             Log.d("IotApi", "setPassword: 設定密碼失敗")
                             Toast.makeText(
                                 activity,
@@ -216,7 +215,7 @@ class IotApi {
                         }
                     }
                     onFailure = {
-                        binding.loading?.isVisible = false
+                        binding.loading.isVisible = false
                         Log.d("IotApi", "setPassword: ${it?.message}")
                         Toast.makeText(activity, "設定密碼失敗", Toast.LENGTH_SHORT).show()
                     }
@@ -319,7 +318,7 @@ class IotApi {
             binding: UserProfileBinding,
             sessionManager: SessionManager
         ) {
-            binding.loading?.isVisible = true
+            binding.loading.isVisible = true
             apiClient.getFamily(token = "Token ${sessionManager.fetchAuthToken()}").enqueue {
                 onResponse = { it ->
                     if (it.isSuccessful) {
@@ -397,9 +396,9 @@ class IotApi {
                                 intent.putExtra("FamilyMemberActivity", "addFamily")
                                 activity?.startActivity(intent)
                             }
-                        binding.loading?.isVisible = false
+                        binding.loading.isVisible = false
                     } else {
-                        binding.loading?.isVisible = false
+                        binding.loading.isVisible = false
                         Log.d("IotApi", "getFamily: 取得家庭失敗")
                         Toast.makeText(
                             activity,
@@ -409,7 +408,7 @@ class IotApi {
                     }
                 }
                 onFailure = {
-                    binding.loading?.isVisible = false
+                    binding.loading.isVisible = false
                     Log.d("IotApi", "getFamily: ${it?.message}")
                     Toast.makeText(activity, "取得家庭失敗", Toast.LENGTH_SHORT).show()
                 }
@@ -428,19 +427,19 @@ class IotApi {
                     if (it.isSuccessful) {
                         Log.d("IotApi", "delFamilyMember: 刪除成功")
                         Toast.makeText(activity, "刪除成功", Toast.LENGTH_SHORT).show()
-                        binding.loading?.isVisible = false
+                        binding.loading.isVisible = false
                         sessionManager.storeFamilyMembers(info.user)
                     } else {
                         Log.d("IotApi", "delFamilyMember: 刪除失敗")
                         Toast.makeText(binding.root.context, "刪除失敗", Toast.LENGTH_SHORT).show()
                         //todo 目前還沒想到比較好的方法去回滾FamilyFragment已被移除顯示familyMemberList的內容
-                        binding.loading?.isVisible = false
+                        binding.loading.isVisible = false
                     }
                 }
                 onFailure = {
                     Log.d("IotApi", "delFamilyMember: ${it?.message}")
                     Toast.makeText(binding.root.context, "刪除失敗", Toast.LENGTH_SHORT).show()
-                    binding.loading?.isVisible = false
+                    binding.loading.isVisible = false
                 }
             }
         }

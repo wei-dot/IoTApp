@@ -7,24 +7,20 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:allowBackup="true"
-        android:dataExtractionRules="@xml/data_extraction_rules"
-        android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/Theme.IoTApp"
-        android:usesCleartextTraffic="true"
-        tools:targetApi="31">
+            android:allowBackup="true"
+            android:dataExtractionRules="@xml/data_extraction_rules"
+            android:fullBackupContent="@xml/backup_rules"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:supportsRtl="true"
+            android:theme="@style/Theme.IoTApp"
+            android:usesCleartextTraffic="true"
+            tools:targetApi="31">
         <activity
-            android:name="com.iotApp.FamilyMemberActivity"
-            android:exported="true"
-            android:theme="@style/Theme.IoTApp.NoActionBar"/>
-        <activity
-            android:name="com.iotApp.SplashActivity"
-            android:exported="true"
-            android:theme="@style/SplashTheme">
+                android:name=".SplashActivity"
+                android:exported="true"
+                android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -33,13 +29,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.iotApp.MainActivity"
-            android:exported="true"
-            android:theme="@style/Theme.IoTApp.NoActionBar" />
+                android:name=".FamilyMemberActivity"
+                android:exported="true"
+                android:theme="@style/Theme.IoTApp.NoActionBar" />
         <activity
-            android:name="com.iotApp.AccountActivity"
-            android:exported="true"
-            android:theme="@style/Theme.IoTApp.NoActionBar" />
+                android:name=".MainActivity"
+                android:exported="true"
+                android:theme="@style/Theme.IoTApp.NoActionBar" />
+        <activity
+                android:name=".AccountActivity"
+                android:exported="true"
+                android:theme="@style/Theme.IoTApp.NoActionBar" />
     </application>
 
 </manifest>

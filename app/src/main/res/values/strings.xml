@@ -36,7 +36,7 @@
 
 
     <!--customize your string here-->
-    <string name="app_name">IoTApp</string>
+    <string name="app_name">I-LIFE</string>
     <string name="drawer_open">drawer open</string>
     <string name="drawer_close">drawer close</string>
     <string name="room_temperature">室內溫度</string>
