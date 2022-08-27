@@ -16,8 +16,10 @@ import com.iotApp.api.UserInfo
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        installSplashScreen()
+        val splashScreen = installSplashScreen()
         super.onCreate(savedInstanceState)
+        splashScreen.setKeepOnScreenCondition{true}
+
         if (SessionManager(this).fetchAuthToken() == null) {
             Handler(Looper.getMainLooper()).postDelayed({
                 finish()
