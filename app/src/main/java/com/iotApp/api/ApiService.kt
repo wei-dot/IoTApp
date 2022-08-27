@@ -58,7 +58,7 @@ interface ApiService {
 
     @Headers("Content-Type:application/json")
     @POST(Constants.FAMILY_ADMIN_URL)
-    fun setAdmin(@Header("Authorization") token: String, @Body info: SetAdmin): Call<Void>
+    fun setAdmin(@Header("Authorization") token: String, @Body info: Admin): Call<Void>
 
     @Headers("Content-Type:application/json")
     @PUT(Constants.FAMILY_URL_ID)

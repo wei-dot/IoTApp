@@ -18,7 +18,7 @@ data class UserInfo (
     val user_phone: String,
     @SerializedName("email")
     val email: String
-):Serializable
+)
 
 data class Category(
     val category_name: String,
@@ -108,7 +108,7 @@ data class CreateHome(
     @SerializedName("user")
     val home_admin: ArrayList<String>,
 )
-data class SetAdmin(
+data class Admin(
     @SerializedName("home_name")
     val home_name: String,
     @SerializedName("user")

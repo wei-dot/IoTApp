@@ -3,7 +3,6 @@ package com.iotApp.api
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
-import android.util.Log
 import com.iotApp.R
 
 class SessionManager(context: Context) {
@@ -12,35 +11,50 @@ class SessionManager(context: Context) {
 
     companion object {
         const val USERNAME = "username"
+        const val EMAIL = "email"
         const val USER_TOKEN = "user_token"
         const val NOW_FAMILY = "now_family"
         const val NOW_FAMILY_MEMBER = "now_family_member"
         const val NOW_FAMILY_ID = "now_family_id"
-        val MODE_KEY_NAME:ArrayList<GetModeKeyDataInfo> = ArrayList()
+        val MODE_KEY_NAME: ArrayList<GetModeKeyDataInfo> = ArrayList()
     }
 
-
-    fun saveUserName(userName: String) {
-        prefs.edit().putString(USERNAME, userName).apply()
-    }
-    fun fetchUserName(): String? {
-        return prefs.getString(USERNAME, null)
+    /** SessionManager 使用者資訊 */
+    fun saveUserInfo(userInfo: UserInfo) {
+        prefs.edit().putString(USERNAME, userInfo.username).apply()
+        prefs.edit().putString(EMAIL, userInfo.email).apply()
     }
 
-    /**
-     * Function to save auth token
-     */
+    fun fetchUserInfo(): UserInfo? {
+        val username = prefs.getString(USERNAME, null)
+        val email = prefs.getString(EMAIL, null)
+        if (username != null && email != null) {
+            return UserInfo(username, "", "", "", "", email)
+        }
+        return null
+
+    }
+
+    fun clearUserInfo() {
+        prefs.edit().remove(USERNAME).apply()
+        prefs.edit().remove(EMAIL).apply()
+    }
+
+    /** SessionManager 使用者Token */
     fun saveAuthToken(token: String) {
         val editor = prefs.edit()
         editor.putString(USER_TOKEN, token)
         editor.apply()
     }
 
-    /**
-     * Function to fetch auth token
-     */
     fun fetchAuthToken(): String? {
         return prefs.getString(USER_TOKEN, null)
+    }
+
+    fun clearAuthToken() {
+        val editor = prefs.edit()
+        editor.remove(USER_TOKEN)
+        editor.apply()
     }
 
     /**
@@ -84,7 +98,6 @@ class SessionManager(context: Context) {
      */
     @SuppressLint("CommitPrefEdits")
     fun storeFamilyMembers(familyMembers: ArrayList<String>) {
-        Log.d("putIn", familyMembers.toString())
         val editor = prefs.edit()
         editor.putStringSet(NOW_FAMILY_MEMBER, familyMembers.toSet())
         editor.apply()
@@ -93,27 +106,23 @@ class SessionManager(context: Context) {
     /**
      * Function to fetch family members
      */
-        fun fetchFamilyMembers(): Set<String>? {
+    fun fetchFamilyMembers(): Set<String>? {
         return prefs.getStringSet(NOW_FAMILY_MEMBER, null)
     }
 
 
-
-    /**
-     * Function to clear auth token
-     */
-    fun clearAuthToken() {
-        val editor = prefs.edit()
-        editor.remove(USER_TOKEN)
-        editor.apply()
-    }
     // Function to save mode key data
     fun saveModeKeyData(modeKeyData: ArrayList<GetModeKeyDataInfo>) {
         MODE_KEY_NAME.clear()
         MODE_KEY_NAME.addAll(modeKeyData)
     }
+
     // Function to fetch mode key data
     fun fetchModeKeyData(): ArrayList<GetModeKeyDataInfo> {
         return MODE_KEY_NAME
+    }
+
+    fun logout() {
+        prefs.edit().clear().apply()
     }
 }

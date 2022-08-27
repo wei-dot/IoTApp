@@ -28,6 +28,7 @@ class FamilyAddFragment : Fragment() {
         val root: View = binding.root
         binding.btnBack.setOnClickListener {
             activity?.finish()
+
         }
         binding.createFamily.setOnClickListener {
             findNavController().navigate(R.id.navigation_create_family)

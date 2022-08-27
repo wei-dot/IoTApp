@@ -36,8 +36,10 @@ class FamilyCreateFragment : Fragment() {
         binding.btnSendFamilyName.setOnClickListener {
             binding.loading.isVisible = true
             if (binding.tilFamilyName.editText?.text!!.isNotEmpty() && binding.tilFamilyName.editText!!.text.isNotBlank()) {
-                val createHome = CreateHome(binding.tilFamilyName.editText?.text!!.toString(), arrayListOf(
-                    SessionManager(requireContext()).fetchUserName()) as ArrayList<String>)
+                val createHome = CreateHome(binding.tilFamilyName.editText?.text!!.toString(),
+                    arrayListOf(
+                        SessionManager(requireContext()).fetchUserInfo()!!.username)
+                )
                 IotApi.createHome(createHome, activity,binding, SessionManager(requireContext()))
             } else {
                 Toast.makeText(context, "家庭名稱欄位不得為空", Toast.LENGTH_LONG).show()

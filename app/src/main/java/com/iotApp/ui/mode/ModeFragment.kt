@@ -43,7 +43,7 @@ class ModeFragment : Fragment() {
         IotApi.getModeKeyInfo(requireActivity(), SessionManager(requireActivity()))
 //        Log.d("ModeFragment type of api get mode key info:",IotApi.getModeKeyInfo(requireActivity(), SessionManager(requireActivity())).javaClass.kotlin.toString())
         if(SessionManager(requireActivity()).fetchModeKeyData().size > 0){
-            binding.buttonModeKey1?.text = SessionManager(requireActivity()).fetchModeKeyData()[0].mode_key_name
+            binding.buttonModeKey1.text = SessionManager(requireActivity()).fetchModeKeyData()[0].mode_key_name
         }
         try {
             _binding?.floatingActionButtonModeKeyAdd?.setOnClickListener {

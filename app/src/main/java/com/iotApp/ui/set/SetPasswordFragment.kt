@@ -31,11 +31,11 @@ class SetPasswordFragment : Fragment() {
             startActivity(Intent(this.context, MainActivity::class.java))
         }
         binding.btnSend.setOnClickListener {
-            val passwordOld = binding.tilPasswordOld?.editText?.text.toString()
-            val passwordNew = binding.tilPasswordNew?.editText?.text.toString()
-            val passwordConfirm = binding.tilPasswordConfirm?.editText?.text.toString()
+            val passwordOld = binding.tilPasswordOld.editText?.text.toString()
+            val passwordNew = binding.tilPasswordNew.editText?.text.toString()
+            val passwordConfirm = binding.tilPasswordConfirm.editText?.text.toString()
             val setPassword = SetPassword(passwordOld, passwordNew, passwordConfirm)
-            binding.loading?.isEnabled = true
+            binding.loading.isEnabled = true
             binding.btnSend.isEnabled = false
             binding.btnBack.isEnabled = false
             IotApi.setPassword(setPassword, activity, binding, SessionManager(requireActivity()))

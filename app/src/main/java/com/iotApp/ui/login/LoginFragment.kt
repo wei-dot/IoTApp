@@ -38,9 +38,8 @@ class LoginFragment : Fragment() {
             startActivity(Intent(activity, MainActivity::class.java))
         }
         binding.btnSend.setOnClickListener {
-            val username = binding.tilEmail?.editText?.text.toString()
-            val password = binding.tilPassword?.editText?.text.toString()
-            Log.d("LoginFragment", "username: $username, password: $password")
+            val username = binding.tilEmail.editText?.text.toString()
+            val password = binding.tilPassword.editText?.text.toString()
             val login = Login(username, password)
             binding.loading.isVisible = true
             binding.btnSend.isEnabled = false
@@ -49,8 +48,6 @@ class LoginFragment : Fragment() {
             binding.textSignup.isEnabled = false
             IotApi.login(login, requireActivity())
             onLogin()
-
-
         }
         binding.textForgotPassword.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_resetPasswordFragment)
@@ -75,10 +72,8 @@ class LoginFragment : Fragment() {
                             binding.loading.isVisible = false
                             if (msg.obj != null) {
                                 val userinfo = msg.obj as UserInfo
-                                intent.putExtra("userInfo", userinfo)
+                                SessionManager(requireActivity()).saveUserInfo(userinfo)
                             }
-                            SessionManager(requireActivity()).saveFamilyId(null)
-                            SessionManager(requireActivity()).saveFamilyName(null)
                             activity?.finish()
                             startActivity(intent)
                         }

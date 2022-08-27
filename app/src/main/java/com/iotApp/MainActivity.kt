@@ -13,9 +13,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupWindow
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.GravityCompat
 import androidx.core.view.isVisible
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -23,40 +23,23 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.iotApp.api.IotApi
 import com.iotApp.api.SessionManager
+import com.iotApp.api.UserInfo
 import com.iotApp.databinding.ActivityMainBinding
-import com.iotApp.ui.mode.ModeSetNamingFragment
 
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var appBarConfiguration: AppBarConfiguration
-    private var isLogin: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        Log.d("userinfo", (intent.getSerializableExtra("userInfo") != null).toString())
-        val userName = SessionManager(this).fetchUserName()
-        if (userName != null && userName.isNotEmpty() && userName.isNotBlank()) {
-            binding.profilePage.username.text = userName
-            isLogin = true
-        }
 
-//        Log.d("MainActivity receive switchKey info:", intent.getSerializableExtra("switchKey").toString())
-        val bundle = Bundle()
-        bundle.putString("familyId", SessionManager(this).fetchFamilyId())
-        val modeSetNamingFragment = ModeSetNamingFragment()
-        modeSetNamingFragment.arguments = bundle
-
-        isLogin = SessionManager(this).fetchAuthToken() != null
-        switchSideBarContent(isLogin)
         val navView: BottomNavigationView = binding.appBarMain.bottomNavigation
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         val toolbar = binding.appBarMain.toolbar
-        val drawerLayout: DrawerLayout = binding.drawerLayout
 
         appBarConfiguration = AppBarConfiguration(
             setOf(
@@ -65,11 +48,17 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_mode,
                 R.id.navigation_log,
                 R.id.navigation_notLogin
-            ), drawerLayout
+            ), binding.drawerLayout
         )
 
-
-        if (!isLogin) {
+        /**判斷使用者是否登入並修改側邊攔 */
+        val userinfo: UserInfo? = SessionManager(this).fetchUserInfo()
+        if (userinfo != null) {
+            binding.profilePage.username.text = userinfo.username
+            switchSideBarContent(true)
+            navView.setupWithNavController(navController)
+        } else {
+            switchSideBarContent(false)
             binding.appBarMain.btnNotification.isVisible = false
             navController.navigate(R.id.navigation_notLogin)
             navView.setOnItemSelectedListener {
@@ -81,56 +70,15 @@ class MainActivity : AppCompatActivity() {
                 }
                 return@setOnItemSelectedListener true
             }
-        } else {
-            navView.setupWithNavController(navController)
         }
         toolbar.setupWithNavController(navController, appBarConfiguration)
         navController.addOnDestinationChangedListener { _, _, _ ->
             toolbar.setNavigationIcon(R.drawable.ic_navigation_icon)
         }
+        buttonListener()
         IotApi.getFamily(this, binding.profilePage, SessionManager(this))
-
-        binding.loginPage.btnLogin.setOnClickListener {
-            val intent = Intent(this, AccountActivity::class.java)
-            finish()
-            startActivity(intent)
-        }
-        binding.loginPage.btnSignup.setOnClickListener {
-            val intent = Intent(this, AccountActivity::class.java)
-            intent.putExtra("Login", "Signup")
-            finish()
-            startActivity(intent)
-        }
-        binding.loginPage.btnBack.setOnClickListener {
-            drawerLayout.close()
-        }
-        binding.profilePage.btnBack.setOnClickListener {
-            drawerLayout.close()
-        }
-        binding.profilePage.btnLogout.setOnClickListener {
-            binding.loading?.isVisible = true
-            binding.profilePage.btnLogout.isEnabled = false
-            IotApi.logout(this, SessionManager(this))
-            SessionManager(this).clearAuthToken()
-            binding.loading?.isVisible = false
-            finish()
-            startActivity(intent)
-            Handler(Looper.getMainLooper()).postDelayed({
-            }, 500)
-
-        }
-        binding.profilePage.btnSet?.setOnClickListener {
-            val intent = Intent(this, AccountActivity::class.java)
-            intent.putExtra("Login", "SetPassword")
-            finish()
-            startActivity(intent)
-        }
-
-        binding.appBarMain.btnNotification.setOnClickListener { v ->
-            initPopWindow(v)
-        }
-
     }
+
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
@@ -194,6 +142,54 @@ class MainActivity : AppCompatActivity() {
         val lp = window.attributes
         lp.alpha = f
         window.attributes = lp
+    }
+
+    private fun buttonListener() {
+        binding.loginPage.btnBack.setOnClickListener {
+            binding.drawerLayout.close()
+        }
+        binding.profilePage.btnBack.setOnClickListener {
+            binding.drawerLayout.close()
+        }
+        binding.loginPage.btnLogin.setOnClickListener {
+            val intent = Intent(this, AccountActivity::class.java)
+            finish()
+            startActivity(intent)
+        }
+        binding.loginPage.btnSignup.setOnClickListener {
+            val intent = Intent(this, AccountActivity::class.java)
+            intent.putExtra("Login", "Signup")
+            finish()
+            startActivity(intent)
+        }
+
+        binding.profilePage.btnLogout.setOnClickListener {
+            binding.loading.isVisible = true
+            binding.profilePage.btnLogout.isEnabled = false
+            IotApi.logout(this, SessionManager(this))
+            SessionManager(this).logout()
+            Handler(Looper.getMainLooper()).postDelayed({
+                binding.loading.isVisible = false
+                finish()
+                startActivity(intent)
+            }, 500)
+
+        }
+        binding.profilePage.btnSet.setOnClickListener {
+            val intent = Intent(this, AccountActivity::class.java)
+            intent.putExtra("Login", "SetPassword")
+            finish()
+            startActivity(intent)
+        }
+        binding.profilePage.addFamilyItem?.setOnClickListener {
+            val intent = Intent(this, FamilyMemberActivity::class.java)
+            intent.putExtra("FamilyMemberActivity", "addFamily")
+            startActivity(intent)
+        }
+
+        binding.appBarMain.btnNotification.setOnClickListener { v ->
+            initPopWindow(v)
+        }
     }
 
 

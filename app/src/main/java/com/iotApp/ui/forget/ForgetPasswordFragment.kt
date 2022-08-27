@@ -32,9 +32,9 @@ class ForgetPasswordFragment : Fragment() {
             findNavController().navigate(R.id.action_forgetPasswordFragment_to_loginFragment)
         }
         binding.btnSend.setOnClickListener {
-            val email = binding.tilUsername?.editText?.text.toString()
+            val email = binding.tilUsername.editText?.text.toString()
             if (email.isEmpty()) {
-                binding.tilUsername?.editText?.error = "信箱不能為空"
+                binding.tilUsername.editText?.error = "信箱不能為空"
             } else {
                 binding.loading.isVisible = true
                 IotApi.sendResetPassword(SendEmail(email), activity)

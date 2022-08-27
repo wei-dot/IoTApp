@@ -83,7 +83,7 @@ class FamilyFragment : Fragment() {
                         kickMember.isVisible = false
                     }
                     kickMember.setOnClickListener {
-                        binding.loading?.isVisible = true
+                        binding.loading.isVisible = true
                         memberList.removeView(memberToAdd)
                         familyMemberList.removeAt(i)
                         val familyMemberListView = ArrayList(familyMemberList)

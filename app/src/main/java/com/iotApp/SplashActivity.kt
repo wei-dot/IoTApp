@@ -2,7 +2,6 @@ package com.iotApp
 
 import android.annotation.SuppressLint
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -32,9 +31,7 @@ class SplashActivity : Activity() {
                     val intent = Intent(this@SplashActivity, MainActivity::class.java)
                     if (msg.obj != null) {
                         val response = msg.obj as UserInfo
-                        intent.putExtra("userInfo", response)
-                        Log.d("userInfo", response.toString())
-                        SessionManager(this@SplashActivity).saveUserName(response.username)
+                        SessionManager(this@SplashActivity).saveUserInfo(response)
                     }
                     //exit SplashActivity
                     finish()

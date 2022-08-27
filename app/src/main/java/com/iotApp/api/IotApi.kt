@@ -10,7 +10,6 @@ import android.view.View
 import android.widget.*
 import androidx.core.view.isVisible
 import androidx.fragment.app.FragmentActivity
-import com.iotApp.FamilyMemberActivity
 import com.iotApp.MainActivity
 import com.iotApp.R
 import com.iotApp.databinding.*
@@ -105,9 +104,8 @@ class IotApi {
                     onResponse = {
                         val msg = Message()
                         if (it.isSuccessful) {
-                            Log.d("IotApi", "getInfo: 取得成功")
                             val response = it.body()!!
-                            Log.d("IotApi", response.toString())
+                            Log.d("IotApi getInfo","Success: $response" )
                             Toast.makeText(
                                 activity,
                                 "歡迎 ${response.username} 回來",
@@ -116,10 +114,11 @@ class IotApi {
                             msg.obj = response
                             handler.sendMessage(msg)
                         } else {
-                            Log.d("IotApi", "getInfo: 取得失敗")
+                            val response = it.errorBody()?.string()
+                            Log.d("IotApi getInfo", "$response")
                             Toast.makeText(
                                 activity,
-                                "取得失敗: ${it.errorBody()?.string()} ",
+                                "取得失敗: $response",
                                 Toast.LENGTH_SHORT
                             ).show()
                             msg.obj = null
@@ -128,7 +127,7 @@ class IotApi {
                     }
                     onFailure = {
                         Log.d("IotApi", "getInfo: ${it?.message}")
-                        Toast.makeText(activity, "取得錯誤40", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(activity, "取得錯誤", Toast.LENGTH_SHORT).show()
                     }
                 }
         }
@@ -262,10 +261,10 @@ class IotApi {
                             Toast.makeText(activity, "建立家庭成功", Toast.LENGTH_SHORT).show()
                             sessionManager.saveFamilyName(info.home_name)
 
-                            val setAdminInfo = sessionManager.fetchUserName()
-                                ?.let { it1 -> SetAdmin(info.home_name, it1) }
-                            if (setAdminInfo != null) {
-                                setAdmin(setAdminInfo, activity, binding, sessionManager)
+                            val adminInfo = sessionManager.fetchUserInfo()?.username.toString()
+                                .let { it1 -> Admin(info.home_name, it1) }
+                            if (adminInfo != null) {
+                                setAdmin(adminInfo, activity, binding, sessionManager)
                             }
                         } else {
                             binding.loading.isVisible = false
@@ -281,12 +280,12 @@ class IotApi {
         }
 
         fun setAdmin(
-            @Body setAdmin: SetAdmin,
+            @Body admin: Admin,
             activity: FragmentActivity?,
             binding: FragmentFamilyCreateBinding,
             sessionManager: SessionManager
         ) {
-            apiClient.setAdmin(token = "Token ${sessionManager.fetchAuthToken()}", setAdmin)
+            apiClient.setAdmin(token = "Token ${sessionManager.fetchAuthToken()}", admin)
                 .enqueue {
                     onResponse = {
                         if (it.isSuccessful) {       //這裡目前不清楚為何會明明成功卻掉到"設定家庭成功，但設定管理員失敗"，非延遲問題
@@ -314,7 +313,7 @@ class IotApi {
         }
 
         fun getFamily(
-            activity: FragmentActivity?,
+            activity: Activity?,
             binding: UserProfileBinding,
             sessionManager: SessionManager
         ) {
@@ -384,18 +383,6 @@ class IotApi {
                             Log.d("IotApi", "getFamily: 沒有家庭")
                             sessionManager.storeFamilyMembers(arrayListOf())
                         }
-                        val btnAddFamily = View.inflate(
-                            activity,
-                            R.layout.add_family_item,
-                            null
-                        )
-                        myFamilyList?.addView(btnAddFamily)
-                        btnAddFamily.findViewById<ImageButton>(R.id.add_family_item)
-                            .setOnClickListener {
-                                val intent = Intent(activity, FamilyMemberActivity::class.java)
-                                intent.putExtra("FamilyMemberActivity", "addFamily")
-                                activity?.startActivity(intent)
-                            }
                         binding.loading.isVisible = false
                     } else {
                         binding.loading.isVisible = false
@@ -457,8 +444,7 @@ class IotApi {
                             Log.d("IotApi", "getModeKeyInfo: 取得組合鍵金鑰成功")
                             Toast.makeText(activity, "取得組合鍵金鑰成功", Toast.LENGTH_SHORT).show()
                             val response = it.body()!!
-                            Log.d("IotApi", response[0].toString())
-                            Log.d("IotApi", response[0].mode_key_time.toString())
+
                             sessionManager.saveModeKeyData(response)
                         } else {
                             Log.d("IotApi onResponse ", "getModeKeyInfo: 取得組合鍵金鑰失敗")
