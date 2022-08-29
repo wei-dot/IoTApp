@@ -66,4 +66,5 @@ dependencies {
     implementation 'com.blankj:utilcodex:1.31.0'
     implementation 'org.java-websocket:Java-WebSocket:1.5.3'
     implementation 'io.github.ShawnLin013:number-picker:2.4.13'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0-beta04'
 }

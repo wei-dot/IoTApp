@@ -383,7 +383,8 @@ class IotApi {
                             Log.d("IotApi", "getModeKeyInfo: 取得組合鍵金鑰成功")
                             Toast.makeText(activity, "取得組合鍵金鑰成功", Toast.LENGTH_SHORT).show()
                             val response = it.body()!!
-
+                            var modeKeyList = response
+                            modeKeyList = removeModeKey(modeKeyList, sessionManager)
                             sessionManager.saveModeKeyData(response)
                         } else {
                             Log.d("IotApi onResponse ", "getModeKeyInfo: 取得組合鍵金鑰失敗")
@@ -400,6 +401,19 @@ class IotApi {
                         Toast.makeText(activity, "取得組合鍵金鑰失敗", Toast.LENGTH_SHORT).show()
                     }
                 }
+        }
+
+
+        private fun removeModeKey(modeKeyList:ArrayList<GetModeKeyDataInfo>, sessionManager: SessionManager):ArrayList<GetModeKeyDataInfo>{
+
+            for(i in 0 until modeKeyList.size){
+                if(modeKeyList[i].home_id.toString() != sessionManager.fetchFamilyId()){
+                    modeKeyList.remove(modeKeyList[i])
+                    removeModeKey(modeKeyList,sessionManager)
+                    break
+                }
+            }
+            return modeKeyList
         }
 
         fun postModeKeyInfo(activity: FragmentActivity?, sessionManager: SessionManager, @Body info: PostModeKeyDataInfo) {
