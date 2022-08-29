@@ -13,29 +13,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="50dp"
-        android:layout_marginBottom="120dp"
+        android:layout_marginBottom="50dp"
         android:clickable="true"
         android:src="@drawable/btn_mode_key_add"
-        app:tint="@color/color_fbfbfb"
         app:backgroundTint="@color/color_14b2d4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:rippleColor="@color/color_fbfbfb" />
+        app:rippleColor="@color/color_fbfbfb"
+        app:tint="@color/color_fbfbfb" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="600dp"
+        android:layout_height="550dp"
         android:layout_margin="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="80dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="111dp"
         android:textSize="20sp"
         app:cardBackgroundColor="@color/color_faf0dd"
         app:cardCornerRadius="10dp"
         app:cardElevation="0px"
         app:cardUseCompatPadding="false"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -61,81 +59,90 @@
                     <ImageView
                         android:id="@+id/imageView3"
                         android:layout_width="350dp"
-                        android:layout_gravity="center"
                         android:layout_height="100dp"
+                        android:layout_gravity="center"
                         android:src="@drawable/btn_mode_key_set_top" />
 
-                    <Button
-                        android:id="@+id/button_mode_key_1"
-                        android:layout_width="350dp"
-                        android:layout_height="60dp"
-                        android:layout_gravity="center"
-                        app:backgroundTint="@null"
-                        android:textColor="@color/color_cda16d"
-                        android:background="@drawable/btn_mode_key_button_background"
-                        android:text="@string/mode_key_1"
-                        android:textSize="25sp"
-                        android:layout_margin="5dp"/>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerView_mode_key_set"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        >
 
-                    <Button
-                        android:id="@+id/button_mode_key_2"
-                        android:layout_width="350dp"
-                        android:layout_height="60dp"
-                        android:layout_gravity="center"
-                        android:text="@string/mode_key_2"
-                        app:backgroundTint="@null"
-                        android:textColor="@color/color_cda16d"
-                        android:background="@drawable/btn_mode_key_button_background"
-                        android:textSize="25sp"
-                        android:layout_margin="5dp"/>
+                    </androidx.recyclerview.widget.RecyclerView>
 
-                    <Button
-                        android:id="@+id/button_mode_key_3"
-                        android:layout_width="350dp"
-                        android:layout_height="60dp"
-                        android:layout_gravity="center"
-                        app:backgroundTint="@null"
-                        android:textColor="@color/color_cda16d"
-                        android:background="@drawable/btn_mode_key_button_background"
-                        android:text="@string/mode_key_3"
-                        android:textSize="25sp"
-                        android:layout_margin="5dp"/>
+<!--                    <Button-->
+<!--                        android:id="@+id/button_mode_key_1"-->
+<!--                        android:layout_width="350dp"-->
+<!--                        android:layout_height="60dp"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:layout_margin="5dp"-->
+<!--                        android:background="@drawable/btn_mode_key_button_background"-->
+<!--                        android:text="@string/mode_key_1"-->
+<!--                        android:textColor="@color/color_cda16d"-->
+<!--                        android:textSize="25sp"-->
+<!--                        app:backgroundTint="@null" />-->
 
-                    <Button
-                        android:id="@+id/button_mode_key_4"
-                        android:layout_width="350dp"
-                        android:layout_height="60dp"
-                        android:layout_gravity="center"
-                        app:backgroundTint="@null"
-                        android:textColor="@color/color_cda16d"
-                        android:background="@drawable/btn_mode_key_button_background"
-                        android:text="@string/mode_key_4"
-                        android:textSize="25sp"
-                        android:layout_margin="5dp" />
+<!--                    <Button-->
+<!--                        android:id="@+id/button_mode_key_2"-->
+<!--                        android:layout_width="350dp"-->
+<!--                        android:layout_height="60dp"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:layout_margin="5dp"-->
+<!--                        android:background="@drawable/btn_mode_key_button_background"-->
+<!--                        android:text="@string/mode_key_2"-->
+<!--                        android:textColor="@color/color_cda16d"-->
+<!--                        android:textSize="25sp"-->
+<!--                        app:backgroundTint="@null" />-->
 
-                    <Button
-                        android:id="@+id/button_mode_key_5"
-                        android:layout_width="350dp"
-                        android:layout_height="60dp"
-                        android:layout_gravity="center"
-                        app:backgroundTint="@null"
-                        android:textColor="@color/color_cda16d"
-                        android:background="@drawable/btn_mode_key_button_background"
-                        android:text="@string/mode_key_5"
-                        android:textSize="25sp"
-                        android:layout_margin="5dp"/>
+<!--                    <Button-->
+<!--                        android:id="@+id/button_mode_key_3"-->
+<!--                        android:layout_width="350dp"-->
+<!--                        android:layout_height="60dp"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:layout_margin="5dp"-->
+<!--                        android:background="@drawable/btn_mode_key_button_background"-->
+<!--                        android:text="@string/mode_key_3"-->
+<!--                        android:textColor="@color/color_cda16d"-->
+<!--                        android:textSize="25sp"-->
+<!--                        app:backgroundTint="@null" />-->
 
-                    <Button
-                        android:id="@+id/button_mode_key_6"
-                        android:layout_width="350dp"
-                        android:layout_height="60dp"
-                        android:layout_gravity="center"
-                        app:backgroundTint="@null"
-                        android:background="@drawable/btn_mode_key_button_background"
-                        android:textColor="@color/color_cda16d"
-                        android:text="@string/mode_key_6"
-                        android:textSize="25sp"
-                        android:layout_margin="5dp"/>
+<!--                    <Button-->
+<!--                        android:id="@+id/button_mode_key_4"-->
+<!--                        android:layout_width="350dp"-->
+<!--                        android:layout_height="60dp"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:layout_margin="5dp"-->
+<!--                        android:background="@drawable/btn_mode_key_button_background"-->
+<!--                        android:text="@string/mode_key_4"-->
+<!--                        android:textColor="@color/color_cda16d"-->
+<!--                        android:textSize="25sp"-->
+<!--                        app:backgroundTint="@null" />-->
+
+<!--                    <Button-->
+<!--                        android:id="@+id/button_mode_key_5"-->
+<!--                        android:layout_width="350dp"-->
+<!--                        android:layout_height="60dp"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:layout_margin="5dp"-->
+<!--                        android:background="@drawable/btn_mode_key_button_background"-->
+<!--                        android:text="@string/mode_key_5"-->
+<!--                        android:textColor="@color/color_cda16d"-->
+<!--                        android:textSize="25sp"-->
+<!--                        app:backgroundTint="@null" />-->
+
+<!--                    <Button-->
+<!--                        android:id="@+id/button_mode_key_6"-->
+<!--                        android:layout_width="350dp"-->
+<!--                        android:layout_height="60dp"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:layout_margin="5dp"-->
+<!--                        android:background="@drawable/btn_mode_key_button_background"-->
+<!--                        android:text="@string/mode_key_6"-->
+<!--                        android:textColor="@color/color_cda16d"-->
+<!--                        android:textSize="25sp"-->
+<!--                        app:backgroundTint="@null" />-->
 
                 </LinearLayout>
             </ScrollView>

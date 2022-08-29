@@ -5,10 +5,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.iotApp.R
+import com.iotApp.api.GetModeKeyDataInfo
 import com.iotApp.api.IotApi
 import com.iotApp.api.SessionManager
 import com.iotApp.databinding.FragmentMainModeBinding
@@ -16,43 +19,37 @@ import com.iotApp.databinding.FragmentMainModeBinding
 
 class ModeFragment : Fragment() {
     private var _binding: FragmentMainModeBinding? = null
-
+    private var dataList: RecyclerView? = null
     private val binding get() = _binding!!
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val ModeViewModel =
-            activity?.run { ViewModelProvider(this)[ModeViewModel::class.java] } ?: throw Exception(
-                "Invalid Activity"
-            )
         _binding = FragmentMainModeBinding.inflate(inflater, container, false)
+        IotApi.getModeKeyInfo(requireActivity(), SessionManager(requireActivity()))
+        val layoutManager =
+            LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
+        layoutManager.orientation = LinearLayoutManager.VERTICAL
+        dataList = binding.recyclerViewModeKeySet
+        if (dataList != null) {
+            dataList!!.layoutManager = layoutManager
+//            dataList!!.adapter = DataAdapter(SessionManager(requireActivity()).fetchModeKeyData())
+//            dataList!!.setHasFixedSize(true)
+//            Log.d("ModeFragment", "dataList is not null")
+        } else {
+            Log.d("ModeFragment dataList", "dataList is null")
+        }
 
-//        val textView: TextView = binding.textMode
-//        modeViewModel.text.observe(viewLifecycleOwner) {
-//            textView.text = it
-//        }
         return binding.root
 
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        Log.d("modeFragment",IotApi.getModeKeyInfo(requireActivity(),SessionManager(requireActivity())).toString())
-        IotApi.getModeKeyInfo(requireActivity(), SessionManager(requireActivity()))
-//        Log.d("ModeFragment type of api get mode key info:",IotApi.getModeKeyInfo(requireActivity(), SessionManager(requireActivity())).javaClass.kotlin.toString())
-        if(SessionManager(requireActivity()).fetchModeKeyData().size > 0){
-            binding.buttonModeKey1.text = SessionManager(requireActivity()).fetchModeKeyData()[0].mode_key_name
-        }
-        try {
-            _binding?.floatingActionButtonModeKeyAdd?.setOnClickListener {
-                Navigation.findNavController(it)
-                    .navigate(R.id.action_navigation_mode_to_navigation_mode_1_switch_set)
-
-            }
-        }catch (e: Exception) {
-            Log.d("modeFragment",e.toString())
+        _binding?.floatingActionButtonModeKeyAdd?.setOnClickListener {
+            Navigation.findNavController(it)
+                .navigate(R.id.action_navigation_mode_to_navigation_mode_1_switch_set)
         }
     }
 
@@ -61,25 +58,53 @@ class ModeFragment : Fragment() {
         _binding = null
     }
 
-    private fun setCardViewEvent() {
-//        binding.cardViewMode1?.setOnClickListener(CardViewButtonListener)
+
+    override fun onResume() {
+        super.onResume()
+//        val layoutManager =
+//            LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
+//        layoutManager.orientation = LinearLayoutManager.VERTICAL
+//        dataList = binding.recyclerViewModeKeySet
+        IotApi.getModeKeyInfo(requireActivity(), SessionManager(requireActivity()))
+
+        if (dataList != null) {
+//            dataList!!.layoutManager = layoutManager
+            dataList!!.adapter = DataAdapter(SessionManager(requireActivity()).fetchModeKeyData())
+            dataList!!.setHasFixedSize(true)
+            Log.d("ModeFragment", "dataList is not null")
+        } else {
+            Log.d("ModeFragment dataList", "dataList is null")
+        }
     }
 
-//    private fun modeKeyChangeEvent(mode: Int) {
-//        var item = LayoutInflater.from(activity).inflate(R.layout.change_mode_key_name_layout, null)
-//        AlertDialog.Builder(activity)
-//            .setTitle("設定組合鍵${mode}名稱")
-//            .setView(item)
-//            .setPositiveButton(R.string.confirm) { _, _ ->
-//                val editText = item.findViewById(R.id.edit_text) as EditText
-//                val name = editText.text.toString()
-//                if (name.isEmpty()) {
-//                    Toast.makeText(activity, "請輸入名稱", Toast.LENGTH_SHORT).show()
-//                } else {
-//                    when (mode) {
-//                    }
-//                }
-//
-//            }
+
+    class DataAdapter(private val listData: java.util.ArrayList<GetModeKeyDataInfo>) :
+        RecyclerView.Adapter<DataAdapter.ViewHolder>() {
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+//        TODO("Not yet implemented")
+            val v = LayoutInflater.from(parent.context)
+                .inflate(R.layout.mode_key_recycler_view, parent, false)
+            return ViewHolder(v)
+        }
+
+        override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+//        TODO("Not yet implemented")
+            holder.ModeKeyButton.text = listData[position].mode_key_name
+        }
+
+        override fun getItemCount(): Int {
+//        TODO("Not yet implemented")
+            Log.d("getItemCount", listData.size.toString())
+            return listData.size
+        }
+
+        class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
+            val ModeKeyButton: Button = v.findViewById(com.iotApp.R.id.button_mode_key_recyclerView)
+        }
+    }
+
+//    class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
+//        val ModeKeyButton: Button = v.findViewById(com.iotApp.R.id.button_mode_key_recyclerView)
 //    }
 }
+
