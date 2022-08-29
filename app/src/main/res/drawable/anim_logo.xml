@@ -85,7 +85,7 @@
             <objectAnimator
                 android:propertyName="scaleY"
                 android:startOffset="400"
-                android:duration="1600"
+                android:duration="1100"
                 android:valueFrom="5"
                 android:valueTo="1"
                 android:valueType="floatType"
