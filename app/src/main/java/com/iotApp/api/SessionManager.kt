@@ -73,6 +73,12 @@ class SessionManager(context: Context) {
         editor.apply()
     }
 
+//    fun saveFamily(familyInfo: UserInfo) {
+//        val editor = prefs.edit()
+//        editor.putString(NOW_FAMILY, familyInfo.username)
+//        editor.apply()
+//    }
+
     /**
      * Function to fetch family id
      */

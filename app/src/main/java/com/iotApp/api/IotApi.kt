@@ -6,13 +6,12 @@ import android.os.Handler
 import android.os.Looper
 import android.os.Message
 import android.util.Log
-import android.view.View
 import android.widget.*
 import androidx.core.view.isVisible
 import androidx.fragment.app.FragmentActivity
 import com.iotApp.MainActivity
-import com.iotApp.R
 import com.iotApp.databinding.*
+import com.iotApp.controller.SideBarController
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -322,68 +321,8 @@ class IotApi {
                 onResponse = { it ->
                     if (it.isSuccessful) {
                         val response = it.body()!!
-                        Log.d("IotApi", response.toString())
                         val familyList: List<String> = response.map { num->num.home_name }
-                        Log.d("IotApi", familyList.toString())
-                        val myFamilyList: LinearLayout? = binding.myFamilyList
-                        if (familyList.isNotEmpty()) {
-                            familyList.forEach {
-                                val familyItem = View.inflate(
-                                    activity,
-                                    R.layout.family_item,
-                                    null
-                                )
-                                familyItem.findViewById<TextView>(R.id.family_name).text =
-                                    it
-                                familyItem.setPadding(0, 30, 0, 30)
-                                myFamilyList?.addView(familyItem)
-
-                                if (sessionManager.fetchFamilyName() == null) {
-                                    sessionManager.saveFamilyName(familyList[0])
-                                    sessionManager.saveFamilyId(response[0].id)
-                                    familyItem.findViewById<ImageView>(R.id.now_family).isVisible =
-                                        true
-                                    val memberList =
-                                        response.find {num->num.home_name == familyList[0] }!!.family_admin
-                                    sessionManager.storeFamilyMembers(memberList)
-                                } else {
-                                    if (sessionManager.fetchFamilyName() == it) {
-                                        familyItem.findViewById<ImageView>(R.id.now_family).isVisible =
-                                            true
-                                        val memberList =
-                                            response.find { num->num.home_name == sessionManager.fetchFamilyName() }!!.family_admin
-                                        sessionManager.storeFamilyMembers(memberList)
-                                    }
-                                }
-                                familyItem.setOnClickListener {view->
-                                    if (sessionManager.fetchFamilyName() != view.findViewById<TextView>(
-                                            R.id.family_name
-                                        ).text.toString()
-                                    ) {
-                                        sessionManager.saveFamilyName(view.findViewById<TextView>(R.id.family_name).text.toString())
-                                        Log.d(
-                                            "IotApi",
-                                            "getFamily: ${sessionManager.fetchFamilyName()}"
-                                        )
-                                        activity?.finish()
-                                        activity?.startActivity(
-                                            Intent(
-                                                activity,
-                                                MainActivity::class.java
-                                            )
-                                        )
-                                    } else {
-                                        Log.d("IotApi", "getFamily: 已選擇此家庭")
-                                        Toast.makeText(activity, "已選擇此家庭", Toast.LENGTH_SHORT)
-                                            .show()
-                                    }
-                                }
-                            }
-                        } else {
-                            Log.d("IotApi", "getFamily: 沒有家庭")
-                            sessionManager.storeFamilyMembers(arrayListOf())
-                        }
-                        binding.loading.isVisible = false
+                        SideBarController().sideBar(activity!!, binding, sessionManager, familyList , response)
                     } else {
                         binding.loading.isVisible = false
                         Log.d("IotApi", "getFamily: 取得家庭失敗")
