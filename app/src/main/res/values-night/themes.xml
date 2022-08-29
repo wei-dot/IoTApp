@@ -28,11 +28,11 @@
 
 
     <style name="Theme.App.Starting" parent="Theme.SplashScreen">
-
-        <item name="android:windowBackground">@drawable/splash</item>
+        <!--        <item name="android:windowBackground">@drawable/splash</item>-->
         <item name="windowSplashScreenBackground">@color/color_FDF5E1</item>
+        <item name="windowSplashScreenIconBackgroundColor">#D2EDEC</item>
         <item name="windowSplashScreenAnimationDuration">2000</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/logo</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/anim_logo</item>
         <item name="postSplashScreenTheme">@style/Theme.IoTApp.NoActionBar</item>
     </style>
 
