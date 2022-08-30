@@ -23,12 +23,12 @@
 
     <View
         android:id="@+id/content_space"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="305dp"
+        android:layout_height="566dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="165dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="120dp"
         android:background="@drawable/content_space"
@@ -63,37 +63,38 @@
         android:textColor="@color/color_c07a27"
         android:translationY="-0.04sp"
         app:layout_constraintBottom_toBottomOf="@+id/avatar_area"
-        app:layout_constraintEnd_toEndOf="@+id/content_space"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toEndOf="@+id/profile"
+        app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toEndOf="@+id/avatar_area"
         app:layout_constraintTop_toTopOf="@+id/avatar_area"
-        app:layout_constraintVertical_bias="0.2" />
+        app:layout_constraintVertical_bias="0.487" />
 
     <View
         android:id="@+id/profile"
-        android:layout_width="270dp"
-        android:layout_height="160dp"
+        android:layout_width="236dp"
+        android:layout_height="235dp"
         android:background="@drawable/background_profile_detail"
         app:layout_constraintBottom_toBottomOf="@+id/content_space"
         app:layout_constraintEnd_toEndOf="@+id/content_space"
         app:layout_constraintHorizontal_bias="0.537"
         app:layout_constraintStart_toStartOf="@+id/content_space"
         app:layout_constraintTop_toBottomOf="@+id/avatar_area"
-        app:layout_constraintVertical_bias="0.146"/>
+        app:layout_constraintVertical_bias="0.146" />
 
     <ScrollView
         android:id="@+id/profile_detail_place"
-        android:layout_width="270dp"
-        android:layout_height="100dp"
+        android:layout_width="236dp"
+        android:layout_height="188dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:layout_marginEnd="1dp"
         android:scrollbarThumbVertical="@color/color_c07a27"
-        app:layout_constraintBottom_toBottomOf="@+id/content_space"
-        app:layout_constraintEnd_toEndOf="@+id/content_space"
-        app:layout_constraintHorizontal_bias="0.537"
-        app:layout_constraintStart_toStartOf="@+id/content_space"
-        app:layout_constraintTop_toBottomOf="@+id/avatar_area"
-        app:layout_constraintVertical_bias="0.146">
+        app:layout_constraintBottom_toTopOf="@+id/add_family_item"
+        app:layout_constraintEnd_toEndOf="@+id/profile"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/profile"
+        app:layout_constraintTop_toTopOf="@+id/profile"
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:id="@+id/my_family_list"
@@ -101,19 +102,20 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:orientation="vertical"/>
+            android:orientation="vertical" />
     </ScrollView>
 
     <ImageButton
         android:id="@+id/add_family_item"
         android:layout_width="93dp"
         android:layout_height="29dp"
-        android:layout_marginTop="110dp"
         android:background="@drawable/btn_add_family_s"
         app:layout_constraintBottom_toBottomOf="@+id/profile"
         app:layout_constraintEnd_toEndOf="@+id/profile"
+        app:layout_constraintHorizontal_bias="0.479"
         app:layout_constraintStart_toStartOf="@+id/profile"
-        app:layout_constraintTop_toTopOf="@+id/profile" />
+        app:layout_constraintTop_toTopOf="@+id/profile"
+        app:layout_constraintVertical_bias="0.946" />
 
     <ImageButton
         android:id="@+id/btn_set"
@@ -121,12 +123,14 @@
         android:layout_height="33dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="25dp"
         android:background="@drawable/btn_set"
         app:layout_constraintBottom_toTopOf="@+id/btn_logout"
         app:layout_constraintEnd_toEndOf="@+id/content_space"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="@+id/content_space"
-        app:layout_constraintTop_toBottomOf="@+id/profile_detail_place" />
+        app:layout_constraintTop_toBottomOf="@+id/profile_detail_place"
+        app:layout_constraintVertical_bias="0.854" />
 
     <ImageButton
         android:id="@+id/btn_logout"
@@ -134,21 +138,21 @@
         android:layout_height="33dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/btn_logout"
         app:layout_constraintBottom_toBottomOf="@+id/content_space"
-        app:layout_constraintEnd_toEndOf="@+id/content_space"
-        app:layout_constraintStart_toStartOf="@+id/content_space"
-        app:layout_constraintTop_toBottomOf="@+id/btn_set" />
+        app:layout_constraintEnd_toEndOf="@+id/btn_set"
+        app:layout_constraintStart_toStartOf="@+id/btn_set" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/loading"
-        android:layout_width="264dp"
-        android:layout_height="154dp"
+        android:layout_width="235dp"
+        android:layout_height="176dp"
         android:layout_centerInParent="true"
-        android:visibility="invisible"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/profile_detail_place"
         app:layout_constraintEnd_toEndOf="@+id/profile_detail_place"
-        app:layout_constraintStart_toStartOf="@+id/profile_detail_place"
+        app:layout_constraintStart_toStartOf="@+id/profile"
         app:layout_constraintTop_toTopOf="@+id/profile_detail_place"
         app:lottie_autoPlay="true"
         app:lottie_fileName="loading.json"

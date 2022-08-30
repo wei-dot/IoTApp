@@ -44,16 +44,16 @@ class FamilyFragment : Fragment() {
         _binding = FragmentMainFamilyBinding.inflate(inflater, container, false)
         val root: View = binding.root
         val familyViewModel = ViewModelProvider(this)[FamilyViewModel::class.java]
-//        val familyMemberList: MutableList<String>? =
-//            SessionManager(requireActivity()).fetchFamilyMembers()?.toMutableList()
-//        Log.d("familyMemberList", familyMemberList.toString())
-//        if (familyMemberList!!.isEmpty()) {
-//            hasFamily = false
-//        }
+        val familyMemberList: MutableList<String>? =
+            SessionManager(requireActivity()).fetchFamilyMembers()?.toMutableList()
+        Log.d("familyMemberList", familyMemberList.toString())
+        if (familyMemberList!!.isEmpty()) {
+            hasFamily = false
+        }
         if (hasFamily) {
             binding.btnAddFamily.isVisible = false
             //test
-            val familyMemberList: List<String> = listOf("島輝", "偷刀", "馬吉亞米", "番仔", "盲胞", "歐巴馬", "勞贖")
+//            val familyMemberList: List<String> = listOf("島輝", "偷刀", "馬吉亞米", "番仔", "盲胞", "歐巴馬", "勞贖")
             val king = "島輝"
             //test
             val memberList: LinearLayout = binding.familyMemberBoxLinearlayout
@@ -68,56 +68,56 @@ class FamilyFragment : Fragment() {
                         true
                 }
                 memberList.addView(memberToAdd)
-//                memberToAdd.setOnClickListener {
-//                    val popupWindow = PopupWindow(context)
-//                    val view =
-//                        layoutInflater.inflate(com.iotApp.R.layout.popup_userinfo, null)
-//                    val popupUsername =
-//                        view.findViewById<TextView>(com.iotApp.R.id.popup_username)
-//                    val popupUser = view.findViewById<TextView>(com.iotApp.R.id.popup_user)
-//                    val kickMember =
-//                        view.findViewById<ImageButton>(com.iotApp.R.id.btn_kickmember)
-//                    popupUsername.text = familyMemberList[i]
-//                    popupUser.text = familyMemberList[i]
-//                    if (familyMemberList[i] == king) {
-//                        kickMember.isVisible = false
-//                    }
-//                    kickMember.setOnClickListener {
-//                        binding.loading.isVisible = true
-//                        memberList.removeView(memberToAdd)
-//                        familyMemberList.removeAt(i)
-//                        val familyMemberListView = ArrayList(familyMemberList)
-//                        Log.d("familyMemberListA", familyMemberListView.toString())
-//                        val alterHome = AlterHome(
-//                            SessionManager(requireActivity()).fetchFamilyName().toString(),
-//                            familyMemberListView
-//                        )
-//                        Log.d("AlterHome", alterHome.toString())
-//                        IotApi.delFamilyMember(activity , binding , SessionManager(requireActivity()),alterHome)
-//                        popupWindow.dismiss()
-//                    }
-//                    popupWindow.setOnDismissListener {
-//                        backgroundAlpha(1f)
-//                    }
-//                    if (popupWindow.isShowing) {
-//                        popupWindow.dismiss()
-//                    } else {
-//                        backgroundAlpha(0.8f)
-//                        popupWindow.contentView = view
-//                        popupWindow.width = LinearLayout.LayoutParams.WRAP_CONTENT
-//                        popupWindow.height = LinearLayout.LayoutParams.WRAP_CONTENT
-//                        popupWindow.isFocusable = true
-//                        popupWindow.isOutsideTouchable = true
-//                        popupWindow.animationStyle = com.iotApp.R.style.normalAnimationPopup
-//                        popupWindow.setBackgroundDrawable(context?.let { it1 ->
-//                            ContextCompat.getColor(
-//                                it1,
-//                                com.google.android.material.R.color.mtrl_btn_transparent_bg_color
-//                            )
-//                        }?.let { it2 -> ColorDrawable(it2) })
-//                        popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0)
-//                    }
-//                }
+                memberToAdd.setOnClickListener {
+                    val popupWindow = PopupWindow(context)
+                    val view =
+                        layoutInflater.inflate(com.iotApp.R.layout.popup_userinfo, null)
+                    val popupUsername =
+                        view.findViewById<TextView>(com.iotApp.R.id.popup_username)
+                    val popupUser = view.findViewById<TextView>(com.iotApp.R.id.popup_user)
+                    val kickMember =
+                        view.findViewById<ImageButton>(com.iotApp.R.id.btn_kickmember)
+                    popupUsername.text = familyMemberList[i]
+                    popupUser.text = familyMemberList[i]
+                    if (familyMemberList[i] == king) {
+                        kickMember.isVisible = false
+                    }
+                    kickMember.setOnClickListener {
+                        binding.loading.isVisible = true
+                        memberList.removeView(memberToAdd)
+                        familyMemberList.removeAt(i)
+                        val familyMemberListView = ArrayList(familyMemberList)
+                        Log.d("familyMemberListA", familyMemberListView.toString())
+                        val alterHome = AlterHome(
+                            SessionManager(requireActivity()).fetchFamilyName().toString(),
+                            familyMemberListView
+                        )
+                        Log.d("AlterHome", alterHome.toString())
+                        IotApi.delFamilyMember(activity , binding , SessionManager(requireActivity()),alterHome)
+                        popupWindow.dismiss()
+                    }
+                    popupWindow.setOnDismissListener {
+                        backgroundAlpha(1f)
+                    }
+                    if (popupWindow.isShowing) {
+                        popupWindow.dismiss()
+                    } else {
+                        backgroundAlpha(0.8f)
+                        popupWindow.contentView = view
+                        popupWindow.width = LinearLayout.LayoutParams.WRAP_CONTENT
+                        popupWindow.height = LinearLayout.LayoutParams.WRAP_CONTENT
+                        popupWindow.isFocusable = true
+                        popupWindow.isOutsideTouchable = true
+                        popupWindow.animationStyle = com.iotApp.R.style.normalAnimationPopup
+                        popupWindow.setBackgroundDrawable(context?.let { it1 ->
+                            ContextCompat.getColor(
+                                it1,
+                                com.google.android.material.R.color.mtrl_btn_transparent_bg_color
+                            )
+                        }?.let { it2 -> ColorDrawable(it2) })
+                        popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0)
+                    }
+                }
             }
             binding.btnFamilyEdit.setOnClickListener {
                 val popupWindow = PopupWindow(context)
