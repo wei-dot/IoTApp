@@ -160,6 +160,9 @@ class FamilyFragment : Fragment() {
                     popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0)
                 }
             }
+//            binding.btnFamilySetting.setOnClickListener {
+//                Toast.makeText(context, SessionManager(requireActivity()).fetchFamilyId().toString(), Toast.LENGTH_SHORT).show()
+//            }
         } else {
             binding.btnFamilyEdit.isVisible = false
             binding.btnFamilySetting.isVisible = false

@@ -16,19 +16,19 @@
         android:background="@drawable/ic_return"
         app:layout_constraintBottom_toTopOf="@+id/content_space"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.013"
+        app:layout_constraintHorizontal_bias="0.03"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.875" />
+        app:layout_constraintVertical_bias="0.615" />
 
     <View
         android:id="@+id/content_space"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="305dp"
+        android:layout_height="566dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="165dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="120dp"
         android:background="@drawable/content_space"
