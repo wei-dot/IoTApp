@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.iotApp.ui.family.FamilyFragment">
+    tools:context="com.iotApp.main.family.FamilyFragment">
 
     <View
         android:id="@+id/family_information_box"
@@ -23,8 +23,8 @@
 
     <TextView
         android:id="@+id/text_family_information"
-        android:layout_width="187dp"
-        android:layout_height="31dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:gravity="center_horizontal|top"
@@ -41,8 +41,8 @@
 
     <View
         android:id="@+id/btn_family_setting"
-        android:layout_width="23dp"
-        android:layout_height="24dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
@@ -50,10 +50,8 @@
         android:background="@drawable/btn_setting"
         app:layout_constraintBottom_toBottomOf="@+id/text_family_information"
         app:layout_constraintEnd_toEndOf="@+id/family_information_box"
-        app:layout_constraintHorizontal_bias="0.375"
         app:layout_constraintStart_toEndOf="@+id/text_family_information"
-        app:layout_constraintTop_toTopOf="@+id/text_family_information"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="@+id/text_family_information" />
 
     <View
         android:id="@+id/family_member_box"
@@ -63,6 +61,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
+        android:layout_marginBottom="100dp"
         android:background="@drawable/background_family_member"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -72,57 +71,65 @@
 
     <TextView
         android:id="@+id/family_member_text"
-        android:layout_width="187dp"
-        android:layout_height="31dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:gravity="center_horizontal|top"
-        android:textSize="18sp"
         android:lineSpacingExtra="6sp"
         android:text="@string/text_family_member"
         android:textAppearance="@style/text_family_member_style"
-        android:translationY="-2.93sp"
-        app:layout_constraintBottom_toBottomOf="@+id/family_member_box"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
         app:layout_constraintEnd_toEndOf="@+id/family_member_box"
-        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="@+id/family_member_box"
-        app:layout_constraintTop_toTopOf="@+id/family_member_box"
-        app:layout_constraintVertical_bias="0.138" />
+        app:layout_constraintTop_toTopOf="@+id/family_member_box" />
+
 
     <View
         android:id="@+id/btn_family_edit"
-        android:layout_width="23dp"
-        android:layout_height="24dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:background="@drawable/btn_family_edit"
-        app:layout_constraintBottom_toBottomOf="@+id/family_member_text"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
         app:layout_constraintEnd_toEndOf="@+id/family_member_box"
-        app:layout_constraintHorizontal_bias="0.375"
         app:layout_constraintStart_toEndOf="@+id/family_member_text"
-        app:layout_constraintTop_toTopOf="@+id/family_member_text"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="@+id/family_member_box" />
 
-    <LinearLayout
-        android:id="@+id/family_member_list"
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
         android:layout_width="0dp"
-        android:layout_height="98dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="10dp"
+        android:adjustViewBounds="true"
+        android:scrollbarThumbHorizontal="@color/color_c07a27"
         app:layout_constraintBottom_toBottomOf="@+id/family_member_box"
         app:layout_constraintEnd_toEndOf="@+id/family_member_box"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/family_member_box"
-        app:layout_constraintTop_toBottomOf="@+id/family_member_text"
-        app:layout_constraintVertical_bias="0.529">
+        app:layout_constraintTop_toTopOf="@+id/family_member_box">
 
-            <LinearLayout
-                android:id="@+id/family_member_box_linearlayout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="13dp"
-                android:orientation="horizontal" />
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/family_member_box_linearlayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:orientation="horizontal" />
+    </HorizontalScrollView>
+<!--    <LinearLayout-->
+<!--        android:id="@+id/family_member_list"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:textAlignment="center"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/family_member_box"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/family_member_box"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/family_member_box"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/family_member_text">-->
+<!--    </LinearLayout>-->
 
     <TextView
         android:id="@+id/text_family"
@@ -142,7 +149,7 @@
         android:layout_height="@dimen/btn_height"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/btn_add_family"
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="@+id/family_information_box"
@@ -158,9 +165,9 @@
         android:layout_centerInParent="true"
         android:background="@drawable/background_family_member"
         android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/family_member_list"
+        app:layout_constraintBottom_toBottomOf="@+id/family_member_box"
         app:layout_constraintEnd_toEndOf="@+id/family_member_box"
-        app:layout_constraintStart_toStartOf="@+id/family_member_list"
+        app:layout_constraintStart_toStartOf="@+id/family_member_box"
         app:layout_constraintTop_toBottomOf="@+id/family_member_text"
         app:lottie_autoPlay="true"
         app:lottie_fileName="loading.json"

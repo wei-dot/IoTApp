@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context="com.iotApp.ui.mode.ModeFragment">
+    tools:context="com.iotApp.main.mode.ModeFragment">
 
     <!--    android:id="@+id/nav_host_fragment_activity_main_mode"-->
 
@@ -12,17 +12,20 @@
         android:id="@+id/floatingActionButton_mode_key_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="50dp"
         android:clickable="true"
         android:src="@drawable/btn_mode_key_add"
         app:backgroundTint="@color/color_14b2d4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/cardView"
+        app:layout_constraintEnd_toEndOf="@+id/cardView"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="@+id/cardView"
+        app:layout_constraintTop_toTopOf="@+id/cardView"
+        app:layout_constraintVertical_bias="0.95"
         app:rippleColor="@color/color_fbfbfb"
         app:tint="@color/color_fbfbfb" />
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="550dp"
         android:layout_margin="20dp"
@@ -67,82 +70,81 @@
                         android:id="@+id/recyclerView_mode_key_set"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        >
+                        android:orientation="vertical">
 
                     </androidx.recyclerview.widget.RecyclerView>
 
-<!--                    <Button-->
-<!--                        android:id="@+id/button_mode_key_1"-->
-<!--                        android:layout_width="350dp"-->
-<!--                        android:layout_height="60dp"-->
-<!--                        android:layout_gravity="center"-->
-<!--                        android:layout_margin="5dp"-->
-<!--                        android:background="@drawable/btn_mode_key_button_background"-->
-<!--                        android:text="@string/mode_key_1"-->
-<!--                        android:textColor="@color/color_cda16d"-->
-<!--                        android:textSize="25sp"-->
-<!--                        app:backgroundTint="@null" />-->
+                    <!--                    <Button-->
+                    <!--                        android:id="@+id/button_mode_key_1"-->
+                    <!--                        android:layout_width="350dp"-->
+                    <!--                        android:layout_height="60dp"-->
+                    <!--                        android:layout_gravity="center"-->
+                    <!--                        android:layout_margin="5dp"-->
+                    <!--                        android:background="@drawable/btn_mode_key_button_background"-->
+                    <!--                        android:text="@string/mode_key_1"-->
+                    <!--                        android:textColor="@color/color_cda16d"-->
+                    <!--                        android:textSize="25sp"-->
+                    <!--                        app:backgroundTint="@null" />-->
 
-<!--                    <Button-->
-<!--                        android:id="@+id/button_mode_key_2"-->
-<!--                        android:layout_width="350dp"-->
-<!--                        android:layout_height="60dp"-->
-<!--                        android:layout_gravity="center"-->
-<!--                        android:layout_margin="5dp"-->
-<!--                        android:background="@drawable/btn_mode_key_button_background"-->
-<!--                        android:text="@string/mode_key_2"-->
-<!--                        android:textColor="@color/color_cda16d"-->
-<!--                        android:textSize="25sp"-->
-<!--                        app:backgroundTint="@null" />-->
+                    <!--                    <Button-->
+                    <!--                        android:id="@+id/button_mode_key_2"-->
+                    <!--                        android:layout_width="350dp"-->
+                    <!--                        android:layout_height="60dp"-->
+                    <!--                        android:layout_gravity="center"-->
+                    <!--                        android:layout_margin="5dp"-->
+                    <!--                        android:background="@drawable/btn_mode_key_button_background"-->
+                    <!--                        android:text="@string/mode_key_2"-->
+                    <!--                        android:textColor="@color/color_cda16d"-->
+                    <!--                        android:textSize="25sp"-->
+                    <!--                        app:backgroundTint="@null" />-->
 
-<!--                    <Button-->
-<!--                        android:id="@+id/button_mode_key_3"-->
-<!--                        android:layout_width="350dp"-->
-<!--                        android:layout_height="60dp"-->
-<!--                        android:layout_gravity="center"-->
-<!--                        android:layout_margin="5dp"-->
-<!--                        android:background="@drawable/btn_mode_key_button_background"-->
-<!--                        android:text="@string/mode_key_3"-->
-<!--                        android:textColor="@color/color_cda16d"-->
-<!--                        android:textSize="25sp"-->
-<!--                        app:backgroundTint="@null" />-->
+                    <!--                    <Button-->
+                    <!--                        android:id="@+id/button_mode_key_3"-->
+                    <!--                        android:layout_width="350dp"-->
+                    <!--                        android:layout_height="60dp"-->
+                    <!--                        android:layout_gravity="center"-->
+                    <!--                        android:layout_margin="5dp"-->
+                    <!--                        android:background="@drawable/btn_mode_key_button_background"-->
+                    <!--                        android:text="@string/mode_key_3"-->
+                    <!--                        android:textColor="@color/color_cda16d"-->
+                    <!--                        android:textSize="25sp"-->
+                    <!--                        app:backgroundTint="@null" />-->
 
-<!--                    <Button-->
-<!--                        android:id="@+id/button_mode_key_4"-->
-<!--                        android:layout_width="350dp"-->
-<!--                        android:layout_height="60dp"-->
-<!--                        android:layout_gravity="center"-->
-<!--                        android:layout_margin="5dp"-->
-<!--                        android:background="@drawable/btn_mode_key_button_background"-->
-<!--                        android:text="@string/mode_key_4"-->
-<!--                        android:textColor="@color/color_cda16d"-->
-<!--                        android:textSize="25sp"-->
-<!--                        app:backgroundTint="@null" />-->
+                    <!--                    <Button-->
+                    <!--                        android:id="@+id/button_mode_key_4"-->
+                    <!--                        android:layout_width="350dp"-->
+                    <!--                        android:layout_height="60dp"-->
+                    <!--                        android:layout_gravity="center"-->
+                    <!--                        android:layout_margin="5dp"-->
+                    <!--                        android:background="@drawable/btn_mode_key_button_background"-->
+                    <!--                        android:text="@string/mode_key_4"-->
+                    <!--                        android:textColor="@color/color_cda16d"-->
+                    <!--                        android:textSize="25sp"-->
+                    <!--                        app:backgroundTint="@null" />-->
 
-<!--                    <Button-->
-<!--                        android:id="@+id/button_mode_key_5"-->
-<!--                        android:layout_width="350dp"-->
-<!--                        android:layout_height="60dp"-->
-<!--                        android:layout_gravity="center"-->
-<!--                        android:layout_margin="5dp"-->
-<!--                        android:background="@drawable/btn_mode_key_button_background"-->
-<!--                        android:text="@string/mode_key_5"-->
-<!--                        android:textColor="@color/color_cda16d"-->
-<!--                        android:textSize="25sp"-->
-<!--                        app:backgroundTint="@null" />-->
+                    <!--                    <Button-->
+                    <!--                        android:id="@+id/button_mode_key_5"-->
+                    <!--                        android:layout_width="350dp"-->
+                    <!--                        android:layout_height="60dp"-->
+                    <!--                        android:layout_gravity="center"-->
+                    <!--                        android:layout_margin="5dp"-->
+                    <!--                        android:background="@drawable/btn_mode_key_button_background"-->
+                    <!--                        android:text="@string/mode_key_5"-->
+                    <!--                        android:textColor="@color/color_cda16d"-->
+                    <!--                        android:textSize="25sp"-->
+                    <!--                        app:backgroundTint="@null" />-->
 
-<!--                    <Button-->
-<!--                        android:id="@+id/button_mode_key_6"-->
-<!--                        android:layout_width="350dp"-->
-<!--                        android:layout_height="60dp"-->
-<!--                        android:layout_gravity="center"-->
-<!--                        android:layout_margin="5dp"-->
-<!--                        android:background="@drawable/btn_mode_key_button_background"-->
-<!--                        android:text="@string/mode_key_6"-->
-<!--                        android:textColor="@color/color_cda16d"-->
-<!--                        android:textSize="25sp"-->
-<!--                        app:backgroundTint="@null" />-->
+                    <!--                    <Button-->
+                    <!--                        android:id="@+id/button_mode_key_6"-->
+                    <!--                        android:layout_width="350dp"-->
+                    <!--                        android:layout_height="60dp"-->
+                    <!--                        android:layout_gravity="center"-->
+                    <!--                        android:layout_margin="5dp"-->
+                    <!--                        android:background="@drawable/btn_mode_key_button_background"-->
+                    <!--                        android:text="@string/mode_key_6"-->
+                    <!--                        android:textColor="@color/color_cda16d"-->
+                    <!--                        android:textSize="25sp"-->
+                    <!--                        app:backgroundTint="@null" />-->
 
                 </LinearLayout>
             </ScrollView>

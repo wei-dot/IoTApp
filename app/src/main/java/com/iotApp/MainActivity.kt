@@ -25,11 +25,11 @@ import com.iotApp.api.IotApi
 import com.iotApp.api.SessionManager
 import com.iotApp.api.UserInfo
 import com.iotApp.databinding.ActivityMainBinding
-import com.iotApp.ui.family.FamilyFragment
-import com.iotApp.ui.home.HomeFragment
-import com.iotApp.ui.log.LogFragment
-import com.iotApp.ui.mode.ModeFragment
-import com.iotApp.ui.notLogin.NotLoginFragment
+import com.iotApp.main.family.FamilyFragment
+import com.iotApp.main.home.HomeFragment
+import com.iotApp.main.log.LogFragment
+import com.iotApp.main.mode.ModeFragment
+import com.iotApp.main.notLogin.NotLoginFragment
 
 
 class MainActivity : AppCompatActivity() {
@@ -47,10 +47,12 @@ class MainActivity : AppCompatActivity() {
         val userinfo: UserInfo? = SessionManager(this).fetchUserInfo()
         if (userinfo != null) {
             binding.profilePage.username.text = userinfo.username
-            switchSideBarContent(true)
+            binding.notLogin.isVisible = false
+            binding.hasLogin.isVisible = true
         } else {
-            switchSideBarContent(false)
             binding.appBarMain.btnNotification.isVisible = false
+            binding.notLogin.isVisible = true
+            binding.hasLogin.isVisible = false
         }
         viewPager()
         buttonListener()
@@ -63,24 +65,13 @@ class MainActivity : AppCompatActivity() {
             binding.drawerLayout.close()
         } else {
             if (System.currentTimeMillis() - firstPressedTime < 2000) {
-                super.onBackPressed();
+                super.onBackPressed()
             } else {
-                Toast.makeText(this, "再按一次退出", Toast.LENGTH_SHORT).show();
-                firstPressedTime = System.currentTimeMillis();
+                Toast.makeText(this, "再按一次退出", Toast.LENGTH_SHORT).show()
+                firstPressedTime = System.currentTimeMillis()
             }
         }
     }
-
-    private fun switchSideBarContent(isLogin: Boolean) {
-        if (isLogin) {
-            binding.notLogin.isVisible = false
-            binding.hasLogin.isVisible = true
-        } else {
-            binding.notLogin.isVisible = true
-            binding.hasLogin.isVisible = false
-        }
-    }
-
 
     @SuppressLint("ClickableViewAccessibility", "InflateParams")
     private fun initPopWindow(v: View) {
@@ -157,7 +148,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         binding.profilePage.addFamilyItem?.setOnClickListener {
-            val intent = Intent(this, FamilyMemberActivity::class.java)
+            val intent = Intent(this, FamilyActivity::class.java)
             intent.putExtra("FamilyMemberActivity", "addFamily")
             startActivity(intent)
         }

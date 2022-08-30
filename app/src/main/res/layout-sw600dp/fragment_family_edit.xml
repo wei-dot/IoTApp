@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.iotApp.ui.familyEdit.FamilyEditFragment"
+    tools:context="com.iotApp.family.FamilyEditFragment"
     tools:ignore="ExtraText"
     android:background="@drawable/background_fullscreen">
 
