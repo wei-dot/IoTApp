@@ -27,21 +27,22 @@ class SideBarController {
                     it
                 familyItem.setPadding(0, 30, 0, 30)
                 myFamilyList.addView(familyItem)
-
                 if (sessionManager.fetchFamilyName() == null) {
                     sessionManager.saveFamilyName(familyList[0])
                     sessionManager.saveFamilyId(response[0].id)
                     familyItem.findViewById<ImageView>(R.id.now_family).isVisible =
                         true
                     val memberList =
-                        response.find {num->num.home_name == familyList[0] }!!.family_admin
+                        response.find {num->num.home_name == familyList[0] }!!.family_member
                     sessionManager.storeFamilyMembers(memberList)
                 } else {
+                    sessionManager.saveFamilyId(response.find { home: Home -> home.home_name == sessionManager.fetchFamilyName() }!!.id)
+                    sessionManager.saveFamilyName(response.find { home: Home -> home.home_name == sessionManager.fetchFamilyName() }!!.home_name)
                     if (sessionManager.fetchFamilyName() == it) {
                         familyItem.findViewById<ImageView>(R.id.now_family).isVisible =
                             true
                         val memberList =
-                            response.find { num->num.home_name == sessionManager.fetchFamilyName() }!!.family_admin
+                            response.find { num->num.home_name == sessionManager.fetchFamilyName() }!!.family_member
                         sessionManager.storeFamilyMembers(memberList)
                     }
                 }

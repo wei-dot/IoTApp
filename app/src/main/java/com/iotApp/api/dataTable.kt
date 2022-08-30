@@ -95,7 +95,7 @@ data class FamilyAdmin(
 )
 data class Home(
     @SerializedName("user")
-    val family_admin: ArrayList<String>,
+    val family_member: ArrayList<String>,
     @SerializedName("home_name")
     val home_name: String,
     @SerializedName("home_id")

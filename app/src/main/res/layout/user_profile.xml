@@ -133,7 +133,7 @@
         android:layout_width="264dp"
         android:layout_height="154dp"
         android:layout_centerInParent="true"
-        android:visibility="gone"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/profile_detail_place"
         app:layout_constraintEnd_toEndOf="@+id/profile_detail_place"
         app:layout_constraintStart_toStartOf="@+id/profile_detail_place"
