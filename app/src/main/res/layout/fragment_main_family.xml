@@ -79,12 +79,11 @@
         android:lineSpacingExtra="6sp"
         android:text="@string/text_family_member"
         android:textAppearance="@style/text_family_member_style"
-        android:translationY="-2.93sp"
-        app:layout_constraintBottom_toTopOf="@+id/family_member_list"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
         app:layout_constraintEnd_toEndOf="@+id/family_member_box"
-        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="@+id/family_member_box"
         app:layout_constraintTop_toTopOf="@+id/family_member_box" />
+
 
     <View
         android:id="@+id/btn_family_edit"
@@ -95,28 +94,42 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:background="@drawable/btn_family_edit"
-        app:layout_constraintBottom_toTopOf="@+id/family_member_list"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
         app:layout_constraintEnd_toEndOf="@+id/family_member_box"
         app:layout_constraintStart_toEndOf="@+id/family_member_text"
         app:layout_constraintTop_toTopOf="@+id/family_member_box" />
 
-    <LinearLayout
-        android:id="@+id/family_member_list"
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:textAlignment="center"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="10dp"
+        android:adjustViewBounds="true"
+        android:scrollbarThumbHorizontal="@color/color_c07a27"
         app:layout_constraintBottom_toBottomOf="@+id/family_member_box"
         app:layout_constraintEnd_toEndOf="@+id/family_member_box"
         app:layout_constraintStart_toStartOf="@+id/family_member_box"
-        app:layout_constraintTop_toBottomOf="@+id/family_member_text">
+        app:layout_constraintTop_toTopOf="@+id/family_member_box">
 
         <LinearLayout
             android:id="@+id/family_member_box_linearlayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="10dp"
             android:orientation="horizontal" />
-    </LinearLayout>
+    </HorizontalScrollView>
+<!--    <LinearLayout-->
+<!--        android:id="@+id/family_member_list"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:textAlignment="center"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/family_member_box"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/family_member_box"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/family_member_box"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/family_member_text">-->
+<!--    </LinearLayout>-->
 
     <TextView
         android:id="@+id/text_family"
@@ -152,9 +165,9 @@
         android:layout_centerInParent="true"
         android:background="@drawable/background_family_member"
         android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/family_member_list"
+        app:layout_constraintBottom_toBottomOf="@+id/family_member_box"
         app:layout_constraintEnd_toEndOf="@+id/family_member_box"
-        app:layout_constraintStart_toStartOf="@+id/family_member_list"
+        app:layout_constraintStart_toStartOf="@+id/family_member_box"
         app:layout_constraintTop_toBottomOf="@+id/family_member_text"
         app:lottie_autoPlay="true"
         app:lottie_fileName="loading.json"
