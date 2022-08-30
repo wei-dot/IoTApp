@@ -6,93 +6,68 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupWindow
+import android.widget.Toast
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.GravityCompat
 import androidx.core.view.isVisible
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupWithNavController
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
+import androidx.viewpager2.adapter.FragmentStateAdapter
+import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.iotApp.api.IotApi
 import com.iotApp.api.SessionManager
 import com.iotApp.api.UserInfo
 import com.iotApp.databinding.ActivityMainBinding
+import com.iotApp.ui.family.FamilyFragment
+import com.iotApp.ui.home.HomeFragment
+import com.iotApp.ui.log.LogFragment
+import com.iotApp.ui.mode.ModeFragment
+import com.iotApp.ui.notLogin.NotLoginFragment
 
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var appBarConfiguration: AppBarConfiguration
+    private lateinit var viewPager: ViewPager2
+    private var firstPressedTime: Long =0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val navView: BottomNavigationView = binding.appBarMain.bottomNavigation
-        val navController = findNavController(R.id.nav_host_fragment_activity_main)
-        val toolbar = binding.appBarMain.toolbar
-
-        appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.navigation_home,
-                R.id.navigation_family_in,
-                R.id.navigation_mode,
-                R.id.navigation_log,
-                R.id.navigation_notLogin
-            ), binding.drawerLayout
-        )
-
         /**判斷使用者是否登入並修改側邊攔 */
         val userinfo: UserInfo? = SessionManager(this).fetchUserInfo()
         if (userinfo != null) {
             binding.profilePage.username.text = userinfo.username
             switchSideBarContent(true)
-            navView.setupWithNavController(navController)
         } else {
             switchSideBarContent(false)
             binding.appBarMain.btnNotification.isVisible = false
-            navController.navigate(R.id.navigation_notLogin)
-            navView.setOnItemSelectedListener {
-                when (it.title.toString()) {
-                    "居家狀態" -> toolbar.title = "居家狀態"
-                    "家庭管理" -> toolbar.title = "家庭管理"
-                    "組合鍵設置" -> toolbar.title = "組合鍵設置"
-                    "設備日誌" -> toolbar.title = "設備日誌"
-                }
-                return@setOnItemSelectedListener true
-            }
         }
-        toolbar.setupWithNavController(navController, appBarConfiguration)
-        navController.addOnDestinationChangedListener { _, _, _ ->
-            toolbar.setNavigationIcon(R.drawable.ic_navigation_icon)
-        }
+        viewPager()
         buttonListener()
         IotApi.getFamily(this, binding.profilePage, SessionManager(this))
     }
 
 
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment_activity_main)
-        return navController.navigateUp(appBarConfiguration)
-                || super.onSupportNavigateUp()
-    }
-
     override fun onBackPressed() {
         if (binding.drawerLayout.isDrawerVisible(GravityCompat.START)) {
             binding.drawerLayout.close()
-        } else if (R.id.navigation_notLogin == findNavController(R.id.nav_host_fragment_activity_main).currentDestination?.id) {
-            //防止在未登入頁面觸發back鍵
         } else {
-            super.onBackPressed()
+            if (System.currentTimeMillis() - firstPressedTime < 2000) {
+                super.onBackPressed();
+            } else {
+                Toast.makeText(this, "再按一次退出", Toast.LENGTH_SHORT).show();
+                firstPressedTime = System.currentTimeMillis();
+            }
         }
     }
 
@@ -189,6 +164,102 @@ class MainActivity : AppCompatActivity() {
 
         binding.appBarMain.btnNotification.setOnClickListener { v ->
             initPopWindow(v)
+        }
+    }
+
+    private fun viewPager() {
+        val navView: BottomNavigationView = binding.appBarMain.bottomNavigation
+        val toolbar = binding.appBarMain.toolbar
+        // Instantiate a ViewPager2 and a PagerAdapter.
+        viewPager = binding.appBarMain.viewPager2!!
+
+        // The pager adapter, which provides the pages to the view pager widget.
+        setSupportActionBar(toolbar)
+        supportActionBar?.title = "居家狀態"
+
+        val pagerAdapter = ScreenSlidePagerAdapter(this)
+        viewPager.adapter = pagerAdapter
+        viewPager.setCurrentItem(200, false)
+        viewPager.setPageTransformer(ZoomOutPageTransformer())
+        viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                when(position%4){
+                    0 -> {
+                        supportActionBar?.title = "居家狀態"
+                        navView.menu.getItem(0).isChecked = true
+                    }
+                    1 -> {
+                        supportActionBar!!.title = "家庭管理"
+                        navView.menu.getItem(1).isChecked = true
+                    }
+                    2 -> {
+                        supportActionBar!!.title = "組合鍵設置"
+                        navView.menu.getItem(2).isChecked = true
+                    }
+                    3 -> {
+                        supportActionBar!!.title =  "設備日誌"
+                        navView.menu.getItem(3).isChecked = true
+                    }
+                    else -> {
+                        supportActionBar!!.title = "居家狀態"
+                        navView.menu.getItem(0).isChecked = true
+                    }
+
+                }
+
+            }
+        })
+        navView.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.navigation_home -> {
+                    supportActionBar!!.title = "居家狀態"
+                    viewPager.setCurrentItem(200, true)
+                }
+                R.id.navigation_family_in -> {
+                    supportActionBar!!.title = "家庭管理"
+                    viewPager.setCurrentItem(201, true)
+                }
+                R.id.navigation_mode -> {
+                    supportActionBar!!.title = "組合鍵設置"
+                    viewPager.setCurrentItem(202, true)
+                }
+                R.id.navigation_log -> {
+                    supportActionBar!!.title = "設備日誌"
+                    viewPager.setCurrentItem(203, true)
+                }
+            }
+            return@setOnItemSelectedListener true
+        }
+
+        val toggle = ActionBarDrawerToggle(
+            this,
+            binding.drawerLayout,
+            toolbar,
+            R.string.drawer_open,
+            R.string.drawer_close
+        )
+        binding.drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
+        toolbar.setNavigationIcon(R.drawable.ic_navigation_icon)
+    }
+
+    private inner class ScreenSlidePagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
+
+        override fun getItemCount(): Int {
+            return 400
+        }
+
+        override fun createFragment(position: Int): Fragment {
+            SessionManager(this@MainActivity).fetchUserInfo()
+                ?: return NotLoginFragment()
+            return when (position%4) {
+                0 -> HomeFragment()
+                1 -> FamilyFragment()
+                2 -> ModeFragment()
+                3 -> LogFragment()
+                else -> HomeFragment()
+            }
         }
     }
 

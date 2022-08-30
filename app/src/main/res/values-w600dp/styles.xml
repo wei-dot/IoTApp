@@ -32,7 +32,7 @@
     <style name="text_navigation">
         <item name="android:textSize">24sp</item>
     </style>
-    <style name="text_family_infomation_style">
+    <style name="text_family_information_style">
 
         <item name="android:textSize">
             18sp
