@@ -28,6 +28,7 @@
         <item name="android:windowEnterAnimation">@anim/notification_opening_anim</item>
         <item name="android:windowExitAnimation">@anim/notification_closing_anim</item>
     </style>
+
     <style name="normalAnimationPopup">
         <item name="android:windowEnterAnimation">@anim/normal_popup_opening_anim</item>
         <item name="android:windowExitAnimation">@anim/normal_popup_ending_anim</item>
@@ -44,11 +45,9 @@
     </style>
 
     <style name="text_notLogin_fragment_style">
-
         <item name="android:textSize">24sp</item>
         <item name="android:letterSpacing">0.79</item>
         <item name="android:textColor">#DF8888</item>
-
     </style>
 
     <style name="TextInputEditText_style" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
@@ -61,81 +60,35 @@
         <item name="android:textColorHint">#AAAAAA</item>
         <item name="passwordToggleTint">@color/black</item>
     </style>
-    <style name="text_family_infomation_style">
 
-        <item name="android:textSize">
-            18sp
-        </item>
-
-        <item name="android:letterSpacing">
-            1.41
-        </item>
-
-        <item name="android:textColor">
-            #C07A27
-        </item>
-
+    <style name="text_family_information_style">
+        <item name="android:textSize">20sp</item>
+        <item name="android:letterSpacing">1.41</item>
+        <item name="android:textColor">#C07A27</item>
     </style>
+
     <style name="text_family_member_style">
-
-        <item name="android:textSize">
-            18sp
-        </item>
-
-        <item name="android:letterSpacing">
-            1.41
-        </item>
-
-        <item name="android:textColor">
-            #C07A27
-        </item>
-
+        <item name="android:textSize">20sp</item>
+        <item name="android:letterSpacing">1.41</item>
+        <item name="android:textColor">#C07A27</item>
     </style>
+
     <style name="text_popup_userinfo_nickname_style">
-
-        <item name="android:textSize">
-            24sp
-        </item>
-
-        <item name="android:letterSpacing">
-            0.79
-        </item>
-
-        <item name="android:textColor">
-            #C07A27
-        </item>
-
+        <item name="android:textSize">24sp</item>
+        <item name="android:letterSpacing">0.79</item>
+        <item name="android:textColor">#C07A27</item>
     </style>
+
     <style name="text_popup_userinfo_user_style">
-
-        <item name="android:textSize">
-            15sp
-        </item>
-
-        <item name="android:letterSpacing">
-            0.16
-        </item>
-
-        <item name="android:textColor">
-            #CDA16D
-        </item>
-
+        <item name="android:textSize">15sp</item>
+        <item name="android:letterSpacing">0.16</item>
+        <item name="android:textColor">#CDA16D</item>
     </style>
 
     <style name="text_family_item_style">
-
-        <item name="android:textSize">
-            16sp
-        </item>
-
-        <item name="android:letterSpacing">
-            0.36
-        </item>
-
-        <item name="android:textColor">
-            #CDA16D
-        </item>
-
+        <item name="android:textSize">16sp</item>
+        <item name="android:letterSpacing">0.36</item>
+        <item name="android:textColor">#CDA16D</item>
     </style>
 
 </resources>

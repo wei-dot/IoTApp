@@ -26,205 +26,205 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
-            android:id="@+id/scrollView3"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginTop="60dp"
-            android:layout_marginBottom="80dp"
-            android:overScrollMode="never"
-            android:scrollbars="none"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/textClock">
+        android:id="@+id/scrollView3"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="80dp"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/textClock">
 
 
         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-
-            <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_margin="20dp"
-                    android:textSize="20sp"
-                    app:cardBackgroundColor="@color/color_faf0dd"
-                    app:cardCornerRadius="10dp"
-                    app:cardElevation="0px"
-                    app:cardUseCompatPadding="false">
+                android:layout_height="100dp"
+                android:layout_margin="20dp"
+                android:textSize="20sp"
+                app:cardBackgroundColor="@color/color_faf0dd"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="0px"
+                app:cardUseCompatPadding="false">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
                     <TextView
-                            android:id="@+id/TextView_celsius"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="92dp"
-                            android:letterSpacing="0.3"
-                            android:text="20℃"
-                            android:textColor="@color/color_df8888"
-                            android:textSize="30sp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textView" />
+                        android:id="@+id/TextView_celsius"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="92dp"
+                        android:letterSpacing="0.3"
+                        android:text="20℃"
+                        android:textColor="@color/color_df8888"
+                        android:textSize="30sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
                     <ImageView
-                            android:id="@+id/imageView_temperature"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="36dp"
-                            android:src="@drawable/temperature"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.514" />
+                        android:id="@+id/imageView_temperature"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="36dp"
+                        android:src="@drawable/temperature"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.514" />
 
                     <TextView
-                            android:id="@+id/textView"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="45dp"
-                            android:gravity="center"
-                            android:letterSpacing="1"
-                            android:lineSpacingMultiplier="2"
-                            android:padding="10dp"
-                            android:text="@string/room_temperature"
-                            android:textColor="@color/color_c07a27"
-                            android:textSize="20sp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.0" />
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="45dp"
+                        android:gravity="center"
+                        android:letterSpacing="1"
+                        android:lineSpacingMultiplier="2"
+                        android:padding="10dp"
+                        android:text="@string/room_temperature"
+                        android:textColor="@color/color_c07a27"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_margin="20dp"
-                    android:textSize="20sp"
-                    app:cardBackgroundColor="@color/color_faf0dd"
-                    app:cardCornerRadius="10dp"
-                    app:cardElevation="0px"
-                    app:cardUseCompatPadding="false">
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_margin="20dp"
+                android:textSize="20sp"
+                app:cardBackgroundColor="@color/color_faf0dd"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="0px"
+                app:cardUseCompatPadding="false">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
                     <ImageView
-                            android:id="@+id/imageView_humidity"
-                            android:layout_width="wrap_content"
-                            android:layout_height="65dp"
-                            android:layout_marginStart="45dp"
-                            android:src="@drawable/humidity"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                        android:id="@+id/imageView_humidity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="65dp"
+                        android:layout_marginStart="45dp"
+                        android:src="@drawable/humidity"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                            android:id="@+id/textView2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:layout_marginEnd="50dp"
-                            android:gravity="center"
-                            android:letterSpacing="1"
-                            android:lineSpacingMultiplier="2"
-                            android:padding="10dp"
-                            android:text="@string/room_humidity"
-                            android:textColor="@color/color_c07a27"
-                            android:textSize="20sp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="50dp"
+                        android:gravity="center"
+                        android:letterSpacing="1"
+                        android:lineSpacingMultiplier="2"
+                        android:padding="10dp"
+                        android:text="@string/room_humidity"
+                        android:textColor="@color/color_c07a27"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                            android:id="@+id/TextView_humidity"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="100dp"
-                            android:letterSpacing="0.3"
-                            android:text="60%"
-                            android:textColor="@color/color_14b2d4"
-                            android:textSize="30sp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+                        android:id="@+id/TextView_humidity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="100dp"
+                        android:letterSpacing="0.3"
+                        android:text="60%"
+                        android:textColor="@color/color_14b2d4"
+                        android:textSize="30sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView2" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:layout_margin="20dp"
-                    android:textSize="20sp"
-                    app:cardBackgroundColor="@color/color_faf0dd"
-                    app:cardCornerRadius="10dp"
-                    app:cardElevation="0px"
-                    app:cardUseCompatPadding="false">
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_margin="20dp"
+                android:textSize="20sp"
+                app:cardBackgroundColor="@color/color_faf0dd"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="0px"
+                app:cardUseCompatPadding="false">
 
                 <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
                     <TextView
-                            android:layout_width="206dp"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentTop="true"
-                            android:layout_alignParentEnd="true"
-                            android:layout_marginStart="0dp"
-                            android:layout_marginTop="5dp"
-                            android:layout_marginEnd="0dp"
-                            android:gravity="center"
-                            android:letterSpacing="1"
-                            android:lineSpacingMultiplier="2"
-                            android:padding="10dp"
-                            android:text="@string/today_weather"
-                            android:textColor="@color/color_c07a27"
-                            android:textSize="20sp" />
+                        android:layout_width="206dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="0dp"
+                        android:gravity="center"
+                        android:letterSpacing="1"
+                        android:lineSpacingMultiplier="2"
+                        android:padding="10dp"
+                        android:text="@string/today_weather"
+                        android:textColor="@color/color_c07a27"
+                        android:textSize="20sp" />
 
                     <TextView
-                            android:id="@+id/TextView_Weather_Details"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:layout_alignParentBottom="true"
-                            android:layout_marginEnd="50dp"
-                            android:layout_marginBottom="50dp"
-                            android:letterSpacing="0.3"
-                            android:text="降雨機率：XX%\n濕度：XX%\n風速：Xkm/h"
-                            android:textColor="@color/color_cda16d"
-                            android:textSize="15sp" />
+                        android:id="@+id/TextView_Weather_Details"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginEnd="50dp"
+                        android:layout_marginBottom="50dp"
+                        android:letterSpacing="0.3"
+                        android:text="降雨機率：XX%\n濕度：XX%\n風速：Xkm/h"
+                        android:textColor="@color/color_cda16d"
+                        android:textSize="15sp" />
 
                     <ImageView
-                            android:id="@+id/imageView"
-                            android:layout_width="82dp"
-                            android:layout_height="71dp"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentBottom="true"
-                            android:layout_marginStart="40dp"
-                            android:layout_marginEnd="65dp"
-                            android:layout_marginBottom="50dp"
-                            android:layout_toStartOf="@+id/TextView_Weather_Details"
-                            android:src="@drawable/cloud" />
+                        android:id="@+id/imageView"
+                        android:layout_width="82dp"
+                        android:layout_height="71dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="40dp"
+                        android:layout_marginEnd="65dp"
+                        android:layout_marginBottom="50dp"
+                        android:layout_toStartOf="@+id/TextView_Weather_Details"
+                        android:src="@drawable/cloud" />
 
                     <TextView
-                            android:id="@+id/textView_temperature_range"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentBottom="true"
-                            android:layout_marginStart="40dp"
-                            android:layout_marginBottom="30dp"
-                            android:text="@string/temperature_range" />
+                        android:id="@+id/textView_temperature_range"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="40dp"
+                        android:layout_marginBottom="30dp"
+                        android:text="@string/temperature_range" />
 
                 </RelativeLayout>
 
@@ -232,235 +232,235 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="421dp"
-                    android:layout_margin="20dp"
-                    android:textSize="20sp"
-                    app:cardBackgroundColor="@color/color_faf0dd"
-                    app:cardCornerRadius="10dp"
-                    app:cardElevation="0px"
-                    app:cardUseCompatPadding="false">
+                android:layout_width="match_parent"
+                android:layout_height="421dp"
+                android:layout_margin="20dp"
+                android:textSize="20sp"
+                app:cardBackgroundColor="@color/color_faf0dd"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="0px"
+                app:cardUseCompatPadding="false">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
                     <TextView
-                            android:id="@+id/textView3"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:letterSpacing="1"
-                            android:lineSpacingMultiplier="2"
-                            android:padding="10dp"
-                            android:text="@string/text_tplink_switch"
-                            android:textColor="@color/color_c07a27"
-                            android:textSize="20sp"
+                        android:id="@+id/textView3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:letterSpacing="1"
+                        android:lineSpacingMultiplier="2"
+                        android:padding="10dp"
+                        android:text="@string/text_tplink_switch"
+                        android:textColor="@color/color_c07a27"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintLayout"
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView3">
+
+                        <com.google.android.material.switchmaterial.SwitchMaterial
+                            android:id="@+id/tplink_switch1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="35dp"
+                            android:checked="true"
+                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:thumbTint="@color/color_c07a27"
+                            app:trackTint="@color/color_cda16d" />
+
+                        <ImageView
+                            android:id="@+id/imageView_power_plugs1"
+                            android:layout_width="53dp"
+                            android:layout_height="41dp"
+                            android:layout_marginStart="24dp"
+                            android:src="@drawable/power_plugs_logo_on"
+                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/constraintLayout"
-                            android:layout_width="0dp"
-                            android:layout_height="60dp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="1.0"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textView3">
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                        <com.google.android.material.switchmaterial.SwitchMaterial
-                                android:id="@+id/tplink_switch1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:layout_marginEnd="35dp"
-                                android:checked="true"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:thumbTint="@color/color_c07a27"
-                                app:trackTint="@color/color_cda16d" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintLayout2"
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
 
                         <ImageView
-                                android:id="@+id/imageView_power_plugs1"
-                                android:layout_width="53dp"
-                                android:layout_height="41dp"
-                                android:layout_marginStart="24dp"
-                                android:src="@drawable/power_plugs_logo_on"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
+                            android:id="@+id/imageView_power_plugs2"
+                            android:layout_width="53dp"
+                            android:layout_height="41dp"
+                            android:layout_marginStart="24dp"
+                            android:src="@drawable/power_plugs_logo_on"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <com.google.android.material.switchmaterial.SwitchMaterial
+                            android:id="@+id/tplink_switch2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="35dp"
+                            android:checked="true"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:thumbTint="@color/color_c07a27"
+                            app:trackTint="@color/color_cda16d" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/constraintLayout2"
-                            android:layout_width="0dp"
-                            android:layout_height="60dp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.0"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+                        android:id="@+id/constraintLayout4"
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
 
 
                         <ImageView
-                                android:id="@+id/imageView_power_plugs2"
-                                android:layout_width="53dp"
-                                android:layout_height="41dp"
-                                android:layout_marginStart="24dp"
-                                android:src="@drawable/power_plugs_logo_on"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                        <com.google.android.material.switchmaterial.SwitchMaterial
-                                android:id="@+id/tplink_switch2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:layout_marginEnd="35dp"
-                                android:checked="true"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:thumbTint="@color/color_c07a27"
-                                app:trackTint="@color/color_cda16d" />
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/constraintLayout4"
-                            android:layout_width="0dp"
-                            android:layout_height="60dp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.0"
+                            android:id="@+id/imageView_power_plugs3"
+                            android:layout_width="53dp"
+                            android:layout_height="41dp"
+                            android:layout_marginStart="24dp"
+                            android:src="@drawable/power_plugs_logo_on"
+                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
-
-
-                        <ImageView
-                                android:id="@+id/imageView_power_plugs3"
-                                android:layout_width="53dp"
-                                android:layout_height="41dp"
-                                android:layout_marginStart="24dp"
-                                android:src="@drawable/power_plugs_logo_on"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
+                            app:layout_constraintTop_toTopOf="parent" />
 
                         <com.google.android.material.switchmaterial.SwitchMaterial
-                                android:id="@+id/tplink_switch3"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:layout_marginEnd="35dp"
-                                android:checked="true"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:thumbTint="@color/color_c07a27"
-                                app:trackTint="@color/color_cda16d" />
+                            android:id="@+id/tplink_switch3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="35dp"
+                            android:checked="true"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:thumbTint="@color/color_c07a27"
+                            app:trackTint="@color/color_cda16d" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/constraintLayout3"
-                            android:layout_width="0dp"
-                            android:layout_height="60dp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.0"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
+                        android:id="@+id/constraintLayout3"
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
 
 
                         <ImageView
-                                android:id="@+id/imageView_power_plugs4"
-                                android:layout_width="53dp"
-                                android:layout_height="41dp"
-                                android:layout_marginStart="24dp"
-                                android:src="@drawable/power_plugs_logo_on"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
+                            android:id="@+id/imageView_power_plugs4"
+                            android:layout_width="53dp"
+                            android:layout_height="41dp"
+                            android:layout_marginStart="24dp"
+                            android:src="@drawable/power_plugs_logo_on"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
                         <com.google.android.material.switchmaterial.SwitchMaterial
-                                android:id="@+id/tplink_switch4"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:layout_marginEnd="35dp"
-                                android:checked="true"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:thumbTint="@color/color_c07a27"
-                                app:trackTint="@color/color_cda16d" />
+                            android:id="@+id/tplink_switch4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="35dp"
+                            android:checked="true"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:thumbTint="@color/color_c07a27"
+                            app:trackTint="@color/color_cda16d" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/constraintLayout5"
-                            android:layout_width="0dp"
-                            android:layout_height="60dp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.0"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
+                        android:id="@+id/constraintLayout5"
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
 
 
                         <ImageView
-                                android:id="@+id/imageView_power_plugs5"
-                                android:layout_width="53dp"
-                                android:layout_height="41dp"
-                                android:layout_marginStart="24dp"
-                                android:src="@drawable/power_plugs_logo_on"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
+                            android:id="@+id/imageView_power_plugs5"
+                            android:layout_width="53dp"
+                            android:layout_height="41dp"
+                            android:layout_marginStart="24dp"
+                            android:src="@drawable/power_plugs_logo_on"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
                         <com.google.android.material.switchmaterial.SwitchMaterial
-                                android:id="@+id/tplink_switch5"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:layout_marginEnd="35dp"
-                                android:checked="true"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:thumbTint="@color/color_c07a27"
-                                app:trackTint="@color/color_cda16d" />
+                            android:id="@+id/tplink_switch5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="35dp"
+                            android:checked="true"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:thumbTint="@color/color_c07a27"
+                            app:trackTint="@color/color_cda16d" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="0dp"
-                            android:layout_height="60dp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.0"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/constraintLayout5">
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/constraintLayout5">
 
 
                         <ImageView
-                                android:id="@+id/imageView_power_plugs6"
-                                android:layout_width="53dp"
-                                android:layout_height="41dp"
-                                android:layout_marginStart="24dp"
-                                android:src="@drawable/power_plugs_logo_on"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
+                            android:id="@+id/imageView_power_plugs6"
+                            android:layout_width="53dp"
+                            android:layout_height="41dp"
+                            android:layout_marginStart="24dp"
+                            android:src="@drawable/power_plugs_logo_on"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
                         <com.google.android.material.switchmaterial.SwitchMaterial
-                                android:id="@+id/tplink_switch6"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:layout_marginEnd="35dp"
-                                android:checked="true"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:thumbTint="@color/color_c07a27"
-                                app:trackTint="@color/color_cda16d" />
+                            android:id="@+id/tplink_switch6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="35dp"
+                            android:checked="true"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:thumbTint="@color/color_c07a27"
+                            app:trackTint="@color/color_cda16d" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>

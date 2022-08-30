@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.os.Message
-import android.util.Log
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.iotApp.api.IotApi
 import com.iotApp.api.SessionManager
@@ -30,14 +29,17 @@ class SplashActivity : Activity() {
             IotApi.handler = object : Handler(Looper.getMainLooper()) {
                 override fun handleMessage(msg: Message) {
                     super.handleMessage(msg)
-                    val intent = Intent(this@SplashActivity, MainActivity::class.java)
                     if (msg.obj != null) {
                         val response = msg.obj as UserInfo
                         SessionManager(this@SplashActivity).saveUserInfo(response)
+                    }else{
+                        SessionManager(this@SplashActivity).logout()
                     }
                     //exit SplashActivity
-                    finish()
-                    startActivity(intent)
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        finish()
+                        startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+                    }, 2000)
                 }
             }
         }
