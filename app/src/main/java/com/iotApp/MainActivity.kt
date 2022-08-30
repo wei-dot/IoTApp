@@ -147,7 +147,7 @@ class MainActivity : AppCompatActivity() {
             finish()
             startActivity(intent)
         }
-        binding.profilePage.addFamilyItem?.setOnClickListener {
+        binding.profilePage.addFamilyItem.setOnClickListener {
             val intent = Intent(this, FamilyActivity::class.java)
             intent.putExtra("FamilyMemberActivity", "addFamily")
             startActivity(intent)
@@ -162,7 +162,7 @@ class MainActivity : AppCompatActivity() {
         val navView: BottomNavigationView = binding.appBarMain.bottomNavigation
         val toolbar = binding.appBarMain.toolbar
         // Instantiate a ViewPager2 and a PagerAdapter.
-        viewPager = binding.appBarMain.viewPager2!!
+        viewPager = binding.appBarMain.viewPager2
 
         // The pager adapter, which provides the pages to the view pager widget.
         setSupportActionBar(toolbar)
