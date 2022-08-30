@@ -16,10 +16,10 @@
         android:background="@drawable/ic_return"
         app:layout_constraintBottom_toTopOf="@+id/content_space"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.013"
+        app:layout_constraintHorizontal_bias="0.03"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.875" />
+        app:layout_constraintVertical_bias="0.615" />
 
     <View
         android:id="@+id/content_space"
@@ -149,7 +149,7 @@
         android:layout_width="235dp"
         android:layout_height="176dp"
         android:layout_centerInParent="true"
-        android:visibility="gone"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/profile_detail_place"
         app:layout_constraintEnd_toEndOf="@+id/profile_detail_place"
         app:layout_constraintStart_toStartOf="@+id/profile"
