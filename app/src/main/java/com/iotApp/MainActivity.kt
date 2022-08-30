@@ -11,14 +11,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupWindow
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -37,6 +36,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewPager: ViewPager2
+    private var firstPressedTime: Long =0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,27 +52,22 @@ class MainActivity : AppCompatActivity() {
             switchSideBarContent(false)
             binding.appBarMain.btnNotification.isVisible = false
         }
-
-
         viewPager()
         buttonListener()
         IotApi.getFamily(this, binding.profilePage, SessionManager(this))
     }
 
 
-//override fun onSupportNavigateUp(): Boolean {
-//    val navController = findNavController(R.id.nav_host_fragment_activity_main)
-//    return navController.navigateUp(appBarConfiguration)
-//            || super.onSupportNavigateUp()
-//}
-
     override fun onBackPressed() {
         if (binding.drawerLayout.isDrawerVisible(GravityCompat.START)) {
             binding.drawerLayout.close()
-        } else if (R.id.navigation_notLogin == findNavController(R.id.nav_host_fragment_activity_main).currentDestination?.id) {
-            //防止在未登入頁面觸發back鍵
         } else {
-            super.onBackPressed()
+            if (System.currentTimeMillis() - firstPressedTime < 2000) {
+                super.onBackPressed();
+            } else {
+                Toast.makeText(this, "再按一次退出", Toast.LENGTH_SHORT).show();
+                firstPressedTime = System.currentTimeMillis();
+            }
         }
     }
 
@@ -176,7 +171,7 @@ class MainActivity : AppCompatActivity() {
         val navView: BottomNavigationView = binding.appBarMain.bottomNavigation
         val toolbar = binding.appBarMain.toolbar
         // Instantiate a ViewPager2 and a PagerAdapter.
-        viewPager = binding.appBarMain.content?.viewPager2!!
+        viewPager = binding.appBarMain.viewPager2!!
 
         // The pager adapter, which provides the pages to the view pager widget.
         setSupportActionBar(toolbar)
@@ -219,23 +214,22 @@ class MainActivity : AppCompatActivity() {
             when (it.itemId) {
                 R.id.navigation_home -> {
                     supportActionBar!!.title = "居家狀態"
-                    viewPager.setCurrentItem(0, true)
+                    viewPager.setCurrentItem(200, true)
                 }
                 R.id.navigation_family_in -> {
                     supportActionBar!!.title = "家庭管理"
-                    viewPager.setCurrentItem(1, true)
+                    viewPager.setCurrentItem(201, true)
                 }
                 R.id.navigation_mode -> {
                     supportActionBar!!.title = "組合鍵設置"
-                    viewPager.setCurrentItem(2, true)
+                    viewPager.setCurrentItem(202, true)
                 }
                 R.id.navigation_log -> {
                     supportActionBar!!.title = "設備日誌"
-                    viewPager.setCurrentItem(3, true)
+                    viewPager.setCurrentItem(203, true)
                 }
             }
             return@setOnItemSelectedListener true
-
         }
 
         val toggle = ActionBarDrawerToggle(
