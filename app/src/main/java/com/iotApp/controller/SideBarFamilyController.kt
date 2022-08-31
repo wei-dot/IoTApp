@@ -12,15 +12,16 @@ import com.iotApp.MainActivity
 import com.iotApp.R
 import com.iotApp.api.Home
 import com.iotApp.api.SessionManager
+import com.iotApp.databinding.DrawerUserProfileBinding
 
-class SideBarFamilyController {
-    fun sideBar(activity : Activity , binding : com.iotApp.databinding.UserProfileBinding,sessionManager: SessionManager , familyList : List<String>, response : ArrayList<Home>) {
+class SideBarController {
+    fun sideBar(activity : Activity , binding : DrawerUserProfileBinding,sessionManager: SessionManager , familyList : List<String>, response : ArrayList<Home>) {
         val myFamilyList: LinearLayout = binding.myFamilyList
         if (familyList.isNotEmpty()) {
             familyList.forEach {
                 val familyItem = View.inflate(
                     activity,
-                    R.layout.family_item,
+                    R.layout.item_family,
                     null
                 )
                 familyItem.findViewById<TextView>(R.id.family_name).text =

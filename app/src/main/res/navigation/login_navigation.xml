@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.iotApp.ui.login.LoginFragment"
+        android:name="com.iotApp.account.login.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_account_login">
         <action
@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/signupFragment"
-        android:name="com.iotApp.ui.signup.SignupFragment"
+        android:name="com.iotApp.account.signup.SignupFragment"
         android:label="fragment_signup"
         tools:layout="@layout/fragment_account_signup" >
         <action
@@ -38,7 +38,7 @@
     </fragment>
     <fragment
             android:id="@+id/forgetPasswordFragment"
-            android:name="com.iotApp.ui.forget.ForgetPasswordFragment"
+            android:name="com.iotApp.account.forget.ForgetPasswordFragment"
             android:label="fragment_reset"
             tools:layout="@layout/fragment_account_forget" >
         <action
@@ -49,14 +49,14 @@
     </fragment>
     <fragment
             android:id="@+id/resetPasswordFragment"
-            android:name="com.iotApp.ui.set.SetPasswordFragment"
+            android:name="com.iotApp.account.set.SetPasswordFragment"
             android:label="fragment_reset"
             tools:layout="@layout/fragment_account_set" />
     <fragment
             android:id="@+id/resendFragment"
-            android:name="com.iotApp.ui.resend.ResendFragment"
+            android:name="com.iotApp.account.resend.ResendFragment"
             android:label="fragment_resend"
-            tools:layout="@layout/fragment_resend" >
+            tools:layout="@layout/fragment_account_resend" >
         <action
                 android:id="@+id/action_resendFragment_to_loginFragment"
                 app:destination="@id/loginFragment"

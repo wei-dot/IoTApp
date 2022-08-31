@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mode_navigation"
+    app:startDestination="@id/navigation_mode_1_switch_set">
+    <fragment
+        android:id="@+id/navigation_mode_1_switch_set"
+        android:name="com.iotApp.mode.ModeSetSwitchFragment"
+        android:label="@string/fragment_main_mode"
+        tools:layout="@layout/fragment_mode_1_tplink_switch_setting">
+        <action
+            android:id="@+id/action_navigation_mode_1_switch_set_to_navigation_mode_2_ac_set"
+            app:destination="@id/navigation_mode_2_ac_set" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_mode_2_ac_set"
+        android:name="com.iotApp.mode.ModeSetAcFragment"
+        android:label="@string/fragment_main_mode"
+        tools:layout="@layout/fragment_mode_2_ac_setting">
+        <action
+            android:id="@+id/action_navigation_mode_2_ac_set_to_navigation_mode_3_naming"
+            app:destination="@id/navigation_mode_3_naming" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_mode_3_naming"
+        android:name="com.iotApp.mode.ModeSetNamingFragment"
+        android:label="@string/fragment_main_mode"
+        tools:layout="@layout/fragment_mode_3_naming">
+        <action
+            android:id="@+id/action_navigation_mode_3_naming_to_navigation_mode"
+            app:destination="@id/navigation_mode" />
+    </fragment>
+
+</navigation>

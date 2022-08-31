@@ -10,7 +10,7 @@
 
     <include
         android:id="@+id/app_bar_main"
-        layout="@layout/app_main"
+        layout="@layout/activity_main_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
@@ -28,7 +28,7 @@
 
             <include
                 android:id="@+id/login_page"
-                layout="@layout/not_login" />
+                layout="@layout/drawer_not_login" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -38,7 +38,7 @@
 
             <include
                 android:id="@+id/profile_page"
-                layout="@layout/user_profile" />
+                layout="@layout/drawer_user_profile" />
 
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/loading"
