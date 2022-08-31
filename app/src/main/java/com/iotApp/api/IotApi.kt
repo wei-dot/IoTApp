@@ -377,7 +377,6 @@ class IotApi {
                     } else {
                         Log.d("IotApi", "delFamilyMember: 刪除失敗")
                         Toast.makeText(binding.root.context, "刪除失敗", Toast.LENGTH_SHORT).show()
-                        //todo 目前還沒想到比較好的方法去回滾FamilyFragment已被移除顯示familyMemberList的內容
                         binding.loading.isVisible = false
                     }
                 }
@@ -389,6 +388,69 @@ class IotApi {
             }
         }
 
+        fun updateFamilyMemberByFamilyID(sessionManager: SessionManager){
+            val nowFamilyID = sessionManager.fetchFamilyId()
+            apiClient.getFamilyMember(id = nowFamilyID.toString() , token = "Token ${sessionManager.fetchAuthToken()}").enqueue {
+                onResponse = {
+                    if (it.isSuccessful) {
+                        val response = it.body()!!
+                        sessionManager.storeFamilyMembers(response.family_member)
+                        Log.d("IotApi", "getFamilyMemberByFamilyID: 更新成功\t ${sessionManager.fetchFamilyMembers()}")
+                    } else {
+                        Log.d("IotApi", "getFamilyMemberByFamilyID: 取得家庭成員失敗")
+                    }
+                }
+                onFailure = {
+                    Log.d("IotApi", "getFamilyMemberByFamilyID: ${it?.message}")
+                }
+            }
+        }
+
+        fun exitFamily(activity: FragmentActivity?,binding : FragmentFamilyEditBinding , sessionManager: SessionManager, @Body info : AlterHome) {
+            apiClient.alterFamily(id = sessionManager.fetchFamilyId().toString(),token = "Token ${sessionManager.fetchAuthToken()}",info).enqueue {
+                onResponse = {
+                    if (it.isSuccessful) {
+                        Log.d("IotApi", "exitFamily: 退出家庭成功")
+                        Toast.makeText(activity, "退出家庭成功", Toast.LENGTH_SHORT).show()
+                        sessionManager.clearFamilyId()
+                        sessionManager.clearFamilyName()
+                        sessionManager.clearFamilyMembers()
+                        activity?.finish()
+                        activity?.startActivity(Intent(activity, MainActivity::class.java))
+                    } else {
+                        Log.d("IotApi", "exitFamily: 退出家庭失敗")
+                        Toast.makeText(activity, "退出家庭失敗", Toast.LENGTH_SHORT).show()
+                    }
+                }
+                onFailure = {
+                    Log.d("IotApi", "exitFamily: ${it?.message}")
+                    Toast.makeText(activity, "退出家庭失敗", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+
+        fun deleteFamily(activity : FragmentActivity? , binding: FragmentFamilyEditBinding , sessionManager: SessionManager){
+            apiClient.deleteFamily(id = sessionManager.fetchFamilyId().toString(),token = "Token ${sessionManager.fetchAuthToken()}").enqueue {
+                onResponse = {
+                    if (it.isSuccessful) {
+                        Log.d("IotApi", "deleteFamily: 刪除家庭成功")
+                        Toast.makeText(activity, "刪除家庭成功", Toast.LENGTH_SHORT).show()
+                        sessionManager.clearFamilyId()
+                        sessionManager.clearFamilyName()
+                        sessionManager.clearFamilyMembers()
+                        activity?.finish()
+                        activity?.startActivity(Intent(activity, MainActivity::class.java))
+                    } else {
+                        Log.d("IotApi", "deleteFamily: 刪除家庭失敗")
+                        Toast.makeText(activity, "刪除家庭失敗", Toast.LENGTH_SHORT).show()
+                    }
+                }
+                onFailure = {
+                    Log.d("IotApi", "deleteFamily: ${it?.message}")
+                    Toast.makeText(activity, "刪除家庭失敗", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
         /**
          * Function to get Mode Key Info
          */

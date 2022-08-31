@@ -67,4 +67,18 @@ interface ApiService {
         @Header("Authorization") token: String,
         @Body info: AlterHome
     ): Call<Void>
+
+    @Headers("Content-Type:application/json")
+    @DELETE(Constants.FAMILY_URL_ID)
+    fun deleteFamily(
+        @Path("id") id: String,
+        @Header("Authorization") token: String
+    ): Call<Void>
+
+    @Headers("Content-Type:application/json")
+    @GET(Constants.FAMILY_URL_ID)
+    fun getFamilyMember(
+        @Path("id") id: String,
+        @Header("Authorization") token: String
+    ): Call<Home>
 }

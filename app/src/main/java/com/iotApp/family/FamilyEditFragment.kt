@@ -1,6 +1,5 @@
 package com.iotApp.family
 
-import android.content.Intent
 import android.os.Bundle
 
 import android.view.LayoutInflater
@@ -9,8 +8,10 @@ import android.view.ViewGroup
 
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.iotApp.MainActivity
 import com.iotApp.R
+import com.iotApp.api.AlterHome
+import com.iotApp.api.IotApi
+import com.iotApp.api.SessionManager
 
 import com.iotApp.databinding.FragmentFamilyEditBinding
 
@@ -35,7 +36,22 @@ class FamilyEditFragment : Fragment() {
             activity?.finish()
         }
         binding.btnExitFamily.setOnClickListener {
-            startActivity(Intent(activity, MainActivity::class.java))
+            IotApi.updateFamilyMemberByFamilyID(SessionManager(requireActivity()))
+            if (SessionManager(requireActivity()).fetchMyOwnFamily()!!.contains(SessionManager(requireActivity()).fetchFamilyId().toString())) {
+                //表示為管理員，執行刪除整個家庭動作
+                IotApi.deleteFamily(activity,binding,SessionManager(requireActivity()))
+            }
+            else{
+                //表示為成員，僅執行調整成員動作
+                val newMemberList : ArrayList<String> = ArrayList()
+                SessionManager(requireActivity()).fetchFamilyMembers()?.iterator()?.forEach { member ->
+                    if (member != SessionManager(requireActivity()).fetchUserInfo()?.username) {
+                        newMemberList.add(member)
+                    }
+                }
+                val alterHome = AlterHome(SessionManager(requireActivity()).fetchFamilyName().toString(), newMemberList)
+                IotApi.exitFamily(activity, binding , SessionManager(requireActivity()) , alterHome)
+            }
         }
         binding.btnAddMember.setOnClickListener {
             findNavController().navigate(R.id.navigation_family_member_add)

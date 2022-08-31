@@ -118,6 +118,11 @@ class SessionManager(context: Context) {
     fun fetchFamilyMembers(): Set<String>? {
         return prefs.getStringSet(NOW_FAMILY_MEMBER, null)
     }
+    fun clearFamilyMembers() {
+        val editor = prefs.edit()
+        editor.remove(NOW_FAMILY_MEMBER)
+        editor.apply()
+    }
 
     fun saveMyOwnFamily(familyIdList: List<String>?) {
         val editor = prefs.edit()
