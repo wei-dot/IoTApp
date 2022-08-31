@@ -14,13 +14,8 @@ import com.iotApp.api.Home
 import com.iotApp.api.SessionManager
 import com.iotApp.databinding.DrawerUserProfileBinding
 
-<<<<<<< HEAD:app/src/main/java/com/iotApp/controller/SideBarController.kt
 class SideBarController {
     fun sideBar(activity : Activity , binding : DrawerUserProfileBinding,sessionManager: SessionManager , familyList : List<String>, response : ArrayList<Home>) {
-=======
-class SideBarFamilyController {
-    fun sideBar(activity : Activity , binding : com.iotApp.databinding.UserProfileBinding,sessionManager: SessionManager , familyList : List<String>, response : ArrayList<Home>) {
->>>>>>> a0dcdff7b7495eecd9f8f63fbe088173e5a12906:app/src/main/java/com/iotApp/controller/SideBarFamilyController.kt
         val myFamilyList: LinearLayout = binding.myFamilyList
         if (familyList.isNotEmpty()) {
             familyList.forEach {

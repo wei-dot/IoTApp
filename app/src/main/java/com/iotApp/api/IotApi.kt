@@ -10,13 +10,9 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.FragmentActivity
 import com.iotApp.MainActivity
-<<<<<<< HEAD
+import com.iotApp.databinding.*
+import com.iotApp.databinding.*
 import com.iotApp.controller.SideBarController
-import com.iotApp.databinding.*
-=======
-import com.iotApp.databinding.*
-import com.iotApp.controller.SideBarFamilyController
->>>>>>> a0dcdff7b7495eecd9f8f63fbe088173e5a12906
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -325,7 +321,7 @@ class IotApi {
                     if (it.isSuccessful) {
                         val response = it.body()!!
                         val familyList: List<String> = response.map { num->num.home_name }
-                        SideBarFamilyController().sideBar(activity!!, binding, sessionManager, familyList , response)
+                        SideBarController().sideBar(activity!!, binding, sessionManager, familyList , response)
                     } else {
                         binding.loading.isVisible = false
                         Log.d("IotApi", "getFamily: 取得家庭失敗")
