@@ -13,7 +13,7 @@ import com.iotApp.R
 import com.iotApp.api.Home
 import com.iotApp.api.SessionManager
 
-class SideBarController {
+class SideBarFamilyController {
     fun sideBar(activity : Activity , binding : com.iotApp.databinding.UserProfileBinding,sessionManager: SessionManager , familyList : List<String>, response : ArrayList<Home>) {
         val myFamilyList: LinearLayout = binding.myFamilyList
         if (familyList.isNotEmpty()) {

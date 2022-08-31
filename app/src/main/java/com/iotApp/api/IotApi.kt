@@ -11,7 +11,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.FragmentActivity
 import com.iotApp.MainActivity
 import com.iotApp.databinding.*
-import com.iotApp.controller.SideBarController
+import com.iotApp.controller.SideBarFamilyController
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -262,9 +262,7 @@ class IotApi {
 
                             val adminInfo = sessionManager.fetchUserInfo()?.username.toString()
                                 .let { it1 -> Admin(info.home_name, it1) }
-                            if (adminInfo != null) {
-                                setAdmin(adminInfo, activity, binding, sessionManager)
-                            }
+                            setAdmin(adminInfo, activity, binding, sessionManager)
                         } else {
                             binding.loading.isVisible = false
                             Log.d("IotApi", "建立家庭失敗: ${it.errorBody()?.string()} ")
@@ -322,7 +320,7 @@ class IotApi {
                     if (it.isSuccessful) {
                         val response = it.body()!!
                         val familyList: List<String> = response.map { num->num.home_name }
-                        SideBarController().sideBar(activity!!, binding, sessionManager, familyList , response)
+                        SideBarFamilyController().sideBar(activity!!, binding, sessionManager, familyList , response)
                     } else {
                         binding.loading.isVisible = false
                         Log.d("IotApi", "getFamily: 取得家庭失敗")
@@ -337,6 +335,26 @@ class IotApi {
                     binding.loading.isVisible = false
                     Log.d("IotApi", "getFamily: ${it?.message}")
                     Toast.makeText(activity, "取得家庭失敗", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+
+        fun getMyOwnFamily(
+            activity: FragmentActivity?,
+            sessionManager: SessionManager
+        ){
+            apiClient.getFamilyAdmin(token = "Token ${sessionManager.fetchAuthToken()}").enqueue(){
+                onResponse = {
+                    if (it.isSuccessful) {
+                        val response = it.body()!!
+                        val myOwnFamilyList : List<String> = response.map { num->num.home_id }.toList()
+                        sessionManager.saveMyOwnFamily(myOwnFamilyList)
+                    } else {
+                        Log.d("IotApi", "getMyOwnFamily: 取得家庭失敗")
+                    }
+                }
+                onFailure = {
+                    Log.d("IotApi", "getMyOwnFamily: ${it?.message}")
                 }
             }
         }
@@ -381,7 +399,6 @@ class IotApi {
                     onResponse = {
                         if (it  .isSuccessful) {
                             Log.d("IotApi", "getModeKeyInfo: 取得組合鍵金鑰成功")
-                            Toast.makeText(activity, "取得組合鍵金鑰成功", Toast.LENGTH_SHORT).show()
                             val response = it.body()!!
                             var modeKeyList = response
                             modeKeyList = removeModeKey(modeKeyList, sessionManager)

@@ -16,6 +16,7 @@ class SessionManager(context: Context) {
         const val NOW_FAMILY = "now_family"
         const val NOW_FAMILY_MEMBER = "now_family_member"
         const val NOW_FAMILY_ID = "now_family_id"
+        const val MYOWNFAMILY = "my_own_family"
         val MODE_KEY_NAME: ArrayList<GetModeKeyDataInfo> = ArrayList()
     }
 
@@ -61,9 +62,9 @@ class SessionManager(context: Context) {
      * Function to save family id
      */
 
-    fun saveFamilyName(familyId: String?) {
+    fun saveFamilyName(familyName: String?) {
         val editor = prefs.edit()
-        editor.putString(NOW_FAMILY, familyId)
+        editor.putString(NOW_FAMILY, familyName)
         editor.apply()
     }
 
@@ -73,12 +74,6 @@ class SessionManager(context: Context) {
         editor.apply()
     }
 
-
-//    fun saveFamily(familyInfo: UserInfo) {
-//        val editor = prefs.edit()
-//        editor.putString(NOW_FAMILY, familyInfo.username)
-//        editor.apply()
-//    }
 
     /**
      * Function to fetch family id
@@ -94,9 +89,16 @@ class SessionManager(context: Context) {
     /**
      * Function to clear family id token
      */
-    fun clearFamilyId() {
+
+    fun clearFamilyName() {
         val editor = prefs.edit()
         editor.remove(NOW_FAMILY)
+        editor.apply()
+    }
+
+    fun clearFamilyId() {
+        val editor = prefs.edit()
+        editor.remove(NOW_FAMILY_ID)
         editor.apply()
     }
 
@@ -115,6 +117,15 @@ class SessionManager(context: Context) {
      */
     fun fetchFamilyMembers(): Set<String>? {
         return prefs.getStringSet(NOW_FAMILY_MEMBER, null)
+    }
+
+    fun saveMyOwnFamily(familyIdList: List<String>?) {
+        val editor = prefs.edit()
+        editor.putStringSet(MYOWNFAMILY, familyIdList?.toSet())
+        editor.apply()
+    }
+    fun fetchMyOwnFamily(): Set<String>? {
+        return prefs.getStringSet(MYOWNFAMILY, null)
     }
 
 

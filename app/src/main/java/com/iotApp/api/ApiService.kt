@@ -47,7 +47,7 @@ interface ApiService {
 
     @Headers("Content-Type:application/json")
     @GET(Constants.FAMILY_ADMIN_URL)
-    fun getFamilyAdmin(@Header("Authorization") token: String): Call<FamilyAdmin>
+    fun getFamilyAdmin(@Header("Authorization") token: String): Call<ArrayList<FamilyAdmin>>
 
     @Headers("Content-Type:application/json")
     @POST(Constants.POST_MODE_KEY_DATA)

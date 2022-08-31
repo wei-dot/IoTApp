@@ -54,8 +54,9 @@ class FamilyFragment : Fragment() {
             binding.btnAddFamily.isVisible = false
             //test
 //            val familyMemberList: List<String> = listOf("島輝", "偷刀", "馬吉亞米", "番仔", "盲胞", "歐巴馬", "勞贖")
-            val king = "島輝"
+//            val king = "島輝"
             //test
+            IotApi.getMyOwnFamily(activity, SessionManager(requireActivity()))
             val memberList: LinearLayout = binding.familyMemberBoxLinearlayout
             for (i in familyMemberList.indices) {
                 val memberToAdd = View.inflate(context, com.iotApp.R.layout.member, null)
@@ -63,10 +64,6 @@ class FamilyFragment : Fragment() {
                 memberToAdd.findViewById<TextView>(com.iotApp.R.id.text_member_name).text =
                     familyMemberList[i]
                 memberToAdd.setPadding(38, 0, 38, 0)
-                if (familyMemberList[i] == king) {
-                    memberToAdd.findViewById<ImageView>(com.iotApp.R.id.ic_admin).isVisible =
-                        true
-                }
                 memberList.addView(memberToAdd)
                 memberToAdd.setOnClickListener {
                     val popupWindow = PopupWindow(context)
@@ -79,7 +76,7 @@ class FamilyFragment : Fragment() {
                         view.findViewById<ImageButton>(com.iotApp.R.id.btn_kickmember)
                     popupUsername.text = familyMemberList[i]
                     popupUser.text = familyMemberList[i]
-                    if (familyMemberList[i] == king) {
+                    if (!SessionManager(requireActivity()).fetchMyOwnFamily()!!.contains(SessionManager(requireActivity()).fetchFamilyId())) {
                         kickMember.isVisible = false
                     }
                     kickMember.setOnClickListener {
@@ -160,9 +157,10 @@ class FamilyFragment : Fragment() {
                     popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0)
                 }
             }
-//            binding.btnFamilySetting.setOnClickListener {
+            binding.btnFamilySetting.setOnClickListener {
 //                Toast.makeText(context, SessionManager(requireActivity()).fetchFamilyId().toString(), Toast.LENGTH_SHORT).show()
-//            }
+                IotApi.getMyOwnFamily(activity,SessionManager(requireActivity()))
+            }
         } else {
             binding.btnFamilyEdit.isVisible = false
             binding.btnFamilySetting.isVisible = false
