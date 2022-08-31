@@ -1,25 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@drawable/background_fullscreen">
 
-    <ImageButton
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_back"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="@dimen/back_icon_size"
+        android:layout_height="@dimen/back_icon_size"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="5dp"
         android:background="@drawable/ic_return"
         app:layout_constraintBottom_toTopOf="@+id/content_space"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.03"
+        app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.615" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <View
         android:id="@+id/content_space"
@@ -73,7 +70,7 @@
         android:id="@+id/profile"
         android:layout_width="236dp"
         android:layout_height="235dp"
-        android:background="@drawable/background_profile_detail"
+        android:background="@drawable/background_inside"
         app:layout_constraintBottom_toBottomOf="@+id/content_space"
         app:layout_constraintEnd_toEndOf="@+id/content_space"
         app:layout_constraintHorizontal_bias="0.537"
@@ -105,41 +102,44 @@
             android:orientation="vertical" />
     </ScrollView>
 
-    <ImageButton
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/add_family_item"
-        android:layout_width="93dp"
-        android:layout_height="29dp"
-        android:background="@drawable/btn_add_family_s"
+        style="@style/MaterialButton_red_Style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:letterSpacing="0.5"
+        android:text="@string/add_family"
         app:layout_constraintBottom_toBottomOf="@+id/profile"
         app:layout_constraintEnd_toEndOf="@+id/profile"
-        app:layout_constraintHorizontal_bias="0.479"
         app:layout_constraintStart_toStartOf="@+id/profile"
         app:layout_constraintTop_toTopOf="@+id/profile"
-        app:layout_constraintVertical_bias="0.946" />
+        app:layout_constraintVertical_bias="1" />
 
-    <ImageButton
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_set"
-        android:layout_width="122dp"
-        android:layout_height="33dp"
+        style="@style/MaterialButton_round_Style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="25dp"
-        android:background="@drawable/btn_set"
+        android:text="@string/change_password"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/btn_logout"
         app:layout_constraintEnd_toEndOf="@+id/content_space"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="@+id/content_space"
-        app:layout_constraintTop_toBottomOf="@+id/profile_detail_place"
-        app:layout_constraintVertical_bias="0.854" />
+        app:layout_constraintTop_toBottomOf="@+id/profile" />
 
-    <ImageButton
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_logout"
-        android:layout_width="122dp"
-        android:layout_height="33dp"
+        style="@style/MaterialButton_red_Style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginBottom="20dp"
-        android:background="@drawable/btn_logout"
+        android:text="@string/logout"
+        android:textSize="18sp"
+        android:letterSpacing="0.8"
         app:layout_constraintBottom_toBottomOf="@+id/content_space"
         app:layout_constraintEnd_toEndOf="@+id/btn_set"
         app:layout_constraintStart_toStartOf="@+id/btn_set" />

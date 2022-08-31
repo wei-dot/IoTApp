@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.os.Message
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,8 +13,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.iotApp.MainActivity
 import com.iotApp.R
-import com.iotApp.databinding.FragmentAccountLoginBinding
 import com.iotApp.api.*
+import com.iotApp.databinding.FragmentAccountLoginBinding
 
 class LoginFragment : Fragment() {
 

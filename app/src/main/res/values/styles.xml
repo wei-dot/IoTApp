@@ -1,6 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <style name="TextInputEditText_style" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxCornerRadiusBottomEnd">10dp</item>
+        <item name="boxCornerRadiusBottomStart">10dp</item>
+        <item name="boxCornerRadiusTopEnd">10dp</item>
+        <item name="boxCornerRadiusTopStart">10dp</item>
+        <item name="boxStrokeColor">#AAAAAA</item>
+        <item name="boxBackgroundColor">@color/white</item>
+        <item name="android:textColorHint">#AAAAAA</item>
+        <item name="passwordToggleTint">@color/black</item>
+    </style>
+
+    <style name="MaterialButton_square_Style" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textSize">24sp</item>
+        <item name="android:letterSpacing">0.8</item>
+        <item name="strokeColor">@color/color_14b2d4</item>
+        <item name="strokeWidth">2dp</item>
+        <item name="cornerRadius">9dp</item>
+        <item name="android:textColor">@color/color_14b2d4</item>
+        <item name="backgroundTint">@color/white</item>
+    </style>
+
+    <style name="MaterialButton_round_Style" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textSize">24sp</item>
+        <item name="android:letterSpacing">0.8</item>
+        <item name="strokeColor">@color/color_14b2d4</item>
+        <item name="strokeWidth">2dp</item>
+        <item name="cornerRadius">15dp</item>
+        <item name="android:textColor">@color/color_14b2d4</item>
+        <item name="backgroundTint">@color/white</item>
+    </style>
+
+    <style name="MaterialButton_red_Style" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textSize">14sp</item>
+        <item name="strokeColor">@color/color_df8888</item>
+        <item name="strokeWidth">2dp</item>
+        <item name="cornerRadius">9dp</item>
+        <item name="android:textColor">@color/color_df8888</item>
+        <item name="backgroundTint">@color/white</item>
+    </style>
+
     <style name="title_style">
         <item name="android:textSize">28sp</item>
         <item name="android:letterSpacing">0.36</item>
@@ -50,16 +90,6 @@
         <item name="android:textColor">#DF8888</item>
     </style>
 
-    <style name="TextInputEditText_style" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
-        <item name="boxCornerRadiusBottomEnd">10dp</item>
-        <item name="boxCornerRadiusBottomStart">10dp</item>
-        <item name="boxCornerRadiusTopEnd">10dp</item>
-        <item name="boxCornerRadiusTopStart">10dp</item>
-        <item name="boxStrokeColor">#AAAAAA</item>
-        <item name="boxBackgroundColor">@color/white</item>
-        <item name="android:textColorHint">#AAAAAA</item>
-        <item name="passwordToggleTint">@color/black</item>
-    </style>
 
     <style name="text_family_information_style">
         <item name="android:textSize">20sp</item>
@@ -90,5 +120,6 @@
         <item name="android:letterSpacing">0.36</item>
         <item name="android:textColor">#CDA16D</item>
     </style>
+
 
 </resources>

@@ -4,8 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.iotApp.R
 import com.iotApp.api.Constants
 import com.iotApp.api.WsListener
 import com.iotApp.databinding.FragmentMainHomeBinding
@@ -25,10 +29,16 @@ class HomeFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
-    private val host: String = "192.168.0.10"
+    private var mHomeFab: ExtendedFloatingActionButton? = null
+    private var mAddDeviceFab: FloatingActionButton? = null
+    private var mDeviceListFab: FloatingActionButton? = null
+    private var mAddDeviceText: TextView? = null
+    private var mDeviceListText: TextView? = null
+    private var mIsAllFabVisible: Boolean? = null
 
     //    private val host: String = "192.168.0.15"
-    private val mWbSocketUrl = "ws://192.168.0.10:8000" + Constants.Power_Strip_URL
+    private val host: String = "192.168.0.10"
+    private val mWbSocketUrl = "ws://" + host + Constants.Power_Strip_URL
     private lateinit var mClient: OkHttpClient
     private lateinit var request: Request
     private lateinit var mWebSocket: WebSocket
@@ -42,8 +52,40 @@ class HomeFragment : Fragment() {
             ViewModelProvider(this)[HomeViewModel::class.java]
 
         _binding = FragmentMainHomeBinding.inflate(inflater, container, false)
+        mHomeFab = binding.homeFab
+        mAddDeviceFab = binding.addDeviceFab
+        mDeviceListFab = binding.deviceListFab
+        mAddDeviceText = binding.addDeviceText
+        mDeviceListText = binding.deviceListText
+        fabInVisibility()
+        mHomeFab?.setOnClickListener {
+            mIsAllFabVisible = if(!mIsAllFabVisible!!) {
+                mAddDeviceFab?.show()
+                mAddDeviceText?.visibility = View.VISIBLE
+                mAddDeviceFab?.animate()?.translationY(-resources.getDimension(R.dimen.standard_60))
+                mAddDeviceText?.animate()?.translationY(-resources.getDimension(R.dimen.standard_60))
 
+                mDeviceListFab?.show()
+                mDeviceListText?.visibility = View.VISIBLE
+                mDeviceListFab?.animate()?.translationY(-resources.getDimension(R.dimen.standard_120))
+                mDeviceListText?.animate()?.translationY(-resources.getDimension(R.dimen.standard_120))
 
+                mHomeFab!!.extend()
+                true
+            } else {
+                mAddDeviceFab?.hide()
+                mAddDeviceText?.visibility = View.GONE
+                mAddDeviceFab?.animate()?.translationY(0f)
+                mAddDeviceText?.animate()?.translationY(0f)
+
+                mDeviceListFab?.hide()
+                mDeviceListText?.visibility = View.GONE
+                mDeviceListFab?.animate()?.translationY(0f)
+                mAddDeviceText?.animate()?.translationY(0f)
+                mHomeFab!!.shrink()
+                false
+            }
+        }
 
         return binding.root
 
@@ -124,6 +166,16 @@ class HomeFragment : Fragment() {
             }
         }
 
+
+    }
+
+    private fun fabInVisibility() {
+        mAddDeviceFab?.visibility = View.GONE
+        mDeviceListFab?.visibility = View.GONE
+        mAddDeviceText?.visibility = View.GONE
+        mDeviceListText?.visibility = View.GONE
+        mIsAllFabVisible = false
+        mHomeFab?.shrink()
     }
 
     private fun send(msg: String) {

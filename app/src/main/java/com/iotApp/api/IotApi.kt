@@ -6,12 +6,12 @@ import android.os.Handler
 import android.os.Looper
 import android.os.Message
 import android.util.Log
-import android.widget.*
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.FragmentActivity
 import com.iotApp.MainActivity
-import com.iotApp.databinding.*
 import com.iotApp.controller.SideBarController
+import com.iotApp.databinding.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -313,7 +313,7 @@ class IotApi {
 
         fun getFamily(
             activity: Activity?,
-            binding: UserProfileBinding,
+            binding: DrawerUserProfileBinding,
             sessionManager: SessionManager
         ) {
             binding.loading.isVisible = true

@@ -473,20 +473,71 @@
         </LinearLayout>
     </ScrollView>
 
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton_mode_key_add"
+        android:id="@+id/add_device_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="100dp"
         android:clickable="true"
-        android:src="@drawable/btn_mode_key_add"
+        android:src="@drawable/ic_add_device_fill"
         app:backgroundTint="@color/color_14b2d4"
-        app:layout_constraintBottom_toBottomOf="@id/scrollView3"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/scrollView3"
-        app:layout_constraintVertical_bias="0.95"
         app:rippleColor="@color/color_fbfbfb"
         app:tint="@color/color_fbfbfb" />
+
+    <TextView
+        android:id="@+id/add_device_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="@string/add_device"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/add_device_fab"
+        app:layout_constraintEnd_toStartOf="@+id/add_device_fab"
+        app:layout_constraintTop_toTopOf="@+id/add_device_fab" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/device_list_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="100dp"
+        android:clickable="true"
+        android:src="@drawable/ic_device_list"
+        app:backgroundTint="@color/color_14b2d4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:rippleColor="@color/color_fbfbfb"
+        app:tint="@color/color_fbfbfb" />
+
+    <TextView
+        android:id="@+id/device_list_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="@string/device_list"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/device_list_fab"
+        app:layout_constraintEnd_toStartOf="@+id/device_list_fab"
+        app:layout_constraintTop_toTopOf="@+id/device_list_fab" />
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/home_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="100dp"
+        android:text="@string/device"
+        android:textColor="@color/color_fffbf1"
+        app:backgroundTint="@color/color_14b2d4"
+        app:icon="@drawable/btn_mode_key_add"
+        app:iconTint="@color/color_fffbf1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

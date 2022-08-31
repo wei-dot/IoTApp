@@ -75,7 +75,7 @@ class MainActivity : AppCompatActivity() {
 
     @SuppressLint("ClickableViewAccessibility", "InflateParams")
     private fun initPopWindow(v: View) {
-        val view = LayoutInflater.from(this).inflate(R.layout.notification_window, null, false)
+        val view = LayoutInflater.from(this).inflate(R.layout.popup_notification, null, false)
         val popWindow = PopupWindow(
             view,
             ViewGroup.LayoutParams.WRAP_CONTENT,

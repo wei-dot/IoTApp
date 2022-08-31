@@ -14,6 +14,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.button.MaterialButton
 import com.iotApp.FamilyActivity
 import com.iotApp.api.AlterHome
 import com.iotApp.api.IotApi
@@ -58,7 +59,7 @@ class FamilyFragment : Fragment() {
             //test
             val memberList: LinearLayout = binding.familyMemberBoxLinearlayout
             for (i in familyMemberList.indices) {
-                val memberToAdd = View.inflate(context, com.iotApp.R.layout.member, null)
+                val memberToAdd = View.inflate(context, com.iotApp.R.layout.item_member, null)
                 memberToAdd.id = i
                 memberToAdd.findViewById<TextView>(com.iotApp.R.id.text_member_name).text =
                     familyMemberList[i]
@@ -76,7 +77,7 @@ class FamilyFragment : Fragment() {
                         view.findViewById<TextView>(com.iotApp.R.id.popup_username)
                     val popupUser = view.findViewById<TextView>(com.iotApp.R.id.popup_user)
                     val kickMember =
-                        view.findViewById<ImageButton>(com.iotApp.R.id.btn_kickmember)
+                        view.findViewById<MaterialButton>(com.iotApp.R.id.btn_kickmember)
                     popupUsername.text = familyMemberList[i]
                     popupUser.text = familyMemberList[i]
                     if (familyMemberList[i] == king) {

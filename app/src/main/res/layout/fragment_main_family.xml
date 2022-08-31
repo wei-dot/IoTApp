@@ -14,7 +14,7 @@
         android:layout_alignParentTop="true"
         android:layout_margin="40dp"
         android:alpha="0.88"
-        android:background="@drawable/background_family_information"
+        android:background="@drawable/background_content_square"
         app:layout_constraintBottom_toTopOf="@+id/family_member_box"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,7 +38,7 @@
         app:layout_constraintTop_toTopOf="@+id/family_information_box"
         app:layout_constraintVertical_bias="0.078" />
 
-    <View
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_family_setting"
         android:layout_width="30dp"
         android:layout_height="30dp"
@@ -61,12 +61,11 @@
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="100dp"
-        android:background="@drawable/background_family_member"
+        android:background="@drawable/background_content_square"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/family_information_box"
-        app:layout_constraintVertical_bias="0.368" />
+        app:layout_constraintTop_toBottomOf="@+id/family_information_box" />
 
     <TextView
         android:id="@+id/family_member_text"
@@ -84,7 +83,7 @@
         app:layout_constraintTop_toTopOf="@+id/family_member_box" />
 
 
-    <View
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_family_edit"
         android:layout_width="40dp"
         android:layout_height="40dp"
@@ -119,16 +118,7 @@
             android:layout_marginStart="10dp"
             android:orientation="horizontal" />
     </HorizontalScrollView>
-<!--    <LinearLayout-->
-<!--        android:id="@+id/family_member_list"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="0dp"-->
-<!--        android:textAlignment="center"-->
-<!--        app:layout_constraintBottom_toBottomOf="@+id/family_member_box"-->
-<!--        app:layout_constraintEnd_toEndOf="@+id/family_member_box"-->
-<!--        app:layout_constraintStart_toStartOf="@+id/family_member_box"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/family_member_text">-->
-<!--    </LinearLayout>-->
+
 
     <TextView
         android:id="@+id/text_family"
@@ -162,7 +152,7 @@
         android:layout_width="0dp"
         android:layout_height="116dp"
         android:layout_centerInParent="true"
-        android:background="@drawable/background_family_member"
+        android:background="@drawable/background_content_square"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/family_member_box"
         app:layout_constraintEnd_toEndOf="@+id/family_member_box"

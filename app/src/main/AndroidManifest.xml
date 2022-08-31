@@ -33,11 +33,15 @@
             android:exported="true"
             android:theme="@style/Theme.IoTApp.NoActionBar" />
         <activity
-            android:name=".FamilyActivity"
+            android:name=".AccountActivity"
             android:exported="true"
             android:theme="@style/Theme.IoTApp.NoActionBar" />
         <activity
-            android:name=".AccountActivity"
+            android:name=".HomeActivity"
+            android:exported="true"
+            android:theme="@style/Theme.IoTApp.NoActionBar" />
+        <activity
+            android:name=".FamilyActivity"
             android:exported="true"
             android:theme="@style/Theme.IoTApp.NoActionBar" />
         <activity
