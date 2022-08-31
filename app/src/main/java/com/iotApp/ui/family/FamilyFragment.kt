@@ -79,6 +79,9 @@ class FamilyFragment : Fragment() {
                     if (!SessionManager(requireActivity()).fetchMyOwnFamily()!!.contains(SessionManager(requireActivity()).fetchFamilyId())) {
                         kickMember.isVisible = false
                     }
+                    else {
+                        kickMember.isVisible = familyMemberList[i] != SessionManager(requireActivity()).fetchUserInfo()?.username
+                    }
                     kickMember.setOnClickListener {
                         binding.loading.isVisible = true
                         memberList.removeView(memberToAdd)
