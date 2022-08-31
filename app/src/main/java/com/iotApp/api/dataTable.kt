@@ -80,18 +80,7 @@ data class PostModeKeyDataInfo(
     @SerializedName("ac_switch")
     val ac_switch: Boolean,
 )
-data class FamilyAdmin(
-    @SerializedName("family_name")
-    val family_name: String,
-    @SerializedName("family_description")
-    val family_description: String,
-    @SerializedName("family_admin")
-    val family_admin: String,
-    @SerializedName("family_admin_phone")
-    val family_admin_phone: String,
-    @SerializedName("family_admin_email")
-    val family_admin_email: String
-)
+
 data class Home(
     @SerializedName("user")
     val family_member: ArrayList<String>,
@@ -114,9 +103,19 @@ data class Admin(
     val user: String
 )
 
+data class FamilyAdmin(
+    @SerializedName("id")
+    val id: String,
+    @SerializedName("home")
+    val home_id: String,
+    @SerializedName("admin")
+    val home_admin: String
+)
+
 data class AlterHome(
     @SerializedName("home_name")
     val home_name: String,
     @SerializedName("user")
     val user: ArrayList<String>
 )
+
