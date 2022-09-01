@@ -18,6 +18,7 @@ class SideBarController {
     fun sideBar(activity : Activity , binding : DrawerUserProfileBinding,sessionManager: SessionManager , familyList : List<String>, response : ArrayList<Home>) {
         val myFamilyList: LinearLayout = binding.myFamilyList
         if (familyList.isNotEmpty()) {
+            var n = 0
             familyList.forEach {
                 val familyItem = View.inflate(
                     activity,
@@ -26,6 +27,8 @@ class SideBarController {
                 )
                 familyItem.findViewById<TextView>(R.id.family_name).text =
                     it
+                val nowID : String = response[n].id
+                familyItem.setTag(R.id.family_name, nowID)
                 familyItem.setPadding(0, 30, 0, 30)
                 myFamilyList.addView(familyItem)
                 if (sessionManager.fetchFamilyName() == null) {
@@ -37,9 +40,8 @@ class SideBarController {
                         response.find {num->num.home_name == familyList[0] }!!.family_member
                     sessionManager.storeFamilyMembers(memberList)
                 } else {
-                    sessionManager.saveFamilyId(response.find { home: Home -> home.home_name == sessionManager.fetchFamilyName() }!!.id)
-                    sessionManager.saveFamilyName(response.find { home: Home -> home.home_name == sessionManager.fetchFamilyName() }!!.home_name)
-                    if (sessionManager.fetchFamilyName() == it) {
+                if (sessionManager.fetchFamilyId() == familyItem.getTag(R.id.family_name)) {
+
                         familyItem.findViewById<ImageView>(R.id.now_family).isVisible =
                             true
                         val memberList =
@@ -48,15 +50,10 @@ class SideBarController {
                     }
                 }
                 familyItem.setOnClickListener {view->
-                    if (sessionManager.fetchFamilyName() != view.findViewById<TextView>(
-                            R.id.family_name
-                        ).text.toString()
+                    if (sessionManager.fetchFamilyId() != familyItem.getTag(R.id.family_name)
                     ) {
-                        sessionManager.saveFamilyName(view.findViewById<TextView>(R.id.family_name).text.toString())
-                        Log.d(
-                            "IotApi",
-                            "getFamily: ${sessionManager.fetchFamilyName()}"
-                        )
+                        sessionManager.saveFamilyName(response.find { home: Home -> home.id == familyItem.getTag(R.id.family_name) }!!.home_name)
+                        sessionManager.saveFamilyId(familyItem.getTag(R.id.family_name) as String)
                         activity.finish()
                         activity.startActivity(
                             Intent(
@@ -70,6 +67,7 @@ class SideBarController {
                             .show()
                     }
                 }
+                n++
             }
         } else {
             Log.d("IotApi", "getFamily: 沒有家庭")
