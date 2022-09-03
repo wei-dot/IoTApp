@@ -7,6 +7,19 @@
     android:layout_height="match_parent"
     tools:context="com.iotApp.mode.ModeSetAcFragment">
 
+    <ImageButton
+        android:id="@+id/btn_back3"
+        android:layout_width="@dimen/back_icon_size"
+        android:layout_height="@dimen/back_icon_size"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/ic_return"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="600dp"

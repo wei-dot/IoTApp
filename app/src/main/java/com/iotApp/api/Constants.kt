@@ -3,7 +3,7 @@ package com.iotApp.api
 object Constants {
 //    const val BASE_URL = "https://api.bap5.cc/"
 
-    const val BASE_URL = "http://192.168.1.14:8000/"
+    const val BASE_URL = "http://192.168.0.13:8000/"
     const val LOGIN_URL = "auth/token/login"
     const val Signup_URL = "auth/users/"
     const val GET_USER_URL = "auth/users/me/"
@@ -13,6 +13,7 @@ object Constants {
     const val RESEND_ACTIVATION_URL = "auth/users/resend_activation/"
     const val GET_MODE_KEY_DATA = "auth/mode_key_data/"
     const val POST_MODE_KEY_DATA = "auth/mode_key_data/"
+    const val DEL_MODE_KEY_DATA = "auth/mode_key_data/{id}/"
     const val FAMILY_URL = "/auth/home_list/"
     const val FAMILY_URL_ID = "/auth/home_list/{id}/"
     const val FAMILY_ADMIN_URL = "/auth/home_admin/"

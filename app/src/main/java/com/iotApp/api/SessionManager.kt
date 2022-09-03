@@ -18,6 +18,7 @@ class SessionManager(context: Context) {
         const val NOW_FAMILY_ID = "now_family_id"
         const val MYOWNFAMILY = "my_own_family"
         val MODE_KEY_NAME: ArrayList<GetModeKeyDataInfo> = ArrayList()
+        var CHECK_GET_MODE_KEY = false
     }
 
     /** SessionManager 使用者資訊 */
@@ -147,5 +148,12 @@ class SessionManager(context: Context) {
 
     fun logout() {
         prefs.edit().clear().apply()
+    }
+
+    fun checkGetModeKey(): Boolean {
+        return CHECK_GET_MODE_KEY
+    }
+    fun setGetModeKey(check: Boolean) {
+        CHECK_GET_MODE_KEY = true
     }
 }

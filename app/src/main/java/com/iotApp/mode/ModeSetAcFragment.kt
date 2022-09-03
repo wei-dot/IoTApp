@@ -50,6 +50,12 @@ class ModeSetAcFragment : Fragment() {
                 .navigate(R.id.action_navigation_mode_2_ac_set_to_navigation_mode_3_naming)
 
         }
+        _binding?.btnBack3?.setOnClickListener{
+//            activity?.finish()
+            Navigation.findNavController(it)
+                .navigate(R.id.action_navigation_mode_2_ac_set_to_navigation_mode_1_switch_set)
+
+        }
 
     }
 

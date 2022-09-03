@@ -76,6 +76,9 @@
     <string name="add_family">新增家庭</string>
     <string name="send">送出</string>
     <string name="delete_member">踢出家庭</string>
+    <string name="add_mode_key">添加組合鍵</string>
+    <string name="mode_key">組合鍵功能</string>
+    <string name="delete_mode_key">刪除組合鍵</string>
 
 
 </resources>

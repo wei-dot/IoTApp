@@ -13,6 +13,7 @@ import com.iotApp.api.PostModeKeyDataInfo
 import com.iotApp.api.SessionManager
 import com.iotApp.databinding.ActivityMainBinding
 import com.iotApp.databinding.FragmentMode3NamingBinding
+import com.iotApp.main.mode.ModeFragment
 
 class ModeSetNamingFragment : Fragment() {
     private var _binding: FragmentMode3NamingBinding? = null
@@ -49,8 +50,11 @@ class ModeSetNamingFragment : Fragment() {
                     val modeKey = PostModeKeyDataInfo(home_id,mode_key_data_id,mode_key_name,ac_temperature,ac_switch)
                     IotApi.postModeKeyInfo(requireActivity(),
                         SessionManager(requireActivity()),modeKey)
-                    Navigation.findNavController(it)
-                        .navigate(R.id.action_navigation_mode_3_naming_to_navigation_mode)
+                    activity?.finish()
+//                    ModeFragment.DataAdapter().updateData()
+
+//                    Navigation.findNavController(it)
+//                        .navigate(R.id.action_navigation_mode_3_naming_to_navigation_mode)
                 }else{
                     Log.d("ModeSetNamingFragment","mode_key_data_id fail")
                 }
@@ -58,6 +62,11 @@ class ModeSetNamingFragment : Fragment() {
             }else{
                 Toast.makeText(context, "欄位不得為空", Toast.LENGTH_LONG).show()
             }
+        }
+        binding.btnBack3.setOnClickListener{
+//            activity?.finish()
+            Navigation.findNavController(it)
+                .navigate(R.id.action_navigation_mode_3_naming_to_navigation_mode_2_ac_set)
         }
     }
 

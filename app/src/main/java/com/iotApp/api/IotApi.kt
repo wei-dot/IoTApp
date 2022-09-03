@@ -13,6 +13,7 @@ import com.iotApp.MainActivity
 import com.iotApp.databinding.*
 import com.iotApp.databinding.*
 import com.iotApp.controller.SideBarController
+import com.iotApp.main.mode.ModeFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -464,8 +465,10 @@ class IotApi {
                             Log.d("IotApi", "getModeKeyInfo: 取得組合鍵金鑰成功")
                             val response = it.body()!!
                             var modeKeyList = response
+                            Log.d("IotApi", "removeModeKey before: $response")
                             modeKeyList = removeModeKey(modeKeyList, sessionManager)
-                            sessionManager.saveModeKeyData(response)
+                            Log.d("IotApi", "removeModeKey getModeKeyInfo: $modeKeyList")
+                            sessionManager.saveModeKeyData(modeKeyList)
                         } else {
                             Log.d("IotApi onResponse ", "getModeKeyInfo: 取得組合鍵金鑰失敗")
                             Toast.makeText(
@@ -483,6 +486,30 @@ class IotApi {
                 }
         }
 
+        fun deleteModeKey(activity : FragmentActivity? , sessionManager: SessionManager,keyId:Int){
+            apiClient.deleteModeKey(id = keyId,token = "Token ${sessionManager.fetchAuthToken()}").enqueue {
+                onResponse = {
+                    if (it.isSuccessful) {
+                        Log.d("IotApi", "deleteMode: 刪除組合鍵成功")
+                        Toast.makeText(activity, " 刪除組合鍵成功", Toast.LENGTH_SHORT).show()
+                        activity?.let { it1 -> SessionManager(it1) }?.let { it2 ->
+                            IotApi.getModeKeyInfo(activity,
+                                it2
+                            )
+                        }
+//                        activity?.finish()
+//                        activity?.startActivity(Intent(activity, MainActivity::class.java))
+                    } else {
+                        Log.d("IotApi", "deleteFamily: 刪除組合鍵失敗")
+                        Toast.makeText(activity, "刪除組合鍵失敗", Toast.LENGTH_SHORT).show()
+                    }
+                }
+                onFailure = {
+                    Log.d("IotApi", "deleteFamily: ${it?.message}")
+                    Toast.makeText(activity, "刪除組合鍵失敗", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
 
         private fun removeModeKey(modeKeyList:ArrayList<GetModeKeyDataInfo>, sessionManager: SessionManager):ArrayList<GetModeKeyDataInfo>{
 
