@@ -16,10 +16,6 @@ class AccountRepository {
         AccountApi.getApi()?.signup(info = registerRequest)
 
 
-    suspend fun userProfile(token: String): Response<UserInfo>? =
-        AccountApi.getApi()?.getInfo(token = token)
-
-
     suspend fun forgotPassword(email: SendEmail): Response<Void>? =
         AccountApi.getApi()?.resetPassword(info = email)
 

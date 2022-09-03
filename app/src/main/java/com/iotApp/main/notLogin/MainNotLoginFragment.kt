@@ -26,9 +26,9 @@ class MainNotLoginFragment : Fragment() {
         _binding = FragmentMainUnloginBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView? = binding.textUnlogin
+        val textView: TextView = binding.textUnlogin
         notLoginViewModel.text.observe(viewLifecycleOwner) {
-            textView?.text = it
+            textView.text = it
         }
 
         binding.btnLogin.setOnClickListener {

@@ -24,11 +24,6 @@ interface AccountApi {
     suspend fun signup(@Body info: UserInfo): Response<UserInfo>
 
     @Headers("Content-Type:application/json")
-    @GET(Constants.GET_USER_URL)
-    suspend fun getInfo(@Header("Authorization") token: String): Response<UserInfo>
-
-
-    @Headers("Content-Type:application/json")
     @POST(Constants.RESET_PASSWORD_URL)
     suspend fun resetPassword(@Body info: SendEmail): Response<Void>
 

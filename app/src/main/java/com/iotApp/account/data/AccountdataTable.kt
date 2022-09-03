@@ -21,7 +21,6 @@ data class UserInfo(
     val password: String,
     @SerializedName("re_password")
     val re_password: String,
-
     @SerializedName("email")
     val email: String
 )

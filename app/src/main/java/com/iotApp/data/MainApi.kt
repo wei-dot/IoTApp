@@ -1,9 +1,22 @@
-package com.iotApp.api
+package com.iotApp.data
 
+import com.iotApp.account.data.ApiClient
+import com.iotApp.account.data.UserInfo
+import com.iotApp.api.*
 import retrofit2.Call
+import retrofit2.Response
 import retrofit2.http.*
 
-interface ApiService {
+interface MainApi {
+    companion object {
+        fun getApi(): MainApi? {
+            return ApiClient.client?.create(MainApi::class.java)
+        }
+    }
+
+    @Headers("Content-Type:application/json")
+    @GET(Constants.GET_USER_URL)
+    suspend fun getInfo(@Header("Authorization") token: String): Response<UserInfo>
 
     @Headers("Content-Type:application/json")
     @GET(Constants.GET_MODE_KEY_DATA)
@@ -48,19 +61,5 @@ interface ApiService {
         @Path("id") id: String,
         @Header("Authorization") token: String
     ): Call<Home>
-
-    @Headers("Content-Type:application/json")
-    @DELETE(Constants.DEL_MODE_KEY_DATA)
-    fun deleteModeKey(
-        @Path("id") id: Int,
-        @Header("Authorization") token: String,
-    ): Call<Void>
-
-    @Headers("Content-Type:application/json")
-    @POST(Constants.POST_MODE_KEY_DATA)
-    fun postModeKeyDataInfo(
-        @Header("Authorization") token: String,
-        @Body info: PostModeKeyDataInfo
-    ): Call<Void>
 
 }
