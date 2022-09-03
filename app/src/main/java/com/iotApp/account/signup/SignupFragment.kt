@@ -36,8 +36,7 @@ class SignupFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.btnBack.setOnClickListener {
-            activity?.finish()
-            startActivity(Intent(this.context, MainActivity::class.java))
+           requireActivity().onBackPressed()
         }
         binding.btnSend.setOnClickListener {
             var msg = ""

@@ -10,22 +10,21 @@
     <string name="change_password">修改密碼</string>
 
 
-    <!--Fragment Title String for AccountActivity-->
+    <!--Fragment String for AccountActivity-->
     <string name="fragment_account_login">用戶登入</string>
-    <string name="fragment_account_forgot">忘記密碼</string>
+    <string name="fragment_account_forgot"><u>忘記密碼</u></string>
     <string name="fragment_account_signup">用戶註冊</string>
     <string name="fragment_account_reset">設定新密碼</string>
     <string name="fragment_account_resend">已寄出驗證信</string>
-
-    <!--Fragment String for MainActivity-->
-    <string name="not_login">尚未登入</string>
-
-    <!--Fragment Label String for AccountActivity-->
     <string name="label_setUserName">用戶名稱</string>
     <string name="label_setPassword">設置密碼</string>
     <string name="label_setConfirmPassword">確認密碼</string>
     <string name="label_setEmail">電子信箱</string>
-    <string name="label_signUp">註冊帳號</string>
+    <string name="label_signUp"><u>註冊帳號</u></string>
+
+    <!--Fragment String for MainActivity-->
+    <string name="not_login">尚未登入</string>
+
 
     <!--Fragment hint String for AccountActivity-->
     <string name="hint_name">輸入用戶名稱</string>
@@ -76,6 +75,7 @@
     <string name="add_family">新增家庭</string>
     <string name="send">送出</string>
     <string name="delete_member">踢出家庭</string>
+    <string name="add">去加入</string>
 
 
 </resources>

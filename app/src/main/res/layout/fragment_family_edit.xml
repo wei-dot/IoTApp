@@ -4,15 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_fullscreen"
     tools:context="com.iotApp.family.FamilyEditFragment"
-    tools:ignore="ExtraText"
-    android:background="@drawable/background_fullscreen">
+    tools:ignore="ExtraText">
+
+    `
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_back"
+        style="@style/ReturnButton_Style"
+        android:layout_width="@dimen/back_icon_size"
+        android:layout_height="@dimen/back_icon_size"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        app:layout_constraintBottom_toTopOf="@+id/content_space"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />`
 
     <View
         android:id="@+id/content_space"
         android:layout_width="319dp"
         android:layout_height="488dp"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:background="@drawable/content_space"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -20,23 +35,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/btn_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/ic_return"
-        app:layout_constraintBottom_toTopOf="@+id/content_space"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.117"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.431" />
 
     <TextView
         android:id="@+id/edit_member_title"
         android:layout_width="213dp"
         android:layout_height="34dp"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:gravity="center_horizontal|top"
         android:lineSpacingExtra="8sp"
@@ -53,7 +57,7 @@
         android:id="@+id/btn_edit_family"
         android:layout_width="128dp"
         android:layout_height="139dp"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:background="@drawable/btn_edit_family"
         app:layout_constraintBottom_toBottomOf="@+id/content_space"
@@ -67,7 +71,7 @@
         android:id="@+id/btn_adjust_permission"
         android:layout_width="128dp"
         android:layout_height="139dp"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="20dp"
         android:layout_marginTop="36dp"
@@ -82,7 +86,7 @@
         android:id="@+id/btn_add_member"
         android:layout_width="128dp"
         android:layout_height="139dp"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="48dp"
         android:background="@drawable/btn_add_member"
@@ -93,7 +97,7 @@
         android:id="@+id/btn_exit_family"
         android:layout_width="128dp"
         android:layout_height="139dp"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:background="@drawable/btn_exit_family"
         app:layout_constraintBottom_toBottomOf="@+id/btn_add_member"

@@ -10,13 +10,13 @@
     tools:context="com.iotApp.account.login.LoginFragment">
 
 
-    <androidx.appcompat.widget.AppCompatButton
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_back"
+        style="@style/ReturnButton_Style"
         android:layout_width="@dimen/back_icon_size"
         android:layout_height="@dimen/back_icon_size"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:background="@drawable/ic_return"
         app:layout_constraintBottom_toTopOf="@+id/content_space"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
@@ -123,25 +123,23 @@
         app:layout_constraintStart_toStartOf="@+id/content_space"
         app:layout_constraintTop_toBottomOf="@+id/til_password" />
 
-    <TextView
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/text_signup"
+        style="@style/TextButton_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/background_login_box"
         android:text="@string/label_signUp"
-        android:textAppearance="@style/text_login_transfer"
         app:layout_constraintBottom_toBottomOf="@+id/content_space"
         app:layout_constraintEnd_toEndOf="@+id/content_space"
         app:layout_constraintStart_toEndOf="@+id/text_forgot_password"
         app:layout_constraintTop_toBottomOf="@+id/btn_send" />
 
-    <TextView
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/text_forgot_password"
+        style="@style/TextButton_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/background_login_box"
         android:text="@string/fragment_account_forgot"
-        android:textAppearance="@style/text_login_transfer"
         app:layout_constraintBottom_toBottomOf="@+id/content_space"
         app:layout_constraintEnd_toStartOf="@+id/text_signup"
         app:layout_constraintStart_toStartOf="@+id/content_space"

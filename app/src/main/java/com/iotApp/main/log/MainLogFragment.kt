@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.iotApp.databinding.FragmentMainLogBinding
 
-class LogFragment : Fragment() {
+class MainLogFragment : Fragment() {
     private var _binding: FragmentMainLogBinding? = null
 
     private val binding get() = _binding!!
@@ -20,7 +20,7 @@ class LogFragment : Fragment() {
     ): View {
 
         val logViewModel =
-            ViewModelProvider(this)[LogViewModel::class.java]
+            ViewModelProvider(this)[MainLogViewModel::class.java]
 
         _binding = FragmentMainLogBinding.inflate(inflater, container, false)
         val root: View = binding.root

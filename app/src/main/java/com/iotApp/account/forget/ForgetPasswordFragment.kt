@@ -7,6 +7,7 @@ import android.os.Looper
 import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.iotApp.MainActivity
 import com.iotApp.R
@@ -29,7 +30,8 @@ class ForgetPasswordFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.btnBack.setOnClickListener {
-            findNavController().navigate(R.id.action_forgetPasswordFragment_to_loginFragment)
+            findNavController().popBackStack()
+            //            findNavController().navigate(R.id.action_forgetPasswordFragment_to_loginFragment)
         }
         binding.btnSend.setOnClickListener {
             val email = binding.tilUsername.editText?.text.toString()

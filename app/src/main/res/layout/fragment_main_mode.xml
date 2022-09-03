@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context="com.iotApp.main.mode.ModeFragment">
+    tools:context="com.iotApp.main.mode.MainModeFragment">
 
     <!--    android:id="@+id/nav_host_fragment_activity_main_mode"-->
 

@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.iotApp.family.FamilyMemberAddFragment"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/background_fullscreen">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_add_device"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background_fullscreen"
+    app:layout_anchorGravity="bottom"
+    tools:context="com.iotApp.home.HomeAddDeviceFragment">
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_back"
@@ -19,33 +21,40 @@
         app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <View
         android:id="@+id/content_space"
-        android:layout_width="319dp"
-        android:layout_height="488dp"
-        android:layout_alignParentLeft="true"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="@dimen/margin_horizontal"
+        android:layout_marginTop="@dimen/margin_vertical"
+        android:layout_marginEnd="@dimen/margin_horizontal"
+        android:layout_marginBottom="@dimen/margin_vertical"
         android:background="@drawable/content_space"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
     <TextView
-        android:id="@+id/edit_member_title"
-        android:layout_width="213dp"
-        android:layout_height="34dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:gravity="center_horizontal|top"
-        android:lineSpacingExtra="8sp"
-        android:text="@string/text_add_member"
-        android:textAppearance="@style/text_family_member_style"
-        android:translationY="-3.9sp"
-        app:layout_constraintBottom_toBottomOf="@+id/content_space"
+        android:id="@+id/text_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:text="@string/add_device"
+        android:textAppearance="@style/text_login_title"
         app:layout_constraintEnd_toEndOf="@+id/content_space"
         app:layout_constraintStart_toStartOf="@+id/content_space"
         app:layout_constraintTop_toTopOf="@+id/content_space"
-        app:layout_constraintVertical_bias="0.085" />
+        tools:ignore="TextContrastCheck" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

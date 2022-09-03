@@ -18,7 +18,7 @@ import com.iotApp.api.SessionManager
 import com.iotApp.databinding.FragmentMainModeBinding
 
 
-class ModeFragment : Fragment() {
+class MainModeFragment : Fragment() {
     private var _binding: FragmentMainModeBinding? = null
     private var dataList: RecyclerView? = null
     private val binding get() = _binding!!

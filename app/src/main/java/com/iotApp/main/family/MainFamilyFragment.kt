@@ -25,7 +25,7 @@ import com.iotApp.databinding.FragmentMainFamilyBinding
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
-class FamilyFragment : Fragment() {
+class MainFamilyFragment : Fragment() {
 
     private var _binding: FragmentMainFamilyBinding? = null
 
@@ -44,7 +44,7 @@ class FamilyFragment : Fragment() {
 
         _binding = FragmentMainFamilyBinding.inflate(inflater, container, false)
         val root: View = binding.root
-        val familyViewModel = ViewModelProvider(this)[FamilyViewModel::class.java]
+        val familyViewModel = ViewModelProvider(this)[MainFamilyViewModel::class.java]
         val familyMemberList: MutableList<String>? =
             SessionManager(requireActivity()).fetchFamilyMembers()?.toMutableList()
         Log.d("familyMemberList", familyMemberList.toString())

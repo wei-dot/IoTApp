@@ -1,12 +1,12 @@
-package com.iotApp.main.log
+package com.iotApp.main.notLogin
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class LogViewModel : ViewModel() {
+class MainNotLoginViewModel : ViewModel() {
     private val _text = MutableLiveData<String>().apply {
-        value = "尚未加入設備"
+        value = "尚未登入"
     }
     val text: LiveData<String> = _text
 }

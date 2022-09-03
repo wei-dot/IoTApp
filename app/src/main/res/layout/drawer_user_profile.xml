@@ -5,13 +5,13 @@
     android:layout_height="fill_parent"
     android:background="@drawable/background_fullscreen">
 
-    <androidx.appcompat.widget.AppCompatButton
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_back"
+        style="@style/ReturnButton_Style"
         android:layout_width="@dimen/back_icon_size"
         android:layout_height="@dimen/back_icon_size"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:background="@drawable/ic_return"
         app:layout_constraintBottom_toTopOf="@+id/content_space"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
@@ -66,7 +66,7 @@
         app:layout_constraintTop_toTopOf="@+id/avatar_area"
         app:layout_constraintVertical_bias="0.487" />
 
-    <View
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/profile"
         android:layout_width="236dp"
         android:layout_height="235dp"
@@ -117,7 +117,7 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_set"
-        style="@style/MaterialButton_round_Style"
+        style="@style/MaterialButton_square_Style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"

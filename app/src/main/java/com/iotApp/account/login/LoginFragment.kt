@@ -33,8 +33,7 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.btnBack.setOnClickListener {
-            activity?.finish()
-            startActivity(Intent(activity, MainActivity::class.java))
+            requireActivity().onBackPressed()
         }
         binding.btnSend.setOnClickListener {
             val username = binding.tilEmail.editText?.text.toString()

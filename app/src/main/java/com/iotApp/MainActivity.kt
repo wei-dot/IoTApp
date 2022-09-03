@@ -25,11 +25,11 @@ import com.iotApp.api.IotApi
 import com.iotApp.api.SessionManager
 import com.iotApp.api.UserInfo
 import com.iotApp.databinding.ActivityMainBinding
-import com.iotApp.main.family.FamilyFragment
-import com.iotApp.main.home.HomeFragment
-import com.iotApp.main.log.LogFragment
-import com.iotApp.main.mode.ModeFragment
-import com.iotApp.main.notLogin.NotLoginFragment
+import com.iotApp.main.family.MainFamilyFragment
+import com.iotApp.main.home.MainHomeFragment
+import com.iotApp.main.log.MainLogFragment
+import com.iotApp.main.mode.MainModeFragment
+import com.iotApp.main.notLogin.MainNotLoginFragment
 
 
 class MainActivity : AppCompatActivity() {
@@ -119,13 +119,12 @@ class MainActivity : AppCompatActivity() {
         }
         binding.loginPage.btnLogin.setOnClickListener {
             val intent = Intent(this, AccountActivity::class.java)
-            finish()
+            intent.putExtra("Login", "Login")
             startActivity(intent)
         }
         binding.loginPage.btnSignup.setOnClickListener {
             val intent = Intent(this, AccountActivity::class.java)
             intent.putExtra("Login", "Signup")
-            finish()
             startActivity(intent)
         }
 
@@ -144,7 +143,6 @@ class MainActivity : AppCompatActivity() {
         binding.profilePage.btnSet.setOnClickListener {
             val intent = Intent(this, AccountActivity::class.java)
             intent.putExtra("Login", "SetPassword")
-            finish()
             startActivity(intent)
         }
         binding.profilePage.addFamilyItem.setOnClickListener {
@@ -243,13 +241,13 @@ class MainActivity : AppCompatActivity() {
 
         override fun createFragment(position: Int): Fragment {
             SessionManager(this@MainActivity).fetchUserInfo()
-                ?: return NotLoginFragment()
+                ?: return MainNotLoginFragment()
             return when (position%4) {
-                0 -> HomeFragment()
-                1 -> FamilyFragment()
-                2 -> ModeFragment()
-                3 -> LogFragment()
-                else -> HomeFragment()
+                0 -> MainHomeFragment()
+                1 -> MainFamilyFragment()
+                2 -> MainModeFragment()
+                3 -> MainLogFragment()
+                else -> MainHomeFragment()
             }
         }
     }

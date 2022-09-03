@@ -1,5 +1,6 @@
 package com.iotApp.main.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.iotApp.HomeActivity
 import com.iotApp.R
 import com.iotApp.api.Constants
 import com.iotApp.api.WsListener
@@ -22,7 +24,7 @@ import java.util.concurrent.TimeUnit
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
-class HomeFragment : Fragment() {
+class MainHomeFragment : Fragment() {
 
     private var _binding: FragmentMainHomeBinding? = null
 
@@ -49,7 +51,7 @@ class HomeFragment : Fragment() {
     ): View {
 
         val homeViewModel =
-            ViewModelProvider(this)[HomeViewModel::class.java]
+            ViewModelProvider(this)[MainHomeViewModel::class.java]
 
         _binding = FragmentMainHomeBinding.inflate(inflater, container, false)
         mHomeFab = binding.homeFab
@@ -59,16 +61,19 @@ class HomeFragment : Fragment() {
         mDeviceListText = binding.deviceListText
         fabInVisibility()
         mHomeFab?.setOnClickListener {
-            mIsAllFabVisible = if(!mIsAllFabVisible!!) {
+            mIsAllFabVisible = if (!mIsAllFabVisible!!) {
                 mAddDeviceFab?.show()
                 mAddDeviceText?.visibility = View.VISIBLE
                 mAddDeviceFab?.animate()?.translationY(-resources.getDimension(R.dimen.standard_60))
-                mAddDeviceText?.animate()?.translationY(-resources.getDimension(R.dimen.standard_60))
+                mAddDeviceText?.animate()
+                    ?.translationY(-resources.getDimension(R.dimen.standard_60))
 
                 mDeviceListFab?.show()
                 mDeviceListText?.visibility = View.VISIBLE
-                mDeviceListFab?.animate()?.translationY(-resources.getDimension(R.dimen.standard_120))
-                mDeviceListText?.animate()?.translationY(-resources.getDimension(R.dimen.standard_120))
+                mDeviceListFab?.animate()
+                    ?.translationY(-resources.getDimension(R.dimen.standard_120))
+                mDeviceListText?.animate()
+                    ?.translationY(-resources.getDimension(R.dimen.standard_120))
 
                 mHomeFab!!.extend()
                 true
@@ -85,6 +90,16 @@ class HomeFragment : Fragment() {
                 mHomeFab!!.shrink()
                 false
             }
+        }
+        mAddDeviceFab!!.setOnClickListener {
+            val intent = Intent(requireActivity(), HomeActivity::class.java)
+            intent.putExtra("Home", "AddDevice")
+            startActivity(intent)
+
+        }
+        mDeviceListFab!!.setOnClickListener {
+            val intent = Intent(requireActivity(), HomeActivity::class.java)
+            startActivity(intent)
         }
 
         return binding.root

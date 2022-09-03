@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 
-class FamilyViewModel : ViewModel() {
+class MainFamilyViewModel : ViewModel() {
     private val _text = MutableLiveData<String>().apply { value = "尚未加入家庭" }
     val text: LiveData<String> = _text
 }

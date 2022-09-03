@@ -1,12 +1,12 @@
-package com.iotApp.main.home
+package com.iotApp.main.log
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class HomeViewModel :ViewModel(){
+class MainLogViewModel : ViewModel() {
     private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
+        value = "尚未加入設備"
     }
     val text: LiveData<String> = _text
 }

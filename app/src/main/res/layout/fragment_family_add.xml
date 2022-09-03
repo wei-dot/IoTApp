@@ -7,17 +7,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/background_fullscreen">
 
-    <ImageButton
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/ic_return"
+        style="@style/ReturnButton_Style"
+        android:layout_width="@dimen/back_icon_size"
+        android:layout_height="@dimen/back_icon_size"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         app:layout_constraintBottom_toTopOf="@+id/content_space"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.117"
+        app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.431" />
+        app:layout_constraintTop_toTopOf="parent" />
     <View
         android:id="@+id/content_space"
         android:layout_width="319dp"

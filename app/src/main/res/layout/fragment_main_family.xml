@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.iotApp.main.family.FamilyFragment">
+    tools:context="com.iotApp.main.family.MainFamilyFragment">
 
     <View
         android:id="@+id/family_information_box"
@@ -132,15 +132,28 @@
         app:layout_constraintTop_toBottomOf="@+id/text_family_information"
         app:layout_constraintVertical_bias="0.26" />
 
-    <ImageButton
+<!--    <com.google.android.material.button.MaterialButton-->
+<!--        android:id="@+id/btn_login"-->
+<!--        style="@style/MaterialButton_square_Style"-->
+<!--        android:layout_width="@dimen/btn_width"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginBottom="150dp"-->
+<!--        android:text="@string/add_device"-->
+<!--        android:clickable="true"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/text_log" />-->
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_add_family"
         android:layout_width="@dimen/btn_width"
-        android:layout_height="@dimen/btn_height"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="40dp"
-        android:background="@drawable/btn_add_family"
-        android:clickable="true"
+        style="@style/MaterialButton_square_Style"
+        android:text="@string/add"
         app:layout_constraintBottom_toBottomOf="@+id/family_information_box"
         app:layout_constraintEnd_toEndOf="@+id/family_information_box"
         app:layout_constraintStart_toStartOf="@+id/family_information_box"
