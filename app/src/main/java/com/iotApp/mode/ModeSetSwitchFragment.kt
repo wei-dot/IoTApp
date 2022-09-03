@@ -1,12 +1,19 @@
 package com.iotApp.mode
 
+import android.app.Instrumentation
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.KeyEvent
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment
+import com.iotApp.ModeActivity
 import com.iotApp.R
+import com.iotApp.databinding.FragmentMainModeBinding
 import com.iotApp.databinding.FragmentMode1TplinkSwitchSettingBinding
 
 
@@ -23,6 +30,9 @@ class ModeSetSwitchFragment : Fragment() {
         modeViewModel = activity?.run {
             ViewModelProvider(this)[ModeViewModel::class.java]
         } ?: throw Exception("Invalid Activity")
+        binding.btnBack.setOnClickListener{
+            activity?.finish()
+        }
         return binding.root
     }
 
@@ -42,14 +52,14 @@ class ModeSetSwitchFragment : Fragment() {
         var switchKey= ""
 
         _binding?.buttonModeKeyNextStep1?.setOnClickListener {
-            Log.d("setOnClickListener", "setOnClickListener")
+//            Log.d("setOnClickListener", "setOnClickListener")
             switchKey += if (_binding?.modeKeyTplinkSwitch1?.isChecked!!) "1" else "0"
             switchKey += if (_binding?.modeKeyTplinkSwitch2?.isChecked!!) "1" else "0"
             switchKey += if (_binding?.modeKeyTplinkSwitch3?.isChecked!!) "1" else "0"
             switchKey += if (_binding?.modeKeyTplinkSwitch4?.isChecked!!) "1" else "0"
             switchKey += if (_binding?.modeKeyTplinkSwitch5?.isChecked!!) "1" else "0"
             switchKey += if (_binding?.modeKeyTplinkSwitch6?.isChecked!!) "1" else "0"
-            Log.d("setOnClickListener", "switchKey: $switchKey")
+//            Log.d("setOnClickListener", "switchKey: $switchKey")
             modeViewModel?.setTplinkSwitch(switchKey)
 //            val intent = Intent(activity, MainActivity::class.java)
 //            intent.putExtra("switchKey", switchKey)
@@ -57,6 +67,8 @@ class ModeSetSwitchFragment : Fragment() {
             Navigation.findNavController(it)
                 .navigate(R.id.action_navigation_mode_1_switch_set_to_navigation_mode_2_ac_set)
         }
+
+
     }
 
 }

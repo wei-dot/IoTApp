@@ -9,7 +9,7 @@ class ModeViewModel : ViewModel() {
         value = "This is Mode Fragment"
     }
     var tplinkSwitchSet:String = ""
-
+    var deleteKeyMode:Boolean? = null
     var AcTemperature:Int = 0
     var AcSwitch:Boolean = false
     var FamilyId:String = ""
@@ -46,5 +46,13 @@ class ModeViewModel : ViewModel() {
     @JvmName("getFamilyId1")
     fun getFamilyId(): String {
         return FamilyId
+    }
+    @JvmName("setDeleteKeyMode1")
+    fun setDeleteKeyMode(value: Boolean) {
+        deleteKeyMode = value
+    }
+    @JvmName("getDeleteKeyMode1")
+    fun getDeleteKeyMode(): Boolean {
+        return deleteKeyMode!!
     }
 }
