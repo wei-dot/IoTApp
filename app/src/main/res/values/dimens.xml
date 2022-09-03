@@ -1,6 +1,13 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <dimen name="fab_margin">16dp</dimen>
-    <dimen name="icon_size" >30dp</dimen>
-    <dimen name="half_default_gap">5dp</dimen>
-    <dimen name="one_and_half_default_gap" >30</dimen>
+<resources >
+    <dimen name="icon_size" >40dp</dimen>
+    <dimen name="back_icon_size" >48dp</dimen>
+    <dimen name="margin_vertical" >90dp</dimen>
+    <dimen name="margin_horizontal" >30dp</dimen>
+    <dimen name="btn_width" >220dp</dimen>
+    <dimen name="btn_height" >48dp</dimen>
+    <dimen name="input_width" >260dp</dimen>
+    <dimen name="input_height" >50dp</dimen>
+    <dimen name="hamburger_gap">5dp</dimen>
+    <dimen name="standard_60">60dp</dimen>
+    <dimen name="standard_120">120dp</dimen>
 </resources>

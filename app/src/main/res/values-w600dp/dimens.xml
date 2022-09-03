@@ -1,6 +1,0 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <dimen name="fab_margin">48dp</dimen>
-    <dimen name="icon_size" >54dp</dimen>
-    <dimen name="half_default_gap">8dp</dimen>
-    <dimen name="one_and_half_default_gap" >30</dimen>
-</resources>

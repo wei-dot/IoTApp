@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/rectangle_2"
+        android:layout_width="314dp"
+        android:layout_height="243dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/background_popup"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_edit_member_title"
+        android:layout_width="wrap_content"
+        android:layout_height="31dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:gravity="center_horizontal|top"
+        android:lineSpacingExtra="6sp"
+        android:text="@string/text_edit_member"
+        android:textAppearance="@style/text_family_member_style"
+        android:translationY="-2.93sp"
+        app:layout_constraintBottom_toTopOf="@+id/popup_edit_member_insidebox"
+        app:layout_constraintEnd_toEndOf="@+id/rectangle_2"
+        app:layout_constraintStart_toStartOf="@+id/rectangle_2"
+        app:layout_constraintTop_toTopOf="@+id/rectangle_2" />
+
+    <View
+        android:id="@+id/popup_edit_member_insidebox"
+        android:layout_width="264dp"
+        android:layout_height="136dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="28dp"
+        android:background="@drawable/background_inside"
+        app:layout_constraintBottom_toBottomOf="@+id/rectangle_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/popup_edit_member_add_member"
+        android:layout_width="99.5dp"
+        android:layout_height="108.05dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/btn_edit_add_member"
+        app:layout_constraintBottom_toBottomOf="@+id/popup_edit_member_insidebox"
+        app:layout_constraintEnd_toEndOf="@+id/popup_edit_member_insidebox"
+        app:layout_constraintHorizontal_bias="0.109"
+        app:layout_constraintStart_toStartOf="@+id/popup_edit_member_insidebox"
+        app:layout_constraintTop_toTopOf="@+id/popup_edit_member_insidebox"
+        app:layout_constraintVertical_bias="0.607"
+        />
+
+    <ImageButton
+        android:id="@+id/popup_edit_member_edit_member"
+        android:layout_width="99.5dp"
+        android:layout_height="108.05dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/btn_edit_adjust_permission"
+        app:layout_constraintBottom_toBottomOf="@+id/popup_edit_member_add_member"
+        app:layout_constraintEnd_toEndOf="@+id/popup_edit_member_insidebox"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toEndOf="@+id/popup_edit_member_add_member"
+        app:layout_constraintTop_toTopOf="@+id/popup_edit_member_add_member"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

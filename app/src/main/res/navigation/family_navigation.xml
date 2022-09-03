@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/family_navigation"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/navigation_family_edit">
+    <fragment
+        android:id="@+id/navigation_family_edit"
+        android:name="com.iotApp.family.FamilyEditFragment"
+        android:label="@string/text_edit_family"
+        tools:layout="@layout/fragment_family_edit"/>
+    <fragment
+        android:id="@+id/navigation_family_member_add"
+        android:name="com.iotApp.family.FamilyMemberAddFragment"
+        android:label="@string/text_add_member"
+        tools:layout="@layout/fragment_family_member_add"/>
+    <fragment
+        android:id="@+id/navigation_family_add"
+        android:name="com.iotApp.family.FamilyAddFragment"
+        tools:layout="@layout/fragment_family_add"/>
+    <fragment
+        android:id="@+id/navigation_create_family"
+        android:name="com.iotApp.family.FamilyCreateFragment"
+        tools:layout="@layout/fragment_family_create"
+        android:label="@string/text_create_family"/>
+</navigation>

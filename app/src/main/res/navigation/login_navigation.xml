@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_navigation"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.iotApp.account.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_account_login">
+        <action
+            android:id="@+id/action_loginFragment_to_signupFragment"
+            app:destination="@id/signupFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+        <action
+                android:id="@+id/action_loginFragment_to_resetPasswordFragment"
+                app:destination="@id/forgetPasswordFragment"
+                app:enterAnim="@android:anim/fade_in"
+                app:exitAnim="@android:anim/fade_out" />
+        <action
+                android:id="@+id/action_loginFragment_to_resetPasswordFragment2"
+                app:destination="@id/resetPasswordFragment"
+                app:enterAnim="@android:anim/fade_in" />
+    </fragment>
+    <fragment
+        android:id="@+id/signupFragment"
+        android:name="com.iotApp.account.signup.SignupFragment"
+        android:label="fragment_signup"
+        tools:layout="@layout/fragment_account_signup" >
+        <action
+                android:id="@+id/action_signupFragment_to_resendFragment"
+                app:destination="@id/resendFragment"
+                app:enterAnim="@android:anim/fade_in"
+                app:exitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+            android:id="@+id/forgetPasswordFragment"
+            android:name="com.iotApp.account.forget.ForgetPasswordFragment"
+            android:label="fragment_reset"
+            tools:layout="@layout/fragment_account_forget" >
+        <action
+                android:id="@+id/action_forgetPasswordFragment_to_loginFragment"
+                app:destination="@id/loginFragment"
+                app:enterAnim="@android:anim/fade_in"
+                app:exitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+            android:id="@+id/resetPasswordFragment"
+            android:name="com.iotApp.account.set.SetPasswordFragment"
+            android:label="fragment_reset"
+            tools:layout="@layout/fragment_account_set" />
+    <fragment
+            android:id="@+id/resendFragment"
+            android:name="com.iotApp.account.resend.ResendFragment"
+            android:label="fragment_resend"
+            tools:layout="@layout/fragment_account_resend" >
+        <action
+                android:id="@+id/action_resendFragment_to_loginFragment"
+                app:destination="@id/loginFragment"
+                app:enterAnim="@android:anim/fade_in"
+                app:exitAnim="@android:anim/fade_out" />
+    </fragment>
+</navigation>

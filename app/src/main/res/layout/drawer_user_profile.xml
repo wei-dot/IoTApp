@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background_fullscreen">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_back"
+        android:layout_width="@dimen/back_icon_size"
+        android:layout_height="@dimen/back_icon_size"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/ic_return"
+        app:layout_constraintBottom_toTopOf="@+id/content_space"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/content_space"
+        android:layout_width="305dp"
+        android:layout_height="566dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="165dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="120dp"
+        android:background="@drawable/content_space"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <View
+        android:id="@+id/avatar_area"
+        android:layout_width="77dp"
+        android:layout_height="77dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/background_avatar"
+        app:layout_constraintBottom_toBottomOf="@+id/content_space"
+        app:layout_constraintEnd_toEndOf="@+id/content_space"
+        app:layout_constraintHorizontal_bias="0.197"
+        app:layout_constraintStart_toStartOf="@+id/content_space"
+        app:layout_constraintTop_toTopOf="@+id/content_space"
+        app:layout_constraintVertical_bias="0.145" />
+
+    <TextView
+        android:id="@+id/username"
+        android:layout_width="152dp"
+        android:layout_height="36dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="20dp"
+        android:autoSizeTextType="uniform"
+        android:textColor="@color/color_c07a27"
+        android:translationY="-0.04sp"
+        app:layout_constraintBottom_toBottomOf="@+id/avatar_area"
+        app:layout_constraintEnd_toEndOf="@+id/profile"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toEndOf="@+id/avatar_area"
+        app:layout_constraintTop_toTopOf="@+id/avatar_area"
+        app:layout_constraintVertical_bias="0.487" />
+
+    <View
+        android:id="@+id/profile"
+        android:layout_width="236dp"
+        android:layout_height="235dp"
+        android:background="@drawable/background_inside"
+        app:layout_constraintBottom_toBottomOf="@+id/content_space"
+        app:layout_constraintEnd_toEndOf="@+id/content_space"
+        app:layout_constraintHorizontal_bias="0.537"
+        app:layout_constraintStart_toStartOf="@+id/content_space"
+        app:layout_constraintTop_toBottomOf="@+id/avatar_area"
+        app:layout_constraintVertical_bias="0.146" />
+
+    <ScrollView
+        android:id="@+id/profile_detail_place"
+        android:layout_width="236dp"
+        android:layout_height="188dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="1dp"
+        android:scrollbarThumbVertical="@color/color_c07a27"
+        app:layout_constraintBottom_toTopOf="@+id/add_family_item"
+        app:layout_constraintEnd_toEndOf="@+id/profile"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/profile"
+        app:layout_constraintTop_toTopOf="@+id/profile"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:id="@+id/my_family_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:orientation="vertical" />
+    </ScrollView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/add_family_item"
+        style="@style/MaterialButton_red_Style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:letterSpacing="0.5"
+        android:text="@string/add_family"
+        app:layout_constraintBottom_toBottomOf="@+id/profile"
+        app:layout_constraintEnd_toEndOf="@+id/profile"
+        app:layout_constraintStart_toStartOf="@+id/profile"
+        app:layout_constraintTop_toTopOf="@+id/profile"
+        app:layout_constraintVertical_bias="1" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_set"
+        style="@style/MaterialButton_round_Style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/change_password"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_logout"
+        app:layout_constraintEnd_toEndOf="@+id/content_space"
+        app:layout_constraintStart_toStartOf="@+id/content_space"
+        app:layout_constraintTop_toBottomOf="@+id/profile" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_logout"
+        style="@style/MaterialButton_red_Style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="20dp"
+        android:text="@string/logout"
+        android:textSize="18sp"
+        android:letterSpacing="0.8"
+        app:layout_constraintBottom_toBottomOf="@+id/content_space"
+        app:layout_constraintEnd_toEndOf="@+id/btn_set"
+        app:layout_constraintStart_toStartOf="@+id/btn_set" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loading"
+        android:layout_width="235dp"
+        android:layout_height="176dp"
+        android:layout_centerInParent="true"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/profile_detail_place"
+        app:layout_constraintEnd_toEndOf="@+id/profile_detail_place"
+        app:layout_constraintStart_toStartOf="@+id/profile"
+        app:layout_constraintTop_toTopOf="@+id/profile_detail_place"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="loading.json"
+        app:lottie_loop="true"
+        app:lottie_speed="1" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
