@@ -13,7 +13,6 @@ import com.iotApp.api.PostModeKeyDataInfo
 import com.iotApp.api.SessionManager
 import com.iotApp.databinding.ActivityMainBinding
 import com.iotApp.databinding.FragmentMode3NamingBinding
-import com.iotApp.main.mode.ModeFragment
 
 class ModeSetNamingFragment : Fragment() {
     private var _binding: FragmentMode3NamingBinding? = null

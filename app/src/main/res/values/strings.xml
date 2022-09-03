@@ -76,6 +76,9 @@
     <string name="send">送出</string>
     <string name="delete_member">踢出家庭</string>
     <string name="add">去加入</string>
+    <string name="add_mode_key">添加組合鍵</string>
+    <string name="mode_key">組合鍵功能</string>
+    <string name="delete_mode_key">刪除組合鍵</string>
 
     <!--Invalid Error Text-->
     <string name="invalid_email">不是合法的信箱名稱</string>
