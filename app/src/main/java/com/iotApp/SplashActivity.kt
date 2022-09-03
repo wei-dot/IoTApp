@@ -6,10 +6,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.os.Message
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import com.iotApp.api.IotApi
-import com.iotApp.api.SessionManager
 
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : Activity() {

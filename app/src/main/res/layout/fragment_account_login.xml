@@ -104,7 +104,7 @@
             android:autofillHints="password"
             android:hint="@string/hint_password"
             android:inputType="textPassword"
-            android:nextFocusForward="@id/btn_send"
+            android:nextFocusForward="@id/return_back"
             android:selectAllOnFocus="true"
             android:textColor="@color/black" />
 

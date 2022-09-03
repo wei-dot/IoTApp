@@ -11,6 +11,7 @@ object SessionManager {
     private const val NOW_FAMILY_ID = "now_family_id"
     private const val NOW_FAMILY_MEMBERS = "now_family_members"
     private const val MY_OWN_FAMILY = "my_own_family"
+    private const val MODE_KEY_NAME = "mode_key_name"
 
     fun saveAuthToken(context: Context, token: String) = saveString(context, USER_TOKEN, token)
     fun getToken(context: Context): String? = getString(context, USER_TOKEN)
@@ -20,20 +21,28 @@ object SessionManager {
     fun saveEmail(context: Context, email: String) = saveString(context, EMAIL, email)
     fun getEmail(context: Context): String? = getString(context, EMAIL)
 
-
+    /**
+     * 保存、获取、清除当前家庭名稱
+     */
     fun saveFamilyName(context: Context, familyName: String) =
         saveString(context, NOW_FAMILY, familyName)
 
     fun getFamilyName(context: Context): String? = getString(context, NOW_FAMILY)
     fun clearFamilyName(context: Context) = clearString(context, NOW_FAMILY)
 
+
+    /**
+     * 保存、获取、清除当前家庭ID
+     */
     fun saveFamilyId(context: Context, familyId: String) =
         saveString(context, NOW_FAMILY_ID, familyId)
 
     fun getFamilyId(context: Context): String? = getString(context, NOW_FAMILY_ID)
     fun clearFamilyId(context: Context) = clearString(context, NOW_FAMILY_ID)
 
-
+    /**
+     * 保存、获取、清除当前家庭成员
+     */
     fun saveFamilyMembers(context: Context, familyMembers: ArrayList<String>) =
         saveStringSet(context, NOW_FAMILY_MEMBERS, familyMembers)
 
@@ -42,7 +51,16 @@ object SessionManager {
 
     fun clearFamilyMembers(context: Context) = clearString(context, NOW_FAMILY_MEMBERS)
 
+    /**
+     * 保存、获取、清除組合建
+     */
+    fun saveModeKeyName(context: Context, modeKeyName: ArrayList<String>) =
+        saveStringSet(context, MODE_KEY_NAME, modeKeyName)
 
+    fun getModeKeyName(context: Context): ArrayList<String>? =
+        getStringSet(context, MODE_KEY_NAME)?.toCollection(ArrayList())
+
+    fun clearModeKeyName(context: Context) = clearString(context, MODE_KEY_NAME)
 
 
     fun clearAllData(context: Context) {

@@ -4,13 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.blankj.utilcode.util.RegexUtils
 import com.iotApp.R
 import com.iotApp.account.data.AccountRepository
 import com.iotApp.account.data.BaseResponse
 import com.iotApp.account.data.SetPassword
-import com.iotApp.account.data.UserInfo
-import com.iotApp.account.signup.SignupFormState
 import kotlinx.coroutines.launch
 
 class SetPasswordViewModel(private val accountRepository: AccountRepository) : ViewModel() {

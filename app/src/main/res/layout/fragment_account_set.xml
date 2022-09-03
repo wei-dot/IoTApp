@@ -11,7 +11,7 @@
 
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_back"
+        android:id="@+id/return_back"
         style="@style/ReturnButton_Style"
         android:layout_width="@dimen/back_icon_size"
         android:layout_height="@dimen/back_icon_size"
@@ -43,7 +43,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_send"
+        android:id="@+id/set"
         style="@style/MaterialButton_square_Style"
         android:layout_width="@dimen/btn_width"
         android:layout_height="wrap_content"
@@ -90,7 +90,7 @@
             android:autofillHints="password"
             android:hint="@string/hint_password_old"
             android:inputType="textPassword"
-            android:nextFocusForward="@id/btn_send"
+            android:nextFocusForward="@id/set"
             android:selectAllOnFocus="true"
             android:textColor="@color/black" />
 
@@ -115,7 +115,7 @@
             android:autofillHints="password"
             android:hint="@string/hint_password_new"
             android:inputType="textPassword"
-            android:nextFocusForward="@id/btn_send"
+            android:nextFocusForward="@id/set"
             android:selectAllOnFocus="true"
             android:textColor="@color/black" />
 
@@ -128,7 +128,7 @@
         style="@style/TextInputEditText_style"
         android:layout_width="@dimen/input_width"
         android:layout_height="@dimen/input_height"
-        app:layout_constraintBottom_toTopOf="@+id/btn_send"
+        app:layout_constraintBottom_toTopOf="@+id/set"
         app:layout_constraintEnd_toEndOf="@+id/content_space"
         app:layout_constraintStart_toStartOf="@+id/content_space"
         app:layout_constraintTop_toBottomOf="@+id/til_password_new"
@@ -140,7 +140,7 @@
             android:autofillHints="password"
             android:hint="@string/hint_password_new_confirm"
             android:inputType="textPassword"
-            android:nextFocusForward="@id/btn_send"
+            android:nextFocusForward="@id/set"
             android:selectAllOnFocus="true"
             android:textColor="@color/black" />
 

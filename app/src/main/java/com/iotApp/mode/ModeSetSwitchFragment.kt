@@ -1,19 +1,12 @@
 package com.iotApp.mode
 
-import android.app.Instrumentation
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.KeyEvent
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.NavHostFragment
-import com.iotApp.ModeActivity
 import com.iotApp.R
-import com.iotApp.databinding.FragmentMainModeBinding
 import com.iotApp.databinding.FragmentMode1TplinkSwitchSettingBinding
 
 

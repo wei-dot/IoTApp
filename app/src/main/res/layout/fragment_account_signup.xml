@@ -151,7 +151,7 @@
             android:autofillHints="emailAddress"
             android:hint="@string/hint_email"
             android:inputType="textEmailAddress"
-            android:nextFocusForward="@id/btn_send"
+            android:nextFocusForward="@id/signup"
             android:selectAllOnFocus="true"
             android:textColor="@color/black" />
 

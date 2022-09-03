@@ -3,7 +3,6 @@ package com.iotApp.account.resend
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.iotApp.account.data.AccountRepository
-import com.iotApp.account.login.LoginViewModel
 
 class ResendViewModelFactory : ViewModelProvider.Factory {
 
