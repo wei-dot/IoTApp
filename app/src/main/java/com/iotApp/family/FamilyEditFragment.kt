@@ -44,11 +44,11 @@ class FamilyEditFragment : Fragment() {
             else{
                 //表示為成員，僅執行調整成員動作
                 val newMemberList : ArrayList<String> = ArrayList()
-                SessionManager(requireActivity()).fetchFamilyMembers()?.iterator()?.forEach { member ->
-                    if (member != SessionManager(requireActivity()).fetchUserInfo()?.username) {
-                        newMemberList.add(member)
-                    }
-                }
+//                SessionManager(requireActivity()).fetchFamilyMembers()?.iterator()?.forEach { member ->
+//                    if (member != SessionManager(requireActivity()).fetchUserInfo()?.username) {
+//                        newMemberList.add(member)
+//                    }
+//                }
                 val alterHome = AlterHome(SessionManager(requireActivity()).fetchFamilyName().toString(), newMemberList)
                 IotApi.exitFamily(activity, binding , SessionManager(requireActivity()) , alterHome)
             }

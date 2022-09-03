@@ -81,7 +81,7 @@ class MainFamilyFragment : Fragment() {
                         kickMember.isVisible = false
                     }
                     else {
-                        kickMember.isVisible = familyMemberList[i] != SessionManager(requireActivity()).fetchUserInfo()?.username
+//                        kickMember.isVisible = familyMemberList[i] != SessionManager(requireActivity()).fetchUserInfo()?.username
                     }
                     kickMember.setOnClickListener {
                         binding.loading.isVisible = true

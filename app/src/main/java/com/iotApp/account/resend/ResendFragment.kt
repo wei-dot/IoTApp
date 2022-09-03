@@ -2,21 +2,20 @@ package com.iotApp.account.resend
 
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.iotApp.R
-import com.iotApp.api.IotApi
-import com.iotApp.api.SendEmail
 import com.iotApp.databinding.FragmentAccountResendBinding
 import okhttp3.internal.format
 
 class ResendFragment : Fragment() {
+    private lateinit var viewModel: ResendViewModel
     private var _binding: FragmentAccountResendBinding? = null
     private val binding get() = _binding!!
 
@@ -27,9 +26,13 @@ class ResendFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentAccountResendBinding.inflate(inflater, container, false)
+        viewModel = ViewModelProvider(
+            this@ResendFragment,
+            ResendViewModelFactory()
+        )[ResendViewModel::class.java]
+
         setFragmentResultListener("requestKey") { _, bundle ->
             val temp = bundle.getString("bundleKey").toString()
-            Log.d("Test", temp)
             binding.resend.let {
                 it.isEnabled = false
                 val countDownTimer = object : CountDownTimer(30 * 1000, 1000) {
@@ -58,7 +61,7 @@ class ResendFragment : Fragment() {
                 }
                 countDownTimer.start()
                 it.setOnClickListener { _ ->
-                    IotApi.resendActivation(SendEmail(temp), activity)
+                    viewModel.resendEmail(temp)
                     countDownTimer.start()
                     it.isEnabled = false
                     it.setTextColor(ContextCompat.getColor(requireContext(), R.color.color_AAAAAA))
@@ -70,6 +73,7 @@ class ResendFragment : Fragment() {
         }
         return binding.root
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

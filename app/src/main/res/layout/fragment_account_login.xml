@@ -11,7 +11,7 @@
 
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_back"
+        android:id="@+id/return_back"
         style="@style/ReturnButton_Style"
         android:layout_width="@dimen/back_icon_size"
         android:layout_height="@dimen/back_icon_size"
@@ -64,13 +64,15 @@
         android:id="@+id/til_email"
         style="@style/TextInputEditText_style"
         android:layout_width="@dimen/input_width"
-        android:layout_height="@dimen/input_height"
+        android:layout_height="wrap_content"
+        android:selectAllOnFocus="true"
         app:layout_constraintBottom_toBottomOf="@+id/til_password"
         app:layout_constraintEnd_toEndOf="@+id/content_space"
         app:layout_constraintStart_toStartOf="@+id/content_space"
         app:layout_constraintTop_toBottomOf="@+id/text_login">
 
         <com.google.android.material.textfield.TextInputEditText
+
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:autofillHints="emailAddress"
@@ -87,8 +89,9 @@
         android:id="@+id/til_password"
         style="@style/TextInputEditText_style"
         android:layout_width="@dimen/input_width"
-        android:layout_height="@dimen/input_height"
-        app:layout_constraintBottom_toTopOf="@+id/btn_send"
+        android:layout_height="wrap_content"
+        android:selectAllOnFocus="true"
+        app:layout_constraintBottom_toTopOf="@+id/login"
         app:layout_constraintEnd_toEndOf="@+id/content_space"
         app:layout_constraintStart_toStartOf="@+id/content_space"
         app:layout_constraintTop_toBottomOf="@+id/til_email"
@@ -109,14 +112,14 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_send"
+        android:id="@+id/login"
         style="@style/MaterialButton_square_Style"
         android:layout_width="@dimen/btn_width"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginBottom="150dp"
-        android:clickable="true"
+        android:enabled="false"
         android:text="@string/login"
         app:layout_constraintBottom_toBottomOf="@+id/content_space"
         app:layout_constraintEnd_toEndOf="@+id/content_space"
@@ -124,26 +127,26 @@
         app:layout_constraintTop_toBottomOf="@+id/til_password" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/text_signup"
+        android:id="@+id/sign_up_button"
         style="@style/TextButton_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/label_signUp"
         app:layout_constraintBottom_toBottomOf="@+id/content_space"
         app:layout_constraintEnd_toEndOf="@+id/content_space"
-        app:layout_constraintStart_toEndOf="@+id/text_forgot_password"
-        app:layout_constraintTop_toBottomOf="@+id/btn_send" />
+        app:layout_constraintStart_toEndOf="@+id/forgot_password_button"
+        app:layout_constraintTop_toBottomOf="@+id/login" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/text_forgot_password"
+        android:id="@+id/forgot_password_button"
         style="@style/TextButton_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/fragment_account_forgot"
         app:layout_constraintBottom_toBottomOf="@+id/content_space"
-        app:layout_constraintEnd_toStartOf="@+id/text_signup"
+        app:layout_constraintEnd_toStartOf="@+id/sign_up_button"
         app:layout_constraintStart_toStartOf="@+id/content_space"
-        app:layout_constraintTop_toBottomOf="@+id/btn_send" />
+        app:layout_constraintTop_toBottomOf="@+id/login" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/loading"

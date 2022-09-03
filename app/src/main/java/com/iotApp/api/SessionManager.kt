@@ -22,20 +22,7 @@ class SessionManager(context: Context) {
     }
 
     /** SessionManager 使用者資訊 */
-    fun saveUserInfo(userInfo: UserInfo) {
-        prefs.edit().putString(USERNAME, userInfo.username).apply()
-        prefs.edit().putString(EMAIL, userInfo.email).apply()
-    }
 
-    fun fetchUserInfo(): UserInfo? {
-        val username = prefs.getString(USERNAME, null)
-        val email = prefs.getString(EMAIL, null)
-        if (username != null && email != null) {
-            return UserInfo(username, "", "", "", "", email)
-        }
-        return null
-
-    }
 
     fun clearUserInfo() {
         prefs.edit().remove(USERNAME).apply()
