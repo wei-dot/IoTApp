@@ -57,8 +57,9 @@ class ModeFragment : Fragment() {
         swipe_refresh = binding.swipeRefresh
         swipe_refresh!!.setProgressBackgroundColorSchemeResource(android.R.color.white)
         swipe_refresh!!.setColorSchemeResources(android.R.color.holo_blue_light,
-            android.R.color.holo_red_light,android.R.color.holo_orange_light,
-            android.R.color.holo_green_light)
+            android.R.color.holo_red_light,
+            android.R.color.holo_orange_light)
+        swipe_refresh!!.setSize(SwipeRefreshLayout.LARGE)
         swipe_refresh!!.setProgressViewOffset(
             false, 0, TypedValue
                 .applyDimension(
@@ -66,6 +67,34 @@ class ModeFragment : Fragment() {
                         .displayMetrics
                 ).toInt()
         )
+        swipe_refresh!!.isEnabled = true
+        swipe_refresh!!.setOnRefreshListener {
+            IotApi.getModeKeyInfo(requireActivity(), SessionManager(requireActivity()))
+            val layoutManager = GridLayoutManager(requireActivity(), 1)
+            dataList = binding.recyclerViewModeKeySet
+            if (dataList != null) {
+                dataList!!.layoutManager = layoutManager
+                Log.d(
+                    "ModeFragment onResume",
+                    "${SessionManager(requireActivity()).fetchModeKeyData()}"
+                )
+                dataList!!.adapter = SessionManager(requireActivity()).fetchModeKeyData()
+                    .let {
+                        context?.let { it1 ->
+                            mInflater?.let { it2 ->
+                                DataAdapter(
+                                    it,
+                                    it1,
+                                    it2,
+                                    requireActivity()
+                                )
+                            }
+                        }
+                    }
+                dataList!!.setHasFixedSize(true)
+            }
+            swipe_refresh!!.isRefreshing = false
+        }
         fabInVisibility()
         IotApi.getModeKeyInfo(requireActivity(), SessionManager(requireActivity()))
 //        val layoutManager =
@@ -152,7 +181,7 @@ class ModeFragment : Fragment() {
 //            }
 //        }.start()
         IotApi.getModeKeyInfo(requireActivity(), SessionManager(requireActivity()))
-        Thread.sleep(2000)
+        Thread.sleep(500)
 
         if (dataList != null) {
 //            dataList!!.layoutManager = layoutManager
@@ -205,7 +234,7 @@ class ModeFragment : Fragment() {
 //                    val lastVisibleItemPosition: Int = layoutManager.findLastVisibleItemPosition()
 //                    if (lastVisibleItemPosition + 1 == dataList!!.adapter?.itemCount) {
 //                        Log.d("test", "loading executed")
-//                        val isRefreshing: Boolean = swipe_refresh.isRefreshing()
+//                        val isRefreshing: Boolean = swipe_refresh?.isRefreshing() == true
 //                        if (isRefreshing) {
 //                            myRecycleViewAdapter.notifyItemRemoved(myRecycleViewAdapter.getItemCount())
 //                            return
@@ -299,7 +328,7 @@ class ModeFragment : Fragment() {
                     popupWindow.isFocusable = true
                     popupWindow.isOutsideTouchable = true
                     popupWindow.animationStyle = com.iotApp.R.style.normalAnimationPopup
-                    popupWindow.setBackgroundDrawable(mContext?.let { it1 ->
+                    popupWindow.setBackgroundDrawable(mContext.let { it1 ->
                         ContextCompat.getColor(
                             it1, com.google.android.material.R.color.mtrl_btn_transparent_bg_color
                         )

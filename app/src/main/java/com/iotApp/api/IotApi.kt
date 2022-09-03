@@ -465,9 +465,7 @@ class IotApi {
                             Log.d("IotApi", "getModeKeyInfo: 取得組合鍵金鑰成功")
                             val response = it.body()!!
                             var modeKeyList = response
-                            Log.d("IotApi", "removeModeKey before: $response")
                             modeKeyList = removeModeKey(modeKeyList, sessionManager)
-                            Log.d("IotApi", "removeModeKey getModeKeyInfo: $modeKeyList")
                             sessionManager.saveModeKeyData(modeKeyList)
                         } else {
                             Log.d("IotApi onResponse ", "getModeKeyInfo: 取得組合鍵金鑰失敗")
