@@ -56,9 +56,11 @@ class ModeFragment : Fragment() {
         mDeviceListText = binding.deleteModeKeyText
         swipe_refresh = binding.swipeRefresh
         swipe_refresh!!.setProgressBackgroundColorSchemeResource(android.R.color.white)
-        swipe_refresh!!.setColorSchemeResources(android.R.color.holo_blue_light,
+        swipe_refresh!!.setColorSchemeResources(
+            android.R.color.holo_blue_light,
             android.R.color.holo_red_light,
-            android.R.color.holo_orange_light)
+            android.R.color.holo_orange_light
+        )
         swipe_refresh!!.setSize(SwipeRefreshLayout.LARGE)
         swipe_refresh!!.setProgressViewOffset(
             false, 0, TypedValue

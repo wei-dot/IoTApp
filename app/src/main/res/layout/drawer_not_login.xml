@@ -53,7 +53,7 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_login"
-        style="@style/MaterialButton_round_Style"
+        style="@style/MaterialButton_red_Style"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -68,7 +68,7 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_signup"
-        style="@style/MaterialButton_round_Style"
+        style="@style/MaterialButton_red_Style"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"

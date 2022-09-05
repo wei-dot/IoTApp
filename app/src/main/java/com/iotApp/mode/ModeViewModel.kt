@@ -49,20 +49,20 @@ class ModeViewModel : ViewModel() {
     fun getFamilyId(): String {
         return FamilyId
     }
+    @JvmName("setDeleteKeyMode1")
+    fun setDeleteKeyMode(value: Boolean) {
+        deleteKeyMode = value
+    }
+    @JvmName("getDeleteKeyMode1")
+    fun getDeleteKeyMode(): Boolean {
+        return deleteKeyMode!!
+    }
     @JvmName("setFanLevel1")
     fun setFanLevel(value: Int) {
         FanLevel = value
     }
-    @JvmName("getFanLevel1")
-    fun getFanLevel(): Int {
-        return FanLevel
-    }
     @JvmName("setFanSwitch1")
     fun setFanSwitch(value: Boolean) {
         FanSwitch = value
-    }
-    @JvmName("getFanSwitch1")
-    fun getFanSwitch(): Boolean {
-        return FanSwitch
     }
 }

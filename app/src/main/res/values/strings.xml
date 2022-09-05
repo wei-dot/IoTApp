@@ -79,6 +79,11 @@
     <string name="add_mode_key">添加組合鍵</string>
     <string name="mode_key">組合鍵功能</string>
     <string name="delete_mode_key">刪除組合鍵</string>
+    <string name="add">新增</string>
+    <string name="device_category">設備分類</string>
+    <string name="connect_device">連接設備</string>
+    <string name="sensor">感測器</string>
+    <string name="appliance">家用電器</string>
     <string name="ac">冷氣</string>
     <string name="fan">風扇</string>
     <string name="fan_level">風扇強度</string>

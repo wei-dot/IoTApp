@@ -9,7 +9,10 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.ImageButton
+import android.widget.LinearLayout
+import android.widget.PopupWindow
+import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -77,11 +80,13 @@ class FamilyFragment : Fragment() {
                         view.findViewById<MaterialButton>(com.iotApp.R.id.btn_kickmember)
                     popupUsername.text = familyMemberList[i]
                     popupUser.text = familyMemberList[i]
-                    if (!SessionManager(requireActivity()).fetchMyOwnFamily()!!.contains(SessionManager(requireActivity()).fetchFamilyId())) {
+                    if (!SessionManager(requireActivity()).fetchMyOwnFamily()!!
+                            .contains(SessionManager(requireActivity()).fetchFamilyId())
+                    ) {
                         kickMember.isVisible = false
-                    }
-                    else {
-                        kickMember.isVisible = familyMemberList[i] != SessionManager(requireActivity()).fetchUserInfo()?.username
+                    } else {
+                        kickMember.isVisible =
+                            familyMemberList[i] != SessionManager(requireActivity()).fetchUserInfo()?.username
                     }
                     kickMember.setOnClickListener {
                         binding.loading.isVisible = true
@@ -94,7 +99,12 @@ class FamilyFragment : Fragment() {
                             familyMemberListView
                         )
                         Log.d("AlterHome", alterHome.toString())
-                        IotApi.delFamilyMember(activity , binding , SessionManager(requireActivity()),alterHome)
+                        IotApi.delFamilyMember(
+                            activity,
+                            binding,
+                            SessionManager(requireActivity()),
+                            alterHome
+                        )
                         popupWindow.dismiss()
                     }
                     popupWindow.setOnDismissListener {
@@ -163,7 +173,7 @@ class FamilyFragment : Fragment() {
             }
             binding.btnFamilySetting.setOnClickListener {
 //                Toast.makeText(context, SessionManager(requireActivity()).fetchFamilyId().toString(), Toast.LENGTH_SHORT).show()
-                IotApi.getMyOwnFamily(activity,SessionManager(requireActivity()))
+                IotApi.getMyOwnFamily(activity, SessionManager(requireActivity()))
             }
         } else {
             binding.btnFamilyEdit.isVisible = false

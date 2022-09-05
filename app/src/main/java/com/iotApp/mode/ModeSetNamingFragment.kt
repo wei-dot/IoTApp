@@ -13,7 +13,6 @@ import com.iotApp.api.PostModeKeyDataInfo
 import com.iotApp.api.SessionManager
 import com.iotApp.databinding.ActivityMainBinding
 import com.iotApp.databinding.FragmentMode3NamingBinding
-import com.iotApp.main.mode.ModeFragment
 
 class ModeSetNamingFragment : Fragment() {
     private var _binding: FragmentMode3NamingBinding? = null
@@ -41,15 +40,13 @@ class ModeSetNamingFragment : Fragment() {
             IotApi.getFamily(requireActivity(), ActivityMainBinding.inflate(layoutInflater).profilePage, SessionManager(requireActivity()))
             if(binding.tilModeKeyName.text?.isNotEmpty() == true){
                 val mode_key_data_id = modeViewModel?.getTplinkSwitch()
-//                val home_id = SessionManager(requireActivity()).fetchFamilyId()
-                val home_id = "0knWonMZ"
+                val home_id = SessionManager(requireActivity()).fetchFamilyId()
+//                val home_id = "1"
                 val mode_key_name = binding.tilModeKeyName.text.toString()
                 val ac_temperature = modeViewModel?.getAcTemperature()
                 val ac_switch = modeViewModel?.getAcSwitch()
-                val fan_level = modeViewModel?.getFanLevel()
-                val fan_switch = modeViewModel?.getFanSwitch()
-                if (mode_key_data_id != null && home_id != null && ac_temperature != null && ac_switch != null && fan_level != null && fan_switch != null) {
-                    val modeKey = PostModeKeyDataInfo(home_id,mode_key_data_id,mode_key_name,ac_temperature,ac_switch,fan_level,fan_switch)
+                if (mode_key_data_id != null && home_id != null && ac_temperature != null && ac_switch != null) {
+                    val modeKey = PostModeKeyDataInfo(home_id,mode_key_data_id,mode_key_name,ac_temperature,ac_switch)
                     IotApi.postModeKeyInfo(requireActivity(),
                         SessionManager(requireActivity()),modeKey)
                     activity?.finish()

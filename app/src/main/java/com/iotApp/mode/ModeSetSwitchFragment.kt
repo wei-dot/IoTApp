@@ -1,19 +1,12 @@
 package com.iotApp.mode
 
-import android.app.Instrumentation
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.KeyEvent
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.NavHostFragment
-import com.iotApp.ModeActivity
 import com.iotApp.R
-import com.iotApp.databinding.FragmentMainModeBinding
 import com.iotApp.databinding.FragmentMode1TplinkSwitchSettingBinding
 
 
@@ -30,7 +23,7 @@ class ModeSetSwitchFragment : Fragment() {
         modeViewModel = activity?.run {
             ViewModelProvider(this)[ModeViewModel::class.java]
         } ?: throw Exception("Invalid Activity")
-        binding.btnBack.setOnClickListener{
+        binding.btnBack.setOnClickListener {
             activity?.finish()
         }
         return binding.root
@@ -49,7 +42,7 @@ class ModeSetSwitchFragment : Fragment() {
         _binding?.modeKeyTplinkSwitch4?.text = "開關4 開"
         _binding?.modeKeyTplinkSwitch5?.text = "開關5 開"
         _binding?.modeKeyTplinkSwitch6?.text = "開關6 開"
-        var switchKey= ""
+        var switchKey = ""
 
         _binding?.buttonModeKeyNextStep1?.setOnClickListener {
 //            Log.d("setOnClickListener", "setOnClickListener")

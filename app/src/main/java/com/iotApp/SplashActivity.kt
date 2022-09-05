@@ -17,7 +17,7 @@ class SplashActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         val splashScreen = installSplashScreen()
         super.onCreate(savedInstanceState)
-        splashScreen.setKeepOnScreenCondition{true}
+        splashScreen.setKeepOnScreenCondition { true }
 
         if (SessionManager(this).fetchAuthToken() == null) {
             Handler(Looper.getMainLooper()).postDelayed({
@@ -32,7 +32,7 @@ class SplashActivity : Activity() {
                     if (msg.obj != null) {
                         val response = msg.obj as UserInfo
                         SessionManager(this@SplashActivity).saveUserInfo(response)
-                    }else{
+                    } else {
                         SessionManager(this@SplashActivity).logout()
                     }
                     //exit SplashActivity

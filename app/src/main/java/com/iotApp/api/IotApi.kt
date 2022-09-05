@@ -10,10 +10,8 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.FragmentActivity
 import com.iotApp.MainActivity
-import com.iotApp.databinding.*
-import com.iotApp.databinding.*
 import com.iotApp.controller.SideBarController
-import com.iotApp.main.mode.ModeFragment
+import com.iotApp.databinding.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -464,7 +462,9 @@ class IotApi {
                         if (it  .isSuccessful) {
                             Log.d("IotApi", "getModeKeyInfo: 取得組合鍵金鑰成功")
                             val response = it.body()!!
-                            sessionManager.saveModeKeyData(response)
+                            var modeKeyList = response
+                            modeKeyList = removeModeKey(modeKeyList, sessionManager)
+                            sessionManager.saveModeKeyData(modeKeyList)
                         } else {
                             Log.d("IotApi onResponse ", "getModeKeyInfo: 取得組合鍵金鑰失敗")
                             Toast.makeText(
@@ -505,6 +505,18 @@ class IotApi {
                     Toast.makeText(activity, "刪除組合鍵失敗", Toast.LENGTH_SHORT).show()
                 }
             }
+        }
+
+        private fun removeModeKey(modeKeyList:ArrayList<GetModeKeyDataInfo>, sessionManager: SessionManager):ArrayList<GetModeKeyDataInfo>{
+
+            for(i in 0 until modeKeyList.size){
+                if(modeKeyList[i].home_id.toString() != sessionManager.fetchFamilyId()){
+                    modeKeyList.remove(modeKeyList[i])
+                    removeModeKey(modeKeyList,sessionManager)
+                    break
+                }
+            }
+            return modeKeyList
         }
 
         fun postModeKeyInfo(activity: FragmentActivity?, sessionManager: SessionManager, @Body info: PostModeKeyDataInfo) {

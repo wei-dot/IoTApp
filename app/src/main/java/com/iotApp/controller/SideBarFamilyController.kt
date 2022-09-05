@@ -1,4 +1,5 @@
 package com.iotApp.controller
+
 import android.app.Activity
 import android.content.Intent
 import android.util.Log
@@ -15,7 +16,13 @@ import com.iotApp.api.SessionManager
 import com.iotApp.databinding.DrawerUserProfileBinding
 
 class SideBarController {
-    fun sideBar(activity : Activity , binding : DrawerUserProfileBinding,sessionManager: SessionManager , familyList : List<String>, response : ArrayList<Home>) {
+    fun sideBar(
+        activity: Activity,
+        binding: DrawerUserProfileBinding,
+        sessionManager: SessionManager,
+        familyList: List<String>,
+        response: ArrayList<Home>
+    ) {
         val myFamilyList: LinearLayout = binding.myFamilyList
         if (familyList.isNotEmpty()) {
             var n = 0
@@ -27,7 +34,7 @@ class SideBarController {
                 )
                 familyItem.findViewById<TextView>(R.id.family_name).text =
                     it
-                val nowID : String = response[n].id
+                val nowID: String = response[n].id
                 familyItem.setTag(R.id.family_name, nowID)
                 familyItem.setPadding(0, 30, 0, 30)
                 myFamilyList.addView(familyItem)
@@ -37,22 +44,26 @@ class SideBarController {
                     familyItem.findViewById<ImageView>(R.id.now_family).isVisible =
                         true
                     val memberList =
-                        response.find {num->num.home_name == familyList[0] }!!.family_member
+                        response.find { num -> num.home_name == familyList[0] }!!.family_member
                     sessionManager.storeFamilyMembers(memberList)
                 } else {
-                if (sessionManager.fetchFamilyId() == familyItem.getTag(R.id.family_name)) {
+                    if (sessionManager.fetchFamilyId() == familyItem.getTag(R.id.family_name)) {
 
                         familyItem.findViewById<ImageView>(R.id.now_family).isVisible =
                             true
                         val memberList =
-                            response.find { num->num.home_name == sessionManager.fetchFamilyName() }!!.family_member
+                            response.find { num -> num.home_name == sessionManager.fetchFamilyName() }!!.family_member
                         sessionManager.storeFamilyMembers(memberList)
                     }
                 }
-                familyItem.setOnClickListener {view->
+                familyItem.setOnClickListener { view ->
                     if (sessionManager.fetchFamilyId() != familyItem.getTag(R.id.family_name)
                     ) {
-                        sessionManager.saveFamilyName(response.find { home: Home -> home.id == familyItem.getTag(R.id.family_name) }!!.home_name)
+                        sessionManager.saveFamilyName(response.find { home: Home ->
+                            home.id == familyItem.getTag(
+                                R.id.family_name
+                            )
+                        }!!.home_name)
                         sessionManager.saveFamilyId(familyItem.getTag(R.id.family_name) as String)
                         activity.finish()
                         activity.startActivity(

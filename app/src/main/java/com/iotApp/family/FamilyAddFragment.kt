@@ -16,6 +16,7 @@ import com.iotApp.databinding.FragmentFamilyAddBinding
 class FamilyAddFragment : Fragment() {
 
     private var _binding: FragmentFamilyAddBinding? = null
+
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!

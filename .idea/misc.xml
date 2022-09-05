@@ -91,6 +91,17 @@
         <entry key="..\:/Sync/Code/Side Project/IoTApp/app/src/main/res/layout/user_profile.xml" value="0.17603850050658562" />
         <entry key="..\:/Sync/Code/Side Project/IoTApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.138" />
         <entry key="..\:/Sync/Code/Side Project/IoTApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.138" />
+        <entry key="..\:/Sync/Code/SideProject/IoTApp/app/src/main/res/drawable/add_device_title.xml" value="0.164" />
+        <entry key="..\:/Sync/Code/SideProject/IoTApp/app/src/main/res/drawable/content_space.xml" value="0.1" />
+        <entry key="..\:/Sync/Code/SideProject/IoTApp/app/src/main/res/layout/activity_home.xml" value="0.14629629629629629" />
+        <entry key="..\:/Sync/Code/SideProject/IoTApp/app/src/main/res/layout/device_list_item.xml" value="0.2712962962962963" />
+        <entry key="..\:/Sync/Code/SideProject/IoTApp/app/src/main/res/layout/drawer_not_login.xml" value="0.1" />
+        <entry key="..\:/Sync/Code/SideProject/IoTApp/app/src/main/res/layout/drawer_user_profile.xml" value="0.18489583333333334" />
+        <entry key="..\:/Sync/Code/SideProject/IoTApp/app/src/main/res/layout/fragment_account_login.xml" value="0.18489583333333334" />
+        <entry key="..\:/Sync/Code/SideProject/IoTApp/app/src/main/res/layout/fragment_home_add_device.xml" value="0.33" />
+        <entry key="..\:/Sync/Code/SideProject/IoTApp/app/src/main/res/layout/fragment_home_device_list.xml" value="0.18489583333333334" />
+        <entry key="..\:/Sync/Code/SideProject/IoTApp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.3619791666666667" />
+        <entry key="..\:/Sync/Code/SideProject/IoTApp/app/src/main/res/menu/device_menu.xml" value="0.13333333333333333" />
         <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3325" />
         <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/action_mode.xml" value="0.3325" />
         <entry key="..\:/Users/12M0T/AndroidStudioProjects/IoTApp/app/src/main/res/drawable/background_avatar.xml" value="0.216" />
