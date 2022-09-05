@@ -1,31 +1,32 @@
 package com.iotApp.api
 
+import com.iotApp.Constants
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.util.concurrent.TimeUnit
 
-class ApiClient {
-    companion object {
-        private lateinit var apiService: ApiService
+object ApiClient {
+    private var mHttpLoggingInterceptor = HttpLoggingInterceptor()
+        .setLevel(HttpLoggingInterceptor.Level.BODY)
 
-        fun getApiService(): ApiService {
-            if (!Companion::apiService.isInitialized) {
-                val okHttpClient = OkHttpClient.Builder()
-                    .connectTimeout(250, TimeUnit.MILLISECONDS)
-                    .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BASIC))
-                    .build()
+    private var mOkHttpClient = OkHttpClient
+        .Builder()
+        .addInterceptor(mHttpLoggingInterceptor)
+        .build()
 
-                val retrofit = Retrofit.Builder()
+    private var mRetrofit: Retrofit? = null
+
+
+    val client: Retrofit?
+        get() {
+            if (mRetrofit == null) {
+                mRetrofit = Retrofit.Builder()
                     .baseUrl(Constants.BASE_URL)
+                    .client(mOkHttpClient)
                     .addConverterFactory(GsonConverterFactory.create())
-                    .client(okHttpClient)
                     .build()
-
-                apiService = retrofit.create(ApiService::class.java)
             }
-            return apiService
+            return mRetrofit
         }
-    }
 }

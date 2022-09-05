@@ -8,7 +8,7 @@
     android:layout_height="fill_parent"
     android:background="@drawable/background_fullscreen"
     app:layout_anchorGravity="bottom"
-    tools:context="com.iotApp.mode.ModeSetSwitchFragment">
+    tools:context=".view.mode.ModeSetSwitchFragment">
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_back"
         style="@style/ReturnButton_Style"

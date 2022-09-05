@@ -8,7 +8,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.FragmentActivity
-import com.iotApp.MainActivity
+import com.iotApp.view.MainActivity
 import com.iotApp.controller.SideBarController
 import com.iotApp.databinding.DrawerUserProfileBinding
 import com.iotApp.databinding.FragmentFamilyCreateBinding
@@ -19,12 +19,11 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.http.Body
 
-
 class IotApi {
 
 
     companion object {
-        private val apiClient: ApiService = ApiClient.getApiService()
+        private val apiClient = ApiClient.client!!.create(ApiService::class.java)
         var handler: Handler = Handler(Looper.getMainLooper())
 
 

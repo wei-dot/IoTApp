@@ -6,7 +6,7 @@
     app:startDestination="@id/device_list_fragment">
     <fragment
         android:id="@+id/device_list_fragment"
-        android:name="com.iotApp.home.HomeDeviceListFragment"
+        android:name="com.iotApp.view.home.HomeDeviceListFragment"
         android:label="fragment_device_list"
         tools:layout="@layout/fragment_home_device_list" >
         <action
@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/add_device_fragment"
-        android:name="com.iotApp.home.HomeAddDeviceFragment"
+        android:name="com.iotApp.view.home.HomeAddDeviceFragment"
         android:label="fragment_add_device"
         tools:layout="@layout/fragment_home_add_device" />
 

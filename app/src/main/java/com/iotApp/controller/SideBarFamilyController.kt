@@ -8,7 +8,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.isVisible
-import com.iotApp.MainActivity
+import com.iotApp.view.MainActivity
 import com.iotApp.R
 import com.iotApp.api.Home
 import com.iotApp.api.SessionManager

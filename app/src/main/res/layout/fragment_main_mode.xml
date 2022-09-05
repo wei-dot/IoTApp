@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context="com.iotApp.main.mode.MainModeFragment">
+    tools:context=".view.main.mode.MainModeFragment">
 
     <!--    android:id="@+id/nav_host_fragment_activity_main_mode"-->
 
@@ -71,7 +71,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
-                    tools:context=".ModeActivity">
+                    tools:context=".view.ModeActivity">
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recyclerView_mode_key_set"

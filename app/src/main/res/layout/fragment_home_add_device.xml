@@ -7,7 +7,7 @@
     android:layout_height="fill_parent"
     android:background="@drawable/background_fullscreen"
     app:layout_anchorGravity="bottom"
-    tools:context="com.iotApp.home.HomeAddDeviceFragment">
+    tools:context=".view.home.HomeAddDeviceFragment">
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_back"
