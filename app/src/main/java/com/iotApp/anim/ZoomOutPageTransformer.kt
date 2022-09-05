@@ -1,4 +1,4 @@
-package com.iotApp
+package com.iotApp.anim
 
 import android.view.View
 import androidx.viewpager2.widget.ViewPager2

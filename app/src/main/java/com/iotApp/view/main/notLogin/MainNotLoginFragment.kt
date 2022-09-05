@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.iotApp.view.AccountActivity
 import com.iotApp.databinding.FragmentMainUnloginBinding
+import com.iotApp.view.AccountActivity
 
 class MainNotLoginFragment : Fragment() {
     private var _binding: FragmentMainUnloginBinding? = null

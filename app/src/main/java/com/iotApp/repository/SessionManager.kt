@@ -1,9 +1,13 @@
-package com.iotApp
+package com.iotApp.repository
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.iotApp.R
+
+//import com.iotApp.api.SessionManager
 
 object SessionManager {
+
     private const val USER_TOKEN = "user_token"
     private const val USERNAME = "username"
     private const val EMAIL = "email"
@@ -52,6 +56,17 @@ object SessionManager {
     fun clearFamilyMembers(context: Context) = clearString(context, NOW_FAMILY_MEMBERS)
 
     /**
+     * 保存、获取、清除自己的家庭
+     */
+    fun saveMyOwnFamily(context: Context, myOwnFamily: List<String>) =
+        saveStringSet(context, MY_OWN_FAMILY, myOwnFamily)
+
+    fun getMyOwnFamily(context: Context): ArrayList<String>? =
+        getStringSet(context, MY_OWN_FAMILY)?.toCollection(ArrayList())
+
+    fun clearMyOwnFamily(context: Context) = clearString(context, MY_OWN_FAMILY)
+
+    /**
      * 保存、获取、清除組合建
      */
     fun saveModeKeyName(context: Context, modeKeyName: ArrayList<String>) =
@@ -61,6 +76,12 @@ object SessionManager {
         getStringSet(context, MODE_KEY_NAME)?.toCollection(ArrayList())
 
     fun clearModeKeyName(context: Context) = clearString(context, MODE_KEY_NAME)
+
+
+//    fun saveModeKeyData(modeKeyData: ArrayList<GetModeKeyDataInfo>) {
+//        SessionManager.MODE_KEY_NAME.clear()
+//        SessionManager.MODE_KEY_NAME.addAll(modeKeyData)
+//    }
 
 
     fun clearAllData(context: Context) {
@@ -80,7 +101,7 @@ object SessionManager {
 
     }
 
-    private fun saveStringSet(context: Context, key: String, values: ArrayList<String>) {
+    private fun saveStringSet(context: Context, key: String, values: List<String>) {
         val prefs: SharedPreferences =
             context.getSharedPreferences(context.getString(R.string.app_name), Context.MODE_PRIVATE)
         val editor = prefs.edit()

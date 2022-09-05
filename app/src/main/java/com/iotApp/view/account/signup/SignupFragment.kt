@@ -15,8 +15,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.iotApp.R
 import com.iotApp.api.BaseResponse
-import com.iotApp.view.account.login.afterTextChanged
 import com.iotApp.databinding.FragmentAccountSignupBinding
+import com.iotApp.view.account.login.afterTextChanged
 import com.iotApp.viewmodel.SignupViewModel
 import com.iotApp.viewmodel.ViewModelFactory
 

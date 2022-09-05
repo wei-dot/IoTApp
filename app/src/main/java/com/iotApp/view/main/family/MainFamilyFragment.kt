@@ -18,11 +18,11 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.button.MaterialButton
-import com.iotApp.view.FamilyActivity
 import com.iotApp.api.AlterHome
-import com.iotApp.api.IotApi
-import com.iotApp.api.SessionManager
+import com.iotApp.repository.IotApi
 import com.iotApp.databinding.FragmentMainFamilyBinding
+import com.iotApp.repository.SessionManager
+import com.iotApp.view.FamilyActivity
 
 
 /**
@@ -49,7 +49,7 @@ class MainFamilyFragment : Fragment() {
         val root: View = binding.root
         val familyViewModel = ViewModelProvider(this)[MainFamilyViewModel::class.java]
         val familyMemberList: MutableList<String>? =
-            SessionManager(requireActivity()).fetchFamilyMembers()?.toMutableList()
+            SessionManager.getFamilyMembers(requireContext())?.toMutableList()
         Log.d("familyMemberList", familyMemberList.toString())
         if (familyMemberList!!.isEmpty()) {
             hasFamily = false
@@ -60,7 +60,7 @@ class MainFamilyFragment : Fragment() {
 //            val familyMemberList: List<String> = listOf("島輝", "偷刀", "馬吉亞米", "番仔", "盲胞", "歐巴馬", "勞贖")
 //            val king = "島輝"
             //test
-            IotApi.getMyOwnFamily(activity, SessionManager(requireActivity()))
+            IotApi.getMyOwnFamily(activity, requireContext())
             val memberList: LinearLayout = binding.familyMemberBoxLinearlayout
             for (i in familyMemberList.indices) {
                 val memberToAdd = View.inflate(context, com.iotApp.R.layout.item_member, null)
@@ -80,10 +80,11 @@ class MainFamilyFragment : Fragment() {
                         view.findViewById<MaterialButton>(com.iotApp.R.id.btn_kickmember)
                     popupUsername.text = familyMemberList[i]
                     popupUser.text = familyMemberList[i]
-                    if (!SessionManager(requireActivity()).fetchMyOwnFamily()!!.contains(SessionManager(requireActivity()).fetchFamilyId())) {
+                    if (!SessionManager.getMyOwnFamily(requireContext())!!
+                            .contains(SessionManager.getFamilyId(requireContext()))
+                    ) {
                         kickMember.isVisible = false
-                    }
-                    else {
+                    } else {
 //                        kickMember.isVisible = familyMemberList[i] != SessionManager(requireActivity()).fetchUserInfo()?.username
                     }
                     kickMember.setOnClickListener {
@@ -93,11 +94,11 @@ class MainFamilyFragment : Fragment() {
                         val familyMemberListView = ArrayList(familyMemberList)
                         Log.d("familyMemberListA", familyMemberListView.toString())
                         val alterHome = AlterHome(
-                            SessionManager(requireActivity()).fetchFamilyName().toString(),
+                            SessionManager.getFamilyName(requireContext()).toString(),
                             familyMemberListView
                         )
                         Log.d("AlterHome", alterHome.toString())
-                        IotApi.delFamilyMember(activity , binding , SessionManager(requireActivity()),alterHome)
+                        IotApi.delFamilyMember(activity, binding, requireContext(), alterHome)
                         popupWindow.dismiss()
                     }
                     popupWindow.setOnDismissListener {
@@ -166,7 +167,7 @@ class MainFamilyFragment : Fragment() {
             }
             binding.btnFamilySetting.setOnClickListener {
 //                Toast.makeText(context, SessionManager(requireActivity()).fetchFamilyId().toString(), Toast.LENGTH_SHORT).show()
-                IotApi.getMyOwnFamily(activity,SessionManager(requireActivity()))
+                IotApi.getMyOwnFamily(activity, requireContext())
             }
         } else {
             binding.btnFamilyEdit.isVisible = false

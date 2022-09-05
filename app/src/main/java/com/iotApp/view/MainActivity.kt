@@ -21,16 +21,17 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.iotApp.R
-import com.iotApp.SessionManager
-import com.iotApp.ZoomOutPageTransformer
+import com.iotApp.anim.ZoomOutPageTransformer
 import com.iotApp.api.BaseResponse
-import com.iotApp.viewmodel.LoginViewModel
+import com.iotApp.repository.IotApi
 import com.iotApp.databinding.ActivityMainBinding
+import com.iotApp.repository.SessionManager
 import com.iotApp.view.main.family.MainFamilyFragment
 import com.iotApp.view.main.home.MainHomeFragment
 import com.iotApp.view.main.log.MainLogFragment
 import com.iotApp.view.main.mode.MainModeFragment
 import com.iotApp.view.main.notLogin.MainNotLoginFragment
+import com.iotApp.viewmodel.LoginViewModel
 import com.iotApp.viewmodel.ViewModelFactory
 
 
@@ -81,7 +82,7 @@ class MainActivity : AppCompatActivity() {
         }
         viewPager()
         buttonListener()
-//        IotApi.getFamily(this, binding.profilePage, SessionManager(this))
+        IotApi.getFamily(this, binding.profilePage, this)
     }
 
 

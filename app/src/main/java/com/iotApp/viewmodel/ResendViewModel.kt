@@ -3,9 +3,9 @@ package com.iotApp.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.iotApp.repository.AccountRepository
 import com.iotApp.api.BaseResponse
 import com.iotApp.api.data.SendEmail
+import com.iotApp.repository.AccountRepository
 import kotlinx.coroutines.launch
 
 class ResendViewModel(private val accountRepository: AccountRepository) : ViewModel() {

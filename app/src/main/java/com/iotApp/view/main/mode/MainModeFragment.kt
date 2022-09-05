@@ -22,12 +22,12 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.iotApp.view.ModeActivity
 import com.iotApp.R
 import com.iotApp.api.GetModeKeyDataInfo
-import com.iotApp.api.IotApi
+import com.iotApp.repository.IotApi
 import com.iotApp.api.SessionManager
 import com.iotApp.databinding.FragmentMainModeBinding
+import com.iotApp.view.ModeActivity
 
 
 class MainModeFragment : Fragment() {
@@ -69,7 +69,7 @@ class MainModeFragment : Fragment() {
         )
         swipe_refresh!!.isEnabled = true
         swipe_refresh!!.setOnRefreshListener {
-            IotApi.getModeKeyInfo(requireActivity(), SessionManager(requireActivity()))
+            IotApi.getModeKeyInfo(requireActivity(), requireContext())
             val layoutManager = GridLayoutManager(requireActivity(), 1)
             dataList = binding.recyclerViewModeKeySet
             if (dataList != null) {
@@ -96,7 +96,7 @@ class MainModeFragment : Fragment() {
             swipe_refresh!!.isRefreshing = false
         }
         fabInVisibility()
-        IotApi.getModeKeyInfo(requireActivity(), SessionManager(requireActivity()))
+        IotApi.getModeKeyInfo(requireActivity(), requireContext())
 //        val layoutManager =
 //            LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
         val layoutManager = GridLayoutManager(requireActivity(), 1)
@@ -180,7 +180,7 @@ class MainModeFragment : Fragment() {
 //                }
 //            }
 //        }.start()
-        IotApi.getModeKeyInfo(requireActivity(), SessionManager(requireActivity()))
+        IotApi.getModeKeyInfo(requireActivity(), requireContext())
         Thread.sleep(500)
 
         if (dataList != null) {
@@ -302,7 +302,7 @@ class MainModeFragment : Fragment() {
                 btnDeleteModeKey.setOnClickListener {
                     IotApi.deleteModeKey(
                         mActivity,
-                        SessionManager(mActivity),
+                        mContext,
                         listData[position].mode_key_data_id
                     )
 //                    mFt.detach(mModeFragment).attach(mModeFragment).commit()

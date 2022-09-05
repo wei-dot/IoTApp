@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.iotApp.R
-import com.iotApp.api.IotApi
+import com.iotApp.repository.IotApi
 import com.iotApp.api.PostModeKeyDataInfo
 import com.iotApp.api.SessionManager
 import com.iotApp.databinding.ActivityMainBinding
@@ -37,7 +37,7 @@ class ModeSetNamingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.buttonModeKeyComplete.setOnClickListener {
-            IotApi.getFamily(requireActivity(), ActivityMainBinding.inflate(layoutInflater).profilePage, SessionManager(requireActivity()))
+            IotApi.getFamily(requireActivity(), ActivityMainBinding.inflate(layoutInflater).profilePage, requireContext())
             if(binding.tilModeKeyName.text?.isNotEmpty() == true){
                 val mode_key_data_id = modeViewModel?.getTplinkSwitch()
                 val home_id = SessionManager(requireActivity()).fetchFamilyId()
@@ -48,7 +48,7 @@ class ModeSetNamingFragment : Fragment() {
                 if (mode_key_data_id != null && home_id != null && ac_temperature != null && ac_switch != null) {
                     val modeKey = PostModeKeyDataInfo(home_id,mode_key_data_id,mode_key_name,ac_temperature,ac_switch)
                     IotApi.postModeKeyInfo(requireActivity(),
-                        SessionManager(requireActivity()),modeKey)
+                       requireContext(),modeKey)
                     activity?.finish()
 //                    ModeFragment.DataAdapter().updateData()
 

@@ -8,11 +8,11 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.iotApp.view.MainActivity
-import com.iotApp.SessionManager
 import com.iotApp.api.BaseResponse
-import com.iotApp.view.account.login.afterTextChanged
 import com.iotApp.databinding.FragmentAccountSetBinding
+import com.iotApp.repository.SessionManager
+import com.iotApp.view.MainActivity
+import com.iotApp.view.account.login.afterTextChanged
 import com.iotApp.viewmodel.SetPasswordViewModel
 import com.iotApp.viewmodel.ViewModelFactory
 

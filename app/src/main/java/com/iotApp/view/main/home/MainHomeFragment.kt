@@ -10,11 +10,11 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.iotApp.view.HomeActivity
-import com.iotApp.R
 import com.iotApp.Constants
+import com.iotApp.R
 import com.iotApp.api.WsListener
 import com.iotApp.databinding.FragmentMainHomeBinding
+import com.iotApp.view.HomeActivity
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.WebSocket

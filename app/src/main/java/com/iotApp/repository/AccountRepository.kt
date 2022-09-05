@@ -1,6 +1,6 @@
 package com.iotApp.repository
 
-import com.iotApp.api.AccountApi
+import com.iotApp.api.ApiInterface
 import com.iotApp.api.data.*
 import retrofit2.Response
 
@@ -8,24 +8,24 @@ import retrofit2.Response
 class AccountRepository {
 
     suspend fun login(loginRequest: LoginRequest): Response<LoginResponse>? =
-        AccountApi.getApi()?.login(loginRequest = loginRequest)
+        ApiInterface.getApi()?.login(loginRequest = loginRequest)
 
     suspend fun logout(token: String): Response<Void>? =
-        AccountApi.getApi()?.logout(token = token)
+        ApiInterface.getApi()?.logout(token = token)
 
 
     suspend fun signup(registerRequest: UserInfo): Response<UserInfo>? =
-        AccountApi.getApi()?.signup(info = registerRequest)
+        ApiInterface.getApi()?.signup(info = registerRequest)
 
 
     suspend fun forgotPassword(email: SendEmail): Response<Void>? =
-        AccountApi.getApi()?.resetPassword(info = email)
+        ApiInterface.getApi()?.resetPassword(info = email)
 
 
     suspend fun setPassword(token: String, password: SetPassword): Response<Void>? =
-        AccountApi.getApi()?.setPassword(token = token, info = password)
+        ApiInterface.getApi()?.setPassword(token = token, info = password)
 
     suspend fun resendActivationEmail(email: SendEmail): Response<Void>? =
-        AccountApi.getApi()?.resendEmail(info = email)
+        ApiInterface.getApi()?.resendEmail(info = email)
 
 }

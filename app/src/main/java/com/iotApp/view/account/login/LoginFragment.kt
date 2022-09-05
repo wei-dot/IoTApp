@@ -14,11 +14,11 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.textfield.TextInputLayout
-import com.iotApp.view.MainActivity
 import com.iotApp.R
-import com.iotApp.SessionManager
 import com.iotApp.api.BaseResponse
 import com.iotApp.databinding.FragmentAccountLoginBinding
+import com.iotApp.repository.SessionManager
+import com.iotApp.view.MainActivity
 import com.iotApp.viewmodel.LoginViewModel
 import com.iotApp.viewmodel.ViewModelFactory
 

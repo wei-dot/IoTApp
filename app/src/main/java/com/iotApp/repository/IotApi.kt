@@ -1,6 +1,7 @@
-package com.iotApp.api
+package com.iotApp.repository
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Handler
 import android.os.Looper
@@ -8,12 +9,13 @@ import android.util.Log
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.FragmentActivity
-import com.iotApp.view.MainActivity
+import com.iotApp.api.*
 import com.iotApp.controller.SideBarController
 import com.iotApp.databinding.DrawerUserProfileBinding
 import com.iotApp.databinding.FragmentFamilyCreateBinding
 import com.iotApp.databinding.FragmentFamilyEditBinding
 import com.iotApp.databinding.FragmentMainFamilyBinding
+import com.iotApp.view.MainActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -23,7 +25,7 @@ class IotApi {
 
 
     companion object {
-        private val apiClient = ApiClient.client!!.create(ApiService::class.java)
+        private val apiClient = ApiClient.client!!.create(ApiInterface::class.java)
         var handler: Handler = Handler(Looper.getMainLooper())
 
 
@@ -31,19 +33,19 @@ class IotApi {
             @Body info: CreateHome,
             activity: FragmentActivity?,
             binding: FragmentFamilyCreateBinding,
-            sessionManager: SessionManager
+            context: Context
         ) {
-            apiClient.createFamily(token = "Token ${sessionManager.fetchAuthToken()}", info)
+            apiClient.createFamily(token = "Token ${SessionManager.getToken(context)}", info)
                 .enqueue {
                     onResponse = {
                         if (it.isSuccessful) {
                             Log.d("IotApi", "createHome: 建立家庭成功")
                             Toast.makeText(activity, "建立家庭成功", Toast.LENGTH_SHORT).show()
-                            sessionManager.saveFamilyName(info.home_name)
+                            SessionManager.saveFamilyName(context, info.home_name)
 
-//                            val adminInfo = sessionManager.fetchUserInfo()?.username.toString()
-//                                .let { it1 -> Admin(info.home_name, it1) }
-//                            setAdmin(adminInfo, activity, binding, sessionManager)
+                            val adminInfo = SessionManager.getUsername(context).toString()
+                                .let { it1 -> Admin(info.home_name, it1) }
+                            setAdmin(adminInfo, activity, binding, context)
                         } else {
                             binding.loading.isVisible = false
                             Log.d("IotApi", "建立家庭失敗: ${it.errorBody()?.string()} ")
@@ -61,9 +63,9 @@ class IotApi {
             @Body admin: Admin,
             activity: FragmentActivity?,
             binding: FragmentFamilyCreateBinding,
-            sessionManager: SessionManager
+            context: Context
         ) {
-            apiClient.setAdmin(token = "Token ${sessionManager.fetchAuthToken()}", admin)
+            apiClient.setAdmin(token = "Token ${SessionManager.getToken(context)}", admin)
                 .enqueue {
                     onResponse = {
                         if (it.isSuccessful) {       //這裡目前不清楚為何會明明成功卻掉到"設定家庭成功，但設定管理員失敗"，非延遲問題
@@ -93,10 +95,10 @@ class IotApi {
         fun getFamily(
             activity: Activity?,
             binding: DrawerUserProfileBinding,
-            sessionManager: SessionManager
+            context: Context
         ) {
             binding.loading.isVisible = true
-            apiClient.getFamily(token = "Token ${sessionManager.fetchAuthToken()}").enqueue {
+            apiClient.getFamily(token = "Token ${SessionManager.getToken(context)}").enqueue {
                 onResponse = { it ->
                     if (it.isSuccessful) {
                         val response = it.body()!!
@@ -104,7 +106,7 @@ class IotApi {
                         SideBarController().sideBar(
                             activity!!,
                             binding,
-                            sessionManager,
+                            context,
                             familyList,
                             response
                         )
@@ -128,34 +130,35 @@ class IotApi {
 
         fun getMyOwnFamily(
             activity: FragmentActivity?,
-            sessionManager: SessionManager
+            context: Context
         ) {
-            apiClient.getFamilyAdmin(token = "Token ${sessionManager.fetchAuthToken()}").enqueue() {
-                onResponse = {
-                    if (it.isSuccessful) {
-                        val response = it.body()!!
-                        val myOwnFamilyList: List<String> =
-                            response.map { num -> num.home_id }.toList()
-                        sessionManager.saveMyOwnFamily(myOwnFamilyList)
-                    } else {
-                        Log.d("IotApi", "getMyOwnFamily: 取得家庭失敗")
+            apiClient.getFamilyAdmin(token = "Token ${SessionManager.getToken(context)}")
+                .enqueue {
+                    onResponse = {
+                        if (it.isSuccessful) {
+                            val response = it.body()!!
+                            val myOwnFamilyList: List<String> =
+                                response.map { num -> num.home_id }.toList()
+                            SessionManager.saveMyOwnFamily(context, myOwnFamilyList)
+                        } else {
+                            Log.d("IotApi", "getMyOwnFamily: 取得家庭失敗")
+                        }
+                    }
+                    onFailure = {
+                        Log.d("IotApi", "getMyOwnFamily: ${it?.message}")
                     }
                 }
-                onFailure = {
-                    Log.d("IotApi", "getMyOwnFamily: ${it?.message}")
-                }
-            }
         }
 
         fun delFamilyMember(
             activity: FragmentActivity?,
             binding: FragmentMainFamilyBinding,
-            sessionManager: SessionManager,
+            context: Context,
             @Body info: AlterHome
         ) {
             apiClient.alterFamily(
-                sessionManager.fetchFamilyId().toString(),
-                token = "Token ${sessionManager.fetchAuthToken()}",
+                SessionManager.getFamilyId(context).toString(),
+                token = "Token ${SessionManager.getToken(context)}",
                 info
             ).enqueue {
                 onResponse = {
@@ -163,7 +166,7 @@ class IotApi {
                         Log.d("IotApi", "delFamilyMember: 刪除成功")
                         Toast.makeText(activity, "刪除成功", Toast.LENGTH_SHORT).show()
                         binding.loading.isVisible = false
-                        sessionManager.storeFamilyMembers(info.user)
+                        SessionManager.saveFamilyMembers(context, info.user)
                     } else {
                         Log.d("IotApi", "delFamilyMember: 刪除失敗")
                         Toast.makeText(binding.root.context, "刪除失敗", Toast.LENGTH_SHORT).show()
@@ -178,19 +181,23 @@ class IotApi {
             }
         }
 
-        fun updateFamilyMemberByFamilyID(sessionManager: SessionManager) {
-            val nowFamilyID = sessionManager.fetchFamilyId()
+        fun updateFamilyMemberByFamilyID(context: Context) {
+            val nowFamilyID = SessionManager.getFamilyId(context)
             apiClient.getFamilyMember(
                 id = nowFamilyID.toString(),
-                token = "Token ${sessionManager.fetchAuthToken()}"
+                token = "Token ${SessionManager.getToken(context)}"
             ).enqueue {
                 onResponse = {
                     if (it.isSuccessful) {
                         val response = it.body()!!
-                        sessionManager.storeFamilyMembers(response.family_member)
+                        SessionManager.saveFamilyMembers(context, response.family_member)
                         Log.d(
                             "IotApi",
-                            "getFamilyMemberByFamilyID: 更新成功\t ${sessionManager.fetchFamilyMembers()}"
+                            "getFamilyMemberByFamilyID: 更新成功\t ${
+                                SessionManager.getFamilyMembers(
+                                    context
+                                )
+                            }"
                         )
                     } else {
                         Log.d("IotApi", "getFamilyMemberByFamilyID: 取得家庭成員失敗")
@@ -205,21 +212,21 @@ class IotApi {
         fun exitFamily(
             activity: FragmentActivity?,
             binding: FragmentFamilyEditBinding,
-            sessionManager: SessionManager,
-            @Body info: AlterHome
+            @Body info: AlterHome,
+            context: Context
         ) {
             apiClient.alterFamily(
-                id = sessionManager.fetchFamilyId().toString(),
-                token = "Token ${sessionManager.fetchAuthToken()}",
+                id = SessionManager.getFamilyId(context).toString(),
+                token = "Token ${SessionManager.getToken(context)}",
                 info
             ).enqueue {
                 onResponse = {
                     if (it.isSuccessful) {
                         Log.d("IotApi", "exitFamily: 退出家庭成功")
                         Toast.makeText(activity, "退出家庭成功", Toast.LENGTH_SHORT).show()
-                        sessionManager.clearFamilyId()
-                        sessionManager.clearFamilyName()
-                        sessionManager.clearFamilyMembers()
+                        SessionManager.clearFamilyId(context)
+                        SessionManager.clearFamilyName(context)
+                        SessionManager.clearFamilyMembers(context)
                         activity?.finish()
                         activity?.startActivity(Intent(activity, MainActivity::class.java))
                     } else {
@@ -237,19 +244,19 @@ class IotApi {
         fun deleteFamily(
             activity: FragmentActivity?,
             binding: FragmentFamilyEditBinding,
-            sessionManager: SessionManager
+            context: Context
         ) {
             apiClient.deleteFamily(
-                id = sessionManager.fetchFamilyId().toString(),
-                token = "Token ${sessionManager.fetchAuthToken()}"
+                id = SessionManager.getFamilyId(context).toString(),
+                token = "Token ${SessionManager.getToken(context)}"
             ).enqueue {
                 onResponse = {
                     if (it.isSuccessful) {
                         Log.d("IotApi", "deleteFamily: 刪除家庭成功")
                         Toast.makeText(activity, "刪除家庭成功", Toast.LENGTH_SHORT).show()
-                        sessionManager.clearFamilyId()
-                        sessionManager.clearFamilyName()
-                        sessionManager.clearFamilyMembers()
+                        SessionManager.clearFamilyId(context)
+                        SessionManager.clearFamilyName(context)
+                        SessionManager.clearFamilyMembers(context)
                         activity?.finish()
                         activity?.startActivity(Intent(activity, MainActivity::class.java))
                     } else {
@@ -268,17 +275,15 @@ class IotApi {
          * Function to get Mode Key Info
          */
 //        @Body info: GetModeKeyDataInfo,
-        fun getModeKeyInfo(activity: FragmentActivity?, sessionManager: SessionManager) {
-            Log.d("IotApi", "getModeKeyInfo: Token ${sessionManager.fetchAuthToken()}")
-            apiClient.getModeKeyDataInfo(token = "Token ${sessionManager.fetchAuthToken()}")
+        fun getModeKeyInfo(activity: FragmentActivity?, context: Context) {
+            apiClient.getModeKeyDataInfo(token = "Token ${SessionManager.getToken(context)}")
                 .enqueue {
                     onResponse = {
                         if (it.isSuccessful) {
                             Log.d("IotApi", "getModeKeyInfo: 取得組合鍵金鑰成功")
                             val response = it.body()!!
                             var modeKeyList = response
-                            modeKeyList = removeModeKey(modeKeyList, sessionManager)
-                            sessionManager.saveModeKeyData(modeKeyList)
+                            modeKeyList = removeModeKey(modeKeyList, context)
                         } else {
                             Log.d("IotApi onResponse ", "getModeKeyInfo: 取得組合鍵金鑰失敗")
                             Toast.makeText(
@@ -296,19 +301,14 @@ class IotApi {
                 }
         }
 
-        fun deleteModeKey(activity: FragmentActivity?, sessionManager: SessionManager, keyId: Int) {
-            apiClient.deleteModeKey(id = keyId, token = "Token ${sessionManager.fetchAuthToken()}")
+        fun deleteModeKey(activity: FragmentActivity?, context: Context, keyId: Int) {
+            apiClient.deleteModeKey(id = keyId, token = "Token ${SessionManager.getToken(context)}")
                 .enqueue {
                     onResponse = {
                         if (it.isSuccessful) {
                             Log.d("IotApi", "deleteMode: 刪除組合鍵成功")
                             Toast.makeText(activity, " 刪除組合鍵成功", Toast.LENGTH_SHORT).show()
-                            activity?.let { it1 -> SessionManager(it1) }?.let { it2 ->
-                                IotApi.getModeKeyInfo(
-                                    activity,
-                                    it2
-                                )
-                            }
+                            getModeKeyInfo(activity, context)
 //                        activity?.finish()
 //                        activity?.startActivity(Intent(activity, MainActivity::class.java))
                         } else {
@@ -325,13 +325,13 @@ class IotApi {
 
         private fun removeModeKey(
             modeKeyList: ArrayList<GetModeKeyDataInfo>,
-            sessionManager: SessionManager
+            context: Context
         ): ArrayList<GetModeKeyDataInfo> {
 
             for (i in 0 until modeKeyList.size) {
-                if (modeKeyList[i].home_id.toString() != sessionManager.fetchFamilyId()) {
+                if (modeKeyList[i].home_id.toString() != SessionManager.getFamilyId(context)) {
                     modeKeyList.remove(modeKeyList[i])
-                    removeModeKey(modeKeyList, sessionManager)
+                    removeModeKey(modeKeyList, context)
                     break
                 }
             }
@@ -340,10 +340,10 @@ class IotApi {
 
         fun postModeKeyInfo(
             activity: FragmentActivity?,
-            sessionManager: SessionManager,
+            context: Context,
             @Body info: PostModeKeyDataInfo
         ) {
-            apiClient.postModeKeyDataInfo(token = "Token ${sessionManager.fetchAuthToken()}", info)
+            apiClient.postModeKeyDataInfo(token = "Token ${SessionManager.getToken(context)}", info)
                 .enqueue {
                     onResponse = {
                         if (it.isSuccessful) {

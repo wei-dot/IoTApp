@@ -6,9 +6,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.blankj.utilcode.util.RegexUtils
 import com.iotApp.R
-import com.iotApp.repository.AccountRepository
 import com.iotApp.api.BaseResponse
 import com.iotApp.api.data.UserInfo
+import com.iotApp.repository.AccountRepository
 import com.iotApp.view.account.signup.SignupFormState
 import kotlinx.coroutines.launch
 

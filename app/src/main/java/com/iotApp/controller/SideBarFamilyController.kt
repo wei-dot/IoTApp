@@ -1,5 +1,6 @@
 package com.iotApp.controller
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.util.Log
 import android.view.View
@@ -8,14 +9,14 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.isVisible
-import com.iotApp.view.MainActivity
 import com.iotApp.R
 import com.iotApp.api.Home
-import com.iotApp.api.SessionManager
 import com.iotApp.databinding.DrawerUserProfileBinding
+import com.iotApp.repository.SessionManager
+import com.iotApp.view.MainActivity
 
 class SideBarController {
-    fun sideBar(activity : Activity , binding : DrawerUserProfileBinding,sessionManager: SessionManager , familyList : List<String>, response : ArrayList<Home>) {
+    fun sideBar(activity : Activity , binding : DrawerUserProfileBinding,context: Context , familyList : List<String>, response : ArrayList<Home>) {
         val myFamilyList: LinearLayout = binding.myFamilyList
         if (familyList.isNotEmpty()) {
             var n = 0
@@ -31,29 +32,29 @@ class SideBarController {
                 familyItem.setTag(R.id.family_name, nowID)
                 familyItem.setPadding(0, 30, 0, 30)
                 myFamilyList.addView(familyItem)
-                if (sessionManager.fetchFamilyName() == null) {
-                    sessionManager.saveFamilyName(familyList[0])
-                    sessionManager.saveFamilyId(response[0].id)
+                if (SessionManager.getFamilyName(context) == null) {
+                    SessionManager.saveFamilyName(context,familyList[0])
+                    SessionManager.saveFamilyId(context,response[0].id)
                     familyItem.findViewById<ImageView>(R.id.now_family).isVisible =
                         true
                     val memberList =
                         response.find {num->num.home_name == familyList[0] }!!.family_member
-                    sessionManager.storeFamilyMembers(memberList)
+                    SessionManager.saveFamilyMembers(context,memberList)
                 } else {
-                if (sessionManager.fetchFamilyId() == familyItem.getTag(R.id.family_name)) {
+                if (SessionManager.getFamilyId(context) == familyItem.getTag(R.id.family_name)) {
 
                         familyItem.findViewById<ImageView>(R.id.now_family).isVisible =
                             true
                         val memberList =
-                            response.find { num->num.home_name == sessionManager.fetchFamilyName() }!!.family_member
-                        sessionManager.storeFamilyMembers(memberList)
+                            response.find { num->num.home_name == SessionManager.getFamilyName(context) }!!.family_member
+                        SessionManager.saveFamilyMembers(context,memberList)
                     }
                 }
                 familyItem.setOnClickListener {view->
-                    if (sessionManager.fetchFamilyId() != familyItem.getTag(R.id.family_name)
+                    if (SessionManager.getFamilyId(context) != familyItem.getTag(R.id.family_name)
                     ) {
-                        sessionManager.saveFamilyName(response.find { home: Home -> home.id == familyItem.getTag(R.id.family_name) }!!.home_name)
-                        sessionManager.saveFamilyId(familyItem.getTag(R.id.family_name) as String)
+                        SessionManager.saveFamilyName(context,response.find { home: Home -> home.id == familyItem.getTag(R.id.family_name) }!!.home_name)
+                        SessionManager.saveFamilyId(context,familyItem.getTag(R.id.family_name) as String)
                         activity.finish()
                         activity.startActivity(
                             Intent(
@@ -71,7 +72,7 @@ class SideBarController {
             }
         } else {
             Log.d("IotApi", "getFamily: 沒有家庭")
-            sessionManager.storeFamilyMembers(arrayListOf())
+            SessionManager.saveFamilyMembers(context,arrayListOf())
         }
         binding.loading.isVisible = false
     }

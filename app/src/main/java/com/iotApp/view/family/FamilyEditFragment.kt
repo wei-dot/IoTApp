@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.iotApp.R
 import com.iotApp.api.AlterHome
-import com.iotApp.api.IotApi
+import com.iotApp.repository.IotApi
 import com.iotApp.api.SessionManager
 
 import com.iotApp.databinding.FragmentFamilyEditBinding
@@ -20,7 +20,8 @@ import com.iotApp.databinding.FragmentFamilyEditBinding
  */
 class FamilyEditFragment : Fragment() {
 
-    private var _binding:FragmentFamilyEditBinding ?= null
+    private var _binding: FragmentFamilyEditBinding? = null
+
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -36,21 +37,25 @@ class FamilyEditFragment : Fragment() {
             activity?.finish()
         }
         binding.btnExitFamily.setOnClickListener {
-            IotApi.updateFamilyMemberByFamilyID(SessionManager(requireActivity()))
-            if (SessionManager(requireActivity()).fetchMyOwnFamily()!!.contains(SessionManager(requireActivity()).fetchFamilyId().toString())) {
+            IotApi.updateFamilyMemberByFamilyID(requireContext())
+            if (SessionManager(requireActivity()).fetchMyOwnFamily()!!
+                    .contains(SessionManager(requireActivity()).fetchFamilyId().toString())
+            ) {
                 //表示為管理員，執行刪除整個家庭動作
-                IotApi.deleteFamily(activity,binding,SessionManager(requireActivity()))
-            }
-            else{
+                IotApi.deleteFamily(activity, binding, requireContext())
+            } else {
                 //表示為成員，僅執行調整成員動作
-                val newMemberList : ArrayList<String> = ArrayList()
+                val newMemberList: ArrayList<String> = ArrayList()
 //                SessionManager(requireActivity()).fetchFamilyMembers()?.iterator()?.forEach { member ->
 //                    if (member != SessionManager(requireActivity()).fetchUserInfo()?.username) {
 //                        newMemberList.add(member)
 //                    }
 //                }
-                val alterHome = AlterHome(SessionManager(requireActivity()).fetchFamilyName().toString(), newMemberList)
-                IotApi.exitFamily(activity, binding , SessionManager(requireActivity()) , alterHome)
+                val alterHome = AlterHome(
+                    SessionManager(requireActivity()).fetchFamilyName().toString(),
+                    newMemberList
+                )
+                IotApi.exitFamily(activity, binding, alterHome, requireContext())
             }
         }
         binding.btnAddMember.setOnClickListener {
@@ -58,6 +63,7 @@ class FamilyEditFragment : Fragment() {
         }
         return root
     }
+
     private fun backgroundAlpha(f: Float) {
         val lp = activity?.window?.attributes
         lp?.alpha = f
