@@ -79,6 +79,10 @@
     <string name="add_mode_key">添加組合鍵</string>
     <string name="mode_key">組合鍵功能</string>
     <string name="delete_mode_key">刪除組合鍵</string>
+    <string name="ac">冷氣</string>
+    <string name="fan">風扇</string>
+    <string name="fan_level">風扇強度</string>
+    <string name="fan_switch">風扇開關</string>
 
 
 </resources>

@@ -181,7 +181,6 @@ class ModeFragment : Fragment() {
 //            }
 //        }.start()
         IotApi.getModeKeyInfo(requireActivity(), SessionManager(requireActivity()))
-        Thread.sleep(500)
 
         if (dataList != null) {
 //            dataList!!.layoutManager = layoutManager

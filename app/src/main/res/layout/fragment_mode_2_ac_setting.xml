@@ -52,7 +52,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:orientation="vertical">
 
 
@@ -63,12 +63,29 @@
                         android:layout_gravity="center"
                         android:src="@drawable/btn_mode_key_set_ac_top" />
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/ac"
+                        android:textColor="@color/color_AAAAAA"
+                        android:layout_marginStart="10dp">
+                    </TextView>
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:dividerInsetStart="2dp"
+                        app:dividerInsetEnd="0dp"
+                        app:dividerColor="@color/color_AAAAAA"
+                        app:dividerThickness="2dp">
+                    </com.google.android.material.divider.MaterialDivider>
+
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:background="@drawable/btn_mode_key_button_background"
-                        app:backgroundTint="@null" >
+                        app:backgroundTint="@null">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
@@ -124,7 +141,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="60dp"
                             android:background="@drawable/btn_mode_key_button_background">
-`
+                            `
+
                             <TextView
                                 android:id="@+id/textView6"
                                 android:layout_width="wrap_content"
@@ -151,6 +169,111 @@
                         </androidx.constraintlayout.widget.ConstraintLayout>
                     </androidx.cardview.widget.CardView>
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/fan"
+                        android:textColor="@color/color_AAAAAA"
+                        android:layout_marginStart="10dp">
+                    </TextView>
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:dividerInsetStart="2dp"
+                        app:dividerInsetEnd="0dp"
+                        app:dividerColor="@color/color_AAAAAA"
+                        app:dividerThickness="2dp">
+                    </com.google.android.material.divider.MaterialDivider>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/btn_mode_key_button_background"
+                        app:backgroundTint="@null">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:background="@drawable/btn_mode_key_button_background"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="1.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView3">
+
+                            <com.shawnlin.numberpicker.NumberPicker
+                                android:id="@+id/fan_level_number_picker"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="30dp"
+                                android:layout_marginBottom="10dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:np_height="180dp"
+                                app:np_itemSpacing="10dp"
+                                app:np_max="9"
+                                app:np_min="1"
+                                app:np_value="1"
+                                app:np_width="64dp" />
+
+                            <TextView
+                                android:id="@+id/textView_fan_level"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="30dp"
+                                android:text="@string/fan_level"
+                                android:textSize="20sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/btn_mode_key_button_background"
+                        app:backgroundTint="@null"
+                        app:cardBackgroundColor="#00FFFFFF">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:background="@drawable/btn_mode_key_button_background">
+                            `
+
+                            <TextView
+                                android:id="@+id/textView_fan_switch"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="30dp"
+                                android:text="@string/fan_switch"
+                                android:textSize="20sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <com.google.android.material.switchmaterial.SwitchMaterial
+                                android:id="@+id/mode_key_fan_switch"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginEnd="35dp"
+                                android:checked="true"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:thumbTint="@color/color_14b2d4"
+                                app:trackTint="@color/color_86ccdb" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.cardview.widget.CardView>
+
                     <Button
                         android:id="@+id/button_mode_key_next_step_2"
                         android:layout_width="200dp"
@@ -162,7 +285,7 @@
                         android:textSize="20sp"
                         app:backgroundTint="@null" />
 
-                    </LinearLayout>
+                </LinearLayout>
 
             </ScrollView>
 

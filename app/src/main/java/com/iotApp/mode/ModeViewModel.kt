@@ -12,6 +12,8 @@ class ModeViewModel : ViewModel() {
     var deleteKeyMode:Boolean? = null
     var AcTemperature:Int = 0
     var AcSwitch:Boolean = false
+    var FanLevel:Int = 0
+    var FanSwitch:Boolean = false
     var FamilyId:String = ""
     val text: LiveData<String> = _text
     fun setTplinkSwitch(value: String) {
@@ -47,12 +49,20 @@ class ModeViewModel : ViewModel() {
     fun getFamilyId(): String {
         return FamilyId
     }
-    @JvmName("setDeleteKeyMode1")
-    fun setDeleteKeyMode(value: Boolean) {
-        deleteKeyMode = value
+    @JvmName("setFanLevel1")
+    fun setFanLevel(value: Int) {
+        FanLevel = value
     }
-    @JvmName("getDeleteKeyMode1")
-    fun getDeleteKeyMode(): Boolean {
-        return deleteKeyMode!!
+    @JvmName("getFanLevel1")
+    fun getFanLevel(): Int {
+        return FanLevel
+    }
+    @JvmName("setFanSwitch1")
+    fun setFanSwitch(value: Boolean) {
+        FanSwitch = value
+    }
+    @JvmName("getFanSwitch1")
+    fun getFanSwitch(): Boolean {
+        return FanSwitch
     }
 }
