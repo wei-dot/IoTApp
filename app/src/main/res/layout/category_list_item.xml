@@ -3,8 +3,11 @@
     android:id="@+id/list_item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?android:attr/selectableItemBackground"
     android:ellipsize="end"
+    android:background="?android:attr/selectableItemBackground"
     android:maxLines="1"
-    android:textColor="@color/color_4F4F4F"
-    android:textSize="20sp" />
+    android:textSize="24sp"
+    android:textColor="@color/color_14b2d4"
+    android:padding="16dp"
+    android:letterSpacing="0.5"
+    android:textAppearance="?attr/textAppearanceSubtitle1" />

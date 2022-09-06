@@ -10,4 +10,5 @@
     <dimen name="hamburger_gap">5dp</dimen>
     <dimen name="standard_60">60dp</dimen>
     <dimen name="standard_120">120dp</dimen>
+    <dimen name="btn_small">120dp</dimen>
 </resources>

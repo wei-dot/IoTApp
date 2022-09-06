@@ -125,6 +125,7 @@ class HomeFragment : Fragment() {
             .build()
         mWebSocket = mClient.newWebSocket(request, WsListener())
 
+
         binding.tplinkSwitch1.setOnClickListener {
             if (binding.tplinkSwitch1.text == "開關1 開") {
                 binding.tplinkSwitch1.text = "開關1 關"

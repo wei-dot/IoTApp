@@ -135,5 +135,35 @@
         <item name="android:textColor">#CDA16D</item>
     </style>
 
+    <style name="MaterialAlertDialog.Rounded" parent="@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="shapeAppearanceOverlay">
+            @style/ShapeAppearanceOverlay.MaterialAlertDialog.Rounded
+        </item>
+        <item name="materialAlertDialogBodyTextStyle">
+            @style/Components.Temper.Dialog.Body
+        </item>
+
+        <item name="materialAlertDialogTitleTextStyle">@style/Components.Temper.Dialog.Title</item>
+
+    </style>
+
+    <style name="ShapeAppearanceOverlay.MaterialAlertDialog.Rounded" parent="">
+        <item name="cornerSize">20dp</item>
+    </style>
+
+    <style name="Components.Temper.DialogThemeOverlay" parent="@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="materialAlertDialogTitleTextStyle">@style/Components.Temper.Dialog.Title</item>
+    </style>
+
+
+    <style name="Components.Temper.Dialog.Title" parent="@style/MaterialAlertDialog.MaterialComponents.Title.Text">
+        <item name="android:textAppearance">@style/TextAppearance.Material3.TitleLarge</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Components.Temper.Dialog.Body" parent="@style/MaterialAlertDialog.MaterialComponents.Title.Text">
+        <item name="android:textAppearance">@style/TextAppearance.Material3.BodyLarge</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
 
 </resources>
