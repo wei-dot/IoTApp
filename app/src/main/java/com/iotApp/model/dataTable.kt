@@ -122,18 +122,27 @@ data class AlterHome(
 )
 
 data class AddDevice(
+    @SerializedName("id")
+    val id: String,
     @SerializedName("name")
     val device_name: String,
-    @SerializedName("device_type")
+    @SerializedName("type_name")
     val device_type: String,
-    @SerializedName("device_id")
-    val device_id: String,
-    @SerializedName("home_id")
+    @SerializedName("home")
     val home_id: String,
-    @SerializedName("device_status")
-    val device_status: Boolean,
-    @SerializedName("device_icon")
-    val device_icon: String
+)
+
+data class DeviceData(
+    @SerializedName("name")
+    val device_name: String,
+    @SerializedName("time")
+    val device_time: String,
+    @SerializedName("device")
+    val device_id: String,
+    @SerializedName("home")
+    val home_id: String,
+    @SerializedName("data")
+    val device_status: String,
 )
 
 data class ChatRoomHistory(

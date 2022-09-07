@@ -2,9 +2,15 @@ package com.iotApp.api
 
 import com.iotApp.model.*
 import retrofit2.Call
+import retrofit2.Response
 import retrofit2.http.*
 
 interface ApiService {
+    companion object {
+        fun getApi(): ApiService? {
+            return ApiClient.client?.create(ApiService::class.java)
+        }
+    }
 
     @Headers("Content-Type:application/json")
     @GET(Constants.GET_MODE_KEY_DATA)
@@ -51,13 +57,6 @@ interface ApiService {
     fun getFamilyAdmin(@Header("Authorization") token: String): Call<ArrayList<FamilyAdmin>>
 
     @Headers("Content-Type:application/json")
-    @POST(Constants.POST_MODE_KEY_DATA)
-    fun postModeKeyDataInfo(
-        @Header("Authorization") token: String,
-        @Body info: PostModeKeyDataInfo
-    ): Call<Void>
-
-    @Headers("Content-Type:application/json")
     @PUT(Constants.FAMILY_URL_ID)
     fun alterFamily(
         @Path("id") id: String,
@@ -99,5 +98,25 @@ interface ApiService {
         @Header("Authorization") token: String,
     ): Call<Void>
 
+    @Headers("Content-Type:application/json")
+    @POST(Constants.POST_MODE_KEY_DATA)
+    fun postModeKeyDataInfo(
+        @Header("Authorization") token: String,
+        @Body info: PostModeKeyDataInfo
+    ): Call<Void>
 
+    @Headers("Content-Type:application/json")
+    @POST(Constants.ADD_DEVICE_URL)
+    suspend fun addDevice(
+        @Header("Authorization") token: String,
+        @Body info: AddDevice
+    ): Response<AddDevice>
+
+//    @Headers("Content-Type:application/json")
+//    @PUT(Constants.GET_DEVICE_DATA_URL)
+//    fun getDeviceData(
+//        @Path("id") id: String,
+//        @Header("Authorization") token: String,
+//        @Body info: GetDeviceData
+//    ): Call<GetDeviceData>
 }

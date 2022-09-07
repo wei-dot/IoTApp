@@ -32,4 +32,10 @@ object Constants {
     const val CHAT_ROOM_URL = "/auth/chat_room/{room_name}/"
     const val MESSAGE_URL = "/auth/chat_room_data/{id}/"
     const val Power_Strip_URL = "/ws/strip/temp/"
+
+    /**
+     * 設備網址
+     */
+    const val ADD_DEVICE_URL = "/auth/add_device/"
+    const val GET_DEVICE_DATA_URL = "/auth/device_data/"
 }
