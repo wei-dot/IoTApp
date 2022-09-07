@@ -18,6 +18,10 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".ChatRoomDemo"
+            android:exported="false"
+            android:theme="@style/Theme.IoTApp.NoActionBar" />
+        <activity
             android:name=".SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.App.Starting">
@@ -25,7 +29,6 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-
             </intent-filter>
         </activity>
         <activity
@@ -48,7 +51,7 @@
             android:name=".ModeActivity"
             android:exported="true"
             android:theme="@style/Theme.IoTApp.NoActionBar" />
-
+        <service android:name=".service.InviteService" android:enabled="true" />
     </application>
 
 </manifest>

@@ -121,5 +121,54 @@
         <item name="android:textColor">#CDA16D</item>
     </style>
 
+    <style name="text_request_family_name">
+
+        <item name="android:textSize">
+            20sp
+        </item>
+
+        <item name="android:letterSpacing">
+            -0.02
+        </item>
+
+        <item name="android:textColor">
+            #DF8888
+        </item>
+
+    </style>
+
+    <style name="text_request_user_name">
+
+        <item name="android:textSize">
+            14sp
+        </item>
+
+        <item name="android:letterSpacing">
+            -0.02
+        </item>
+
+        <item name="android:textColor">
+            #CDA16D
+        </item>
+
+    </style>
+
+    <style name="text_my_family_code">
+
+        <item name="android:textSize">
+            20sp
+        </item>
+
+        <item name="android:letterSpacing">
+            0.35
+        </item>
+
+        <item name="android:textColor">
+            #14B2D4
+        </item>
+
+    </style>
+
+
 
 </resources>

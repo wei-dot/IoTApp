@@ -57,10 +57,6 @@ interface ApiService {
     ): Call<Void>
 
     @Headers("Content-Type:application/json")
-    @POST(Constants.FAMILY_ADMIN_URL)
-    fun setAdmin(@Header("Authorization") token: String, @Body info: Admin): Call<Void>
-
-    @Headers("Content-Type:application/json")
     @PUT(Constants.FAMILY_URL_ID)
     fun alterFamily(
         @Path("id") id: String,
@@ -81,4 +77,18 @@ interface ApiService {
         @Path("id") id: String,
         @Header("Authorization") token: String
     ): Call<Home>
+
+    @Headers("Content-Type:application/json")
+    @GET(Constants.CHAT_ROOM_URL)
+    fun getChatRoomHistory(
+        @Path("room_name") room_name: String,
+        @Header("Authorization") token: String
+    ): Call<ChatRoomHistory>
+
+    @Headers("Content-Type:application/json")
+    @GET(Constants.MESSAGE_URL)
+    fun getMessageContent(
+        @Path("id") id: String,
+        @Header("Authorization") token: String
+    ): Call<MessageContent>
 }

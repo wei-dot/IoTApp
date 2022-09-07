@@ -1,6 +1,7 @@
 package com.iotApp.api
 
 import android.app.Activity
+import android.content.ClipData.newIntent
 import android.content.Intent
 import android.os.Handler
 import android.os.Looper
@@ -9,7 +10,10 @@ import android.util.Log
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.FragmentActivity
+import com.iotApp.ChatRoomDemo
 import com.iotApp.MainActivity
+import com.iotApp.api.IotApi.Companion.handler
+import com.iotApp.controller.ChatRoomHistoryController
 import com.iotApp.databinding.*
 import com.iotApp.databinding.*
 import com.iotApp.controller.SideBarController
@@ -17,6 +21,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.http.Body
+import kotlin.concurrent.thread
 
 
 class IotApi {
@@ -263,7 +268,6 @@ class IotApi {
 
                             val adminInfo = sessionManager.fetchUserInfo()?.username.toString()
                                 .let { it1 -> Admin(info.home_name, it1) }
-                            setAdmin(adminInfo, activity, binding, sessionManager)
                         } else {
                             binding.loading.isVisible = false
                             Log.d("IotApi", "建立家庭失敗: ${it.errorBody()?.string()} ")
@@ -273,39 +277,6 @@ class IotApi {
                         binding.loading.isVisible = false
                         Log.d("IotApi", "createHome: ${it?.message}")
                         Toast.makeText(activity, "建立家庭失敗", Toast.LENGTH_SHORT).show()
-                    }
-                }
-        }
-
-        fun setAdmin(
-            @Body admin: Admin,
-            activity: FragmentActivity?,
-            binding: FragmentFamilyCreateBinding,
-            sessionManager: SessionManager
-        ) {
-            apiClient.setAdmin(token = "Token ${sessionManager.fetchAuthToken()}", admin)
-                .enqueue {
-                    onResponse = {
-                        if (it.isSuccessful) {       //這裡目前不清楚為何會明明成功卻掉到"設定家庭成功，但設定管理員失敗"，非延遲問題
-                            Log.d("IotApi", "setAdmin: 設定管理員成功")
-                            binding.loading.isVisible = false
-                            activity?.finish()
-                            activity?.finish()
-                            activity?.startActivity(Intent(activity, MainActivity::class.java))
-                        } else {
-                            Log.d("IotApi", "setAdmin: 設定家庭成功，但設定管理員失敗")
-                            binding.loading.isVisible = false
-                            activity?.finish()
-                            activity?.finish()
-                            activity?.startActivity(Intent(activity, MainActivity::class.java))
-                        }
-                    }
-                    onFailure = {
-                        Log.d("IotApi", "setAdmin: ${it?.message}")
-                        binding.loading.isVisible = false
-                        activity?.finish()
-                        activity?.finish()
-                        activity?.startActivity(Intent(activity, MainActivity::class.java))
                     }
                 }
         }
@@ -402,6 +373,39 @@ class IotApi {
                 }
                 onFailure = {
                     Log.d("IotApi", "getFamilyMemberByFamilyID: ${it?.message}")
+                }
+            }
+        }
+
+        fun addFamilyMember(
+            activity: FragmentActivity?,
+            binding: FragmentFamilyRequestBinding,
+            sessionManager: SessionManager,
+            @Body info : AlterHome
+        )
+        {
+            binding.loading.isVisible = true
+            apiClient.alterFamily(sessionManager.fetchFamilyId().toString() , token = "Token ${sessionManager.fetchAuthToken()}" , info).enqueue {
+                onResponse = {
+                    if (it.isSuccessful) {
+                        Log.d("IotApi", "addFamilyMember: 新增成功")
+                        Toast.makeText(activity, "新增成功", Toast.LENGTH_SHORT).show()
+                        binding.loading.isVisible = false
+                        sessionManager.storeFamilyMembers(info.user)
+                        activity?.finish()
+                        activity?.startActivity(Intent(activity, MainActivity::class.java))
+                    } else {
+                        Log.d("IotApi", "addFamilyMember: 新增失敗")
+                        Toast.makeText(binding.root.context, "新增失敗", Toast.LENGTH_SHORT).show()
+                        binding.loading.isVisible = false
+                        activity?.finish()
+                    }
+                }
+                onFailure = {
+                    Log.d("IotApi", "addFamilyMember: ${it?.message}")
+                    Toast.makeText(binding.root.context, "新增失敗", Toast.LENGTH_SHORT).show()
+                    binding.loading.isVisible = false
+                    activity?.finish()
                 }
             }
         }
@@ -520,6 +524,74 @@ class IotApi {
                     }
                 }
         }
+
+        fun getChatRoomHistory(activity: Activity?, binding : ActivityChatRoomDemoBinding , sessionManager: SessionManager, chatRoomId: String){
+            var messageList : ArrayList<String> = ArrayList()
+            apiClient.getChatRoomHistory(token = "Token ${sessionManager.fetchAuthToken()}", room_name =  chatRoomId)
+                .enqueue {
+                    onResponse = {
+                        if (it.isSuccessful) {
+                            Log.d("IotApi", "getChatRoomHistory: 取得聊天室歷史訊息成功")
+                            val response = it.body()!!
+                            Log.d("IotApi", response.toString())
+                            val messageIdList = response.message
+                            getMessageContent(activity , binding, sessionManager, messageIdList)
+
+
+                        } else {
+                            Log.d("IotApi", "getChatRoomHistory: 取得聊天室歷史訊息失敗")
+                            Toast.makeText(
+                                activity,
+                                "取得聊天室歷史訊息失敗: ${it.errorBody()?.string()} ",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+                    onFailure = {
+                        Log.d("IotApi", "getChatRoomHistory: ${it?.message}")
+                        Toast.makeText(activity, "取得聊天室歷史訊息失敗", Toast.LENGTH_SHORT).show()
+                    }
+                }
+        }
+
+        fun getMessageContent(activity: Activity?, binding : ActivityChatRoomDemoBinding ,sessionManager: SessionManager, messageIdList: ArrayList<String>){
+            var messageList : ArrayList<String> = ArrayList()
+            messageIdList.forEach{
+                apiClient.getMessageContent(
+                    token = "Token ${sessionManager.fetchAuthToken()}",
+                    id = it
+                )
+                    .enqueue {
+                        onResponse = {
+                            if (it.isSuccessful) {
+                                Log.d("IotApi", "getMessageContent: 取得訊息內容成功")
+                                val response = it.body()!!
+                                Log.d("IotApi", response.toString())
+                                messageList.add(response.message)
+
+                            } else {
+                                Log.d("IotApi", "getMessageContent: 取得訊息內容失敗")
+                                Toast.makeText(
+                                    activity,
+                                    "取得訊息內容失敗: ${it.errorBody()?.string()} ",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+
+                        }
+                        onFailure = {
+                            Log.d("IotApi", "getMessageContent: ${it?.message}")
+                            Toast.makeText(activity, "取得訊息內容失敗", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+            }
+            Handler().postDelayed({
+                ChatRoomHistoryController().chatRoomHistoryBuilder(binding, messageList, activity!!)
+            }, 5000)
+
+        }
+
+
 
 
         private fun <T> Call<T>.enqueue(callback: CallBackKt<T>.() -> Unit) {

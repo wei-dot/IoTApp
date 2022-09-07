@@ -38,6 +38,7 @@
     <string name="hint_family_name">輸入家庭名稱</string>
 
 
+
     <!--customize your string here-->
     <string name="app_name">I-LIFE</string>
     <string name="drawer_open">drawer open</string>
@@ -69,6 +70,7 @@
     <string name="text_add_member">新增成員</string>
     <string name="text_create_family">建立家庭</string>
     <string name="text_add_family">新增家庭</string>
+    <string name="text_family_request">加入請求</string>
     <string name="device">設備功能</string>
     <string name="add_device">添加設備</string>
     <string name="device_list">設備清單</string>
@@ -76,6 +78,11 @@
     <string name="add_family">新增家庭</string>
     <string name="send">送出</string>
     <string name="delete_member">踢出家庭</string>
+    <string name="hope_add_family">希望加入這個家庭</string>
+    <string name="btn_reject">狠狠拒絕</string>
+    <string name="btn_accept">歡迎</string>
+    <string name="text_family_code">請欲加入者於加入家庭功能區，輸入此家庭代碼。</string>
+    <string name="hint_family_code">輸入家庭代碼</string>
 
 
 </resources>

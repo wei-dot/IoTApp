@@ -2,22 +2,36 @@ package com.iotApp
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.ComponentName
+import android.content.Context
 import android.content.Intent
-import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.os.Message
+import android.content.ServiceConnection
+import android.os.*
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.iotApp.api.IotApi
 import com.iotApp.api.SessionManager
 import com.iotApp.api.UserInfo
+import com.iotApp.service.InviteService
 
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : Activity() {
+    private lateinit var inviteService: InviteService
+
+    private val serviceConnection = object : ServiceConnection {
+        override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
+            val binder = service as InviteService.InviteServiceBinder
+            inviteService = binder.getService()
+        }
+        override fun onServiceDisconnected(name: ComponentName?) {
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         val splashScreen = installSplashScreen()
         super.onCreate(savedInstanceState)
         splashScreen.setKeepOnScreenCondition{true}
+
+        startService(Intent(this, InviteService::class.java))
 
         if (SessionManager(this).fetchAuthToken() == null) {
             Handler(Looper.getMainLooper()).postDelayed({

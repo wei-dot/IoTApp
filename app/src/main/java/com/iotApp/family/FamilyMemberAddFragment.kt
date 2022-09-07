@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 
 import androidx.navigation.fragment.NavHostFragment
 import com.iotApp.R
+import com.iotApp.api.SessionManager
 
 import com.iotApp.databinding.FragmentFamilyMemberAddBinding
 
@@ -35,6 +36,7 @@ class FamilyMemberAddFragment : Fragment() {
             NavHostFragment.findNavController(this@FamilyMemberAddFragment)
                 .navigate(R.id.navigation_family_edit)
         }
+        binding.familyId.text = SessionManager(requireContext()).fetchFamilyId()
         return root
     }
 

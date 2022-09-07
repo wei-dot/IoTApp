@@ -148,4 +148,14 @@ class SessionManager(context: Context) {
     fun logout() {
         prefs.edit().clear().apply()
     }
+
+    fun storeRequestUserName(userName: String) {
+        val editor = prefs.edit()
+        editor.putString("requestUserName", userName)
+        editor.apply()
+    }
+
+    fun fetchRequestUserName(): String? {
+        return prefs.getString("requestUserName", null)
+    }
 }

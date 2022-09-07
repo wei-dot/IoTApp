@@ -15,6 +15,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.button.MaterialButton
+import com.iotApp.ChatRoomDemo
 import com.iotApp.FamilyActivity
 import com.iotApp.api.AlterHome
 import com.iotApp.api.IotApi
@@ -53,10 +54,6 @@ class FamilyFragment : Fragment() {
         }
         if (hasFamily) {
             binding.btnAddFamily.isVisible = false
-            //test
-//            val familyMemberList: List<String> = listOf("島輝", "偷刀", "馬吉亞米", "番仔", "盲胞", "歐巴馬", "勞贖")
-//            val king = "島輝"
-            //test
             IotApi.getMyOwnFamily(activity, SessionManager(requireActivity()))
             val memberList: LinearLayout = binding.familyMemberBoxLinearlayout
             for (i in familyMemberList.indices) {
@@ -163,7 +160,8 @@ class FamilyFragment : Fragment() {
             }
             binding.btnFamilySetting.setOnClickListener {
 //                Toast.makeText(context, SessionManager(requireActivity()).fetchFamilyId().toString(), Toast.LENGTH_SHORT).show()
-                IotApi.getMyOwnFamily(activity,SessionManager(requireActivity()))
+//                IotApi.getMyOwnFamily(activity,SessionManager(requireActivity()))
+                activity?.startActivity(Intent(activity, ChatRoomDemo::class.java))
             }
         } else {
             binding.btnFamilyEdit.isVisible = false

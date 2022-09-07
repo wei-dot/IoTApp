@@ -23,4 +23,14 @@
         android:name="com.iotApp.family.FamilyCreateFragment"
         tools:layout="@layout/fragment_family_create"
         android:label="@string/text_create_family"/>
+    <fragment
+        android:id="@+id/navigation_family_request"
+        android:name="com.iotApp.family.FamilyRequestFragment"
+        tools:layout="@layout/fragment_family_request"
+        android:label="@string/text_family_request"/>
+
+    <fragment
+        android:id="@+id/navigation_exist_family"
+        android:name="com.iotApp.family.FamilyExistFragment"
+        tools:layout="@layout/fragment_family_exist" />
 </navigation>

@@ -23,6 +23,9 @@ class FamilyActivity : AppCompatActivity() {
             "addFamily" -> {
                 findNavController(R.id.nav_host_fragment_family_edit).navigate(R.id.navigation_family_add)
             }
+            "request" -> {
+                findNavController(R.id.nav_host_fragment_family_edit).navigate(R.id.navigation_family_request)
+            }
         }
     }
 }

@@ -18,6 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.431" />
+
     <View
         android:id="@+id/content_space"
         android:layout_width="319dp"
@@ -28,23 +29,50 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <TextView
-        android:id="@+id/edit_member_title"
-        android:layout_width="213dp"
-        android:layout_height="34dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.497" />
+
+
+    <View
+        android:id="@+id/some_id"
+        android:layout_width="319dp"
+        android:layout_height="76dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:gravity="center_horizontal|top"
-        android:lineSpacingExtra="8sp"
-        android:text="@string/text_add_member"
-        android:textAppearance="@style/text_family_member_style"
-        android:translationY="-3.9sp"
+        android:background="@drawable/title_add_member"
+        app:layout_constraintBottom_toBottomOf="@+id/content_space"
+        app:layout_constraintEnd_toEndOf="@+id/content_space"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/content_space"
+        app:layout_constraintTop_toTopOf="@+id/content_space"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="261dp"
+        android:layout_height="65dp"
+        android:text="@string/text_family_code"
+        android:textAppearance="@style/text_request_user_name"
+        android:textSize="10pt"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/content_space"
         app:layout_constraintEnd_toEndOf="@+id/content_space"
         app:layout_constraintStart_toStartOf="@+id/content_space"
-        app:layout_constraintTop_toTopOf="@+id/content_space"
-        app:layout_constraintVertical_bias="0.085" />
+        app:layout_constraintTop_toBottomOf="@+id/some_id"
+        app:layout_constraintVertical_bias="0.211" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="家庭代碼"
+        app:layout_constraintBottom_toBottomOf="@+id/content_space"
+        app:layout_constraintEnd_toEndOf="@+id/content_space"
+        app:layout_constraintStart_toStartOf="@+id/content_space"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        android:textAppearance="@style/text_my_family_code"
+        android:textSize="15pt"
+        android:id="@+id/family_id"
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

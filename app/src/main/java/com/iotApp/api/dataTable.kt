@@ -3,6 +3,7 @@ package com.iotApp.api
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 import java.util.*
+import kotlin.collections.ArrayList
 
 data class UserInfo (
     @SerializedName("username")
@@ -117,5 +118,21 @@ data class AlterHome(
     val home_name: String,
     @SerializedName("user")
     val user: ArrayList<String>
+)
+
+data class ChatRoomHistory(
+    @SerializedName("chat_room_name")
+    val chat_room_name: String,
+    @SerializedName("message")
+    val message: ArrayList<String>
+)
+
+data class MessageContent(
+    @SerializedName("message_id")
+    val message_id: String,
+    @SerializedName("chat_room_name")
+    val chat_room_name: String,
+    @SerializedName("message")
+    val message: String
 )
 
