@@ -48,6 +48,7 @@ class ModeSetAcFragment : Fragment() {
             modeViewModel?.setAcSwitch(binding.modeKeyAcSwitch.isChecked)
             modeViewModel?.setFanLevel(binding.fanLevelNumberPicker.value)
             modeViewModel?.setFanSwitch(binding.modeKeyFanSwitch.isChecked)
+            modeViewModel?.setFanSpin(binding.modeKeyFanSpin.isChecked)
             Navigation.findNavController(it)
                 .navigate(R.id.action_navigation_mode_2_ac_set_to_navigation_mode_3_naming)
 

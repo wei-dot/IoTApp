@@ -53,13 +53,19 @@ data class GetModeKeyDataInfo(
     @SerializedName("mode_key_name")
     val mode_key_name: String,
     @SerializedName("home_id")
-    val home_id: Int,
+    val home_id: String,
     @SerializedName("tplink_switch_mode_key")
     val tplink_switch_mode_key: String,
     @SerializedName("ac_temperature")
     val ac_temperature: Int,
     @SerializedName("ac_switch")
     val ac_switch: Boolean,
+    @SerializedName("fan_level")
+    val fan_level: Int,
+    @SerializedName("fan_switch")
+    val fan_switch: Boolean,
+    @SerializedName("fan_spin")
+    val fan_spin: Boolean,
     @SerializedName("mode_key_time")
     val mode_key_time: Date,
 ) : Serializable
@@ -75,6 +81,12 @@ data class PostModeKeyDataInfo(
     val ac_temperature: Int,
     @SerializedName("ac_switch")
     val ac_switch: Boolean,
+    @SerializedName("fan_level")
+    val fan_level: Int,
+    @SerializedName("fan_switch")
+    val fan_switch: Boolean,
+    @SerializedName("fan_spin")
+    val fan_spin: Boolean,
 )
 
 data class Home(
@@ -92,10 +104,6 @@ data class CreateHome(
     @SerializedName("user")
     val home_admin: ArrayList<String>,
 )
-<<<<<<< HEAD:app/src/main/java/com/iotApp/api/dataTable.kt
-=======
-
->>>>>>> 7687c140ce3e6c190625fae4a4b8c9040d606bee:app/src/main/java/com/iotApp/model/dataTable.kt
 
 data class FamilyAdmin(
     @SerializedName("id")

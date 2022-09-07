@@ -24,8 +24,12 @@ import com.google.android.material.floatingactionbutton.ExtendedFloatingActionBu
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.iotApp.ModeActivity
 import com.iotApp.R
-import com.iotApp.api.IotApi
+import com.iotApp.api.*
 import com.iotApp.databinding.FragmentMainModeBinding
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.WebSocket
+import java.util.concurrent.TimeUnit
 import com.iotApp.model.GetModeKeyDataInfo
 import com.iotApp.repository.SessionManager
 
@@ -222,34 +226,7 @@ class ModeFragment : Fragment() {
                 ) {
                     super.onScrollStateChanged(recyclerView, newState)
                     Log.d("test", "StateChanged = $newState")
-                    //如果想通过指尖滑动屏幕变化来判断是否触碰，实现当且仅当滑动到最后一项并且手指上拉抛出时才执行上拉加载更多效果的话，需要配合onScrollStateChanged(RecyclerView recyclerView, int newState的使用，
-                    //if (newState==RecyclerView.SCROLL_STATE_IDLE)来判断
                 }
-
-                /**
-                 * 当RecyclerView滑动时触发
-                 * 类似点击事件的MotionEvent.ACTION_MOVE
-                 */
-//                override fun onScrolled(@NonNull recyclerView: RecyclerView, dx: Int, dy: Int) {
-//                    super.onScrolled(recyclerView, dx, dy)
-//                    val lastVisibleItemPosition: Int = layoutManager.findLastVisibleItemPosition()
-//                    if (lastVisibleItemPosition + 1 == dataList!!.adapter?.itemCount) {
-//                        Log.d("test", "loading executed")
-//                        val isRefreshing: Boolean = swipe_refresh?.isRefreshing() == true
-//                        if (isRefreshing) {
-//                            myRecycleViewAdapter.notifyItemRemoved(myRecycleViewAdapter.getItemCount())
-//                            return
-//                        }
-//                        if (!isLoading) {
-//                            isLoading = true
-//                            Handler().postDelayed(Runnable {
-//                                getData()
-//                                Log.d("test", "load more completed")
-//                                isLoading = false
-//                            }, 1000)
-//                        }
-//                    }
-//                }
             }
         )
     }
@@ -267,7 +244,12 @@ class ModeFragment : Fragment() {
         private val mContext = context
         private val mInflater = inflater
         private val mActivity = activity
-
+        //    private val host: String = "192.168.0.15"
+        private val host: String = "192.168.0.13:8000"
+        private val mWbSocketUrl = "ws://" + host + Constants.Power_Strip_URL
+        private lateinit var mClient: OkHttpClient
+        private lateinit var request: Request
+        private lateinit var mWebSocket: WebSocket
         //        private val mFt = ft
 //        private val mModeFragment = modeFragment
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -275,6 +257,13 @@ class ModeFragment : Fragment() {
 //        TODO("Not yet implemented")
             val v = LayoutInflater.from(parent.context)
                 .inflate(R.layout.mode_key_recycler_view, parent, false)
+            mClient = OkHttpClient.Builder()
+                .pingInterval(10, TimeUnit.SECONDS)
+                .build()
+            request = Request.Builder()
+                .url(mWbSocketUrl)
+                .build()
+            mWebSocket = mClient.newWebSocket(request, WsListener())
             return ViewHolder(v)
         }
 
@@ -290,6 +279,15 @@ class ModeFragment : Fragment() {
                     listData[position].tplink_switch_mode_key,
                     Toast.LENGTH_SHORT
                 ).show()
+                for(i in 1..6){
+                    Log.d("ModeFragment", "for in $i tplink_switch_mode_key = ${listData[position].tplink_switch_mode_key}")
+                    listData[position].tplink_switch_mode_key[i-1]
+                    if(listData[position].tplink_switch_mode_key[i-1] == '1') {
+                        mWebSocket.send("{\"message\":\"on:$i\"}")
+                    }else{
+                        mWebSocket.send("{\"message\":\"off:$i\"}")
+                    }
+                }
             }
 
             holder.ModeKeyButton.setOnLongClickListener(View.OnLongClickListener {
