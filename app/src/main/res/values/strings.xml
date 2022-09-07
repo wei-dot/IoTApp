@@ -99,6 +99,8 @@
     <string name="fan_switch">風扇開關</string>
     <string name="ok">確定</string>
     <string name="cancel">取消</string>
+    <string name="to_add">去加入</string>
+    <string name="fan_spin">風扇旋轉</string>
 
 
 </resources>

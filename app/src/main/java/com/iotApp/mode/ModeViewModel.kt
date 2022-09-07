@@ -14,6 +14,7 @@ class ModeViewModel : ViewModel() {
     var AcSwitch: Boolean = false
     var FanLevel: Int = 0
     var FanSwitch: Boolean = false
+    var FanSpin: Boolean = false
     var FamilyId: String = ""
     val text: LiveData<String> = _text
     fun setTplinkSwitch(value: String) {
@@ -68,9 +69,26 @@ class ModeViewModel : ViewModel() {
     fun setFanLevel(value: Int) {
         FanLevel = value
     }
+    @JvmName("getFanLevel1")
+    fun getFanLevel(): Int {
+        return FanLevel
+    }
 
     @JvmName("setFanSwitch1")
     fun setFanSwitch(value: Boolean) {
         FanSwitch = value
+    }
+    @JvmName("getFanSwitch1")
+    fun getFanSwitch(): Boolean {
+        return FanSwitch
+    }
+
+    @JvmName("setFanSpin1")
+    fun setFanSpin(value: Boolean) {
+        FanSpin = value
+    }
+    @JvmName("getFanSpin1")
+    fun getFanSpin(): Boolean {
+        return FanSpin
     }
 }

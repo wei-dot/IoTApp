@@ -274,6 +274,46 @@
                         </androidx.constraintlayout.widget.ConstraintLayout>
                     </androidx.cardview.widget.CardView>
 
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/btn_mode_key_button_background"
+                        app:backgroundTint="@null"
+                        app:cardBackgroundColor="#00FFFFFF">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:background="@drawable/btn_mode_key_button_background">
+                            `
+
+                            <TextView
+                                android:id="@+id/textView_fan_spin"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="30dp"
+                                android:text="@string/fan_spin"
+                                android:textSize="20sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <com.google.android.material.switchmaterial.SwitchMaterial
+                                android:id="@+id/mode_key_fan_spin"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginEnd="35dp"
+                                android:checked="true"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:thumbTint="@color/color_14b2d4"
+                                app:trackTint="@color/color_86ccdb" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.cardview.widget.CardView>
+
                     <Button
                         android:id="@+id/button_mode_key_next_step_2"
                         android:layout_width="200dp"
