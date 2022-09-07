@@ -92,10 +92,6 @@ data class CreateHome(
     @SerializedName("user")
     val home_admin: ArrayList<String>,
 )
-<<<<<<< HEAD:app/src/main/java/com/iotApp/api/dataTable.kt
-=======
-
->>>>>>> 7687c140ce3e6c190625fae4a4b8c9040d606bee:app/src/main/java/com/iotApp/model/dataTable.kt
 
 data class FamilyAdmin(
     @SerializedName("id")
