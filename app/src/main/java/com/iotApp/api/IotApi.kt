@@ -266,9 +266,6 @@ class IotApi {
                             Log.d("IotApi", "createHome: 建立家庭成功")
                             Toast.makeText(activity, "建立家庭成功", Toast.LENGTH_SHORT).show()
                             sessionManager.saveFamilyName(info.home_name)
-
-                            val adminInfo = sessionManager.fetchUserInfo()?.username.toString()
-                                .let { it1 -> Admin(info.home_name, it1) }
                         } else {
                             binding.loading.isVisible = false
                             Log.d("IotApi", "建立家庭失敗: ${it.errorBody()?.string()} ")

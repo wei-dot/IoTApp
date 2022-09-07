@@ -10,13 +10,13 @@
     tools:context="com.iotApp.account.login.LoginFragment">
 
 
-    <androidx.appcompat.widget.AppCompatButton
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_back"
+        style="@style/ReturnButton_Style"
         android:layout_width="@dimen/back_icon_size"
         android:layout_height="@dimen/back_icon_size"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:background="@drawable/ic_return"
         app:layout_constraintBottom_toTopOf="@+id/content_space"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
