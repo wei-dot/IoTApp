@@ -11,7 +11,7 @@ class HomeAddDeviceViewModel : ViewModel() {
     private lateinit var espProvisioner: EspProvisioner
 
     fun pairDevice(context: Context, ssid: String, password: String, customData: String) {
-        espProvisioner = EspProvisioner(context);
+        espProvisioner = EspProvisioner(context)
         val request = EspProvisioningRequest.Builder(context)
             .setSSID(ssid.toByteArray())
             .setPassword(password.toByteArray())

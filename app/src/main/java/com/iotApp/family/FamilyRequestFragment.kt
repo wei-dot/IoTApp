@@ -1,24 +1,17 @@
 package com.iotApp.family
 
-import android.content.Intent
-import android.os.Build.VERSION_CODES.S
 import android.os.Bundle
 import android.util.Log
-
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
 import androidx.fragment.app.Fragment
-
 import androidx.navigation.fragment.NavHostFragment
 import com.iotApp.R
-import com.iotApp.api.AlterHome
 import com.iotApp.api.IotApi
-import com.iotApp.api.SessionManager
-
-import com.iotApp.databinding.FragmentFamilyMemberAddBinding
 import com.iotApp.databinding.FragmentFamilyRequestBinding
+import com.iotApp.model.AlterHome
+import com.iotApp.repository.SessionManager
 
 
 /**

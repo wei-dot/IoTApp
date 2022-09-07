@@ -16,7 +16,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
 import com.iotApp.R
 import com.iotApp.databinding.FragmentHomeAddDeviceBinding
 
@@ -115,7 +114,7 @@ class HomeAddDeviceFragment : Fragment() {
                         Toast.makeText(context, "請輸入完整資訊", Toast.LENGTH_SHORT).show()
                     } else {
                         alertDialog.dismiss()
-                        viewModel.pairDevice(requireContext(), ssidText, passwordText,"Test")
+                        viewModel.pairDevice(requireContext(), ssidText, passwordText, "Test")
                         Toast.makeText(context, "配對成功", Toast.LENGTH_SHORT).show()
                     }
                 }

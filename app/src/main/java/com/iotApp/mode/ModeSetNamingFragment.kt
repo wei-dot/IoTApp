@@ -9,10 +9,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.iotApp.R
 import com.iotApp.api.IotApi
-import com.iotApp.api.PostModeKeyDataInfo
-import com.iotApp.api.SessionManager
 import com.iotApp.databinding.ActivityMainBinding
 import com.iotApp.databinding.FragmentMode3NamingBinding
+import com.iotApp.model.PostModeKeyDataInfo
+import com.iotApp.repository.SessionManager
 
 class ModeSetNamingFragment : Fragment() {
     private var _binding: FragmentMode3NamingBinding? = null
@@ -32,13 +32,20 @@ class ModeSetNamingFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d("ModeSetNamingFragment", "arguments?.getString ${this.arguments?.getString("home_id")}")
+        Log.d(
+            "ModeSetNamingFragment",
+            "arguments?.getString ${this.arguments?.getString("home_id")}"
+        )
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.buttonModeKeyComplete.setOnClickListener {
-            IotApi.getFamily(requireActivity(), ActivityMainBinding.inflate(layoutInflater).profilePage, SessionManager(requireActivity()))
-            if(binding.tilModeKeyName.text?.isNotEmpty() == true){
+            IotApi.getFamily(
+                requireActivity(),
+                ActivityMainBinding.inflate(layoutInflater).profilePage,
+                SessionManager(requireActivity())
+            )
+            if (binding.tilModeKeyName.text?.isNotEmpty() == true) {
                 val mode_key_data_id = modeViewModel?.getTplinkSwitch()
                 val home_id = SessionManager(requireActivity()).fetchFamilyId()
 //                val home_id = "1"
@@ -46,23 +53,31 @@ class ModeSetNamingFragment : Fragment() {
                 val ac_temperature = modeViewModel?.getAcTemperature()
                 val ac_switch = modeViewModel?.getAcSwitch()
                 if (mode_key_data_id != null && home_id != null && ac_temperature != null && ac_switch != null) {
-                    val modeKey = PostModeKeyDataInfo(home_id,mode_key_data_id,mode_key_name,ac_temperature,ac_switch)
-                    IotApi.postModeKeyInfo(requireActivity(),
-                        SessionManager(requireActivity()),modeKey)
+                    val modeKey = PostModeKeyDataInfo(
+                        home_id,
+                        mode_key_data_id,
+                        mode_key_name,
+                        ac_temperature,
+                        ac_switch
+                    )
+                    IotApi.postModeKeyInfo(
+                        requireActivity(),
+                        SessionManager(requireActivity()), modeKey
+                    )
                     activity?.finish()
 //                    ModeFragment.DataAdapter().updateData()
 
 //                    Navigation.findNavController(it)
 //                        .navigate(R.id.action_navigation_mode_3_naming_to_navigation_mode)
-                }else{
-                    Log.d("ModeSetNamingFragment","mode_key_data_id fail")
+                } else {
+                    Log.d("ModeSetNamingFragment", "mode_key_data_id fail")
                 }
 //                val modeKeyDataInfo = GetModeKeyDataInfo()
-            }else{
+            } else {
                 Toast.makeText(context, "欄位不得為空", Toast.LENGTH_LONG).show()
             }
         }
-        binding.btnBack3.setOnClickListener{
+        binding.btnBack3.setOnClickListener {
 //            activity?.finish()
             Navigation.findNavController(it)
                 .navigate(R.id.action_navigation_mode_3_naming_to_navigation_mode_2_ac_set)

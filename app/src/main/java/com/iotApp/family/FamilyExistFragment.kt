@@ -3,29 +3,18 @@ package com.iotApp.family
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
 import androidx.fragment.app.Fragment
-
-import androidx.navigation.fragment.NavHostFragment
-import com.iotApp.FamilyActivity
 import com.iotApp.MainActivity
-import com.iotApp.R
-import com.iotApp.api.SessionManager
 import com.iotApp.databinding.FragmentFamilyExistBinding
-
-import com.iotApp.databinding.FragmentFamilyMemberAddBinding
-import com.iotApp.databinding.FragmentFamilyRequestBinding
-import com.iotApp.service.InviteService
+import com.iotApp.repository.SessionManager
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.WebSocketListener
 import org.json.JSONObject
 import java.util.*
-import kotlin.concurrent.thread
 
 
 /**
@@ -34,6 +23,7 @@ import kotlin.concurrent.thread
 class FamilyExistFragment : Fragment() {
 
     private var _binding: FragmentFamilyExistBinding? = null
+
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -52,15 +42,19 @@ class FamilyExistFragment : Fragment() {
 
             val client = OkHttpClient()
             val request: Request =
-                Request.Builder().url("wss://api.bap5.cc/ws/chat/${binding.tilFamilyName.editText?.text.toString()}/").build()
-            val webSocket = client.newWebSocket(request, object : WebSocketListener(){})
+                Request.Builder()
+                    .url("wss://api.bap5.cc/ws/chat/${binding.tilFamilyName.editText?.text.toString()}/")
+                    .build()
+            val webSocket = client.newWebSocket(request, object : WebSocketListener() {})
 
             fun msgFactory(msg: String): JSONObject {
                 val jsonObjects = JSONObject()
                 jsonObjects.put("type", "message")
                 jsonObjects.put(
                     "message",
-                    msg + "%@%" + Calendar.getInstance().time + "%@%" + SessionManager(requireActivity()).fetchUserInfo()?.username
+                    msg + "%@%" + Calendar.getInstance().time + "%@%" + SessionManager(
+                        requireActivity()
+                    ).fetchUserInfo()?.username
                 )
                 return jsonObjects
             }
@@ -71,8 +65,11 @@ class FamilyExistFragment : Fragment() {
                 Log.d("sendRequest", jsonObject.toString())
             }
 
-            if (binding.tilFamilyName.editText?.text!!.isNotEmpty()){ sendRequest(SessionManager(requireActivity()).fetchUserInfo()!!.username) }
-            else { binding.tilFamilyName.error = "家庭名稱不可為空" }
+            if (binding.tilFamilyName.editText?.text!!.isNotEmpty()) {
+                sendRequest(SessionManager(requireActivity()).fetchUserInfo()!!.username)
+            } else {
+                binding.tilFamilyName.error = "家庭名稱不可為空"
+            }
             activity?.finish()
             activity?.startActivity(Intent(activity, MainActivity::class.java))
         }

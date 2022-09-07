@@ -12,7 +12,7 @@ import com.iotApp.R
 
 class DeviceAdapter internal constructor(private var mData: ArrayList<String>) :
     RecyclerView.Adapter<DeviceAdapter.ViewHolder>() {
-    var selectedPosition = -1; //make it global
+    var selectedPosition = -1 //make it global
 
     // 建立ViewHolder
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

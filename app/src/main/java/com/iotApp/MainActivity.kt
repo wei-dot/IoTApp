@@ -1,13 +1,10 @@
 package com.iotApp
 
 import android.annotation.SuppressLint
-import android.content.ComponentName
 import android.content.Intent
-import android.content.ServiceConnection
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.Handler
-import android.os.IBinder
 import android.os.Looper
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -25,15 +22,14 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.iotApp.api.IotApi
-import com.iotApp.api.SessionManager
-import com.iotApp.api.UserInfo
 import com.iotApp.databinding.ActivityMainBinding
 import com.iotApp.main.family.FamilyFragment
 import com.iotApp.main.home.HomeFragment
 import com.iotApp.main.log.LogFragment
 import com.iotApp.main.mode.ModeFragment
 import com.iotApp.main.notLogin.NotLoginFragment
-import com.iotApp.service.InviteService
+import com.iotApp.model.UserInfo
+import com.iotApp.repository.SessionManager
 
 
 class MainActivity : AppCompatActivity() {
@@ -41,7 +37,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewPager: ViewPager2
     private var firstPressedTime: Long = 0
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

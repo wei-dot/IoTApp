@@ -3,14 +3,13 @@ package com.iotApp
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.ComponentName
-import android.content.Context
 import android.content.Intent
 import android.content.ServiceConnection
 import android.os.*
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.iotApp.api.IotApi
-import com.iotApp.api.SessionManager
-import com.iotApp.api.UserInfo
+import com.iotApp.model.UserInfo
+import com.iotApp.repository.SessionManager
 import com.iotApp.service.InviteService
 
 @SuppressLint("CustomSplashScreen")
@@ -22,6 +21,7 @@ class SplashActivity : Activity() {
             val binder = service as InviteService.InviteServiceBinder
             inviteService = binder.getService()
         }
+
         override fun onServiceDisconnected(name: ComponentName?) {
         }
     }

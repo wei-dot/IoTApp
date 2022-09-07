@@ -12,8 +12,8 @@ import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.fragment.findNavController
 import com.iotApp.R
 import com.iotApp.api.IotApi
-import com.iotApp.api.SendEmail
 import com.iotApp.databinding.FragmentAccountResendBinding
+import com.iotApp.model.SendEmail
 import okhttp3.internal.format
 
 class ResendFragment : Fragment() {
