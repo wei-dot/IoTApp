@@ -16,7 +16,7 @@ class HomeAddDeviceViewModel : ViewModel() {
             .setSSID(ssid.toByteArray())
             .setPassword(password.toByteArray())
             .setReservedData(customData.toByteArray())
-            .setAESKey("1234567890123456".toByteArray())
+            .setAESKey("McQfTjWnZr4u7x!A".toByteArray())
             .build()
         val listener = object : EspProvisioningListener {
 
