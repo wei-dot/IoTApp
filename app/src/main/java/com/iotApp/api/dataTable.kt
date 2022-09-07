@@ -5,7 +5,7 @@ import java.io.Serializable
 import java.util.*
 import kotlin.collections.ArrayList
 
-data class UserInfo (
+data class UserInfo(
     @SerializedName("username")
     val username: String,
     @SerializedName("password")

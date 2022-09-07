@@ -46,8 +46,16 @@ class ModeSetAcFragment : Fragment() {
 //            Log.d("FragmentMainMode2AcSettingBinding", modeViewModel?.getTplinkSwitch()?.value.toString())
             modeViewModel?.setAcTemperature(binding.acTemperatureNumberPicker.value)
             modeViewModel?.setAcSwitch(binding.modeKeyAcSwitch.isChecked)
+            modeViewModel?.setFanLevel(binding.fanLevelNumberPicker.value)
+            modeViewModel?.setFanSwitch(binding.modeKeyFanSwitch.isChecked)
             Navigation.findNavController(it)
                 .navigate(R.id.action_navigation_mode_2_ac_set_to_navigation_mode_3_naming)
+
+        }
+        _binding?.btnBack3?.setOnClickListener {
+//            activity?.finish()
+            Navigation.findNavController(it)
+                .navigate(R.id.action_navigation_mode_2_ac_set_to_navigation_mode_1_switch_set)
 
         }
 

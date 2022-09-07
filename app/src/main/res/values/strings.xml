@@ -29,7 +29,9 @@
 
     <!--Fragment hint String for AccountActivity-->
     <string name="hint_name">輸入用戶名稱</string>
+    <string name="hint_ssid">輸入WIFI名稱</string>
     <string name="hint_password">輸入用戶密碼</string>
+    <string name="hint_ssid_password">輸入WIFI密碼</string>
     <string name="hint_password_confirm">確認用戶密碼</string>
     <string name="hint_password_old">確認舊密碼</string>
     <string name="hint_password_new">輸入新密碼</string>
@@ -83,6 +85,20 @@
     <string name="btn_accept">歡迎</string>
     <string name="text_family_code">請欲加入者於加入家庭功能區，輸入此家庭代碼。</string>
     <string name="hint_family_code">輸入家庭代碼</string>
+    <string name="add_mode_key">添加組合鍵</string>
+    <string name="mode_key">組合鍵功能</string>
+    <string name="delete_mode_key">刪除組合鍵</string>
+    <string name="add">新增</string>
+    <string name="device_category">設備分類</string>
+    <string name="connect_device">連接設備</string>
+    <string name="sensor">感測器</string>
+    <string name="appliance">家用電器</string>
+    <string name="ac">冷氣</string>
+    <string name="fan">風扇</string>
+    <string name="fan_level">風扇強度</string>
+    <string name="fan_switch">風扇開關</string>
+    <string name="ok">確定</string>
+    <string name="cancel">取消</string>
 
 
 </resources>

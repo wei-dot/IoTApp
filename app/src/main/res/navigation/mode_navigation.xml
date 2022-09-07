@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_navigation_mode_2_ac_set_to_navigation_mode_3_naming"
             app:destination="@id/navigation_mode_3_naming" />
+        <action
+            android:id="@+id/action_navigation_mode_2_ac_set_to_navigation_mode_1_switch_set"
+            app:destination="@id/navigation_mode_1_switch_set" />
     </fragment>
 
     <fragment
@@ -32,6 +35,9 @@
         <action
             android:id="@+id/action_navigation_mode_3_naming_to_navigation_mode"
             app:destination="@id/navigation_mode" />
+        <action
+            android:id="@+id/action_navigation_mode_3_naming_to_navigation_mode_2_ac_set"
+            app:destination="@id/navigation_mode_2_ac_set" />
     </fragment>
 
 </navigation>

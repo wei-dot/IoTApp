@@ -8,21 +8,21 @@
 
     <!--    android:id="@+id/nav_host_fragment_activity_main_mode"-->
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton_mode_key_add"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:src="@drawable/btn_mode_key_add"
-        app:backgroundTint="@color/color_14b2d4"
-        app:layout_constraintBottom_toBottomOf="@id/cardView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/cardView"
-        app:layout_constraintVertical_bias="0.95"
-        app:rippleColor="@color/color_fbfbfb"
-        app:tint="@color/color_fbfbfb" />
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:id="@+id/floatingActionButton_mode_key_add"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:clickable="true"-->
+<!--        android:src="@drawable/btn_mode_key_add"-->
+<!--        app:backgroundTint="@color/color_14b2d4"-->
+<!--        app:layout_constraintBottom_toBottomOf="@id/cardView"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.95"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/cardView"-->
+<!--        app:layout_constraintVertical_bias="0.95"-->
+<!--        app:rippleColor="@color/color_fbfbfb"-->
+<!--        app:tint="@color/color_fbfbfb" />-->
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -45,112 +45,126 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_constraintBottom_toBottomOf="parent"
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="350dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:src="@drawable/btn_mode_key_set_top"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <LinearLayout
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="448dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="@+id/scrollView2"
+                app:layout_constraintEnd_toEndOf="@+id/scrollView2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView3"
+                android:layout_gravity="center_vertical|center_horizontal">
+
+
+                <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                    android:id="@+id/swipe_refresh"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-
-                    <ImageView
-                        android:id="@+id/imageView3"
-                        android:layout_width="350dp"
-                        android:layout_height="100dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/btn_mode_key_set_top" />
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    tools:context=".ModeActivity">
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recyclerView_mode_key_set"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:orientation="vertical">
+                        android:layout_gravity="center_horizontal">
 
                     </androidx.recyclerview.widget.RecyclerView>
 
-                    <!--                    <Button-->
-                    <!--                        android:id="@+id/button_mode_key_1"-->
-                    <!--                        android:layout_width="350dp"-->
-                    <!--                        android:layout_height="60dp"-->
-                    <!--                        android:layout_gravity="center"-->
-                    <!--                        android:layout_margin="5dp"-->
-                    <!--                        android:background="@drawable/btn_mode_key_button_background"-->
-                    <!--                        android:text="@string/mode_key_1"-->
-                    <!--                        android:textColor="@color/color_cda16d"-->
-                    <!--                        android:textSize="25sp"-->
-                    <!--                        app:backgroundTint="@null" />-->
+                </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-                    <!--                    <Button-->
-                    <!--                        android:id="@+id/button_mode_key_2"-->
-                    <!--                        android:layout_width="350dp"-->
-                    <!--                        android:layout_height="60dp"-->
-                    <!--                        android:layout_gravity="center"-->
-                    <!--                        android:layout_margin="5dp"-->
-                    <!--                        android:background="@drawable/btn_mode_key_button_background"-->
-                    <!--                        android:text="@string/mode_key_2"-->
-                    <!--                        android:textColor="@color/color_cda16d"-->
-                    <!--                        android:textSize="25sp"-->
-                    <!--                        app:backgroundTint="@null" />-->
 
-                    <!--                    <Button-->
-                    <!--                        android:id="@+id/button_mode_key_3"-->
-                    <!--                        android:layout_width="350dp"-->
-                    <!--                        android:layout_height="60dp"-->
-                    <!--                        android:layout_gravity="center"-->
-                    <!--                        android:layout_margin="5dp"-->
-                    <!--                        android:background="@drawable/btn_mode_key_button_background"-->
-                    <!--                        android:text="@string/mode_key_3"-->
-                    <!--                        android:textColor="@color/color_cda16d"-->
-                    <!--                        android:textSize="25sp"-->
-                    <!--                        app:backgroundTint="@null" />-->
+            </LinearLayout>
 
-                    <!--                    <Button-->
-                    <!--                        android:id="@+id/button_mode_key_4"-->
-                    <!--                        android:layout_width="350dp"-->
-                    <!--                        android:layout_height="60dp"-->
-                    <!--                        android:layout_gravity="center"-->
-                    <!--                        android:layout_margin="5dp"-->
-                    <!--                        android:background="@drawable/btn_mode_key_button_background"-->
-                    <!--                        android:text="@string/mode_key_4"-->
-                    <!--                        android:textColor="@color/color_cda16d"-->
-                    <!--                        android:textSize="25sp"-->
-                    <!--                        app:backgroundTint="@null" />-->
+            <ScrollView
+                android:id="@+id/scrollView2"
+                android:layout_width="365dp"
+                android:layout_height="448dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView3">
 
-                    <!--                    <Button-->
-                    <!--                        android:id="@+id/button_mode_key_5"-->
-                    <!--                        android:layout_width="350dp"-->
-                    <!--                        android:layout_height="60dp"-->
-                    <!--                        android:layout_gravity="center"-->
-                    <!--                        android:layout_margin="5dp"-->
-                    <!--                        android:background="@drawable/btn_mode_key_button_background"-->
-                    <!--                        android:text="@string/mode_key_5"-->
-                    <!--                        android:textColor="@color/color_cda16d"-->
-                    <!--                        android:textSize="25sp"-->
-                    <!--                        app:backgroundTint="@null" />-->
-
-                    <!--                    <Button-->
-                    <!--                        android:id="@+id/button_mode_key_6"-->
-                    <!--                        android:layout_width="350dp"-->
-                    <!--                        android:layout_height="60dp"-->
-                    <!--                        android:layout_gravity="center"-->
-                    <!--                        android:layout_margin="5dp"-->
-                    <!--                        android:background="@drawable/btn_mode_key_button_background"-->
-                    <!--                        android:text="@string/mode_key_6"-->
-                    <!--                        android:textColor="@color/color_cda16d"-->
-                    <!--                        android:textSize="25sp"-->
-                    <!--                        app:backgroundTint="@null" />-->
-
-                </LinearLayout>
             </ScrollView>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_mode_key_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="100dp"
+        android:clickable="true"
+        android:src="@drawable/ic_add_device_fill"
+        app:backgroundTint="@color/color_14b2d4"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:rippleColor="@color/color_fbfbfb"
+        app:tint="@color/color_fbfbfb" />
+
+    <TextView
+        android:id="@+id/add_mode_key_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="@string/add_mode_key"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/add_mode_key_fab"
+        app:layout_constraintEnd_toStartOf="@+id/add_mode_key_fab"
+        app:layout_constraintTop_toTopOf="@+id/add_mode_key_fab" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/delete_mode_key_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="100dp"
+        android:clickable="true"
+        android:src="@drawable/ic_device_list"
+        app:backgroundTint="@color/color_14b2d4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:rippleColor="@color/color_fbfbfb"
+        app:tint="@color/color_fbfbfb" />
+
+    <TextView
+        android:id="@+id/delete_mode_key_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="@string/delete_mode_key"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/delete_mode_key_fab"
+        app:layout_constraintEnd_toStartOf="@+id/delete_mode_key_fab"
+        app:layout_constraintTop_toTopOf="@+id/delete_mode_key_fab" />
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/home_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="100dp"
+        android:text="@string/mode_key"
+        android:textColor="@color/color_fffbf1"
+        app:backgroundTint="@color/color_14b2d4"
+        app:icon="@drawable/btn_mode_key_add"
+        app:iconTint="@color/color_fffbf1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

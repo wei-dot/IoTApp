@@ -91,4 +91,10 @@ interface ApiService {
         @Path("id") id: String,
         @Header("Authorization") token: String
     ): Call<MessageContent>
+    @DELETE(Constants.DEL_MODE_KEY_DATA)
+    fun deleteModeKey(
+        @Path("id") id: Int,
+        @Header("Authorization") token: String,
+    ): Call<Void>
+
 }

@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewPager: ViewPager2
-    private var firstPressedTime: Long =0
+    private var firstPressedTime: Long = 0
 
 
 
@@ -181,7 +181,7 @@ class MainActivity : AppCompatActivity() {
         viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
-                when(position%4){
+                when (position % 4) {
                     0 -> {
                         supportActionBar?.title = "居家狀態"
                         navView.menu.getItem(0).isChecked = true
@@ -195,7 +195,7 @@ class MainActivity : AppCompatActivity() {
                         navView.menu.getItem(2).isChecked = true
                     }
                     3 -> {
-                        supportActionBar!!.title =  "設備日誌"
+                        supportActionBar!!.title = "設備日誌"
                         navView.menu.getItem(3).isChecked = true
                     }
                     else -> {
@@ -250,7 +250,7 @@ class MainActivity : AppCompatActivity() {
         override fun createFragment(position: Int): Fragment {
             SessionManager(this@MainActivity).fetchUserInfo()
                 ?: return NotLoginFragment()
-            return when (position%4) {
+            return when (position % 4) {
                 0 -> HomeFragment()
                 1 -> FamilyFragment()
                 2 -> ModeFragment()

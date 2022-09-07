@@ -13,6 +13,7 @@ object Constants {
     const val RESEND_ACTIVATION_URL = "auth/users/resend_activation/"
     const val GET_MODE_KEY_DATA = "auth/mode_key_data/"
     const val POST_MODE_KEY_DATA = "auth/mode_key_data/"
+    const val DEL_MODE_KEY_DATA = "auth/mode_key_data/{id}/"
     const val FAMILY_URL = "/auth/home_list/"
     const val FAMILY_URL_ID = "/auth/home_list/{id}/"
     const val FAMILY_ADMIN_URL = "/auth/home_admin/"

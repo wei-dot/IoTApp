@@ -23,6 +23,9 @@ class ModeSetSwitchFragment : Fragment() {
         modeViewModel = activity?.run {
             ViewModelProvider(this)[ModeViewModel::class.java]
         } ?: throw Exception("Invalid Activity")
+        binding.btnBack.setOnClickListener {
+            activity?.finish()
+        }
         return binding.root
     }
 
@@ -39,17 +42,17 @@ class ModeSetSwitchFragment : Fragment() {
         _binding?.modeKeyTplinkSwitch4?.text = "開關4 開"
         _binding?.modeKeyTplinkSwitch5?.text = "開關5 開"
         _binding?.modeKeyTplinkSwitch6?.text = "開關6 開"
-        var switchKey= ""
+        var switchKey = ""
 
         _binding?.buttonModeKeyNextStep1?.setOnClickListener {
-            Log.d("setOnClickListener", "setOnClickListener")
+//            Log.d("setOnClickListener", "setOnClickListener")
             switchKey += if (_binding?.modeKeyTplinkSwitch1?.isChecked!!) "1" else "0"
             switchKey += if (_binding?.modeKeyTplinkSwitch2?.isChecked!!) "1" else "0"
             switchKey += if (_binding?.modeKeyTplinkSwitch3?.isChecked!!) "1" else "0"
             switchKey += if (_binding?.modeKeyTplinkSwitch4?.isChecked!!) "1" else "0"
             switchKey += if (_binding?.modeKeyTplinkSwitch5?.isChecked!!) "1" else "0"
             switchKey += if (_binding?.modeKeyTplinkSwitch6?.isChecked!!) "1" else "0"
-            Log.d("setOnClickListener", "switchKey: $switchKey")
+//            Log.d("setOnClickListener", "switchKey: $switchKey")
             modeViewModel?.setTplinkSwitch(switchKey)
 //            val intent = Intent(activity, MainActivity::class.java)
 //            intent.putExtra("switchKey", switchKey)
@@ -57,6 +60,8 @@ class ModeSetSwitchFragment : Fragment() {
             Navigation.findNavController(it)
                 .navigate(R.id.action_navigation_mode_1_switch_set_to_navigation_mode_2_ac_set)
         }
+
+
     }
 
 }

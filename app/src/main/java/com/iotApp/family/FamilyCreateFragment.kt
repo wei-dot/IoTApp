@@ -1,4 +1,5 @@
 package com.iotApp.family
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -20,6 +21,7 @@ import com.iotApp.databinding.FragmentFamilyCreateBinding
 class FamilyCreateFragment : Fragment() {
 
     private var _binding: FragmentFamilyCreateBinding? = null
+
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -36,11 +38,13 @@ class FamilyCreateFragment : Fragment() {
         binding.btnSendFamilyName.setOnClickListener {
             binding.loading.isVisible = true
             if (binding.tilFamilyName.editText?.text!!.isNotEmpty() && binding.tilFamilyName.editText!!.text.isNotBlank()) {
-                val createHome = CreateHome(binding.tilFamilyName.editText?.text!!.toString(),
+                val createHome = CreateHome(
+                    binding.tilFamilyName.editText?.text!!.toString(),
                     arrayListOf(
-                        SessionManager(requireContext()).fetchUserInfo()!!.username)
+                        SessionManager(requireContext()).fetchUserInfo()!!.username
+                    )
                 )
-                IotApi.createHome(createHome, activity,binding, SessionManager(requireContext()))
+                IotApi.createHome(createHome, activity, binding, SessionManager(requireContext()))
             } else {
                 Toast.makeText(context, "家庭名稱欄位不得為空", Toast.LENGTH_LONG).show()
             }
