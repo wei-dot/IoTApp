@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="13dp">
+
+
+    <LinearLayout
+        android:layout_width="366dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_content_round_white_stroke_blue"
+        android:gravity="bottom|center_vertical"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/ThisIsMsg"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginEnd="20dp"
+            android:text="這裡是訊息"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/ThisIsMsgTime"
+            android:layout_width="333dp"
+            android:layout_height="wrap_content"
+            android:text="這是時間"
+            android:textSize="9sp"
+            android:layout_marginStart="25dp"
+            android:textColor="@color/color_3F3D3D"/>
+
+        <TextView
+            android:id="@+id/ThisIsMsgAuthor"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:text="這是作者"
+            android:textSize="11sp"
+            android:textColor="@color/color_3F3D3D"/>
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
