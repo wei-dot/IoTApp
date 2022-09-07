@@ -13,8 +13,12 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.iotApp.MainActivity
 import com.iotApp.R
-import com.iotApp.api.*
+import com.iotApp.api.IotApi
 import com.iotApp.databinding.FragmentAccountLoginBinding
+import com.iotApp.model.Login
+import com.iotApp.model.LoginResponse
+import com.iotApp.model.UserInfo
+import com.iotApp.repository.SessionManager
 
 class LoginFragment : Fragment() {
 

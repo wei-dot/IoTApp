@@ -11,9 +11,9 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import com.iotApp.MainActivity
 import com.iotApp.R
-import com.iotApp.api.Home
-import com.iotApp.api.SessionManager
 import com.iotApp.databinding.DrawerUserProfileBinding
+import com.iotApp.model.Home
+import com.iotApp.repository.SessionManager
 
 class SideBarController {
     fun sideBar(

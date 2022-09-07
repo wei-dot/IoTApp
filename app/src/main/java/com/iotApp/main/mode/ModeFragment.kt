@@ -24,10 +24,10 @@ import com.google.android.material.floatingactionbutton.ExtendedFloatingActionBu
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.iotApp.ModeActivity
 import com.iotApp.R
-import com.iotApp.api.GetModeKeyDataInfo
 import com.iotApp.api.IotApi
-import com.iotApp.api.SessionManager
 import com.iotApp.databinding.FragmentMainModeBinding
+import com.iotApp.model.GetModeKeyDataInfo
+import com.iotApp.repository.SessionManager
 
 
 class ModeFragment : Fragment() {
@@ -333,7 +333,7 @@ class ModeFragment : Fragment() {
                         ContextCompat.getColor(
                             it1, com.google.android.material.R.color.mtrl_btn_transparent_bg_color
                         )
-                    }?.let { it2 -> ColorDrawable(it2) })
+                    }.let { it2 -> ColorDrawable(it2) })
                     popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0)
                 }
                 true

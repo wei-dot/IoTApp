@@ -1,9 +1,11 @@
-package com.iotApp.api
+package com.iotApp.repository
 
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
 import com.iotApp.R
+import com.iotApp.model.GetModeKeyDataInfo
+import com.iotApp.model.UserInfo
 
 class SessionManager(context: Context) {
     private var prefs: SharedPreferences =
@@ -118,6 +120,7 @@ class SessionManager(context: Context) {
     fun fetchFamilyMembers(): Set<String>? {
         return prefs.getStringSet(NOW_FAMILY_MEMBER, null)
     }
+
     fun clearFamilyMembers() {
         val editor = prefs.edit()
         editor.remove(NOW_FAMILY_MEMBER)
@@ -129,6 +132,7 @@ class SessionManager(context: Context) {
         editor.putStringSet(MYOWNFAMILY, familyIdList?.toSet())
         editor.apply()
     }
+
     fun fetchMyOwnFamily(): Set<String>? {
         return prefs.getStringSet(MYOWNFAMILY, null)
     }

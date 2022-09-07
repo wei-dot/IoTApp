@@ -6,9 +6,9 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.iotApp.MainActivity
 import com.iotApp.api.IotApi
-import com.iotApp.api.SessionManager
-import com.iotApp.api.SetPassword
 import com.iotApp.databinding.FragmentAccountSetBinding
+import com.iotApp.model.SetPassword
+import com.iotApp.repository.SessionManager
 
 class SetPasswordFragment : Fragment() {
 

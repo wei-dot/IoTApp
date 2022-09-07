@@ -9,8 +9,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import com.iotApp.R.id.*
 import com.iotApp.api.IotApi
-import com.iotApp.api.SessionManager
+
 import com.iotApp.databinding.ActivityChatRoomDemoBinding
+import com.iotApp.repository.SessionManager
 import okhttp3.*
 import org.json.JSONException
 import org.json.JSONObject
@@ -26,7 +27,10 @@ class ChatRoomDemo : AppCompatActivity() {
         binding.messageEdit.isClickable = false
         binding.sendBtn.isClickable = false
         binding.loading.isVisible = true
-        IotApi.getChatRoomHistory(this,binding,SessionManager(this),SessionManager(this).fetchFamilyId().toString())
+        IotApi.getChatRoomHistory(
+            this, binding,
+            SessionManager(this), SessionManager(this).fetchFamilyId().toString()
+        )
 
         val webSocketListener = object : WebSocketListener() {
             override fun onOpen(
@@ -86,7 +90,8 @@ class ChatRoomDemo : AppCompatActivity() {
         }
         val client = OkHttpClient()
         val request: Request =
-            Request.Builder().url("wss://api.bap5.cc/ws/chat/${SessionManager(this).fetchFamilyId()}/").build()
+            Request.Builder()
+                .url("wss://api.bap5.cc/ws/chat/${SessionManager(this).fetchFamilyId()}/").build()
         val webSocket = client.newWebSocket(request, webSocketListener)
         binding.sendBtn.setOnClickListener {
             if (binding.messageEdit.text.toString().isNotEmpty()) {
@@ -96,6 +101,7 @@ class ChatRoomDemo : AppCompatActivity() {
             }
         }
     }
+
     fun msgFactory(msg: String): JSONObject {
         val jsonObjects = JSONObject()
         jsonObjects.put("type", "message")

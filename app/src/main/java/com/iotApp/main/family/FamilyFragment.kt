@@ -20,10 +20,10 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.button.MaterialButton
 import com.iotApp.ChatRoomDemo
 import com.iotApp.FamilyActivity
-import com.iotApp.api.AlterHome
 import com.iotApp.api.IotApi
-import com.iotApp.api.SessionManager
 import com.iotApp.databinding.FragmentMainFamilyBinding
+import com.iotApp.model.AlterHome
+import com.iotApp.repository.SessionManager
 
 
 /**
@@ -57,7 +57,7 @@ class FamilyFragment : Fragment() {
         }
         if (hasFamily) {
             binding.btnAddFamily.isVisible = false
-            IotApi.getMyOwnFamily(activity, SessionManager(requireActivity()))
+            IotApi.getMyOwnFamily(SessionManager(requireActivity()))
             val memberList: LinearLayout = binding.familyMemberBoxLinearlayout
             for (i in familyMemberList.indices) {
                 val memberToAdd = View.inflate(context, com.iotApp.R.layout.item_member, null)
@@ -172,7 +172,7 @@ class FamilyFragment : Fragment() {
 //                Toast.makeText(context, SessionManager(requireActivity()).fetchFamilyId().toString(), Toast.LENGTH_SHORT).show()
 //                IotApi.getMyOwnFamily(activity,SessionManager(requireActivity()))
                 activity?.startActivity(Intent(activity, ChatRoomDemo::class.java))
-                IotApi.getMyOwnFamily(activity, SessionManager(requireActivity()))
+                IotApi.getMyOwnFamily(SessionManager(requireActivity()))
             }
         } else {
             binding.btnFamilyEdit.isVisible = false

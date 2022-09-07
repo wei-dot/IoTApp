@@ -1,9 +1,8 @@
-package com.iotApp.api
+package com.iotApp.model
 
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 import java.util.*
-import kotlin.collections.ArrayList
 
 data class UserInfo(
     @SerializedName("username")
@@ -20,10 +19,6 @@ data class UserInfo(
     val email: String
 )
 
-data class Category(
-    val category_name: String,
-    val category_description: String,
-)
 
 data class Login(
 
@@ -52,22 +47,22 @@ data class SetPassword(
     val re_password: String
 )
 
- data class GetModeKeyDataInfo(
-     @SerializedName("mode_key_data_id")
-     val mode_key_data_id: Int,
-     @SerializedName("mode_key_name")
-     val mode_key_name: String,
-     @SerializedName("home_id")
-     val home_id: Int,
-     @SerializedName("tplink_switch_mode_key")
-     val tplink_switch_mode_key: String,
-     @SerializedName("ac_temperature")
-     val ac_temperature: Int,
-     @SerializedName("ac_switch")
-     val ac_switch: Boolean,
-     @SerializedName("mode_key_time")
-        val mode_key_time: Date,
- ):Serializable
+data class GetModeKeyDataInfo(
+    @SerializedName("mode_key_data_id")
+    val mode_key_data_id: Int,
+    @SerializedName("mode_key_name")
+    val mode_key_name: String,
+    @SerializedName("home_id")
+    val home_id: Int,
+    @SerializedName("tplink_switch_mode_key")
+    val tplink_switch_mode_key: String,
+    @SerializedName("ac_temperature")
+    val ac_temperature: Int,
+    @SerializedName("ac_switch")
+    val ac_switch: Boolean,
+    @SerializedName("mode_key_time")
+    val mode_key_time: Date,
+) : Serializable
 
 data class PostModeKeyDataInfo(
     @SerializedName("home_id")
@@ -97,6 +92,10 @@ data class CreateHome(
     @SerializedName("user")
     val home_admin: ArrayList<String>,
 )
+<<<<<<< HEAD:app/src/main/java/com/iotApp/api/dataTable.kt
+=======
+
+>>>>>>> 7687c140ce3e6c190625fae4a4b8c9040d606bee:app/src/main/java/com/iotApp/model/dataTable.kt
 
 data class FamilyAdmin(
     @SerializedName("id")
@@ -112,6 +111,21 @@ data class AlterHome(
     val home_name: String,
     @SerializedName("user")
     val user: ArrayList<String>
+)
+
+data class AddDevice(
+    @SerializedName("name")
+    val device_name: String,
+    @SerializedName("device_type")
+    val device_type: String,
+    @SerializedName("device_id")
+    val device_id: String,
+    @SerializedName("home_id")
+    val home_id: String,
+    @SerializedName("device_status")
+    val device_status: Boolean,
+    @SerializedName("device_icon")
+    val device_icon: String
 )
 
 data class ChatRoomHistory(

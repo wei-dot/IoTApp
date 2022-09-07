@@ -11,8 +11,8 @@ import androidx.navigation.fragment.findNavController
 import com.iotApp.MainActivity
 import com.iotApp.R
 import com.iotApp.api.IotApi
-import com.iotApp.api.SendEmail
 import com.iotApp.databinding.FragmentAccountForgetBinding
+import com.iotApp.model.SendEmail
 
 class ForgetPasswordFragment : Fragment() {
     private var _binding: FragmentAccountForgetBinding? = null

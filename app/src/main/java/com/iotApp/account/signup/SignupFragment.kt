@@ -17,8 +17,8 @@ import com.blankj.utilcode.util.RegexUtils
 import com.iotApp.MainActivity
 import com.iotApp.R
 import com.iotApp.api.IotApi
-import com.iotApp.api.UserInfo
 import com.iotApp.databinding.FragmentAccountSignupBinding
+import com.iotApp.model.UserInfo
 
 class SignupFragment : Fragment() {
     private var _binging: FragmentAccountSignupBinding? = null

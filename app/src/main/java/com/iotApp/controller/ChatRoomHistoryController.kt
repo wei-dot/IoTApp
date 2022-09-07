@@ -4,15 +4,17 @@ import android.app.Activity
 import android.util.Log
 import android.view.View
 import android.widget.TextView
-import com.iotApp.ChatRoomDemo
 import com.iotApp.R
-import com.iotApp.api.ChatRoomHistory
-import com.iotApp.api.SessionManager
 import com.iotApp.databinding.ActivityChatRoomDemoBinding
+import com.iotApp.repository.SessionManager
 
 class ChatRoomHistoryController {
-    fun chatRoomHistoryBuilder(binding: ActivityChatRoomDemoBinding, messageList : ArrayList<String>,activity: Activity){
-        messageList.forEach{
+    fun chatRoomHistoryBuilder(
+        binding: ActivityChatRoomDemoBinding,
+        messageList: ArrayList<String>,
+        activity: Activity
+    ) {
+        messageList.forEach {
             val messageArrayList = it.split("%@%")
             val messageListView = binding.messageList
             val msg = View.inflate(
