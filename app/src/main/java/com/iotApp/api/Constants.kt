@@ -2,8 +2,8 @@ package com.iotApp.api
 
 object Constants {
 
-        const val BASE_URL = "https://api.bap5.cc/"
-//    const val BASE_URL = "http://192.168.1.14:8000/" // 伺服器地址
+//        const val BASE_URL = "https://api.bap5.cc/"
+    const val BASE_URL = "http://192.168.1.14:8000/" // 伺服器地址
 
     /**
      * 用戶登錄網址
