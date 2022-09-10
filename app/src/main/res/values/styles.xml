@@ -118,10 +118,21 @@
     </style>
 
     <style name="text_popup_userinfo_nickname_style">
-        <item name="android:textSize">24sp</item>
-        <item name="android:letterSpacing">0.79</item>
-        <item name="android:textColor">#C07A27</item>
+
+        <item name="android:textSize">
+            15sp
+        </item>
+
+        <item name="android:letterSpacing">
+            0.16
+        </item>
+
+        <item name="android:textColor">
+            #CDA16D
+        </item>
+
     </style>
+
 
     <style name="text_popup_userinfo_user_style">
         <item name="android:textSize">15sp</item>
@@ -185,7 +196,8 @@
     </style>
 
 
-=======
+    =======
+
     <style name="MaterialAlertDialog.Rounded" parent="@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog">
         <item name="shapeAppearanceOverlay">
             @style/ShapeAppearanceOverlay.MaterialAlertDialog.Rounded
@@ -216,6 +228,6 @@
         <item name="android:textAppearance">@style/TextAppearance.Material3.BodyLarge</item>
         <item name="android:textColor">@color/black</item>
     </style>
->>>>>>> 6737e828e6367c635de2c29ca347dc4f2a0a5e60
+    >>>>>>> 6737e828e6367c635de2c29ca347dc4f2a0a5e60
 
 </resources>

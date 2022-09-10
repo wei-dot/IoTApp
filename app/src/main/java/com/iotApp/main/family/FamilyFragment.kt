@@ -72,11 +72,9 @@ class FamilyFragment : Fragment() {
                         layoutInflater.inflate(com.iotApp.R.layout.popup_userinfo, null)
                     val popupUsername =
                         view.findViewById<TextView>(com.iotApp.R.id.popup_username)
-                    val popupUser = view.findViewById<TextView>(com.iotApp.R.id.popup_user)
                     val kickMember =
                         view.findViewById<MaterialButton>(com.iotApp.R.id.btn_kickmember)
                     popupUsername.text = familyMemberList[i]
-                    popupUser.text = familyMemberList[i]
                     if (!SessionManager(requireActivity()).fetchMyOwnFamily()!!
                             .contains(SessionManager(requireActivity()).fetchFamilyId())
                     ) {

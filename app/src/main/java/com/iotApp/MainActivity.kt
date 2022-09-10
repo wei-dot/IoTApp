@@ -102,8 +102,8 @@ class MainActivity : AppCompatActivity() {
                 Gravity.TOP, 0, locate[1] + 70
             )
         }
-
     }
+
 
     private fun backgroundAlpha(f: Float) {
         val lp = window.attributes

@@ -149,63 +149,134 @@
                 app:cardElevation="0px"
                 app:cardUseCompatPadding="false">
 
-                <RelativeLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/weatherBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
                     <TextView
+                        android:id="@+id/todayWeather"
                         android:layout_width="206dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
                         android:layout_alignParentEnd="true"
-                        android:layout_marginStart="0dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginEnd="0dp"
                         android:gravity="center"
                         android:letterSpacing="1"
                         android:lineSpacingMultiplier="2"
                         android:padding="10dp"
                         android:text="@string/today_weather"
                         android:textColor="@color/color_c07a27"
-                        android:textSize="20sp" />
-
-                    <TextView
-                        android:id="@+id/TextView_Weather_Details"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginEnd="50dp"
-                        android:layout_marginBottom="50dp"
-                        android:letterSpacing="0.3"
-                        android:text="降雨機率：XX%\n濕度：XX%\n風速：Xkm/h"
-                        android:textColor="@color/color_cda16d"
-                        android:textSize="15sp" />
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.013" />
 
                     <ImageView
-                        android:id="@+id/imageView"
+                        android:id="@+id/ic_weather"
                         android:layout_width="82dp"
                         android:layout_height="71dp"
+                        android:layout_below="@+id/todayWeather"
                         android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
                         android:layout_alignParentBottom="true"
                         android:layout_marginStart="40dp"
-                        android:layout_marginEnd="65dp"
-                        android:layout_marginBottom="50dp"
-                        android:layout_toStartOf="@+id/TextView_Weather_Details"
-                        android:src="@drawable/cloud" />
+                        android:src="@drawable/cloud"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/todayWeather"
+                        app:layout_constraintVertical_bias="0.2" />
 
                     <TextView
-                        android:id="@+id/textView_temperature_range"
+                        android:id="@+id/MinT"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
+                        android:layout_alignStart="@+id/ic_weather"
+                        android:layout_alignEnd="@+id/ic_weather"
                         android:layout_alignParentBottom="true"
-                        android:layout_marginStart="40dp"
-                        android:layout_marginBottom="30dp"
-                        android:text="@string/temperature_range" />
+                        android:layout_marginTop="12dp"
+                        android:text="MinT"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/ic_weather"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/ic_weather"
+                        app:layout_constraintTop_toBottomOf="@+id/ic_weather"
+                        app:layout_constraintVertical_bias="0.0"
+                        android:textColor="@color/black"/>
 
-                </RelativeLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="~"
+                        app:layout_constraintBottom_toBottomOf="@+id/MinT"
+                        app:layout_constraintEnd_toStartOf="@+id/MaxT"
+                        app:layout_constraintStart_toEndOf="@+id/MinT"
+                        app:layout_constraintTop_toTopOf="@+id/MinT"
+                        android:textColor="@color/black"/>
+
+                    <TextView
+                        android:id="@+id/MaxT"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignStart="@+id/ic_weather"
+                        android:layout_alignEnd="@+id/ic_weather"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginTop="12dp"
+                        android:text="MaxT"
+                        app:layout_constraintBottom_toBottomOf="@+id/MinT"
+                        app:layout_constraintEnd_toEndOf="@+id/ic_weather"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@+id/MinT"
+                        app:layout_constraintTop_toTopOf="@+id/MinT"
+                        app:layout_constraintVertical_bias="1.0"
+                        android:textColor="@color/black"/>
+
+                    <TextView
+                        android:id="@+id/wx"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="天氣狀況"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/ic_weather"
+                        app:layout_constraintTop_toTopOf="@+id/ic_weather"
+                        android:textColor="@color/color_cda16d"
+                        android:textSize="18dp"/>
+
+                    <TextView
+                        android:id="@+id/pop"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="降雨機率"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.496"
+                        app:layout_constraintStart_toEndOf="@+id/ic_weather"
+                        app:layout_constraintTop_toBottomOf="@+id/wx"
+                        android:textColor="@color/color_cda16d"
+                        android:textSize="18dp"/>
+
+                    <TextView
+                        android:id="@+id/textUpdateTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="更新時間"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:textSize="11dp"/>
+
+                    <TextView
+                        android:id="@+id/text_source"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="4dp"
+                        android:text="@string/weather_source"
+                        app:layout_constraintBottom_toTopOf="@+id/textUpdateTime"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:textSize="11dp"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
 
             </androidx.cardview.widget.CardView>

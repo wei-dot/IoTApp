@@ -101,6 +101,7 @@
     <string name="cancel">取消</string>
     <string name="to_add">去加入</string>
     <string name="fan_spin">風扇旋轉</string>
+    <string name="weather_source">天氣資訊來源:中央氣象局</string>
 
 
 </resources>

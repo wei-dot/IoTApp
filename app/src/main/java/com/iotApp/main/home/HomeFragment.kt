@@ -1,13 +1,22 @@
 package com.iotApp.main.home
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.Color.red
+import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.os.Message
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.annotation.UiThread
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.blankj.utilcode.util.ThreadUtils.runOnUiThread
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.iotApp.HomeActivity
@@ -15,10 +24,20 @@ import com.iotApp.R
 import com.iotApp.api.Constants
 import com.iotApp.api.WsListener
 import com.iotApp.databinding.FragmentMainHomeBinding
+import com.iotApp.repository.SessionManager
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.WebSocket
+import org.json.JSONObject
+import java.io.BufferedInputStream
+import java.io.BufferedReader
+import java.io.InputStreamReader
+import java.net.HttpURLConnection
+import java.net.URL
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import java.util.concurrent.TimeUnit
+import kotlin.concurrent.thread
 
 
 /**
@@ -45,6 +64,7 @@ class HomeFragment : Fragment() {
     private lateinit var request: Request
     private lateinit var mWebSocket: WebSocket
 
+    @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -101,6 +121,74 @@ class HomeFragment : Fragment() {
             val intent = Intent(requireActivity(), HomeActivity::class.java)
             startActivity(intent)
         }
+
+        thread {
+            while (true) {
+                try {
+                    val url =
+                        URL("https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-FF475748-282F-4E9F-81CD-89D15DE20B89&format=JSON&locationName=%E8%87%BA%E5%8C%97%E5%B8%82&elementName=&sort=time")
+                    val urlConnection = url.openConnection() as HttpURLConnection
+                    val inStream = BufferedInputStream(urlConnection.inputStream)
+                    val reader = BufferedReader(InputStreamReader(inStream))
+                    val result = StringBuilder()
+                    var line: String?
+                    while (reader.readLine().also { line = it } != null) {
+                        result.append(line)
+                    }
+                    val json = JSONObject(result.toString())
+                    val records = json.getJSONObject("records")
+                    val location = records.getJSONArray("location")
+                    val weatherElement = location.getJSONObject(0).getJSONArray("weatherElement")
+                    val wx = weatherElement.getJSONObject(0).getJSONArray("time")
+                    val wxParameter = wx.getJSONObject(0).getJSONObject("parameter")
+                    val wxTime = wx.getJSONObject(0).getString("startTime")
+                    val wxParameterName = wxParameter.getString("parameterName")
+                    val wxParameterValue = wxParameter.getString("parameterValue")
+                    val pop = weatherElement.getJSONObject(1).getJSONArray("time")
+                    val popParameter = pop.getJSONObject(0).getJSONObject("parameter")
+                    val popParameterName = popParameter.getString("parameterName")
+                    val minT = weatherElement.getJSONObject(2).getJSONArray("time")
+                    val minTParameter = minT.getJSONObject(0).getJSONObject("parameter")
+                    val minTParameterName = minTParameter.getString("parameterName")
+                    val maxT = weatherElement.getJSONObject(4).getJSONArray("time")
+                    val maxTParameter = maxT.getJSONObject(0).getJSONObject("parameter")
+                    val maxTParameterName = maxTParameter.getString("parameterName")
+
+                    runOnUiThread {
+                        val dayNight = if (LocalDateTime.now().hour > 18 || LocalDateTime.now().hour < 6) "night" else "day"
+                        when((minTParameterName.toInt() + maxTParameterName.toInt()) / 2){
+                            in -999..15 -> {binding.MaxT.setTextColor(ContextCompat.getColor(requireContext(),R.color.color_86ccdb))
+                                binding.MinT.setTextColor(ContextCompat.getColor(requireContext(),R.color.color_86ccdb))}
+                            in 16..30 -> {binding.MaxT.setTextColor(ContextCompat.getColor(requireContext(),R.color.color_c07a27))
+                                binding.MinT.setTextColor(ContextCompat.getColor(requireContext(),R.color.color_c07a27))}
+                            in 31..40 -> {binding.MaxT.setTextColor(ContextCompat.getColor(requireContext(),R.color.color_df8888))
+                                binding.MinT.setTextColor(ContextCompat.getColor(requireContext(),R.color.color_df8888))}
+                            else -> binding.MaxT.setTextColor(ContextCompat.getColor(requireContext(),R.color.black))
+                        }
+                        binding.MinT.text = "${minTParameterName}°C"
+                        binding.MaxT.text = "${maxTParameterName}°C"
+                        binding.icWeather.setImageDrawable(
+                            resources.assets.open("weather/${dayNight}/${wxParameterValue}.png").use {
+                                Drawable.createFromStream(it, null)
+                            }
+                        )
+                        binding.wx.text = wxParameterName
+                        binding.pop.text = "降雨機率:${popParameterName}%"
+                        binding.textUpdateTime.text = "資訊時間:${wxTime}"
+                    }
+                    Log.d("weather", "parameterName: $wxParameterName")
+
+                    Thread.sleep(1000 * 60 * 60)
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                } catch (e: Exception) {
+                    Log.d("weather", "error")
+                }
+                Thread.sleep(10000)
+            }
+        }
+
+
         return binding.root
 
     }
@@ -183,6 +271,7 @@ class HomeFragment : Fragment() {
 
 
     }
+
 
     private fun fabInVisibility() {
         mAddDeviceFab?.visibility = View.GONE
