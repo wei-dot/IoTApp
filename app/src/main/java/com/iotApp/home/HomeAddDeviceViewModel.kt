@@ -2,12 +2,17 @@ package com.iotApp.home
 
 import android.content.Context
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.espressif.iot.esptouch2.provision.EspProvisioner
 import com.espressif.iot.esptouch2.provision.EspProvisioningListener
 import com.espressif.iot.esptouch2.provision.EspProvisioningRequest
 import com.espressif.iot.esptouch2.provision.EspProvisioningResult
+import com.iotApp.model.AddDevice
+import com.iotApp.repository.DeviceRepository
+import com.iotApp.repository.SessionManager
+import kotlinx.coroutines.launch
 
-class HomeAddDeviceViewModel : ViewModel() {
+class HomeAddDeviceViewModel(private val deviceRepository: DeviceRepository) : ViewModel() {
     private lateinit var espProvisioner: EspProvisioner
 
     fun pairDevice(context: Context, ssid: String, password: String, customData: String) {
@@ -37,5 +42,10 @@ class HomeAddDeviceViewModel : ViewModel() {
             }
         }
         espProvisioner.startProvisioning(request, listener)
+    }
+    fun addDevice(token:String,info:AddDevice){
+        viewModelScope.launch {
+            deviceRepository.addDevice(token,info)
+        }
     }
 }

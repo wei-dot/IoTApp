@@ -18,6 +18,9 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputEditText
 import com.iotApp.R
 import com.iotApp.databinding.FragmentHomeAddDeviceBinding
+import com.iotApp.model.AddDevice
+import com.iotApp.repository.SessionManager
+import java.util.*
 
 class HomeAddDeviceFragment : Fragment() {
     private lateinit var viewModel: HomeAddDeviceViewModel
@@ -81,42 +84,63 @@ class HomeAddDeviceFragment : Fragment() {
             }
         binding.add.setOnClickListener {
             try {
-                val alertDialog = MaterialAlertDialogBuilder(
-                    requireContext(),
-                    R.style.MaterialAlertDialog_Rounded
-                ).setTitle("配對裝置")
-                    .setMessage("確定要配對\n${mData[adapter.selectedPosition]}?")
-                    .setBackground(
-                        ContextCompat.getDrawable(
-                            requireActivity(),
-                            R.drawable.background_popup
+
+                val familyId = SessionManager(requireContext()).fetchFamilyId()
+                val userId = SessionManager(requireContext()).fetchUserInfo()?.username
+                val deviceId = UUID.randomUUID().toString()
+                if (familyId != null) {
+                    val alertDialog = MaterialAlertDialogBuilder(
+                        requireContext(),
+                        R.style.MaterialAlertDialog_Rounded
+                    ).setTitle("配對裝置")
+                        .setMessage("確定要配對\n${mData[adapter.selectedPosition]}?")
+                        .setBackground(
+                            ContextCompat.getDrawable(
+                                requireActivity(),
+                                R.drawable.background_popup
+                            )
                         )
-                    )
-                    .create()
+                        .create()
 
-                val viewDialog = layoutInflater.inflate(R.layout.pairing_dialog, null)
-                alertDialog.setView(viewDialog)
-                val cancel = viewDialog.findViewById<MaterialButton>(R.id.cancel)
-                val confirm = viewDialog.findViewById<MaterialButton>(R.id.ok)
-                val ssid = viewDialog.findViewById<TextInputEditText>(R.id.et_ssid)
-                val password = viewDialog.findViewById<TextInputEditText>(R.id.et_password)
+                    val viewDialog = layoutInflater.inflate(R.layout.pairing_dialog, null)
+                    alertDialog.setView(viewDialog)
+                    val cancel = viewDialog.findViewById<MaterialButton>(R.id.cancel)
+                    val confirm = viewDialog.findViewById<MaterialButton>(R.id.ok)
+                    val ssid = viewDialog.findViewById<TextInputEditText>(R.id.et_ssid)
+                    val password = viewDialog.findViewById<TextInputEditText>(R.id.et_password)
 
 
-                alertDialog.show()
-                cancel.setOnClickListener {
-                    alertDialog.dismiss()
-                    Toast.makeText(context, "取消配對", Toast.LENGTH_SHORT).show()
-                }
-                confirm.setOnClickListener {
-                    val ssidText = ssid.text.toString()
-                    val passwordText = password.text.toString()
-                    if (ssidText.isEmpty() || passwordText.isEmpty()) {
-                        Toast.makeText(context, "請輸入完整資訊", Toast.LENGTH_SHORT).show()
-                    } else {
+                    alertDialog.show()
+                    cancel.setOnClickListener {
                         alertDialog.dismiss()
-                        viewModel.pairDevice(requireContext(), ssidText, passwordText, "Test")
-                        Toast.makeText(context, "配對成功", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "取消配對", Toast.LENGTH_SHORT).show()
                     }
+                    confirm.setOnClickListener {
+                        val ssidText = ssid.text.toString()
+                        val passwordText = password.text.toString()
+                        if (ssidText.isEmpty() || passwordText.isEmpty()) {
+                            Toast.makeText(context, "請輸入完整資訊", Toast.LENGTH_SHORT).show()
+                        } else {
+                            alertDialog.dismiss()
+                            viewModel.pairDevice(
+                                requireContext(),
+                                ssidText,
+                                passwordText,
+                                "$familyId$deviceId$userId"
+                            )
+                            val device = AddDevice(id=deviceId,"我的設備", "DHT11", home_id = familyId)
+                            viewModel.addDevice(
+                                "Token ${SessionManager(requireContext()).fetchAuthToken()}",
+                                device
+                            )
+                            Toast.makeText(context, "配對成功", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                } else {
+                    AlertDialog.Builder(requireContext())
+                        .setTitle("錯誤")
+                        .setMessage("未加入家庭")
+                        .setPositiveButton("確定") { _, _ -> {} }.create().show()
                 }
 
 
