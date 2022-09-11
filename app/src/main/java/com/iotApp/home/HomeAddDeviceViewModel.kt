@@ -9,7 +9,6 @@ import com.espressif.iot.esptouch2.provision.EspProvisioningRequest
 import com.espressif.iot.esptouch2.provision.EspProvisioningResult
 import com.iotApp.model.AddDevice
 import com.iotApp.repository.DeviceRepository
-import com.iotApp.repository.SessionManager
 import kotlinx.coroutines.launch
 
 class HomeAddDeviceViewModel(private val deviceRepository: DeviceRepository) : ViewModel() {

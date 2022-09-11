@@ -5,7 +5,6 @@ import android.util.Log
 import android.view.View
 import android.widget.TextView
 import com.iotApp.R
-import com.iotApp.databinding.ActivityChatRoomDemoBinding
 import com.iotApp.databinding.FragmentMainFamilyBinding
 import com.iotApp.repository.SessionManager
 

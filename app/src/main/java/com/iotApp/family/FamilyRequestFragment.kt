@@ -38,7 +38,7 @@ class FamilyRequestFragment : Fragment() {
         }
 
         binding.btnAccept.setOnClickListener {
-            var members: MutableList<String> =
+            val members: MutableList<String> =
                 SessionManager(requireContext()).fetchFamilyMembers()!!.toMutableList()
             members.add(SessionManager(requireContext()).fetchRequestUserName()!!)
             val arrayList = ArrayList(members)

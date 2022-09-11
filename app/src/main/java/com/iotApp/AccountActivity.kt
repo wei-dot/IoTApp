@@ -1,11 +1,8 @@
 package com.iotApp
 
-import android.content.Intent
-import android.content.Intent.getIntent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
-import com.iotApp.account.login.LoginFragment
 import com.iotApp.databinding.ActivityLoginBinding
 
 class AccountActivity : AppCompatActivity() {

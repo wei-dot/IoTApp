@@ -49,7 +49,7 @@ class ChatRoomEmbed {
                 runOnUiThread {
                     try {
                         val jsonObject = JSONObject(text)
-                        var message = jsonObject.getString("message")
+                        val message = jsonObject.getString("message")
                         val messageArrayList = message.split("%@%")
                         val messageList = binding.chatRoom.messageList
                         if (!messageArrayList[0].contains("#request#")) {

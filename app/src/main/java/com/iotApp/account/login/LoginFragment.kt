@@ -21,7 +21,6 @@ import com.iotApp.model.Login
 import com.iotApp.model.LoginResponse
 import com.iotApp.model.UserInfo
 import com.iotApp.repository.SessionManager
-import java.lang.Boolean
 
 class LoginFragment : Fragment() {
 

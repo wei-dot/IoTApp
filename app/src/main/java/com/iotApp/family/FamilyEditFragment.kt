@@ -62,12 +62,6 @@ class FamilyEditFragment : Fragment() {
         return root
     }
 
-    private fun backgroundAlpha(f: Float) {
-        val lp = activity?.window?.attributes
-        lp?.alpha = f
-        activity?.window?.attributes = lp
-    }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

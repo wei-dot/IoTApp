@@ -548,7 +548,7 @@ class IotApi {
         ): ArrayList<GetModeKeyDataInfo> {
 
             for (i in 0 until modeKeyList.size) {
-                if (modeKeyList[i].home_id.toString() != sessionManager.fetchFamilyId()) {
+                if (modeKeyList[i].home_id != sessionManager.fetchFamilyId()) {
                     modeKeyList.remove(modeKeyList[i])
                     removeModeKey(modeKeyList, sessionManager)
                     break
@@ -622,13 +622,13 @@ class IotApi {
                 }
         }
 
-        fun getMessageContent(
+        private fun getMessageContent(
             activity: Activity?,
             binding: FragmentMainFamilyBinding,
             sessionManager: SessionManager,
             messageIdList: ArrayList<String>
         ) {
-            var messageList: ArrayList<String> = ArrayList()
+            val messageList: ArrayList<String> = ArrayList()
             messageIdList.forEach {
                 apiClient.getMessageContent(
                     token = "Token ${sessionManager.fetchAuthToken()}",
@@ -652,7 +652,7 @@ class IotApi {
                             }
 
                         }
-                        onFailure = {
+                        onFailure = { it ->
                             Log.d("IotApi", "getMessageContent: ${it?.message}")
                             Toast.makeText(activity, "取得訊息內容失敗", Toast.LENGTH_SHORT).show()
                         }
