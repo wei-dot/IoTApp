@@ -18,7 +18,6 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.button.MaterialButton
-import com.iotApp.ChatRoomDemo
 import com.iotApp.FamilyActivity
 import com.iotApp.api.IotApi
 import com.iotApp.databinding.FragmentMainFamilyBinding
@@ -166,15 +165,14 @@ class FamilyFragment : Fragment() {
                     popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0)
                 }
             }
-            binding.btnFamilySetting.setOnClickListener {
-//                Toast.makeText(context, SessionManager(requireActivity()).fetchFamilyId().toString(), Toast.LENGTH_SHORT).show()
-//                IotApi.getMyOwnFamily(activity,SessionManager(requireActivity()))
-                activity?.startActivity(Intent(activity, ChatRoomDemo::class.java))
-                IotApi.getMyOwnFamily(SessionManager(requireActivity()))
+            binding.btnLoadChatroom.setOnClickListener {
+                binding.btnLoadChatroom.isVisible = false
+                binding.chatRoomLayout.isVisible = true
+                ChatRoomEmbed().chatRoomEmbed(requireActivity(), binding)
             }
         } else {
             binding.btnFamilyEdit.isVisible = false
-            binding.btnFamilySetting.isVisible = false
+            binding.btnLoadChatroom.isVisible = false
             val textView: TextView = binding.textFamily
             familyViewModel.text.observe(viewLifecycleOwner) {
                 textView.text = it

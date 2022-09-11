@@ -52,7 +52,7 @@
     <string name="switch_turn_on">開</string>
     <string name="switch_turn_off">關</string>
     <string name="text_tplink_switch">延長線開關</string>
-    <string name="text_family_information">家庭資訊</string>
+    <string name="text_family_information">家庭留言板</string>
     <string name="text_family_member">家庭成員</string>
     <string name="mode_key_1">組合鍵1</string>
     <string name="mode_key_2">組合鍵2</string>
@@ -102,6 +102,8 @@
     <string name="to_add">去加入</string>
     <string name="fan_spin">風扇旋轉</string>
     <string name="weather_source">天氣資訊來源:中央氣象局</string>
+    <string name="go_add_family">前往加入家庭</string>
+    <string name="load_chatroom">點擊載入</string>
 
 
 </resources>

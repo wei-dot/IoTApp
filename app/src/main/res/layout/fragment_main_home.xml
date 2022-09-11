@@ -70,13 +70,13 @@
                         android:letterSpacing="0.3"
                         android:text="20℃"
                         android:textColor="@color/color_df8888"
-                        android:textSize="30sp"
+                        android:textSize="25sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.06"
+                        app:layout_constraintHorizontal_bias="0.042"
                         app:layout_constraintStart_toEndOf="@+id/imageView_temperature"
                         app:layout_constraintTop_toBottomOf="@+id/textView"
-                        app:layout_constraintVertical_bias="1.0" />
+                        app:layout_constraintVertical_bias="0.0" />
 
                     <ImageView
                         android:id="@+id/imageView_temperature"
@@ -113,11 +113,11 @@
                         android:layout_width="29dp"
                         android:layout_height="35dp"
                         android:src="@drawable/humidity"
-                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintBottom_toBottomOf="@+id/room_humidity"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.976"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/room_humidity"
                         app:layout_constraintVertical_bias="0.953" />
 
                     <TextView
@@ -127,7 +127,7 @@
                         android:letterSpacing="0.3"
                         android:text="60%"
                         android:textColor="@color/color_86ccdb"
-                        android:textSize="30sp"
+                        android:textSize="25sp"
                         app:layout_constraintBottom_toBottomOf="@+id/TextView_celsius"
                         app:layout_constraintEnd_toStartOf="@+id/imageView_humidity"
                         app:layout_constraintHorizontal_bias="0.943"

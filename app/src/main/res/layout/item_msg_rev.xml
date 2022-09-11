@@ -8,7 +8,7 @@
 
 
     <LinearLayout
-        android:layout_width="366dp"
+        android:layout_width="219dp"
         android:layout_height="wrap_content"
         android:background="@drawable/background_content_round_white_stroke_blue"
         android:gravity="bottom|center_vertical"
@@ -22,31 +22,31 @@
 
         <TextView
             android:id="@+id/ThisIsMsg"
-            android:layout_width="320dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="18dp"
             android:layout_marginEnd="20dp"
             android:text="這裡是訊息"
-            android:textSize="20sp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/ThisIsMsgTime"
-            android:layout_width="333dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="這是時間"
-            android:textSize="9sp"
             android:layout_marginStart="25dp"
-            android:textColor="@color/color_3F3D3D"/>
+            android:text="這是時間"
+            android:textColor="@color/color_3F3D3D"
+            android:textSize="9sp" />
 
         <TextView
             android:id="@+id/ThisIsMsgAuthor"
-            android:layout_width="300dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
             android:text="這是作者"
-            android:textSize="11sp"
-            android:textColor="@color/color_3F3D3D"/>
+            android:textColor="@color/color_3F3D3D"
+            android:textSize="9sp" />
 
     </LinearLayout>
 

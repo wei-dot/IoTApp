@@ -584,7 +584,7 @@ class IotApi {
 
         fun getChatRoomHistory(
             activity: Activity?,
-            binding: ActivityChatRoomDemoBinding,
+            binding: FragmentMainFamilyBinding,
             sessionManager: SessionManager,
             chatRoomId: String
         ) {
@@ -620,7 +620,7 @@ class IotApi {
 
         fun getMessageContent(
             activity: Activity?,
-            binding: ActivityChatRoomDemoBinding,
+            binding: FragmentMainFamilyBinding,
             sessionManager: SessionManager,
             messageIdList: ArrayList<String>
         ) {

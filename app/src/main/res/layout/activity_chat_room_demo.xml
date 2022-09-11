@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ChatRoomDemo">
+    tools:context=".MainActivity">
 
     <ScrollView
         android:id="@+id/messageScrollView"
@@ -20,15 +20,16 @@
             android:orientation="vertical" />
     </ScrollView>
 
-    <EditText
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/messageEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="4dp"
         android:layout_toStartOf="@id/sendBtn"
-        android:hint="Message..."
+        android:hint="傳送訊息至家庭留言板..."
         android:padding="8dp"
         android:textSize="16sp" />
 
@@ -38,8 +39,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/ic_return"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="13dp"
+        android:background="@drawable/ic_send_message"
         android:padding="10dp" />
 
     <com.airbnb.lottie.LottieAnimationView
