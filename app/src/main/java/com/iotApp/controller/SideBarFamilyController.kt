@@ -49,7 +49,7 @@ class SideBarController {
                     sessionManager.storeFamilyMembers(memberList)
                 } else {
                     if (sessionManager.fetchFamilyId().isNullOrEmpty()){
-                        sessionManager.saveFamilyId(response[familyList.indexOfLast { it == sessionManager.fetchFamilyName() }].id)
+                        sessionManager.saveFamilyId(response[familyList.indexOfLast { familyNameInList -> familyNameInList == sessionManager.fetchFamilyName() }].id)
                     }
                     if (sessionManager.fetchFamilyId() == familyItem.getTag(R.id.family_name)) {
 
@@ -60,7 +60,7 @@ class SideBarController {
                         sessionManager.storeFamilyMembers(memberList)
                     }
                 }
-                familyItem.setOnClickListener { view ->
+                familyItem.setOnClickListener {
                     if (sessionManager.fetchFamilyId() != familyItem.getTag(R.id.family_name)
                     ) {
                         sessionManager.saveFamilyName(response.find { home: Home ->
