@@ -4,7 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.View
+import androidx.activity.OnBackPressedCallback
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -47,6 +49,16 @@ class ForgetPasswordFragment : Fragment() {
             }
 
         }
+        requireActivity()
+            .onBackPressedDispatcher
+            .addCallback(viewLifecycleOwner,
+                object : OnBackPressedCallback(true) {
+                    override fun handleOnBackPressed() {
+                        Log.d("System", "Fragment back pressed invoked")
+                        findNavController().navigate(R.id.action_forgetPasswordFragment_to_loginFragment)
+                    }
+                }
+            )
     }
 
 }

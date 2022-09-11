@@ -2,7 +2,9 @@ package com.iotApp.account.set
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import com.iotApp.MainActivity
 import com.iotApp.api.IotApi
@@ -42,5 +44,15 @@ class SetPasswordFragment : Fragment() {
             activity?.finish()
             startActivity(Intent(activity, MainActivity::class.java))
         }
+        requireActivity()
+            .onBackPressedDispatcher
+            .addCallback(viewLifecycleOwner,
+                object : OnBackPressedCallback(true) {
+                    override fun handleOnBackPressed() {
+                        activity?.finish()
+                        startActivity(Intent(context, MainActivity::class.java))
+                    }
+                }
+            )
     }
 }

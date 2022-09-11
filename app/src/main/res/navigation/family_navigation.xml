@@ -17,12 +17,29 @@
     <fragment
         android:id="@+id/navigation_family_add"
         android:name="com.iotApp.family.FamilyAddFragment"
-        tools:layout="@layout/fragment_family_add"/>
+        tools:layout="@layout/fragment_family_add">
+        <action
+            android:id="@+id/action_navigation_family_add_to_navigation_create_family"
+            app:destination="@id/navigation_create_family"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"/>
+        <action
+            android:id="@+id/action_navigation_family_add_to_navigation_exist_family"
+            app:destination="@id/navigation_exist_family"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"/>
+    </fragment>
     <fragment
         android:id="@+id/navigation_create_family"
         android:name="com.iotApp.family.FamilyCreateFragment"
         tools:layout="@layout/fragment_family_create"
-        android:label="@string/text_create_family"/>
+        android:label="@string/text_create_family">
+        <action
+            android:id="@+id/action_navigation_create_family_to_navigation_family_add"
+            app:destination="@id/navigation_family_add"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"/>
+    </fragment>
     <fragment
         android:id="@+id/navigation_family_request"
         android:name="com.iotApp.family.FamilyRequestFragment"
@@ -32,5 +49,11 @@
     <fragment
         android:id="@+id/navigation_exist_family"
         android:name="com.iotApp.family.FamilyExistFragment"
-        tools:layout="@layout/fragment_family_exist" />
+        tools:layout="@layout/fragment_family_exist" >
+        <action
+            android:id="@+id/action_navigation_exist_family_to_navigation_family_add"
+            app:destination="@id/navigation_family_add"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"/>
+    </fragment>
 </navigation>

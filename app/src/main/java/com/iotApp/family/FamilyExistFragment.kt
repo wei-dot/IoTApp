@@ -6,8 +6,11 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.iotApp.MainActivity
+import com.iotApp.R
 import com.iotApp.databinding.FragmentFamilyExistBinding
 import com.iotApp.repository.SessionManager
 import okhttp3.OkHttpClient
@@ -74,6 +77,19 @@ class FamilyExistFragment : Fragment() {
             activity?.startActivity(Intent(activity, MainActivity::class.java))
         }
 
+        binding.btnBack.setOnClickListener {
+            findNavController().navigate(R.id.action_navigation_exist_family_to_navigation_family_add)
+        }
+
+        requireActivity()
+            .onBackPressedDispatcher
+            .addCallback(viewLifecycleOwner,
+                object : OnBackPressedCallback(true) {
+                    override fun handleOnBackPressed() {
+                        findNavController().navigate(R.id.action_navigation_exist_family_to_navigation_family_add)
+                    }
+                }
+            )
 
         return root
     }

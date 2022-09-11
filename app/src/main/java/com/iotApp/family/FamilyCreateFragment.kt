@@ -1,10 +1,12 @@
 package com.iotApp.family
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -33,7 +35,7 @@ class FamilyCreateFragment : Fragment() {
         _binding = FragmentFamilyCreateBinding.inflate(inflater, container, false)
         val root: View = binding.root
         binding.btnBack.setOnClickListener {
-            findNavController().navigate(R.id.navigation_family_add)
+            findNavController().navigate(R.id.action_navigation_create_family_to_navigation_family_add)
         }
         binding.btnSendFamilyName.setOnClickListener {
             binding.loading.isVisible = true
@@ -49,6 +51,16 @@ class FamilyCreateFragment : Fragment() {
                 Toast.makeText(context, "家庭名稱欄位不得為空", Toast.LENGTH_LONG).show()
             }
         }
+
+        requireActivity()
+            .onBackPressedDispatcher
+            .addCallback(viewLifecycleOwner,
+                object : OnBackPressedCallback(true) {
+                    override fun handleOnBackPressed() {
+                        findNavController().navigate(R.id.action_navigation_create_family_to_navigation_family_add)
+                    }
+                }
+            )
 
         return root
     }

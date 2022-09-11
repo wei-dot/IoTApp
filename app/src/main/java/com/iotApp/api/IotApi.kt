@@ -262,6 +262,10 @@ class IotApi {
                             Log.d("IotApi", "createHome: 建立家庭成功")
                             Toast.makeText(activity, "建立家庭成功", Toast.LENGTH_SHORT).show()
                             sessionManager.saveFamilyName(info.home_name)
+                            sessionManager.clearFamilyId()
+                            binding.loading.isVisible = false
+                            activity?.finish()
+                            activity?.startActivity(Intent(activity, MainActivity::class.java))
                         } else {
                             binding.loading.isVisible = false
                             Log.d("IotApi", "建立家庭失敗: ${it.errorBody()?.string()} ")

@@ -1,9 +1,11 @@
 package com.iotApp.family
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.iotApp.R
@@ -31,10 +33,10 @@ class FamilyAddFragment : Fragment() {
             activity?.finish()
         }
         binding.createFamily.setOnClickListener {
-            findNavController().navigate(R.id.navigation_create_family)
+            findNavController().navigate(R.id.action_navigation_family_add_to_navigation_create_family)
         }
         binding.existFamily.setOnClickListener {
-            findNavController().navigate(R.id.navigation_exist_family)
+            findNavController().navigate(R.id.action_navigation_family_add_to_navigation_exist_family)
         }
 
         return root

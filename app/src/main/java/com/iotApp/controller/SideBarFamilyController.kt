@@ -26,6 +26,7 @@ class SideBarController {
         val myFamilyList: LinearLayout = binding.myFamilyList
         if (familyList.isNotEmpty()) {
             var n = 0
+
             familyList.forEach {
                 val familyItem = View.inflate(
                     activity,
@@ -47,6 +48,9 @@ class SideBarController {
                         response.find { num -> num.home_name == familyList[0] }!!.family_member
                     sessionManager.storeFamilyMembers(memberList)
                 } else {
+                    if (sessionManager.fetchFamilyId().isNullOrEmpty()){
+                        sessionManager.saveFamilyId(response[familyList.indexOfLast { it == sessionManager.fetchFamilyName() }].id)
+                    }
                     if (sessionManager.fetchFamilyId() == familyItem.getTag(R.id.family_name)) {
 
                         familyItem.findViewById<ImageView>(R.id.now_family).isVisible =

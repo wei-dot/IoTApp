@@ -5,9 +5,11 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.os.Message
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -19,6 +21,7 @@ import com.iotApp.model.Login
 import com.iotApp.model.LoginResponse
 import com.iotApp.model.UserInfo
 import com.iotApp.repository.SessionManager
+import java.lang.Boolean
 
 class LoginFragment : Fragment() {
 
@@ -58,6 +61,18 @@ class LoginFragment : Fragment() {
         binding.textSignup.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_signupFragment)
         }
+
+        requireActivity()
+            .onBackPressedDispatcher
+            .addCallback(viewLifecycleOwner,
+                object : OnBackPressedCallback(true) {
+                    override fun handleOnBackPressed() {
+                        Log.d("System", "Fragment back pressed invoked")
+                        activity?.finish()
+                        startActivity(Intent(activity, MainActivity::class.java))
+                    }
+                }
+            )
     }
 
     private fun onLogin() {
