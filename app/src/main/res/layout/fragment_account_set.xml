@@ -7,7 +7,7 @@
     android:layout_height="fill_parent"
     android:background="@drawable/background_fullscreen"
     app:layout_anchorGravity="bottom"
-    tools:context="com.iotApp.account.set.SetPasswordFragment">
+    tools:context=".view.account.SetPasswordFragment">
 
 
     <com.google.android.material.button.MaterialButton

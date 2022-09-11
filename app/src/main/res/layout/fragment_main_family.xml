@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.iotApp.main.family.FamilyFragment">
+    tools:context=".view.main.family.FamilyFragment">
 
     <View
         android:id="@+id/family_information_box"
@@ -128,18 +128,6 @@
     </HorizontalScrollView>
 
 
-    <TextView
-        android:id="@+id/text_family"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/color_df8888"
-        android:textSize="40sp"
-        app:layout_constraintBottom_toBottomOf="@+id/family_information_box"
-        app:layout_constraintEnd_toEndOf="@+id/family_information_box"
-        app:layout_constraintStart_toStartOf="@+id/family_information_box"
-        app:layout_constraintTop_toBottomOf="@+id/text_family_information"
-        app:layout_constraintVertical_bias="0.26" />
-
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_add_family"
         style="@style/MaterialButton_square_Style"
@@ -147,13 +135,13 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:clickable="true"
         android:text="@string/go_add_family"
         app:layout_constraintBottom_toBottomOf="@+id/family_information_box"
         app:layout_constraintEnd_toEndOf="@+id/family_information_box"
         app:layout_constraintStart_toStartOf="@+id/family_information_box"
-        app:layout_constraintTop_toBottomOf="@+id/text_family"
+        app:layout_constraintTop_toBottomOf="@+id/btn_load_chatroom"
         app:layout_constraintVertical_bias="0.155" />
 
     <com.google.android.material.button.MaterialButton

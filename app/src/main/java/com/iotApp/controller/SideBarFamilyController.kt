@@ -9,11 +9,11 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.isVisible
-import com.iotApp.MainActivity
 import com.iotApp.R
 import com.iotApp.databinding.DrawerUserProfileBinding
 import com.iotApp.model.Home
 import com.iotApp.repository.SessionManager
+import com.iotApp.view.MainActivity
 
 class SideBarController {
     fun sideBar(

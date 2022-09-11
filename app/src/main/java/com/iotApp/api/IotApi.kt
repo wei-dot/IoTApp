@@ -9,12 +9,12 @@ import android.util.Log
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.FragmentActivity
-import com.iotApp.MainActivity
 import com.iotApp.controller.ChatRoomHistoryController
 import com.iotApp.controller.SideBarController
 import com.iotApp.databinding.*
 import com.iotApp.model.*
 import com.iotApp.repository.SessionManager
+import com.iotApp.view.MainActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

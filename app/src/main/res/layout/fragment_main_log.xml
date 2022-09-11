@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.iotApp.main.log.LogFragment">
+    tools:context=".view.main.LogFragment">
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/group_not_login"
@@ -37,7 +37,7 @@
         android:id="@+id/text_log"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/fragment_main_log"
+        android:text="@string/addDevice"
         android:textColor="@color/color_df8888"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -92,7 +92,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
-                    tools:context=".ModeActivity">
+                    tools:context=".view.ModeActivity">
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recyclerView_log"

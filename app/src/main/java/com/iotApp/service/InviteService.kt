@@ -4,8 +4,8 @@ import android.app.Service
 import android.os.Binder
 import android.util.Log
 import android.widget.Toast
-import com.iotApp.FamilyActivity
 import com.iotApp.repository.SessionManager
+import com.iotApp.view.FamilyActivity
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.WebSocketListener

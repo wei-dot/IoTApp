@@ -18,7 +18,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".SplashActivity"
+            android:name=".view.SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.App.Starting">
             <intent-filter>
@@ -28,23 +28,23 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".view.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.IoTApp.NoActionBar" />
         <activity
-            android:name=".AccountActivity"
+            android:name=".view.AccountActivity"
             android:exported="true"
             android:theme="@style/Theme.IoTApp.NoActionBar" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".view.HomeActivity"
             android:exported="true"
             android:theme="@style/Theme.IoTApp.NoActionBar" />
         <activity
-            android:name=".FamilyActivity"
+            android:name=".view.FamilyActivity"
             android:exported="true"
             android:theme="@style/Theme.IoTApp.NoActionBar" />
         <activity
-            android:name=".ModeActivity"
+            android:name=".view.ModeActivity"
             android:exported="true"
             android:theme="@style/Theme.IoTApp.NoActionBar" />
         <service android:name=".service.InviteService" android:enabled="true" />

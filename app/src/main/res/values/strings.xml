@@ -104,6 +104,7 @@
     <string name="weather_source">天氣資訊來源:中央氣象局</string>
     <string name="go_add_family">前往加入家庭</string>
     <string name="load_chatroom">點擊載入</string>
+    <string name="addDevice">尚未添加設備</string>
 
 
 </resources>

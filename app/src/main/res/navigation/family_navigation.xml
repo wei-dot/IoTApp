@@ -6,17 +6,17 @@
     app:startDestination="@id/navigation_family_edit">
     <fragment
         android:id="@+id/navigation_family_edit"
-        android:name="com.iotApp.family.FamilyEditFragment"
+        android:name="com.iotApp.view.family.FamilyEditFragment"
         android:label="@string/text_edit_family"
         tools:layout="@layout/fragment_family_edit"/>
     <fragment
         android:id="@+id/navigation_family_member_add"
-        android:name="com.iotApp.family.FamilyMemberAddFragment"
+        android:name="com.iotApp.view.family.FamilyMemberAddFragment"
         android:label="@string/text_add_member"
         tools:layout="@layout/fragment_family_member_add"/>
     <fragment
         android:id="@+id/navigation_family_add"
-        android:name="com.iotApp.family.FamilyAddFragment"
+        android:name="com.iotApp.view.family.FamilyAddFragment"
         tools:layout="@layout/fragment_family_add">
         <action
             android:id="@+id/action_navigation_family_add_to_navigation_create_family"
@@ -31,7 +31,7 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_create_family"
-        android:name="com.iotApp.family.FamilyCreateFragment"
+        android:name="com.iotApp.view.family.FamilyCreateFragment"
         tools:layout="@layout/fragment_family_create"
         android:label="@string/text_create_family">
         <action
@@ -42,13 +42,13 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_family_request"
-        android:name="com.iotApp.family.FamilyRequestFragment"
+        android:name="com.iotApp.view.family.FamilyRequestFragment"
         tools:layout="@layout/fragment_family_request"
         android:label="@string/text_family_request"/>
 
     <fragment
         android:id="@+id/navigation_exist_family"
-        android:name="com.iotApp.family.FamilyExistFragment"
+        android:name="com.iotApp.view.family.FamilyExistFragment"
         tools:layout="@layout/fragment_family_exist" >
         <action
             android:id="@+id/action_navigation_exist_family_to_navigation_family_add"

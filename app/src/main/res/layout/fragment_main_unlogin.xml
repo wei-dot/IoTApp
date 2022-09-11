@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.iotApp.main.notLogin.NotLoginFragment">
+    tools:context=".view.main.NotLoginFragment">
 
 
     <com.google.android.material.button.MaterialButton
@@ -27,6 +27,7 @@
         android:layout_height="wrap_content"
         android:textColor="@color/color_df8888"
         android:textSize="40sp"
+        android:text="@string/fragment_main_notLogin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
