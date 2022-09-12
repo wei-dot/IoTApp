@@ -38,7 +38,7 @@
     <string name="hint_password_new_confirm">確認新密碼</string>
     <string name="hint_email">輸入電子郵件</string>
     <string name="hint_family_name">輸入家庭名稱</string>
-
+    <string name="hint_device_name">輸入設備名稱</string>
 
 
     <!--customize your string here-->

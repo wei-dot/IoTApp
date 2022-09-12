@@ -121,7 +121,7 @@ data class AlterHome(
     val user: ArrayList<String>
 )
 
-data class AddDevice(
+data class Device(
     @SerializedName("id")
     val id: String,
     @SerializedName("name")

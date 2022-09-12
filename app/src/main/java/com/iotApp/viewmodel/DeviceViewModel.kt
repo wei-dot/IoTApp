@@ -1,18 +1,23 @@
-package com.iotApp.view.home
+package com.iotApp.viewmodel
 
 import android.content.Context
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.espressif.iot.esptouch2.provision.EspProvisioner
 import com.espressif.iot.esptouch2.provision.EspProvisioningListener
 import com.espressif.iot.esptouch2.provision.EspProvisioningRequest
 import com.espressif.iot.esptouch2.provision.EspProvisioningResult
-import com.iotApp.model.AddDevice
+import com.iotApp.api.BaseResponse
+import com.iotApp.model.Device
 import com.iotApp.repository.DeviceRepository
 import kotlinx.coroutines.launch
 
-class HomeAddDeviceViewModel(private val deviceRepository: DeviceRepository) : ViewModel() {
+class DeviceViewModel(private val deviceRepository: DeviceRepository) : ViewModel() {
     private lateinit var espProvisioner: EspProvisioner
+
+    val deviceList: MutableLiveData<BaseResponse<Device>> = MutableLiveData()
+    val deviceAdd: MutableLiveData<BaseResponse<Device>> = MutableLiveData()
 
     fun pairDevice(context: Context, ssid: String, password: String, customData: String) {
         espProvisioner = EspProvisioner(context)
@@ -42,9 +47,16 @@ class HomeAddDeviceViewModel(private val deviceRepository: DeviceRepository) : V
         }
         espProvisioner.startProvisioning(request, listener)
     }
-    fun addDevice(token:String,info:AddDevice){
+
+    fun addDevice(token: String, info: Device) {
         viewModelScope.launch {
-            deviceRepository.addDevice(token,info)
+            deviceRepository.addDevice(token, info)
+        }
+    }
+
+    fun getDevice(token: String) {
+        viewModelScope.launch {
+            deviceRepository.getDevice(token)
         }
     }
 }

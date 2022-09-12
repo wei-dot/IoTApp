@@ -1,4 +1,4 @@
-package com.iotApp.view.home
+package com.iotApp.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -10,7 +10,7 @@ class ViewModelFactory : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         with(modelClass) {
             when {
-                isAssignableFrom(HomeAddDeviceViewModel::class.java) -> return HomeAddDeviceViewModel(
+                isAssignableFrom(DeviceViewModel::class.java) -> return DeviceViewModel(
                     deviceRepository = DeviceRepository()
                 ) as T
                 else -> throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")

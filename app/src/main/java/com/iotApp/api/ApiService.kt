@@ -1,5 +1,6 @@
 package com.iotApp.api
 
+import com.iotApp.Constants
 import com.iotApp.model.*
 import retrofit2.Call
 import retrofit2.Response
@@ -106,11 +107,23 @@ interface ApiService {
     ): Call<Void>
 
     @Headers("Content-Type:application/json")
-    @POST(Constants.ADD_DEVICE_URL)
+    @POST(Constants.DEVICE_URL)
     suspend fun addDevice(
         @Header("Authorization") token: String,
-        @Body info: AddDevice
-    ): Response<AddDevice>
+        @Body info: Device
+    ): Response<Device>
+
+    @Headers("Content-Type:application/json")
+    @GET(Constants.DEVICE_URL)
+    suspend fun getDevice(
+        @Header("Authorization") token: String
+    ): Response<Device>
+
+    @DELETE(Constants.DEVICE_ID_URL)
+    suspend fun deleteDevice(
+        @Path("id") id: String,
+        @Header("Authorization") token: String
+    ): Response<Void>
 
 //    @Headers("Content-Type:application/json")
 //    @PUT(Constants.GET_DEVICE_DATA_URL)

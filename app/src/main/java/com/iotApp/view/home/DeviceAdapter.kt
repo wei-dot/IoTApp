@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.iotApp.R
 
@@ -47,6 +48,9 @@ class DeviceAdapter internal constructor(private var mData: ArrayList<String>) :
             selectedPosition = position
             notifyItemChanged(previousItem)
             notifyItemChanged(selectedPosition)
+            Toast.makeText(holder.itemView.context, "你選擇了${mData[position]}", Toast.LENGTH_SHORT)
+                .show()
+
         }
     }
 
@@ -57,6 +61,10 @@ class DeviceAdapter internal constructor(private var mData: ArrayList<String>) :
     fun changeData(data: List<String>) {
         mData.clear()
         mData.addAll(data)
+        notifyDataSetChanged()
+    }
+    fun getCurrentItem():Int{
+        return selectedPosition
     }
 
 

@@ -1,4 +1,4 @@
-package com.iotApp.api
+package com.iotApp
 
 object Constants {
 
@@ -36,6 +36,7 @@ object Constants {
     /**
      * 設備網址
      */
-    const val ADD_DEVICE_URL = "/auth/add_device/"
+    const val DEVICE_URL = "/auth/add_device/"
+    const val DEVICE_ID_URL = "/auth/add_device/{id}/"
     const val GET_DEVICE_DATA_URL = "/auth/device_data/"
 }
