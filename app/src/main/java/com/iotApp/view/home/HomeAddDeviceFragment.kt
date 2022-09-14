@@ -77,7 +77,7 @@ class HomeAddDeviceFragment : Fragment() {
                     0L -> {
                         mData =
                             ArrayList(listOf("DHT11溫溼度感測器", "MQ7一氧化碳感測器", "HC-SR501人體感測器"))
-                        mType = ArrayList(listOf("DHT11", "MQ7", "HC-SR501"))
+                        mType = ArrayList(listOf("DHT11", "MQ7", "SR501"))
                         adapter.dataChange(mData)
                     }
                     1L -> {

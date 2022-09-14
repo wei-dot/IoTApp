@@ -4,14 +4,9 @@ import android.app.Service
 import android.os.Binder
 import android.util.Log
 import android.widget.Toast
-import com.iotApp.R
-import com.iotApp.repository.SessionManager
-import com.iotApp.view.FamilyActivity
 import okhttp3.OkHttpClient
 import okhttp3.Request
-import okhttp3.WebSocket
 import okhttp3.WebSocketListener
-import kotlin.concurrent.thread
 
 class IRService : Service() {
     inner class IRBinder : Binder() {

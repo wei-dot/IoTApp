@@ -38,10 +38,7 @@ class SessionManager(context: Context) {
 
     }
 
-    fun clearUserInfo() {
-        prefs.edit().remove(USERNAME).apply()
-        prefs.edit().remove(EMAIL).apply()
-    }
+
 
     /** SessionManager 使用者Token */
     fun saveAuthToken(token: String) {

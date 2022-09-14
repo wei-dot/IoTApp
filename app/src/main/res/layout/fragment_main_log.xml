@@ -1,74 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipe_refresh"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
     tools:context=".view.main.LogFragment">
 
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/group_not_login"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:constraint_referenced_ids="btn_login,text_log">
-    </androidx.constraintlayout.widget.Group>
 
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/group_login"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:constraint_referenced_ids="cardView">
-    </androidx.constraintlayout.widget.Group>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_login"
-        style="@style/MaterialButton_square_Style"
-        android:layout_width="@dimen/btn_width"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="200dp"
-        android:text="@string/to_add"
-        android:textColor="@color/color_14b2d4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:strokeColor="@color/color_14b2d4" />
 
-    <TextView
-        android:id="@+id/text_log"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/addDevice"
-        android:textColor="@color/color_df8888"
-        android:textSize="40sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="match_parent"
-        android:layout_height="550dp"
-        android:layout_margin="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="20dp"
-        android:textSize="20sp"
-        app:cardBackgroundColor="@color/color_faf0dd"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="0px"
-        app:cardUseCompatPadding="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/log"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:paddingStart="30dp"
+        android:paddingTop="50dp"
+        android:paddingEnd="30dp"
+        app:layout_anchorGravity="bottom">
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/add"
+            style="@style/MaterialButton_square_Style"
+            android:layout_width="@dimen/btn_width"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="200dp"
+            android:text="@string/to_add"
+            android:textColor="@color/color_14b2d4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:strokeColor="@color/color_14b2d4" />
+
+        <TextView
+            android:id="@+id/no_device"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/addDevice"
+            android:textColor="@color/color_df8888"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:id="@+id/log_background"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="100dp"
+            android:background="@drawable/background_content_square"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imageView_log_top"
-                android:layout_width="350dp"
+                android:layout_width="0dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:src="@drawable/ic_log_top"
@@ -76,51 +69,29 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <LinearLayout
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:orientation="vertical"
-                app:layout_constraintBottom_toBottomOf="@+id/scrollView2"
-                app:layout_constraintEnd_toEndOf="@+id/scrollView2"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView_log_top"
-                android:layout_gravity="center_vertical|center_horizontal">
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintBottom_toTopOf="@+id/log_background"
+                app:layout_constraintEnd_toEndOf="@+id/log_background"
+                app:layout_constraintStart_toStartOf="@+id/log_background"
+                app:layout_constraintTop_toBottomOf="@+id/log_background" />
 
-
-                <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-                    android:id="@+id/swipe_refresh"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal"
-                    tools:context=".view.ModeActivity">
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recyclerView_log"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center_horizontal">
-
-                    </androidx.recyclerview.widget.RecyclerView>
-
-                </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
-
-            </LinearLayout>
-
-            <ScrollView
-                android:id="@+id/scrollView2"
-                android:layout_width="365dp"
-                android:layout_height="448dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView_log_top">
-
-            </ScrollView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.cardview.widget.CardView>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+

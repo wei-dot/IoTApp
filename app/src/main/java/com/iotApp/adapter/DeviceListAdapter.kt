@@ -1,5 +1,6 @@
 package com.iotApp.adapter
 
+import android.app.AlertDialog
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
@@ -40,8 +41,18 @@ class DeviceListAdapter internal constructor(private var mData: ArrayList<Device
             selectedPosition = position
             notifyItemChanged(previousItem)
             notifyItemChanged(selectedPosition)
-            Toast.makeText(holder.itemView.context, "你選擇了${mData[position]}", Toast.LENGTH_SHORT)
+            AlertDialog.Builder(it.context)
+                .setTitle("Device Name")
+                .setMessage(mData[position].device_name)
+                .setPositiveButton("OK") { dialog, which ->
+                    Toast.makeText(it.context, "OK", Toast.LENGTH_SHORT).show()
+                }
+                .setNegativeButton("Cancel") { dialog, which ->
+                    Toast.makeText(it.context, "Cancel", Toast.LENGTH_SHORT).show()
+                }
                 .show()
+//            Toast.makeText(holder.itemView.context, "你選擇了${mData[position]}", Toast.LENGTH_SHORT)
+//                .show()
         }
     }
 

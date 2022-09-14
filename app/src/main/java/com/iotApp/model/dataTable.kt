@@ -128,16 +128,18 @@ data class Device(
 )
 
 data class DeviceData(
+    @SerializedName("data_time")
+    val time: String,
     @SerializedName("name")
-    val device_name: String,
-    @SerializedName("time")
-    val device_time: String,
-    @SerializedName("device")
-    val device_id: String,
-    @SerializedName("home")
-    val home_id: String,
-    @SerializedName("data")
-    val device_status: String,
+    val name: String,
+    @SerializedName("data_status")
+    val status: String,
+    @SerializedName("type")
+    val type: String,
+//    @SerializedName("user")
+//    val user: String,
+//    @SerializedName("home")
+//    val home_id: String,
 )
 
 data class ChatRoomHistory(

@@ -26,7 +26,6 @@ import com.iotApp.api.IotApi
 import com.iotApp.databinding.ActivityMainBinding
 import com.iotApp.model.UserInfo
 import com.iotApp.repository.SessionManager
-import com.iotApp.service.IRService
 import com.iotApp.view.main.HomeFragment
 import com.iotApp.view.main.LogFragment
 import com.iotApp.view.main.ModeFragment

@@ -21,7 +21,7 @@ class AddDeviceAdapter internal constructor(private var mData: ArrayList<String>
         val txtItem: TextView
 
         init {
-            txtItem = itemView.findViewById<View>(R.id.list_item) as TextView
+            txtItem = itemView.findViewById<View>(R.id.list_device_item) as TextView
 
         }
 

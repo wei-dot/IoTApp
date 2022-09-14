@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.iotApp.R
 import com.iotApp.adapter.DeviceListAdapter
@@ -20,8 +20,8 @@ import com.iotApp.viewmodel.ViewModelFactory
 
 
 class HomeDeviceListFragment : Fragment() {
-    private lateinit var viewModel: DeviceViewModel
     private var _binding: FragmentHomeDeviceListBinding? = null
+    private lateinit var viewModel: DeviceViewModel
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: DeviceListAdapter
     private lateinit var mData: ArrayList<Device>
@@ -42,14 +42,7 @@ class HomeDeviceListFragment : Fragment() {
             }
         recyclerView = binding.recyclerView
 
-        recyclerView.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context)
-//        recyclerView.addItemDecoration(
-//            androidx.recyclerview.widget.DividerItemDecoration(
-//                context,
-//                androidx.recyclerview.widget.DividerItemDecoration.VERTICAL
-//            )
-//        )
-        recyclerView.itemAnimator = DefaultItemAnimator()
+        recyclerView.layoutManager = LinearLayoutManager(context)
         viewModel.deviceList.observe(viewLifecycleOwner) {
             when (it) {
                 is BaseResponse.Loading -> {

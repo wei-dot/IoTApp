@@ -44,10 +44,10 @@ class IotApi {
          * Function to get UserInfo
          */
         fun getInfo(activity: Activity?, sessionManager: SessionManager) {
+            val msg = Message()
             apiClient.getInfo(token = "Token ${sessionManager.fetchAuthToken()}")
                 .enqueue {
                     onResponse = {
-                        val msg = Message()
                         if (it.isSuccessful) {
                             val response = it.body()!!
                             Log.d("IotApi getInfo", "Success: $response")
@@ -72,7 +72,9 @@ class IotApi {
                     }
                     onFailure = {
                         Log.d("IotApi", "getInfo: ${it?.message}")
-                        Toast.makeText(activity, "取得錯誤", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(activity, "無法連線至伺服器", Toast.LENGTH_SHORT).show()
+                        msg.obj = null
+                        handler.sendMessage(msg)
                     }
                 }
         }

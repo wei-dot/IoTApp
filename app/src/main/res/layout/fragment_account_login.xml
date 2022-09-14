@@ -139,7 +139,7 @@
         style="@style/TextButton_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/fragment_account_forgot"
+        android:text="@string/label_forget"
         app:layout_constraintBottom_toBottomOf="@+id/content_space"
         app:layout_constraintEnd_toStartOf="@+id/sign_up_button"
         app:layout_constraintStart_toStartOf="@+id/content_space"

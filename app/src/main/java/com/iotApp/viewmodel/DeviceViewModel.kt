@@ -10,6 +10,7 @@ import com.espressif.iot.esptouch2.provision.EspProvisioningRequest
 import com.espressif.iot.esptouch2.provision.EspProvisioningResult
 import com.iotApp.api.BaseResponse
 import com.iotApp.model.Device
+import com.iotApp.model.DeviceData
 import com.iotApp.repository.DeviceRepository
 import kotlinx.coroutines.launch
 
@@ -18,6 +19,7 @@ class DeviceViewModel(private val deviceRepository: DeviceRepository) : ViewMode
 
     val deviceList: MutableLiveData<BaseResponse<ArrayList<Device>>> = MutableLiveData()
     val addDevice: MutableLiveData<BaseResponse<Device>> = MutableLiveData()
+    val deviceDataList: MutableLiveData<BaseResponse<ArrayList<DeviceData>>> = MutableLiveData()
 
     fun pairDevice(context: Context, ssid: String, password: String, customData: String) {
         espProvisioner = EspProvisioner(context)
@@ -84,5 +86,24 @@ class DeviceViewModel(private val deviceRepository: DeviceRepository) : ViewMode
                 deviceList.value = BaseResponse.Error(ex.message)
             }
         }
+    }
+
+    fun getDeviceData(token: String) {
+        deviceDataList.value = BaseResponse.Loading()
+        viewModelScope.launch {
+            try {
+                val response = deviceRepository.getDeviceData(token)
+                if (response != null) {
+                    if (response.isSuccessful) {
+                        deviceDataList.value = BaseResponse.Success(response.body())
+                    } else {
+                        deviceDataList.value = BaseResponse.Error(response.message())
+                    }
+                }
+            } catch (ex: Exception) {
+                deviceDataList.value = BaseResponse.Error(ex.message)
+            }
+        }
+
     }
 }

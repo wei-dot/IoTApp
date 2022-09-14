@@ -2,6 +2,7 @@ package com.iotApp.repository
 
 import com.iotApp.api.ApiService
 import com.iotApp.model.Device
+import com.iotApp.model.DeviceData
 import retrofit2.Response
 
 class DeviceRepository {
@@ -14,7 +15,6 @@ class DeviceRepository {
     suspend fun deleteDevice(token: String, deviceId: String): Response<Void>? =
         ApiService.getApi()?.deleteDevice(token = token, id = deviceId)
 
-//    suspend fun getDeviceData() = 1
-//    suspend fun addDeviceData() = 1
-
+    suspend fun getDeviceData(token: String): Response<ArrayList<DeviceData>>? =
+        ApiService.getApi()?.getDeviceData(token = token)
 }

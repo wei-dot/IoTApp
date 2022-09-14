@@ -128,11 +128,9 @@ interface ApiService {
         @Header("Authorization") token: String
     ): Response<Void>
 
-//    @Headers("Content-Type:application/json")
-//    @PUT(Constants.GET_DEVICE_DATA_URL)
-//    fun getDeviceData(
-//        @Path("id") id: String,
-//        @Header("Authorization") token: String,
-//        @Body info: GetDeviceData
-//    ): Call<GetDeviceData>
+    @Headers("Content-Type:application/json")
+    @GET(Constants.DEVICE_DATA_URL)
+    suspend fun getDeviceData(
+        @Header("Authorization") token: String,
+        ): Response<ArrayList<DeviceData>>
 }

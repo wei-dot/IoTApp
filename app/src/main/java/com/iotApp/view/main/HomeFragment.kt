@@ -1,16 +1,9 @@
 package com.iotApp.view.main
 
 import android.annotation.SuppressLint
-import android.app.Service
-import android.content.ComponentName
-import android.content.Context
 import android.content.Intent
-import android.content.ServiceConnection
 import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.os.Handler
-import android.os.IBinder
-import android.os.Looper
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -19,8 +12,6 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import com.blankj.utilcode.util.ServiceUtils.bindService
-import com.blankj.utilcode.util.ThreadUtils.getMainHandler
 import com.blankj.utilcode.util.ThreadUtils.runOnUiThread
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -31,7 +22,6 @@ import com.iotApp.databinding.FragmentMainHomeBinding
 import com.iotApp.repository.SessionManager
 import com.iotApp.service.IRService
 import com.iotApp.view.HomeActivity
-import com.iotApp.view.MainActivity
 import kotlinx.coroutines.*
 import okhttp3.OkHttpClient
 import okhttp3.Request
