@@ -597,92 +597,95 @@
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/constraintLayout_fan"
-                        android:layout_width="0dp"
-                        android:layout_height="60dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="244dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="1.0"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView_fan_switch">
 
-                        <com.google.android.material.switchmaterial.SwitchMaterial
+                        <ImageButton
                             android:id="@+id/fan_switch"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_marginEnd="30dp"
+                            android:layout_width="104dp"
+                            android:layout_height="104dp"
+                            android:background="@drawable/btn_fan_power"
                             android:checked="true"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.135"
+                            app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.496"
                             app:thumbTint="@color/color_c07a27"
                             app:trackTint="@color/color_cda16d" />
 
-<!--                        <ImageView-->
-<!--                            android:id="@+id/imageView_power_plugs1"-->
-<!--                            android:layout_width="53dp"-->
-<!--                            android:layout_height="41dp"-->
-<!--                            android:layout_marginStart="24dp"-->
-<!--                            android:src="@drawable/power_plugs_logo_on"-->
-<!--                            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                            app:layout_constraintStart_toStartOf="parent"-->
-<!--                            app:layout_constraintTop_toTopOf="parent" />-->
+                        <ImageButton
+                            android:id="@+id/fan_light"
+                            android:layout_width="63dp"
+                            android:layout_height="63dp"
+                            android:background="@drawable/btn_fan_light"
+                            android:checked="true"
+                            app:layout_constraintBottom_toBottomOf="@+id/fan_switch"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.27"
+                            app:layout_constraintStart_toEndOf="@+id/fan_switch"
+                            app:layout_constraintTop_toTopOf="@+id/fan_switch"
+                            app:layout_constraintVertical_bias="0.536"
+                            app:thumbTint="@color/color_c07a27"
+                            app:trackTint="@color/color_cda16d" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_marginStart="30dp"
-                            android:gravity="center"
-                            android:text="開關"
-                            android:textSize="16sp"
-                            android:textColor="@color/color_c07a27"
-                            app:layout_constraintStart_toStartOf="parent">
+                        <ImageButton
+                            android:id="@+id/fan_speed_up"
+                            android:layout_width="63dp"
+                            android:layout_height="63dp"
+                            android:background="@drawable/btn_fan_speed_up"
+                            android:checked="true"
+                            app:layout_constraintBottom_toTopOf="@+id/fan_speed_down"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.547"
+                            app:layout_constraintStart_toEndOf="@+id/fan_light"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.75"
+                            app:thumbTint="@color/color_c07a27"
+                            app:trackTint="@color/color_cda16d" />
 
-                        </TextView>
+                        <ImageButton
+                            android:id="@+id/fan_speed_down"
+                            android:layout_width="63dp"
+                            android:layout_height="63dp"
+                            android:background="@drawable/btn_fan_speed_down"
+                            android:checked="true"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="@+id/fan_speed_up"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="@+id/fan_speed_up"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.74"
+                            app:thumbTint="@color/color_c07a27"
+                            app:trackTint="@color/color_cda16d" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
+                    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/loading"
+                        android:visibility="invisible">
 
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/constraintLayout_fan2"
-                        android:layout_width="0dp"
-                        android:layout_height="60dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/constraintLayout_fan">
-
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_marginStart="30dp"
-                            android:gravity="center"
-                            android:text="強度"
-                            android:textSize="16sp"
-                            android:textColor="@color/color_c07a27"
-                            app:layout_constraintStart_toStartOf="parent">
-                        </TextView>
-
-                        <com.shawnlin.numberpicker.NumberPicker
-                            android:id="@+id/fan_level_number_picker"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                        <com.airbnb.lottie.LottieAnimationView
+                            android:layout_width="300dp"
+                            android:layout_height="300dp"
                             android:layout_centerInParent="true"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginEnd="30dp"
-                            android:layout_marginBottom="10dp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:np_height="180dp"
-                            app:np_itemSpacing="10dp"
-                            app:np_max="9"
-                            app:np_min="1"
-                            app:np_value="1"
-                            app:np_width="64dp" />
+                            app:lottie_autoPlay="true"
+                            app:lottie_fileName="loading.json"
+                            app:lottie_loop="true"
+                            app:lottie_speed="1" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
 

@@ -48,6 +48,7 @@
             android:exported="true"
             android:theme="@style/Theme.IoTApp.NoActionBar" />
         <service android:name=".service.InviteService" android:enabled="true" />
+        <service android:name=".service.IRService" android:enabled="true" />
     </application>
 
 </manifest>
