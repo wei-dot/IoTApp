@@ -54,6 +54,12 @@ class MainActivity : AppCompatActivity() {
         val userinfo: UserInfo? = SessionManager(this).fetchUserInfo()
         if (userinfo != null) {
             binding.profilePage.username.text = userinfo.username
+            binding.profilePage.reloadActivity.setOnClickListener {
+                val intent = Intent(this, MainActivity::class.java)
+                binding.drawerLayout.close()
+                finish()
+                startActivity(intent)
+            }
             binding.notLogin.isVisible = false
             binding.hasLogin.isVisible = true
         } else {
