@@ -10,6 +10,7 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.iotApp.api.IotApi
 import com.iotApp.model.UserInfo
 import com.iotApp.repository.SessionManager
+import com.iotApp.service.IRService
 import com.iotApp.service.InviteService
 
 @SuppressLint("CustomSplashScreen")
@@ -32,6 +33,7 @@ class SplashActivity : Activity() {
         splashScreen.setKeepOnScreenCondition { true }
 
         startService(Intent(this, InviteService::class.java))
+        startService(Intent(this, IRService::class.java))
 
         if (SessionManager(this).fetchAuthToken() == null) {
             Handler(Looper.getMainLooper()).postDelayed({

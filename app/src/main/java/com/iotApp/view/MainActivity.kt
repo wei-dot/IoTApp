@@ -27,6 +27,7 @@ import com.iotApp.api.IotApi
 import com.iotApp.databinding.ActivityMainBinding
 import com.iotApp.model.UserInfo
 import com.iotApp.repository.SessionManager
+import com.iotApp.service.IRService
 import com.iotApp.view.main.HomeFragment
 import com.iotApp.view.main.LogFragment
 import com.iotApp.view.main.ModeFragment
@@ -39,6 +40,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewPager: ViewPager2
     private var firstPressedTime: Long = 0
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,6 +62,7 @@ class MainActivity : AppCompatActivity() {
         viewPager()
         buttonListener()
         IotApi.getFamily(this, binding.profilePage, SessionManager(this))
+
     }
 
 

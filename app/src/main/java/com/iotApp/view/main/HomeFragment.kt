@@ -1,16 +1,26 @@
 package com.iotApp.view.main
 
 import android.annotation.SuppressLint
+import android.app.Service
+import android.content.ComponentName
+import android.content.Context
 import android.content.Intent
+import android.content.ServiceConnection
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.os.Handler
+import android.os.IBinder
+import android.os.Looper
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import com.blankj.utilcode.util.ServiceUtils.bindService
+import com.blankj.utilcode.util.ThreadUtils.getMainHandler
 import com.blankj.utilcode.util.ThreadUtils.runOnUiThread
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -18,7 +28,10 @@ import com.iotApp.R
 import com.iotApp.Constants
 import com.iotApp.api.WsListener
 import com.iotApp.databinding.FragmentMainHomeBinding
+import com.iotApp.repository.SessionManager
+import com.iotApp.service.IRService
 import com.iotApp.view.HomeActivity
+import com.iotApp.view.MainActivity
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.WebSocket
@@ -36,6 +49,7 @@ import kotlin.concurrent.thread
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
+
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentMainHomeBinding? = null
@@ -62,8 +76,6 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
-
         _binding = FragmentMainHomeBinding.inflate(inflater, container, false)
         mHomeFab = binding.homeFab
         mAddDeviceFab = binding.addDeviceFab
@@ -188,6 +200,7 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
+
         //設定全部開關文字
         binding.tplinkSwitch1.text = "開關1 開"
         binding.tplinkSwitch2.text = "開關2 開"
@@ -261,6 +274,30 @@ class HomeFragment : Fragment() {
         }
 
 
+        val irWebSocket = IRService().webSocket
+        irWebSocket.send("{\"message\":\"user:${SessionManager(requireContext()).fetchUserInfo()?.username} connected!\"}")
+        binding.loading.isVisible = true
+        binding.constraintLayoutFan.isVisible = false
+        thread{
+            Thread.sleep(5000)
+            runOnUiThread{
+                binding.loading.isVisible = false
+                binding.constraintLayoutFan.isVisible = true
+            }
+        }
+        binding.fanSwitch.setOnClickListener{
+            irWebSocket.send("{\"message\":\"power\"}")
+        }
+        binding.fanLight.setOnClickListener{
+            irWebSocket.send("{\"message\":\"light\"}")
+        }
+        binding.fanSpeedUp.setOnClickListener{
+            irWebSocket.send("{\"message\":\"sp_up\"}")
+        }
+        binding.fanSpeedDown.setOnClickListener{
+            irWebSocket.send("{\"message\":\"sp_dw\"}")
+        }
+
     }
 
 
@@ -285,4 +322,7 @@ class HomeFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+
+
 }

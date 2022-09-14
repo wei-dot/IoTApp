@@ -38,17 +38,17 @@ class InviteService : Service() {
                 thread {
                     Log.d("InviteService", "got invite")
                     val message = text.split("%@%")
-                    if (message[0].contains("#request#|")) {
-                        val requestUserName = message[0].split("#|")[1]
-                        if (sessionManager.fetchMyOwnFamily()!!
-                                .contains(sessionManager.fetchFamilyId())
-                        ) {
-                            val intent =
-                                android.content.Intent(
-                                    this@InviteService,
-                                    FamilyActivity::class.java
-                                )
-                            SessionManager(this@InviteService).storeRequestUserName(requestUserName)
+                            if (message[0].contains("#request#|")) {
+                                val requestUserName = message[0].split("#|")[1]
+                                if (sessionManager.fetchMyOwnFamily()!!
+                                        .contains(sessionManager.fetchFamilyId())
+                                ) {
+                                    val intent =
+                                        android.content.Intent(
+                                            this@InviteService,
+                                            FamilyActivity::class.java
+                                        )
+                                    SessionManager(this@InviteService).storeRequestUserName(requestUserName)
                             intent.putExtra("FamilyMemberActivity", "request")
                             intent.addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK)
                             startActivity(intent)
