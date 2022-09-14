@@ -32,6 +32,7 @@ import com.iotApp.repository.SessionManager
 import com.iotApp.service.IRService
 import com.iotApp.view.HomeActivity
 import com.iotApp.view.MainActivity
+import kotlinx.coroutines.*
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.WebSocket
@@ -158,26 +159,71 @@ class HomeFragment : Fragment() {
                     val maxTParameterName = maxTParameter.getString("parameterName")
 
                     runOnUiThread {
-                        val dayNight = if (LocalDateTime.now().hour > 18 || LocalDateTime.now().hour < 6) "night" else "day"
-                        when((minTParameterName.toInt() + maxTParameterName.toInt()) / 2){
-                            in -999..15 -> {binding.MaxT.setTextColor(ContextCompat.getColor(requireContext(),R.color.color_86ccdb))
-                                binding.MinT.setTextColor(ContextCompat.getColor(requireContext(),R.color.color_86ccdb))}
-                            in 16..30 -> {binding.MaxT.setTextColor(ContextCompat.getColor(requireContext(),R.color.color_c07a27))
-                                binding.MinT.setTextColor(ContextCompat.getColor(requireContext(),R.color.color_c07a27))}
-                            in 31..40 -> {binding.MaxT.setTextColor(ContextCompat.getColor(requireContext(),R.color.color_df8888))
-                                binding.MinT.setTextColor(ContextCompat.getColor(requireContext(),R.color.color_df8888))}
-                            else -> binding.MaxT.setTextColor(ContextCompat.getColor(requireContext(),R.color.black))
-                        }
-                        binding.MinT.text = "${minTParameterName}°C"
-                        binding.MaxT.text = "${maxTParameterName}°C"
-                        binding.icWeather.setImageDrawable(
-                            resources.assets.open("weather/${dayNight}/${wxParameterValue}.png").use {
-                                Drawable.createFromStream(it, null)
+                        if(activity != null) {
+                            val dayNight =
+                                if (LocalDateTime.now().hour > 18 || LocalDateTime.now().hour < 6) "night" else "day"
+                            when ((minTParameterName.toInt() + maxTParameterName.toInt()) / 2) {
+                                in -999..15 -> {
+                                    binding.MaxT.setTextColor(
+                                        ContextCompat.getColor(
+                                            requireContext(),
+                                            R.color.color_86ccdb
+                                        )
+                                    )
+                                    binding.MinT.setTextColor(
+                                        ContextCompat.getColor(
+                                            requireContext(),
+                                            R.color.color_86ccdb
+                                        )
+                                    )
+                                }
+                                in 16..30 -> {
+                                    binding.MaxT.setTextColor(
+                                        ContextCompat.getColor(
+                                            requireContext(),
+                                            R.color.color_c07a27
+                                        )
+                                    )
+                                    binding.MinT.setTextColor(
+                                        ContextCompat.getColor(
+                                            requireContext(),
+                                            R.color.color_c07a27
+                                        )
+                                    )
+                                }
+                                in 31..40 -> {
+                                    binding.MaxT.setTextColor(
+                                        ContextCompat.getColor(
+                                            requireContext(),
+                                            R.color.color_df8888
+                                        )
+                                    )
+                                    binding.MinT.setTextColor(
+                                        ContextCompat.getColor(
+                                            requireContext(),
+                                            R.color.color_df8888
+                                        )
+                                    )
+                                }
+                                else -> binding.MaxT.setTextColor(
+                                    ContextCompat.getColor(
+                                        requireContext(),
+                                        R.color.black
+                                    )
+                                )
                             }
-                        )
-                        binding.wx.text = wxParameterName
-                        binding.pop.text = "降雨機率:${popParameterName}%"
-                        binding.textUpdateTime.text = "資訊時間:${wxTime}"
+                            binding.MinT.text = "${minTParameterName}°C"
+                            binding.MaxT.text = "${maxTParameterName}°C"
+                            binding.icWeather.setImageDrawable(
+                                resources.assets.open("weather/${dayNight}/${wxParameterValue}.png")
+                                    .use {
+                                        Drawable.createFromStream(it, null)
+                                    }
+                            )
+                            binding.wx.text = wxParameterName
+                            binding.pop.text = "降雨機率:${popParameterName}%"
+                            binding.textUpdateTime.text = "資訊時間:${wxTime}"
+                        }
                     }
                     Log.d("weather", "parameterName: $wxParameterName")
 
@@ -278,13 +324,17 @@ class HomeFragment : Fragment() {
         irWebSocket.send("{\"message\":\"user:${SessionManager(requireContext()).fetchUserInfo()?.username} connected!\"}")
         binding.loading.isVisible = true
         binding.constraintLayoutFan.isVisible = false
-        thread{
-            Thread.sleep(5000)
-            runOnUiThread{
-                binding.loading.isVisible = false
-                binding.constraintLayoutFan.isVisible = true
+        CoroutineScope(Dispatchers.IO).launch {
+            delay(TimeUnit.SECONDS.toMillis(3))
+            withContext(Dispatchers.Main) {
+                Log.i("TAG", "this will be called after 3 seconds")
+                if (activity != null) {
+                    binding.loading.isVisible = false
+                    binding.constraintLayoutFan.isVisible = true
+                }
             }
         }
+
         binding.fanSwitch.setOnClickListener{
             irWebSocket.send("{\"message\":\"power\"}")
         }
@@ -322,6 +372,7 @@ class HomeFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
 
 
 
