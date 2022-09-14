@@ -22,8 +22,8 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.iotApp.R
 import com.iotApp.Constants
+import com.iotApp.R
 import com.iotApp.api.IotApi
 import com.iotApp.api.WsListener
 import com.iotApp.databinding.FragmentMainModeBinding

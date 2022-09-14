@@ -18,32 +18,35 @@ interface ApiService {
     fun getModeKeyDataInfo(@Header("Authorization") token: String): Call<ArrayList<GetModeKeyDataInfo>>
 
     @Headers("Content-Type:application/json")
-    @POST(Constants.Signup_URL)
-    fun signup(@Body info: UserInfo): Call<UserInfo>
-
-    @Headers("Content-Type:application/json")
-    @POST(Constants.LOGIN_URL)
-    fun login(@Body info: Login): Call<LoginResponse>
-
-    @Headers("Content-Type:application/json")
     @GET(Constants.GET_USER_URL)
     fun getInfo(@Header("Authorization") token: String): Call<UserInfo>
 
     @Headers("Content-Type:application/json")
+    @POST(Constants.LOGIN_URL)
+    suspend fun login(@Body loginRequest: LoginRequest): Response<LoginResponse>
+
+    @Headers("Content-Type:application/json")
     @POST(Constants.LOGOUT_URL)
-    fun logout(@Header("Authorization") token: String): Call<Void>
+    suspend fun logout(@Header("Authorization") token: String): Response<Void>
+
+    @Headers("Content-Type:application/json")
+    @POST(Constants.Signup_URL)
+    suspend fun signup(@Body info: UserInfo): Response<UserInfo>
 
     @Headers("Content-Type:application/json")
     @POST(Constants.RESET_PASSWORD_URL)
-    fun resetPassword(@Body info: SendEmail): Call<Void>
+    suspend fun resetPassword(@Body info: SendEmail): Response<Void>
 
     @Headers("Content-Type:application/json")
     @POST(Constants.SET_PASSWORD_URL)
-    fun setPassword(@Header("Authorization") token: String, @Body info: SetPassword): Call<Void>
+    suspend fun setPassword(
+        @Header("Authorization") token: String,
+        @Body info: SetPassword
+    ): Response<Void>
 
     @Headers("Content-Type:application/json")
     @POST(Constants.RESEND_ACTIVATION_URL)
-    fun resendEmail(@Body info: SendEmail): Call<Void>
+    suspend fun resendEmail(@Body info: SendEmail): Response<Void>
 
     @Headers("Content-Type:application/json")
     @POST(Constants.FAMILY_URL)

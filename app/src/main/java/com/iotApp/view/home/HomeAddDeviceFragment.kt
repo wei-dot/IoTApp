@@ -91,7 +91,6 @@ class HomeAddDeviceFragment : Fragment() {
             }
         binding.add.setOnClickListener {
             try {
-
                 val familyId = SessionManager(requireContext()).fetchFamilyId()
                 val userId = SessionManager(requireContext()).fetchUserInfo()?.username
                 val deviceId = UUID.randomUUID().toString()
@@ -152,7 +151,7 @@ class HomeAddDeviceFragment : Fragment() {
                     AlertDialog.Builder(requireContext())
                         .setTitle("錯誤")
                         .setMessage("未加入家庭")
-                        .setPositiveButton("確定") { _, _ -> {} }.create().show()
+                        .setPositiveButton("確定") { _, _ -> run {} }.create().show()
                 }
 
 
@@ -160,7 +159,7 @@ class HomeAddDeviceFragment : Fragment() {
                 AlertDialog.Builder(requireContext())
                     .setTitle("錯誤")
                     .setMessage("未選擇設備")
-                    .setPositiveButton("確定") { _, _ -> {} }.create().show()
+                    .setPositiveButton("確定") { _, _ -> run {} }.create().show()
             }
         }
 

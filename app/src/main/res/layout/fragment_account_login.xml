@@ -11,7 +11,7 @@
 
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_back"
+        android:id="@+id/return_back"
         style="@style/ReturnButton_Style"
         android:layout_width="@dimen/back_icon_size"
         android:layout_height="@dimen/back_icon_size"
@@ -64,7 +64,7 @@
         android:id="@+id/til_email"
         style="@style/TextInputEditText_style"
         android:layout_width="@dimen/input_width"
-        android:layout_height="@dimen/input_height"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/til_password"
         app:layout_constraintEnd_toEndOf="@+id/content_space"
         app:layout_constraintStart_toStartOf="@+id/content_space"
@@ -87,8 +87,8 @@
         android:id="@+id/til_password"
         style="@style/TextInputEditText_style"
         android:layout_width="@dimen/input_width"
-        android:layout_height="@dimen/input_height"
-        app:layout_constraintBottom_toTopOf="@+id/btn_send"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/login"
         app:layout_constraintEnd_toEndOf="@+id/content_space"
         app:layout_constraintStart_toStartOf="@+id/content_space"
         app:layout_constraintTop_toBottomOf="@+id/til_email"
@@ -101,7 +101,7 @@
             android:autofillHints="password"
             android:hint="@string/hint_password"
             android:inputType="textPassword"
-            android:nextFocusForward="@id/btn_send"
+            android:nextFocusForward="@id/set"
             android:selectAllOnFocus="true"
             android:textColor="@color/black" />
 
@@ -109,7 +109,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_send"
+        android:id="@+id/login"
         style="@style/MaterialButton_square_Style"
         android:layout_width="@dimen/btn_width"
         android:layout_height="wrap_content"
@@ -123,29 +123,27 @@
         app:layout_constraintStart_toStartOf="@+id/content_space"
         app:layout_constraintTop_toBottomOf="@+id/til_password" />
 
-    <TextView
-        android:id="@+id/text_signup"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/sign_up_button"
+        style="@style/TextButton_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/background_login_box"
         android:text="@string/label_signUp"
-        android:textAppearance="@style/TextButton_style"
         app:layout_constraintBottom_toBottomOf="@+id/content_space"
         app:layout_constraintEnd_toEndOf="@+id/content_space"
-        app:layout_constraintStart_toEndOf="@+id/text_forgot_password"
-        app:layout_constraintTop_toBottomOf="@+id/btn_send" />
+        app:layout_constraintStart_toEndOf="@+id/forgot_password_button"
+        app:layout_constraintTop_toBottomOf="@+id/login" />
 
-    <TextView
-        android:id="@+id/text_forgot_password"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/forgot_password_button"
+        style="@style/TextButton_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/background_login_box"
         android:text="@string/fragment_account_forgot"
-        android:textAppearance="@style/TextButton_style"
         app:layout_constraintBottom_toBottomOf="@+id/content_space"
-        app:layout_constraintEnd_toStartOf="@+id/text_signup"
+        app:layout_constraintEnd_toStartOf="@+id/sign_up_button"
         app:layout_constraintStart_toStartOf="@+id/content_space"
-        app:layout_constraintTop_toBottomOf="@+id/btn_send" />
+        app:layout_constraintTop_toBottomOf="@+id/login" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/loading"

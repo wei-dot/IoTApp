@@ -4,8 +4,6 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -18,6 +16,7 @@ import androidx.core.view.GravityCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -33,10 +32,12 @@ import com.iotApp.view.main.LogFragment
 import com.iotApp.view.main.ModeFragment
 import com.iotApp.view.main.NotLoginFragment
 import com.iotApp.view.main.family.FamilyFragment
+import com.iotApp.viewmodel.AccountViewModel
+import com.iotApp.viewmodel.ViewModelFactory
 
 
 class MainActivity : AppCompatActivity() {
-
+    private lateinit var viewModel: AccountViewModel
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewPager: ViewPager2
     private var firstPressedTime: Long = 0
@@ -47,6 +48,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        viewModel = ViewModelProvider(this, ViewModelFactory())[AccountViewModel::class.java]
 
         /**判斷使用者是否登入並修改側邊攔 */
         val userinfo: UserInfo? = SessionManager(this).fetchUserInfo()
@@ -138,13 +140,8 @@ class MainActivity : AppCompatActivity() {
         binding.profilePage.btnLogout.setOnClickListener {
             binding.loading.isVisible = true
             binding.profilePage.btnLogout.isEnabled = false
-            IotApi.logout(this, SessionManager(this))
+            SessionManager(this).fetchAuthToken()?.let { it1 -> viewModel.logoutUser("Token $it1") }
             SessionManager(this).logout()
-            Handler(Looper.getMainLooper()).postDelayed({
-                binding.loading.isVisible = false
-                finish()
-                startActivity(intent)
-            }, 500)
 
         }
         binding.profilePage.btnSet.setOnClickListener {

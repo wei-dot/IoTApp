@@ -1,4 +1,4 @@
-package com.iotApp.controller
+package com.iotApp.adapter
 
 import android.app.Activity
 import android.content.Intent

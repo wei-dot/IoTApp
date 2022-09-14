@@ -11,7 +11,7 @@
 
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_back"
+        android:id="@+id/return_back"
         style="@style/ReturnButton_Style"
         android:layout_width="@dimen/back_icon_size"
         android:layout_height="@dimen/back_icon_size"
@@ -22,6 +22,7 @@
         app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
     <View
         android:id="@+id/content_space"
@@ -43,7 +44,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_send"
+        android:id="@+id/forget"
         style="@style/MaterialButton_square_Style"
         android:layout_width="@dimen/btn_width"
         android:layout_height="wrap_content"
@@ -76,8 +77,8 @@
         android:id="@+id/til_username"
         style="@style/TextInputEditText_style"
         android:layout_width="@dimen/input_width"
-        android:layout_height="@dimen/input_height"
-        app:layout_constraintBottom_toTopOf="@+id/btn_send"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/forget"
         app:layout_constraintEnd_toEndOf="@+id/content_space"
         app:layout_constraintStart_toStartOf="@+id/content_space"
         app:layout_constraintTop_toBottomOf="@+id/text_forgetPassword">

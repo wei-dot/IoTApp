@@ -38,5 +38,5 @@ object Constants {
      */
     const val DEVICE_URL = "/auth/device/"
     const val DEVICE_ID_URL = "/auth/device/{id}/"
-    const val GET_DEVICE_DATA_URL = "/auth/device_data/"
+    const val DEVICE_DATA_URL = "/auth/device_data/"
 }
