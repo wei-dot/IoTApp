@@ -117,7 +117,7 @@ interface ApiService {
     @GET(Constants.DEVICE_URL)
     suspend fun getDevice(
         @Header("Authorization") token: String
-    ): Response<Device>
+    ): Response<ArrayList<Device>>
 
     @DELETE(Constants.DEVICE_ID_URL)
     suspend fun deleteDevice(

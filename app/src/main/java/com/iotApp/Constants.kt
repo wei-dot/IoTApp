@@ -36,7 +36,7 @@ object Constants {
     /**
      * 設備網址
      */
-    const val DEVICE_URL = "/auth/add_device/"
-    const val DEVICE_ID_URL = "/auth/add_device/{id}/"
+    const val DEVICE_URL = "/auth/device/"
+    const val DEVICE_ID_URL = "/auth/device/{id}/"
     const val GET_DEVICE_DATA_URL = "/auth/device_data/"
 }

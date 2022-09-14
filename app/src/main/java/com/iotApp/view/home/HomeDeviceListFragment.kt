@@ -7,14 +7,24 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.RecyclerView
 import com.iotApp.R
+import com.iotApp.adapter.DeviceListAdapter
+import com.iotApp.api.BaseResponse
 import com.iotApp.databinding.FragmentHomeDeviceListBinding
+import com.iotApp.model.Device
+import com.iotApp.repository.SessionManager
 import com.iotApp.viewmodel.DeviceViewModel
 import com.iotApp.viewmodel.ViewModelFactory
+
 
 class HomeDeviceListFragment : Fragment() {
     private lateinit var viewModel: DeviceViewModel
     private var _binding: FragmentHomeDeviceListBinding? = null
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var adapter: DeviceListAdapter
+    private lateinit var mData: ArrayList<Device>
     private val binding get() = _binding!!
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,6 +36,38 @@ class HomeDeviceListFragment : Fragment() {
             this@HomeDeviceListFragment,
             ViewModelFactory()
         )[DeviceViewModel::class.java]
+        SessionManager(this.requireContext()).fetchAuthToken()
+            ?.let {
+                viewModel.getDevice("Token $it")
+            }
+        recyclerView = binding.recyclerView
+
+        recyclerView.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context)
+//        recyclerView.addItemDecoration(
+//            androidx.recyclerview.widget.DividerItemDecoration(
+//                context,
+//                androidx.recyclerview.widget.DividerItemDecoration.VERTICAL
+//            )
+//        )
+        recyclerView.itemAnimator = DefaultItemAnimator()
+        viewModel.deviceList.observe(viewLifecycleOwner) {
+            when (it) {
+                is BaseResponse.Loading -> {
+                }
+                is BaseResponse.Success -> {
+                    binding.swipeRefresh.isRefreshing = false
+                    mData = it.data!!
+                    adapter = DeviceListAdapter(mData)
+                    recyclerView.adapter = adapter
+                }
+                is BaseResponse.Error -> {
+                    binding.swipeRefresh.isRefreshing = false
+                }
+                else -> {
+                }
+            }
+        }
+
         return binding.root
     }
 
@@ -37,7 +79,12 @@ class HomeDeviceListFragment : Fragment() {
         binding.btnAdd.setOnClickListener {
             findNavController().navigate(R.id.action_device_list_fragment_to_add_device_fragment)
         }
-//todo: 添加動態生成的設備列表
+        binding.swipeRefresh.setOnRefreshListener {
+            SessionManager(this.requireContext()).fetchAuthToken()
+                ?.let {
+                    viewModel.getDevice("Token $it")
+                }
+        }
     }
 
 }

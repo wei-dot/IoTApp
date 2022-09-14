@@ -17,6 +17,7 @@ import com.google.android.material.button.MaterialButton
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputEditText
 import com.iotApp.R
+import com.iotApp.adapter.AddDeviceAdapter
 import com.iotApp.databinding.FragmentHomeAddDeviceBinding
 import com.iotApp.model.Device
 import com.iotApp.repository.SessionManager
@@ -27,7 +28,7 @@ import java.util.*
 class HomeAddDeviceFragment : Fragment() {
     private lateinit var viewModel: DeviceViewModel
     private lateinit var recyclerView: RecyclerView
-    private lateinit var adapter: DeviceAdapter
+    private lateinit var adapter: AddDeviceAdapter
     private lateinit var mData: ArrayList<String>
     private lateinit var mType: ArrayList<String>
     private var _binding: FragmentHomeAddDeviceBinding? = null
@@ -50,24 +51,26 @@ class HomeAddDeviceFragment : Fragment() {
                 androidx.recyclerview.widget.DividerItemDecoration.VERTICAL
             )
         )
-        binding.returnBack.setOnClickListener {
-            requireActivity().onBackPressed()
-        }
+
         val items = listOf("感測器", "家用電器")
         val categoryAdapter = ArrayAdapter(requireContext(), R.layout.category_list_item, items)
         (binding.menu.editText as? AutoCompleteTextView)?.setAdapter(categoryAdapter)
         binding.filledExposedDropdown.setText(items[0], false)
+
+        mData =
+            ArrayList(listOf("DHT11溫溼度感測器", "MQ7一氧化碳感測器", "HC-SR501人體感測器"))
+        mType = ArrayList(listOf("DHT11", "MQ7", "HC-SR501"))
+        adapter = AddDeviceAdapter(mData)
+        recyclerView.adapter = adapter
         return binding.root
 
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mData =
-            ArrayList(listOf("DHT11溫溼度感測器", "MQ7一氧化碳感測器", "HC-SR501人體感測器"))
-        mType = ArrayList(listOf("DHT11", "MQ7", "HC-SR501"))
-        adapter = DeviceAdapter(mData)
-        recyclerView.adapter = adapter
+        binding.returnBack.setOnClickListener {
+            requireActivity().onBackPressed()
+        }
         binding.filledExposedDropdown.onItemClickListener =
             AdapterView.OnItemClickListener { _, _, _, id ->
                 when (id) {
@@ -75,13 +78,13 @@ class HomeAddDeviceFragment : Fragment() {
                         mData =
                             ArrayList(listOf("DHT11溫溼度感測器", "MQ7一氧化碳感測器", "HC-SR501人體感測器"))
                         mType = ArrayList(listOf("DHT11", "MQ7", "HC-SR501"))
-                        adapter.changeData(mData)
+                        adapter.dataChange(mData)
                     }
                     1L -> {
                         mData =
                             ArrayList(listOf("TpLink延長線", "電扇", "冷氣"))
                         mType = ArrayList(listOf("TpLink", "Fan", "AirConditioner"))
-                        adapter.changeData(mData)
+                        adapter.dataChange(mData)
                     }
 
                 }
@@ -121,7 +124,7 @@ class HomeAddDeviceFragment : Fragment() {
                         Toast.makeText(context, "取消配對", Toast.LENGTH_SHORT).show()
                     }
                     confirm.setOnClickListener {
-                        val name= deviceName.text.toString()
+                        val name = deviceName.text.toString()
                         val ssidText = ssid.text.toString()
                         val passwordText = password.text.toString()
                         if (ssidText.isEmpty() || passwordText.isEmpty()) {
@@ -134,8 +137,10 @@ class HomeAddDeviceFragment : Fragment() {
                                 passwordText,
                                 "$familyId$deviceId$userId"
                             )
-                            val device = Device(id=deviceId,name,
-                                mType[adapter.getCurrentItem()], home_id = familyId)
+                            val device = Device(
+                                id = deviceId, name,
+                                mType[adapter.getCurrentItem()], home_id = familyId
+                            )
                             viewModel.addDevice(
                                 "Token ${SessionManager(requireContext()).fetchAuthToken()}",
                                 device

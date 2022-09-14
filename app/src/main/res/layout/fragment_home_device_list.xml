@@ -1,107 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/home_device_list"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="@drawable/background_fullscreen"
-    app:layout_anchorGravity="bottom"
+    android:id="@+id/swipe_refresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
     tools:context=".view.home.HomeDeviceListFragment">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_back"
-        style="@style/ReturnButton_Style"
-        android:layout_width="@dimen/back_icon_size"
-        android:layout_height="@dimen/back_icon_size"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        app:layout_constraintBottom_toTopOf="@+id/content_space"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/home_device_list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/background_fullscreen"
+        app:layout_anchorGravity="bottom">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_back"
+            style="@style/ReturnButton_Style"
+            android:layout_width="@dimen/back_icon_size"
+            android:layout_height="@dimen/back_icon_size"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            app:layout_constraintBottom_toTopOf="@+id/content_space"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.05"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
-    <View
-        android:id="@+id/content_space"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="@dimen/margin_horizontal"
-        android:layout_marginTop="@dimen/margin_vertical"
-        android:layout_marginEnd="@dimen/margin_horizontal"
-        android:layout_marginBottom="@dimen/margin_vertical"
-        android:background="@drawable/content_space"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        <View
+            android:id="@+id/content_space"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="@dimen/margin_horizontal"
+            android:layout_marginTop="@dimen/margin_vertical"
+            android:layout_marginEnd="@dimen/margin_horizontal"
+            android:layout_marginBottom="@dimen/margin_vertical"
+            android:background="@drawable/content_space"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
 
-    <TextView
-        android:id="@+id/text_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="30dp"
-        android:text="@string/device_list"
-        android:textAppearance="@style/text_login_title"
-        app:layout_constraintEnd_toEndOf="@+id/content_space"
-        app:layout_constraintStart_toStartOf="@+id/content_space"
-        app:layout_constraintTop_toTopOf="@+id/content_space"
-        tools:ignore="TextContrastCheck" />
+        <TextView
+            android:id="@+id/text_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            android:text="@string/device_list"
+            android:textAppearance="@style/text_login_title"
+            app:layout_constraintEnd_toEndOf="@+id/content_space"
+            app:layout_constraintStart_toStartOf="@+id/content_space"
+            app:layout_constraintTop_toTopOf="@+id/content_space"
+            tools:ignore="TextContrastCheck" />
 
-    <com.google.android.material.button.MaterialButton
+        <com.google.android.material.button.MaterialButton
 
-        android:id="@+id/btn_add"
-        style="@style/ReturnButton_Style"
-        app:iconTint="@color/color_cda16d"
-        android:layout_width="@dimen/back_icon_size"
-        android:layout_height="@dimen/back_icon_size"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="30dp"
-        app:icon="@drawable/ic_add_circle_outline"
-        app:layout_constraintEnd_toEndOf="@+id/content_space"
-        app:layout_constraintStart_toEndOf="@+id/text_login"
-        app:layout_constraintTop_toTopOf="@+id/content_space" />
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/device_background"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="40dp"
-        android:background="@drawable/background_inside"
-        app:layout_constraintBottom_toBottomOf="@+id/content_space"
-        app:layout_constraintEnd_toEndOf="@+id/content_space"
-        app:layout_constraintStart_toStartOf="@+id/content_space"
-        app:layout_constraintTop_toBottomOf="@+id/text_login" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:fadeScrollbars="false"
-        android:scrollbarSize="10dp"
-        android:scrollbarStyle="insideOverlay"
-        android:scrollbars="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/device_background"
-        app:layout_constraintEnd_toEndOf="@+id/device_background"
-        app:layout_constraintStart_toStartOf="@+id/device_background"
-        app:layout_constraintTop_toBottomOf="@+id/device_background" />
+            android:id="@+id/btn_add"
+            style="@style/ReturnButton_Style"
+            android:layout_width="@dimen/back_icon_size"
+            android:layout_height="@dimen/back_icon_size"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="30dp"
+            app:icon="@drawable/ic_add_circle_outline"
+            app:iconTint="@color/color_cda16d"
+            app:layout_constraintEnd_toEndOf="@+id/content_space"
+            app:layout_constraintStart_toEndOf="@+id/text_login"
+            app:layout_constraintTop_toTopOf="@+id/content_space" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/device_list_background"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/background_device_list"
+            app:layout_constraintBottom_toBottomOf="@+id/content_space"
+            app:layout_constraintEnd_toEndOf="@+id/content_space"
+            app:layout_constraintStart_toStartOf="@+id/content_space"
+            app:layout_constraintTop_toTopOf="@+id/content_space">
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:fadeScrollbars="false"
+                android:scrollbarSize="10dp"
+                android:scrollbarStyle="insideOverlay"
+                android:scrollbars="vertical"
+                app:layout_constraintBottom_toTopOf="@+id/device_list_background"
+                app:layout_constraintEnd_toEndOf="@+id/device_list_background"
+                app:layout_constraintStart_toStartOf="@+id/device_list_background"
+                app:layout_constraintTop_toBottomOf="@+id/device_list_background" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

@@ -1,4 +1,4 @@
-package com.iotApp.view.home
+package com.iotApp.adapter
 
 
 import android.graphics.Color
@@ -11,8 +11,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.iotApp.R
 
 
-class DeviceAdapter internal constructor(private var mData: ArrayList<String>) :
-    RecyclerView.Adapter<DeviceAdapter.ViewHolder>() {
+class AddDeviceAdapter internal constructor(private var mData: ArrayList<String>) :
+    RecyclerView.Adapter<AddDeviceAdapter.ViewHolder>() {
     var selectedPosition = -1 //make it global
 
     // 建立ViewHolder
@@ -31,7 +31,7 @@ class DeviceAdapter internal constructor(private var mData: ArrayList<String>) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         // 連結項目布局檔list_item
         val view: View = LayoutInflater.from(parent.context)
-            .inflate(R.layout.device_list_item, parent, false)
+            .inflate(R.layout.item_device_add_list, parent, false)
 
         return ViewHolder(view)
     }
@@ -58,12 +58,13 @@ class DeviceAdapter internal constructor(private var mData: ArrayList<String>) :
         return mData.size
     }
 
-    fun changeData(data: List<String>) {
+    fun dataChange(data: List<String>) {
         mData.clear()
         mData.addAll(data)
         notifyDataSetChanged()
     }
-    fun getCurrentItem():Int{
+
+    fun getCurrentItem(): Int {
         return selectedPosition
     }
 

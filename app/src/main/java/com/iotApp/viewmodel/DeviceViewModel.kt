@@ -1,6 +1,7 @@
 package com.iotApp.viewmodel
 
 import android.content.Context
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -16,8 +17,8 @@ import kotlinx.coroutines.launch
 class DeviceViewModel(private val deviceRepository: DeviceRepository) : ViewModel() {
     private lateinit var espProvisioner: EspProvisioner
 
-    val deviceList: MutableLiveData<BaseResponse<Device>> = MutableLiveData()
-    val deviceAdd: MutableLiveData<BaseResponse<Device>> = MutableLiveData()
+    val deviceList: MutableLiveData<BaseResponse<ArrayList<Device>>> = MutableLiveData()
+    val addDevice: MutableLiveData<BaseResponse<Device>> = MutableLiveData()
 
     fun pairDevice(context: Context, ssid: String, password: String, customData: String) {
         espProvisioner = EspProvisioner(context)
@@ -49,14 +50,40 @@ class DeviceViewModel(private val deviceRepository: DeviceRepository) : ViewMode
     }
 
     fun addDevice(token: String, info: Device) {
+        addDevice.value = BaseResponse.Loading()
         viewModelScope.launch {
-            deviceRepository.addDevice(token, info)
+            try {
+                val response = deviceRepository.addDevice(token, info)
+                if (response != null) {
+                    if (response.isSuccessful) {
+                        addDevice.value = BaseResponse.Success(response.body())
+                    } else {
+                        addDevice.value = BaseResponse.Error(response.message())
+                    }
+                }
+            } catch (ex: Exception) {
+                addDevice.value = BaseResponse.Error(ex.message)
+            }
+
         }
     }
 
     fun getDevice(token: String) {
+        deviceList.value = BaseResponse.Loading()
         viewModelScope.launch {
-            deviceRepository.getDevice(token)
+            try {
+                val response = deviceRepository.getDevice(token)
+                if (response != null) {
+                    if (response.isSuccessful) {
+                        deviceList.value = BaseResponse.Success(response.body())
+                    } else {
+                        deviceList.value = BaseResponse.Error(response.message())
+                    }
+                }
+
+            } catch (ex: Exception) {
+                deviceList.value = BaseResponse.Error(ex.message)
+            }
         }
     }
 }
