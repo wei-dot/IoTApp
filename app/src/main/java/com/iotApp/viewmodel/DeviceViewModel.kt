@@ -1,6 +1,7 @@
 package com.iotApp.viewmodel
 
 import android.content.Context
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -106,4 +107,43 @@ class DeviceViewModel(private val deviceRepository: DeviceRepository) : ViewMode
         }
 
     }
+
+    fun deleteDevice(context: Context, token: String, id: String) {
+        viewModelScope.launch {
+            try {
+                val response = deviceRepository.deleteDevice(token, id)
+                if (response != null) {
+                    if (response.isSuccessful) {
+                        Toast.makeText(context, "Device deleted successfully", Toast.LENGTH_SHORT)
+                            .show()
+                    } else {
+                        Toast.makeText(context, "Device not deleted", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            } catch (ex: Exception) {
+                Toast.makeText(context, "Device not deleted", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    fun changeDeviceName(context: Context, id: String, token: String, name: Device) {
+        viewModelScope.launch {
+            try {
+                val response = deviceRepository.changeDeviceName(token=token, deviceId = id, name)
+                if (response != null) {
+                    if (response.isSuccessful) {
+                        Toast.makeText(context, "修改設備名稱OK", Toast.LENGTH_SHORT)
+                            .show()
+                    } else {
+                        Toast.makeText(context, "修改設備名稱失敗", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            } catch (ex: Exception) {
+                Toast.makeText(context, "修改設備名稱錯誤", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+
+    }
+
 }

@@ -196,22 +196,15 @@
     </style>
 
 
-    =======
-
     <style name="MaterialAlertDialog.Rounded" parent="@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog">
-        <item name="shapeAppearanceOverlay">
-            @style/ShapeAppearanceOverlay.MaterialAlertDialog.Rounded
-        </item>
+
         <item name="materialAlertDialogBodyTextStyle">
-            @style/Components.Temper.Dialog.Body
+            @style/AlertBodyStyle
         </item>
 
         <item name="materialAlertDialogTitleTextStyle">@style/Components.Temper.Dialog.Title</item>
-
-    </style>
-
-    <style name="ShapeAppearanceOverlay.MaterialAlertDialog.Rounded" parent="">
-        <item name="cornerSize">20dp</item>
+        <item name="buttonBarNegativeButtonStyle">@style/NegativeButtonStyle</item>
+        <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
     </style>
 
     <style name="Components.Temper.DialogThemeOverlay" parent="@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog">
@@ -220,14 +213,24 @@
 
 
     <style name="Components.Temper.Dialog.Title" parent="@style/MaterialAlertDialog.MaterialComponents.Title.Text">
-        <item name="android:textAppearance">@style/TextAppearance.Material3.TitleLarge</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@color/color_c07a27</item>
+        <item name="layout_gravity">center</item>
     </style>
 
-    <style name="Components.Temper.Dialog.Body" parent="@style/MaterialAlertDialog.MaterialComponents.Title.Text">
-        <item name="android:textAppearance">@style/TextAppearance.Material3.BodyLarge</item>
-        <item name="android:textColor">@color/black</item>
+    <style name="AlertBodyStyle">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/color_c07a27</item>
     </style>
-    >>>>>>> 6737e828e6367c635de2c29ca347dc4f2a0a5e60
+
+    <style name="NegativeButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/color_c07a27</item>
+    </style>
+
+    <style name="PositiveButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/color_c07a27</item>
+    </style>
 
 </resources>

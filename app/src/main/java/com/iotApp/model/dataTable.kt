@@ -120,11 +120,13 @@ data class Device(
     @SerializedName("id")
     val id: String,
     @SerializedName("name")
-    val device_name: String,
+    var device_name: String,
     @SerializedName("type_name")
     val device_type: String,
     @SerializedName("home")
     val home_id: String,
+    @SerializedName("added_time")
+    val time: String,
 )
 
 data class DeviceData(

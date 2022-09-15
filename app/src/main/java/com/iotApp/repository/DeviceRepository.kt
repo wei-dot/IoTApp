@@ -15,6 +15,9 @@ class DeviceRepository {
     suspend fun deleteDevice(token: String, deviceId: String): Response<Void>? =
         ApiService.getApi()?.deleteDevice(token = token, id = deviceId)
 
+    suspend fun changeDeviceName(token: String, deviceId: String, name: Device): Response<Device>? =
+        ApiService.getApi()?.updateDevice(token = token, id = deviceId, info = name)
+
     suspend fun getDeviceData(token: String): Response<ArrayList<DeviceData>>? =
         ApiService.getApi()?.getDeviceData(token = token)
 }

@@ -1,17 +1,25 @@
 package com.iotApp.adapter
 
-import android.app.AlertDialog
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.button.MaterialButton
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.textfield.TextInputEditText
 import com.iotApp.R
 import com.iotApp.model.Device
+import com.iotApp.repository.SessionManager
+import com.iotApp.viewmodel.DeviceViewModel
 
-class DeviceListAdapter internal constructor(private var mData: ArrayList<Device>) :
+
+class DeviceListAdapter internal constructor(
+    private var mData: ArrayList<Device>,
+    private val viewModel: DeviceViewModel
+) :
     RecyclerView.Adapter<DeviceListAdapter.ViewHolder>() {
     var selectedPosition = -1 //make it global
 
@@ -41,18 +49,68 @@ class DeviceListAdapter internal constructor(private var mData: ArrayList<Device
             selectedPosition = position
             notifyItemChanged(previousItem)
             notifyItemChanged(selectedPosition)
-            AlertDialog.Builder(it.context)
-                .setTitle("Device Name")
-                .setMessage(mData[position].device_name)
-                .setPositiveButton("OK") { dialog, which ->
-                    Toast.makeText(it.context, "OK", Toast.LENGTH_SHORT).show()
+            MaterialAlertDialogBuilder(it.context, R.style.MaterialAlertDialog_Rounded)
+                .setTitle("設備資訊")
+                .setMessage("設備名稱: ${mData[position].device_name}\n設備編號: ${mData[position].id}\n設備類型: ${mData[position].device_type}\n新增時間: ${mData[position].time}")
+                .setBackground(
+                    ContextCompat.getDrawable(
+                        holder.itemView.context,
+                        R.drawable.background_popup
+                    )
+                )
+                .setPositiveButton("確認") { _, _ ->
                 }
-                .setNegativeButton("Cancel") { dialog, which ->
-                    Toast.makeText(it.context, "Cancel", Toast.LENGTH_SHORT).show()
+                .setNegativeButton("刪除設備") { _, _ ->
+                    SessionManager(holder.itemView.context).fetchAuthToken()?.let { it1 ->
+                        viewModel.deleteDevice(
+                            holder.itemView.context,
+                            "Token $it1", mData[position].id
+                        )
+                        viewModel.getDevice("Token $it1")
+                    }
+
+                }.create().show()
+        }
+        holder.itemView.setOnLongClickListener { it ->
+            val alertDialog =
+                MaterialAlertDialogBuilder(it.context, R.style.MaterialAlertDialog_Rounded)
+                    .setTitle("修改設備名稱")
+                    .setBackground(
+                        ContextCompat.getDrawable(
+                            holder.itemView.context,
+                            R.drawable.background_popup
+                        )
+                    )
+                    .setMessage("是否要修改設備名稱??").create()
+            // Set up the input
+            val viewDialog = View.inflate(it.context, R.layout.dialog_change_name, null)
+            alertDialog.setView(viewDialog)
+            val cancel = viewDialog.findViewById<MaterialButton>(R.id.cancel)
+            val confirm = viewDialog.findViewById<MaterialButton>(R.id.ok)
+            val deviceName = viewDialog.findViewById<TextInputEditText>(R.id.et_device_name)
+            cancel.setOnClickListener {
+                alertDialog.dismiss()
+            }
+            confirm.setOnClickListener {
+                val temp = mData[position]
+                temp.device_name = deviceName.text.toString()
+                if (deviceName.text.toString().isNotEmpty()) {
+                    SessionManager(holder.itemView.context).fetchAuthToken()?.let { it1 ->
+                        viewModel.changeDeviceName(
+                            it.context,
+                            id = mData[position].id,
+                            token = "Token $it1",
+                            name = temp,
+                        )
+                        viewModel.getDevice("Token $it1")
+                    }
+                } else {
+                    deviceName.error = "請輸入設備名稱"
                 }
-                .show()
-//            Toast.makeText(holder.itemView.context, "你選擇了${mData[position]}", Toast.LENGTH_SHORT)
-//                .show()
+                alertDialog.dismiss()
+            }
+            alertDialog.show()
+            true
         }
     }
 

@@ -12,6 +12,7 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.App.Starting"
@@ -30,25 +31,40 @@
         <activity
             android:name=".view.MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.IoTApp.NoActionBar" />
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.IoTApp.NoActionBar"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".view.AccountActivity"
+            android:screenOrientation="portrait"
             android:exported="true"
-            android:theme="@style/Theme.IoTApp.NoActionBar" />
+            android:theme="@style/Theme.IoTApp.NoActionBar"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".view.HomeActivity"
             android:exported="true"
-            android:theme="@style/Theme.IoTApp.NoActionBar" />
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.IoTApp.NoActionBar"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".view.FamilyActivity"
             android:exported="true"
-            android:theme="@style/Theme.IoTApp.NoActionBar" />
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.IoTApp.NoActionBar"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".view.ModeActivity"
             android:exported="true"
-            android:theme="@style/Theme.IoTApp.NoActionBar" />
-        <service android:name=".service.InviteService" android:enabled="true" />
-        <service android:name=".service.IRService" android:enabled="true" />
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.IoTApp.NoActionBar"
+            tools:ignore="LockedOrientationActivity" />
+
+        <service
+            android:name=".service.InviteService"
+            android:enabled="true" />
+        <service
+            android:name=".service.IRService"
+            android:enabled="true" />
     </application>
 
 </manifest>

@@ -56,7 +56,7 @@ class HomeAddDeviceFragment : Fragment() {
         val categoryAdapter = ArrayAdapter(requireContext(), R.layout.category_list_item, items)
         (binding.menu.editText as? AutoCompleteTextView)?.setAdapter(categoryAdapter)
         binding.filledExposedDropdown.setText(items[0], false)
-
+        binding.filledExposedDropdown.setDropDownBackgroundResource(R.color.white)
         mData =
             ArrayList(listOf("DHT11溫溼度感測器", "MQ7一氧化碳感測器", "HC-SR501人體感測器"))
         mType = ArrayList(listOf("DHT11", "MQ7", "HC-SR501"))
@@ -108,7 +108,7 @@ class HomeAddDeviceFragment : Fragment() {
                         )
                         .create()
 
-                    val viewDialog = layoutInflater.inflate(R.layout.pairing_dialog, null)
+                    val viewDialog = layoutInflater.inflate(R.layout.dialog_pairing, null)
                     alertDialog.setView(viewDialog)
                     val cancel = viewDialog.findViewById<MaterialButton>(R.id.cancel)
                     val confirm = viewDialog.findViewById<MaterialButton>(R.id.ok)
@@ -138,7 +138,7 @@ class HomeAddDeviceFragment : Fragment() {
                             )
                             val device = Device(
                                 id = deviceId, name,
-                                mType[adapter.getCurrentItem()], home_id = familyId
+                                mType[adapter.getCurrentItem()], home_id = familyId, time = ""
                             )
                             viewModel.addDevice(
                                 "Token ${SessionManager(requireContext()).fetchAuthToken()}",
