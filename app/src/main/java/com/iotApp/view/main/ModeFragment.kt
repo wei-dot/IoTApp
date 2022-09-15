@@ -256,7 +256,6 @@ class ModeFragment : Fragment() {
 //        private val mModeFragment = modeFragment
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
-//        TODO("Not yet implemented")
             val v = LayoutInflater.from(parent.context)
                 .inflate(R.layout.mode_key_recycler_view, parent, false)
             mClient = OkHttpClient.Builder()
@@ -265,7 +264,7 @@ class ModeFragment : Fragment() {
             request = Request.Builder()
                 .url(mWbSocketUrl)
                 .build()
-            mWebSocket = mClient.newWebSocket(request, WsListener())
+            mWebSocket = mClient.newWebSocket(request, WsListener(mContext))
             return ViewHolder(v)
         }
 

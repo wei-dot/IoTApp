@@ -3,6 +3,7 @@ package com.iotApp.model
 import com.google.gson.annotations.SerializedName
 
 data class DHT11(
+
     @SerializedName("temperature")
     val temp: String,
     @SerializedName("humidity")
@@ -18,3 +19,4 @@ data class SR501(
     @SerializedName("motion")
     val motion: String
 )
+

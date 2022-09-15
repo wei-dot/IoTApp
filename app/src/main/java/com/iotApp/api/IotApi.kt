@@ -50,7 +50,6 @@ class IotApi {
                     onResponse = {
                         if (it.isSuccessful) {
                             val response = it.body()!!
-                            Log.d("IotApi getInfo", "Success: $response")
                             Toast.makeText(
                                 activity,
                                 "歡迎 ${response.username} 回來",

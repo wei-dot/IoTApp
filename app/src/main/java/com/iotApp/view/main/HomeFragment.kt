@@ -4,6 +4,9 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.os.Message
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -149,7 +152,7 @@ class HomeFragment : Fragment() {
                     val maxTParameterName = maxTParameter.getString("parameterName")
 
                     runOnUiThread {
-                        if(activity != null) {
+                        if (activity != null) {
                             val dayNight =
                                 if (LocalDateTime.now().hour > 18 || LocalDateTime.now().hour < 6) "night" else "day"
                             when ((minTParameterName.toInt() + maxTParameterName.toInt()) / 2) {
@@ -235,6 +238,30 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        WsListener.handler = object : Handler(Looper.getMainLooper()) {
+            override fun handleMessage(msg: Message) {
+                super.handleMessage(msg)
+                if (msg.obj != null) {
+                    val response = msg.obj as JSONObject
+                    if (_binding!=null) {
+                        when (response.get("device_type")) {
+                            "DHT11" -> {
+                                binding.TextViewCelsius.text =
+                                    String.format("%s°C", response.getString("temperature"))
+                                binding.TextViewHumidity.text =
+                                    String.format("%s %%", response.getString("humidity"))
+                            }
+                            "MQ7" -> {
+                                binding.textCoIndex.text =
+                                    String.format("%.2f ppm", response.getString("COppm").toFloat())
+                            }
+                        }
+                    }
+
+                }
+                //exit SplashActivity
+            }
+        }
 
 
         //設定全部開關文字
@@ -251,62 +278,76 @@ class HomeFragment : Fragment() {
         request = Request.Builder()
             .url(mWbSocketUrl)
             .build()
-        mWebSocket = mClient.newWebSocket(request, WsListener())
-
-
+        mWebSocket = mClient.newWebSocket(request, WsListener(requireContext()))
+        val messageJson = JSONObject()
+        val switchJson = JSONObject()
+        switchJson.put("device_type", "switch")
         binding.tplinkSwitch1.setOnClickListener {
+
             if (binding.tplinkSwitch1.text == "開關1 開") {
                 binding.tplinkSwitch1.text = "開關1 關"
-                mWebSocket.send("{\"message\":\"off:1\",\"device_type\":\"power_strip\"}")
+                switchJson.put("switch", "off:1")
             } else {
                 binding.tplinkSwitch1.text = "開關1 開"
-                mWebSocket.send("{\"message\":\"on:1\",\"device_type\":\"power_strip\"}")
+                switchJson.put("switch", "on:1")
             }
+            messageJson.put("message", switchJson.toString())
+            mWebSocket.send(messageJson.toString())
         }
         binding.tplinkSwitch2.setOnClickListener {
             if (binding.tplinkSwitch2.text == "開關2 開") {
                 binding.tplinkSwitch2.text = "開關2 關"
-                mWebSocket.send("{\"message\":\"off:2\",\"device_type\":\"power_strip\"}")
+                switchJson.put("switch", "off:2")
             } else {
                 binding.tplinkSwitch2.text = "開關2 開"
-                mWebSocket.send("{\"message\":\"on:2\",\"device_type\":\"power_strip\"}")
+                switchJson.put("switch", "on:2")
             }
+            messageJson.put("message", switchJson.toString())
+            mWebSocket.send(messageJson.toString())
         }
         binding.tplinkSwitch3.setOnClickListener {
             if (binding.tplinkSwitch3.text == "開關3 開") {
                 binding.tplinkSwitch3.text = "開關3 關"
-                mWebSocket.send("{\"message\":\"off:3\",\"device_type\":\"power_strip\"}")
+                switchJson.put("switch", "off:3")
             } else {
                 binding.tplinkSwitch3.text = "開關3 開"
-                mWebSocket.send("{\"message\":\"on:3\",\"device_type\":\"power_strip\"}")
+                switchJson.put("switch", "on:3")
             }
+            messageJson.put("message", switchJson.toString())
+            mWebSocket.send(messageJson.toString())
         }
         binding.tplinkSwitch4.setOnClickListener {
             if (binding.tplinkSwitch4.text == "開關4 開") {
                 binding.tplinkSwitch4.text = "開關4 關"
-                mWebSocket.send("{\"message\":\"off:4\",\"device_type\":\"power_strip\"}")
+                switchJson.put("switch", "off:4")
             } else {
                 binding.tplinkSwitch4.text = "開關4 開"
-                mWebSocket.send("{\"message\":\"on:4\",\"device_type\":\"power_strip\"}")
+                switchJson.put("switch", "on:4")
             }
+            messageJson.put("message", switchJson.toString())
+            mWebSocket.send(messageJson.toString())
         }
         binding.tplinkSwitch5.setOnClickListener {
             if (binding.tplinkSwitch5.text == "開關5 開") {
                 binding.tplinkSwitch5.text = "開關5 關"
-                mWebSocket.send("{\"message\":\"off:5\",\"device_type\":\"power_strip\"}")
+                switchJson.put("switch", "off:5")
             } else {
                 binding.tplinkSwitch5.text = "開關5 開"
-                mWebSocket.send("{\"message\":\"on:5\",\"device_type\":\"power_strip\"}")
+                switchJson.put("switch", "on:5")
             }
+            messageJson.put("message", switchJson.toString())
+            mWebSocket.send(messageJson.toString())
         }
         binding.tplinkSwitch6.setOnClickListener {
             if (binding.tplinkSwitch6.text == "開關6 開") {
                 binding.tplinkSwitch6.text = "開關6 關"
-                mWebSocket.send("{\"message\":\"off:6\",\"device_type\":\"power_strip\"}")
+                switchJson.put("switch", "off:6")
             } else {
                 binding.tplinkSwitch6.text = "開關6 開"
-                mWebSocket.send("{\"message\":\"on:6\",\"device_type\":\"power_strip\"}")
+                switchJson.put("switch", "on:6")
             }
+            messageJson.put("message", switchJson.toString())
+            mWebSocket.send(messageJson.toString())
         }
 
 
@@ -325,16 +366,16 @@ class HomeFragment : Fragment() {
             }
         }
 
-        binding.fanSwitch.setOnClickListener{
+        binding.fanSwitch.setOnClickListener {
             irWebSocket.send("{\"message\":\"power\"}")
         }
-        binding.fanLight.setOnClickListener{
+        binding.fanLight.setOnClickListener {
             irWebSocket.send("{\"message\":\"light\"}")
         }
-        binding.fanSpeedUp.setOnClickListener{
+        binding.fanSpeedUp.setOnClickListener {
             irWebSocket.send("{\"message\":\"sp_up\"}")
         }
-        binding.fanSpeedDown.setOnClickListener{
+        binding.fanSpeedDown.setOnClickListener {
             irWebSocket.send("{\"message\":\"sp_dw\"}")
         }
 
@@ -362,8 +403,6 @@ class HomeFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
-
 
 
 }

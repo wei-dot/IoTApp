@@ -116,6 +116,7 @@
     <string name="update_time">更新時間</string>
     <string name="rain_probability">降雨機率</string>
     <string name="weather">天氣狀況</string>
+    <string name="nullValue">null</string>
 
 
 </resources>

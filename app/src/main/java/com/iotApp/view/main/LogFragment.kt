@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.blankj.utilcode.util.ThreadUtils.runOnUiThread
 import com.iotApp.adapter.LogAdapter
 import com.iotApp.api.BaseResponse
 import com.iotApp.databinding.FragmentMainLogBinding
@@ -97,13 +96,11 @@ class LogFragment : Fragment() {
         timer.scheduleAtFixedRate(object : TimerTask() {
             override fun run() {
                 if (_binding != null) {
-                    runOnUiThread {
-                        SessionManager(requireContext()).fetchAuthToken()
-                            ?.let { viewModel.getDeviceData("Token $it") }
-                    }
+                    SessionManager(requireContext()).fetchAuthToken()
+                        ?.let { viewModel.getDeviceData("Token $it") }
                 }
             }
-        }, 0, 10000)
+        }, 0, 300000)
         _binding?.add?.setOnClickListener {
             val intent = Intent(requireActivity(), HomeActivity::class.java)
             intent.putExtra("Home", "AddDevice")
