@@ -17,6 +17,7 @@ import com.iotApp.repository.SessionManager
 import com.iotApp.view.HomeActivity
 import com.iotApp.viewmodel.DeviceViewModel
 import com.iotApp.viewmodel.ViewModelFactory
+import java.util.*
 
 class LogFragment : Fragment() {
     private var _binding: FragmentMainLogBinding? = null
@@ -91,6 +92,17 @@ class LogFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val timer = Timer()
+        timer.scheduleAtFixedRate(object : TimerTask() {
+            override fun run() {
+                if (activity != null) {
+                    activity?.runOnUiThread {
+                        SessionManager(requireContext()).fetchAuthToken()
+                            ?.let { viewModel.getDeviceData("Token $it") }
+                    }
+                }
+            }
+        }, 0, 10000)
         _binding?.add?.setOnClickListener {
             val intent = Intent(requireActivity(), HomeActivity::class.java)
             intent.putExtra("Home", "AddDevice")

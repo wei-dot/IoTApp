@@ -90,19 +90,19 @@ class DeviceViewModel(private val deviceRepository: DeviceRepository) : ViewMode
     }
 
     fun getDeviceData(token: String) {
-        deviceDataList.value = BaseResponse.Loading()
+        deviceDataList.postValue(BaseResponse.Loading())
         viewModelScope.launch {
             try {
                 val response = deviceRepository.getDeviceData(token)
                 if (response != null) {
                     if (response.isSuccessful) {
-                        deviceDataList.value = BaseResponse.Success(response.body())
+                        deviceDataList.postValue(BaseResponse.Success(response.body()))
                     } else {
-                        deviceDataList.value = BaseResponse.Error(response.message())
+                        deviceDataList.postValue(BaseResponse.Error(response.message()))
                     }
                 }
             } catch (ex: Exception) {
-                deviceDataList.value = BaseResponse.Error(ex.message)
+                deviceDataList.postValue(BaseResponse.Error(ex.message))
             }
         }
 
