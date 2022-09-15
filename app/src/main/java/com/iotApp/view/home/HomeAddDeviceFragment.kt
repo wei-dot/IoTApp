@@ -144,7 +144,7 @@ class HomeAddDeviceFragment : Fragment() {
                                 "Token ${SessionManager(requireContext()).fetchAuthToken()}",
                                 device
                             )
-                            Toast.makeText(context, "配對成功", Toast.LENGTH_SHORT).show()
+
                         }
                     }
                 } else {

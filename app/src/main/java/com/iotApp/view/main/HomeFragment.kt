@@ -56,7 +56,7 @@ class HomeFragment : Fragment() {
     private var mIsAllFabVisible: Boolean? = null
 
     //    private val host: String = "192.168.0.15"
-    private val host: String = "192.168.0.13:8000"
+    private val host: String = "192.168.1.14:8000"
     private val mWbSocketUrl = "ws://" + host + Constants.Power_Strip_URL
     private lateinit var mClient: OkHttpClient
     private lateinit var request: Request
@@ -120,7 +120,7 @@ class HomeFragment : Fragment() {
             while (true) {
                 try {
                     val url =
-                        URL("https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-FF475748-282F-4E9F-81CD-89D15DE20B89&format=JSON&locationName=%E8%87%BA%E5%8C%97%E5%B8%82&elementName=&sort=time")
+                        URL(Constants.weather_URL)
                     val urlConnection = url.openConnection() as HttpURLConnection
                     val inStream = BufferedInputStream(urlConnection.inputStream)
                     val reader = BufferedReader(InputStreamReader(inStream))
@@ -257,55 +257,55 @@ class HomeFragment : Fragment() {
         binding.tplinkSwitch1.setOnClickListener {
             if (binding.tplinkSwitch1.text == "開關1 開") {
                 binding.tplinkSwitch1.text = "開關1 關"
-                mWebSocket.send("{\"message\":\"off:1\"}")
+                mWebSocket.send("{\"message\":\"off:1\",\"device_type\":\"power_strip\"}")
             } else {
                 binding.tplinkSwitch1.text = "開關1 開"
-                mWebSocket.send("{\"message\":\"on:1\"}")
+                mWebSocket.send("{\"message\":\"on:1\",\"device_type\":\"power_strip\"}")
             }
         }
         binding.tplinkSwitch2.setOnClickListener {
             if (binding.tplinkSwitch2.text == "開關2 開") {
                 binding.tplinkSwitch2.text = "開關2 關"
-                mWebSocket.send("{\"message\":\"off:2\"}")
+                mWebSocket.send("{\"message\":\"off:2\",\"device_type\":\"power_strip\"}")
             } else {
                 binding.tplinkSwitch2.text = "開關2 開"
-                mWebSocket.send("{\"message\":\"on:2\"}")
+                mWebSocket.send("{\"message\":\"on:2\",\"device_type\":\"power_strip\"}")
             }
         }
         binding.tplinkSwitch3.setOnClickListener {
             if (binding.tplinkSwitch3.text == "開關3 開") {
                 binding.tplinkSwitch3.text = "開關3 關"
-                mWebSocket.send("{\"message\":\"off:3\"}")
+                mWebSocket.send("{\"message\":\"off:3\",\"device_type\":\"power_strip\"}")
             } else {
                 binding.tplinkSwitch3.text = "開關3 開"
-                mWebSocket.send("{\"message\":\"on:3\"}")
+                mWebSocket.send("{\"message\":\"on:3\",\"device_type\":\"power_strip\"}")
             }
         }
         binding.tplinkSwitch4.setOnClickListener {
             if (binding.tplinkSwitch4.text == "開關4 開") {
                 binding.tplinkSwitch4.text = "開關4 關"
-                mWebSocket.send("{\"message\":\"off:4\"}")
+                mWebSocket.send("{\"message\":\"off:4\",\"device_type\":\"power_strip\"}")
             } else {
                 binding.tplinkSwitch4.text = "開關4 開"
-                mWebSocket.send("{\"message\":\"on:4\"}")
+                mWebSocket.send("{\"message\":\"on:4\",\"device_type\":\"power_strip\"}")
             }
         }
         binding.tplinkSwitch5.setOnClickListener {
             if (binding.tplinkSwitch5.text == "開關5 開") {
                 binding.tplinkSwitch5.text = "開關5 關"
-                mWebSocket.send("{\"message\":\"off:5\"}")
+                mWebSocket.send("{\"message\":\"off:5\",\"device_type\":\"power_strip\"}")
             } else {
                 binding.tplinkSwitch5.text = "開關5 開"
-                mWebSocket.send("{\"message\":\"on:5\"}")
+                mWebSocket.send("{\"message\":\"on:5\",\"device_type\":\"power_strip\"}")
             }
         }
         binding.tplinkSwitch6.setOnClickListener {
             if (binding.tplinkSwitch6.text == "開關6 開") {
                 binding.tplinkSwitch6.text = "開關6 關"
-                mWebSocket.send("{\"message\":\"off:6\"}")
+                mWebSocket.send("{\"message\":\"off:6\",\"device_type\":\"power_strip\"}")
             } else {
                 binding.tplinkSwitch6.text = "開關6 開"
-                mWebSocket.send("{\"message\":\"on:6\"}")
+                mWebSocket.send("{\"message\":\"on:6\",\"device_type\":\"power_strip\"}")
             }
         }
 

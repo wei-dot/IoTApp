@@ -33,7 +33,7 @@ class DeviceViewModel(private val deviceRepository: DeviceRepository) : ViewMode
         val listener = object : EspProvisioningListener {
 
             override fun onStart() {
-                TODO("Not yet implemented")
+                Toast.makeText(context, "配對設備中", Toast.LENGTH_SHORT).show()
             }
 
             override fun onResponse(result: EspProvisioningResult?) {
