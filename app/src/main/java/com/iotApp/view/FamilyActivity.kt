@@ -18,9 +18,6 @@ class FamilyActivity : AppCompatActivity() {
             "addMember" -> {
                 findNavController(R.id.nav_host_fragment_family_edit).navigate(R.id.navigation_family_member_add)
             }
-            "editMember" -> {
-                Toast.makeText(this, "edit", Toast.LENGTH_SHORT).show()
-            }
             "addFamily" -> {
                 findNavController(R.id.nav_host_fragment_family_edit).navigate(R.id.navigation_family_add)
             }
