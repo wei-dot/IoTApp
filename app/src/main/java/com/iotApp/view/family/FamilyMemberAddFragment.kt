@@ -34,8 +34,7 @@ class FamilyMemberAddFragment : Fragment() {
         _binding = FragmentFamilyMemberAddBinding.inflate(inflater, container, false)
         val root: View = binding.root
         binding.btnBack.setOnClickListener {
-            NavHostFragment.findNavController(this@FamilyMemberAddFragment)
-                .navigate(R.id.navigation_family_edit)
+            activity?.finish()
         }
         binding.familyId.text = SessionManager(requireContext()).fetchFamilyId()
         return root

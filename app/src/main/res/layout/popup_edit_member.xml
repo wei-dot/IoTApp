@@ -60,13 +60,13 @@
         />
 
     <ImageButton
-        android:id="@+id/popup_edit_member_edit_member"
+        android:id="@+id/popup_edit_member_exit"
         android:layout_width="99.5dp"
         android:layout_height="108.05dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="16dp"
-        android:background="@drawable/btn_edit_adjust_permission"
+        android:background="@drawable/btn_exit_family"
         app:layout_constraintBottom_toBottomOf="@+id/popup_edit_member_add_member"
         app:layout_constraintEnd_toEndOf="@+id/popup_edit_member_insidebox"
         app:layout_constraintHorizontal_bias="0.47"

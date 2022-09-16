@@ -128,19 +128,36 @@ class FamilyFragment : Fragment() {
                     layoutInflater.inflate(com.iotApp.R.layout.popup_edit_member, null)
                 val btnAddMember =
                     view.findViewById<ImageButton>(com.iotApp.R.id.popup_edit_member_add_member)
-                val btnEditMember =
-                    view.findViewById<ImageButton>(com.iotApp.R.id.popup_edit_member_edit_member)
+                val btnExitFamily =
+                    view.findViewById<ImageButton>(com.iotApp.R.id.popup_edit_member_exit)
                 btnAddMember.setOnClickListener {
                     val intent = Intent(context, FamilyActivity::class.java)
                     intent.putExtra("FamilyMemberActivity", "addMember")
                     startActivity(intent)
                     popupWindow.dismiss()
                 }
-                btnEditMember.setOnClickListener {
-                    val intent = Intent(context, FamilyActivity::class.java)
-                    intent.putExtra("FamilyMemberActivity", "editMember")
-                    startActivity(intent)
-                    popupWindow.dismiss()
+                btnExitFamily.setOnClickListener {
+                    IotApi.updateFamilyMemberByFamilyID(SessionManager(requireActivity()))
+                    if (SessionManager(requireActivity()).fetchMyOwnFamily()!!
+                            .contains(SessionManager(requireActivity()).fetchFamilyId().toString())
+                    ) {
+                        //表示為管理員，執行刪除整個家庭動作
+                        IotApi.deleteFamily(activity, SessionManager(requireActivity()))
+                    } else {
+                        //表示為成員，僅執行調整成員動作
+                        val newMemberList: ArrayList<String> = ArrayList()
+                        SessionManager(requireActivity()).fetchFamilyMembers()?.iterator()
+                            ?.forEach { member ->
+                                if (member != SessionManager(requireActivity()).fetchUserInfo()?.username) {
+                                    newMemberList.add(member)
+                                }
+                            }
+                        val alterHome = AlterHome(
+                            SessionManager(requireActivity()).fetchFamilyName().toString(),
+                            newMemberList
+                        )
+                        IotApi.exitFamily(activity, SessionManager(requireActivity()), alterHome)
+                    }
                 }
                 popupWindow.setOnDismissListener {
                     backgroundAlpha(1f)
