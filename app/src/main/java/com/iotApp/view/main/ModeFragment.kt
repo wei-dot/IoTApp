@@ -238,8 +238,7 @@ class ModeFragment : Fragment() {
         private val mActivity = activity
 
         //    private val host: String = "192.168.0.15"
-        private val host: String = "192.168.0.10:8000"
-        private val mWbSocketUrl = "ws://" + host + Constants.WEBSOCKET_URL
+        private val mWbSocketUrl = Constants.WEB_URL + Constants.WEBSOCKET_URL
         private lateinit var mClient: OkHttpClient
         private lateinit var mWebSocket: WebSocket
         private lateinit var request: Request
@@ -270,20 +269,17 @@ class ModeFragment : Fragment() {
             mWebSocket = mClient.newWebSocket(request, WsListener(mContext))
             val messageJson = JSONObject()
             val switchJson = JSONObject()
-            switchJson.put("device_type", "switch")
             holder.modeKeyButton.setOnClickListener {
                 Toast.makeText(
                     mActivity,
                     listData[position].tplink_switch_mode_key,
                     Toast.LENGTH_SHORT
                 ).show()
-                for (i in 1..6) {
-                    Log.d(
-                        "ModeFragment",
-                        "for in $i tplink_switch_mode_key = ${listData[position].tplink_switch_mode_key}"
-                    )
-                    listData[position].tplink_switch_mode_key[i - 1]
-                    if (listData[position].tplink_switch_mode_key[i - 1] == '1') {
+                for(i in 1..6){
+                    Log.d("ModeFragment", "for in $i tplink_switch_mode_key = ${listData[position].tplink_switch_mode_key}")
+                    listData[position].tplink_switch_mode_key[i-1]
+                    switchJson.put("device_type", "switch")
+                    if(listData[position].tplink_switch_mode_key[i-1] == '1') {
                         switchJson.put("switch", "on:$i")
                         messageJson.put("message", switchJson.toString())
                         mWebSocket.send(messageJson.toString())
