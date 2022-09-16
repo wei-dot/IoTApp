@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.family.FamilyMemberAddFragment"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/background_fullscreen">
+    android:background="@drawable/background_fullscreen"
+    tools:context=".view.family.FamilyMemberAddFragment">
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_back"
@@ -63,17 +63,16 @@
         app:layout_constraintVertical_bias="0.211" />
 
     <TextView
+        android:id="@+id/family_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="家庭代碼"
+        android:textAppearance="@style/text_my_family_code"
+        android:textSize="15pt"
         app:layout_constraintBottom_toBottomOf="@+id/content_space"
         app:layout_constraintEnd_toEndOf="@+id/content_space"
         app:layout_constraintStart_toStartOf="@+id/content_space"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
-        android:textAppearance="@style/text_my_family_code"
-        android:textSize="15pt"
-        android:id="@+id/family_id"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

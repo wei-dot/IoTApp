@@ -33,7 +33,6 @@
 
     <TextView
         android:id="@+id/popup_username"
-        android:text="使用者名稱"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -41,6 +40,7 @@
         android:layout_marginTop="36dp"
         android:gravity="center_horizontal|top"
         android:lineSpacingExtra="8sp"
+        android:text="使用者名稱"
         android:textAppearance="@style/text_popup_userinfo_nickname_style"
         android:translationY="-3.9sp"
         app:layout_constraintBottom_toTopOf="@+id/btn_kickmember"

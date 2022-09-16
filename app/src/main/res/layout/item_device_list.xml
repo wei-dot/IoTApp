@@ -9,10 +9,10 @@
         android:id="@+id/device_name"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/background_device_square"
         android:padding="5dp"
         android:paddingStart="30dp"
         android:paddingEnd="0dp"
-        android:background="@drawable/background_device_square"
         android:textColor="@color/color_cda16d"
         android:textSize="20sp" />
 

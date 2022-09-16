@@ -29,11 +29,11 @@
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="4dp"
         android:layout_toStartOf="@id/sendBtn"
-        android:textColorHint="@color/black"
-        android:textColor="@color/black"
-
         android:hint="傳送訊息至家庭留言板..."
         android:padding="8dp"
+
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
         android:textSize="16sp" />
 
     <androidx.appcompat.widget.AppCompatImageButton

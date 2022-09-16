@@ -69,10 +69,10 @@
             android:id="@+id/filled_exposed_dropdown"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
             android:inputType="none"
             android:letterSpacing="0.5"
             android:popupBackground="@color/white"
-            android:backgroundTint="@color/white"
             android:textColor="@color/color_14b2d4"
             android:textSize="20sp"
             tools:ignore="LabelFor" />

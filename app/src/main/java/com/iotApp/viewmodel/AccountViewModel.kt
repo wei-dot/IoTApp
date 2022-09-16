@@ -22,8 +22,8 @@ class AccountViewModel(private val accountRepository: AccountRepository) : ViewM
 
     val loginResult: MutableLiveData<BaseResponse<LoginResponse>> = MutableLiveData()
     val forgetPasswordResult: MutableLiveData<BaseResponse<Void>> = MutableLiveData()
-    val logoutResult: MutableLiveData<BaseResponse<Void>> = MutableLiveData()
-    val resendResult: MutableLiveData<BaseResponse<Void>> = MutableLiveData()
+    private val logoutResult: MutableLiveData<BaseResponse<Void>> = MutableLiveData()
+    private val resendResult: MutableLiveData<BaseResponse<Void>> = MutableLiveData()
     val setPasswordResult: MutableLiveData<BaseResponse<Void>> = MutableLiveData()
     val signupResult: MutableLiveData<BaseResponse<UserInfo>> = MutableLiveData()
 
@@ -155,7 +155,7 @@ class AccountViewModel(private val accountRepository: AccountRepository) : ViewM
     }
 
     fun forgetPasswordDataChanged(email: String) {
-        if (!isEmailValid(email)) {
+        if (!isEmailInValid(email)) {
             _accountForm.value = AccountFormState(emailError = R.string.invalid_email)
         } else {
             _accountForm.value = AccountFormState(isDataValid = true)
@@ -163,9 +163,9 @@ class AccountViewModel(private val accountRepository: AccountRepository) : ViewM
     }
 
     fun loginDataChanged(email: String, password: String) {
-        if (!isEmailValid(email)) {
+        if (!isEmailInValid(email)) {
             _accountForm.value = AccountFormState(usernameError = R.string.invalid_email)
-        } else if (!isPasswordValid(password)) {
+        } else if (!isPasswordInValid(password)) {
             _accountForm.value = AccountFormState(passwordError = R.string.invalid_password)
         } else {
             _accountForm.value = AccountFormState(isDataValid = true)
@@ -173,7 +173,7 @@ class AccountViewModel(private val accountRepository: AccountRepository) : ViewM
     }
 
     fun setPasswordDataChanged(newPassword: String, confirmPassword: String) {
-        if (!isPasswordMatch(newPassword, confirmPassword)) {
+        if (!isPasswordNotMatch(newPassword, confirmPassword)) {
             _accountForm.value = AccountFormState(passwordError = R.string.invalid_match)
         } else {
             _accountForm.value = AccountFormState(isDataValid = true)
@@ -186,13 +186,13 @@ class AccountViewModel(private val accountRepository: AccountRepository) : ViewM
         passwordConfirm: String,
         email: String
     ) {
-        if (!isUserNameValid(username)) {
+        if (!isUserNameInValid(username)) {
             _accountForm.value = AccountFormState(usernameError = R.string.invalid_username)
-        } else if (!isPasswordValid(password)) {
+        } else if (!isPasswordInValid(password)) {
             _accountForm.value = AccountFormState(passwordError = R.string.invalid_password)
-        } else if (!isPasswordMatch(password, passwordConfirm)) {
+        } else if (!isPasswordNotMatch(password, passwordConfirm)) {
             _accountForm.value = AccountFormState(passwordError = R.string.invalid_match)
-        } else if (!isEmailValid(email)) {
+        } else if (!isEmailInValid(email)) {
             _accountForm.value = AccountFormState(emailError = R.string.invalid_email)
         } else {
             _accountForm.value = AccountFormState(isDataValid = true)
@@ -201,10 +201,10 @@ class AccountViewModel(private val accountRepository: AccountRepository) : ViewM
     }
 
 
-    private fun isEmailValid(email: String): Boolean = RegexUtils.isEmail(email)
-    private fun isUserNameValid(username: String): Boolean = RegexUtils.isUsername(username)
-    private fun isPasswordValid(password: String): Boolean = password.length > 5
-    private fun isPasswordMatch(password: String, password2: String): Boolean =
+    private fun isEmailInValid(email: String): Boolean = RegexUtils.isEmail(email)
+    private fun isUserNameInValid(username: String): Boolean = RegexUtils.isUsername(username)
+    private fun isPasswordInValid(password: String): Boolean = password.length > 5
+    private fun isPasswordNotMatch(password: String, password2: String): Boolean =
         password == password2
 
 }

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.family.FamilyMemberAddFragment"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/background_fullscreen">
+    android:background="@drawable/background_fullscreen"
+    tools:context=".view.family.FamilyMemberAddFragment">
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_back"
@@ -65,9 +65,9 @@
             android:hint="@string/hint_family_name"
             android:inputType="textShortMessage"
             android:maxLength="12"
+            android:nextFocusForward="@id/btn_send_family_name"
             android:selectAllOnFocus="true"
-            android:textColor="@color/cardview_dark_background"
-            android:nextFocusForward="@id/btn_send_family_name"/>
+            android:textColor="@color/cardview_dark_background" />
 
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -84,6 +84,7 @@
         app:layout_constraintStart_toStartOf="@+id/til_family_name"
         app:layout_constraintTop_toBottomOf="@+id/til_family_name"
         app:layout_constraintVertical_bias="0.807" />
+
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/loading"
         android:layout_width="300dp"

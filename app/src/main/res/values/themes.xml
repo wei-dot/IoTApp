@@ -1,4 +1,4 @@
-<resources >
+<resources>
     <!-- Base application theme. -->
     <style name="Theme.IoTApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
@@ -26,7 +26,7 @@
 
 
     <style name="Theme.App.Starting" parent="Theme.SplashScreen">
-<!--        <item name="android:windowBackground">@drawable/splash</item>-->
+        <!--        <item name="android:windowBackground">@drawable/splash</item>-->
         <item name="windowSplashScreenBackground">@color/color_FDF5E1</item>
         <item name="windowSplashScreenIconBackgroundColor">#D2EDEC</item>
         <item name="windowSplashScreenAnimationDuration">2000</item>

@@ -6,10 +6,10 @@
     android:viewportHeight="109">
     <path
         android:fillColor="#FFFFFBF1"
-        android:strokeColor="#FFDF8888"
+        android:pathData="M0.5 9c0-4.69 3.81-8.5 8.5-8.5h81.5c4.69 0 8.5 3.81 8.5 8.5v90.05c0 4.69-3.81 8.5-8.5 8.5h-81.5c-4.69 0-8.5-3.81-8.5-8.5z"
         android:strokeWidth="1"
-        android:pathData="M0.5 9c0-4.69 3.81-8.5 8.5-8.5h81.5c4.69 0 8.5 3.81 8.5 8.5v90.05c0 4.69-3.81 8.5-8.5 8.5h-81.5c-4.69 0-8.5-3.81-8.5-8.5z"/>
+        android:strokeColor="#FFDF8888" />
     <path
         android:fillColor="#FFDF8888"
-        android:pathData="M66.63 77.55L28.18 39.09l5.18-5.18L71.8 72.36l-5.18 5.19Zm-33.27 0l-5.18-5.19 38.45-38.45 5.18 5.18-38.45 38.46Z"/>
+        android:pathData="M66.63 77.55L28.18 39.09l5.18-5.18L71.8 72.36l-5.18 5.19Zm-33.27 0l-5.18-5.19 38.45-38.45 5.18 5.18-38.45 38.46Z" />
 </vector>

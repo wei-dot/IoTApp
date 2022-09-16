@@ -369,7 +369,6 @@ class IotApi {
         }
 
 
-
         fun postModeKeyInfo(
             activity: FragmentActivity?,
             sessionManager: SessionManager,

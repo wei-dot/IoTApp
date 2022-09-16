@@ -42,8 +42,6 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-
-
     <TextView
         android:id="@+id/text_family_information"
         android:layout_width="wrap_content"

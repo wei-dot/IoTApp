@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.family.FamilyMemberAddFragment"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/background_fullscreen">
+    android:background="@drawable/background_fullscreen"
+    tools:context=".view.family.FamilyMemberAddFragment">
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_back"
@@ -52,11 +52,11 @@
         app:boxStrokeColor="@color/color_14b2d4"
         app:hintTextColor="@color/color_14b2d4"
         app:layout_constraintBottom_toBottomOf="@+id/content_space"
-            app:layout_constraintEnd_toEndOf="@+id/content_space"
-            app:layout_constraintHorizontal_bias="0.491"
-            app:layout_constraintStart_toStartOf="@+id/content_space"
-            app:layout_constraintTop_toBottomOf="@+id/title_exist_family"
-            app:layout_constraintVertical_bias="0.267">
+        app:layout_constraintEnd_toEndOf="@+id/content_space"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="@+id/content_space"
+        app:layout_constraintTop_toBottomOf="@+id/title_exist_family"
+        app:layout_constraintVertical_bias="0.267">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -65,9 +65,9 @@
             android:hint="@string/hint_family_code"
             android:inputType="textShortMessage"
             android:maxLength="8"
+            android:nextFocusForward="@id/btn_send_family_name"
             android:selectAllOnFocus="true"
-            android:textColor="@color/cardview_dark_background"
-            android:nextFocusForward="@id/btn_send_family_name"/>
+            android:textColor="@color/cardview_dark_background" />
 
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -85,6 +85,7 @@
         app:layout_constraintStart_toStartOf="@+id/content_space"
         app:layout_constraintTop_toBottomOf="@+id/title_exist_family"
         app:layout_constraintVertical_bias="0.807" />
+
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/loading"
         android:layout_width="300dp"

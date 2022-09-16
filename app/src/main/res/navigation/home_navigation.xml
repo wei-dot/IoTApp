@@ -7,7 +7,7 @@
         android:id="@+id/device_list_fragment"
         android:name="com.iotApp.view.home.HomeDeviceListFragment"
         android:label="fragment_device_list"
-        tools:layout="@layout/fragment_home_device_list" >
+        tools:layout="@layout/fragment_home_device_list">
         <action
             android:id="@+id/action_device_list_fragment_to_add_device_fragment"
             app:destination="@id/add_device_fragment"

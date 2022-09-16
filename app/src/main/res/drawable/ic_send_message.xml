@@ -7,6 +7,6 @@
     <group>
         <path
             android:fillColor="#FF323232"
-            android:pathData="M2.01 21L23 12 2.01 3 2 10l15 2-15 2 0.01 7Z"/>
+            android:pathData="M2.01 21L23 12 2.01 3 2 10l15 2-15 2 0.01 7Z" />
     </group>
 </vector>

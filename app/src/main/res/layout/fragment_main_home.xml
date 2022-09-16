@@ -745,7 +745,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:rippleColor="@color/color_fbfbfb"
-        app:tint="@color/color_fbfbfb" />
+        app:tint="@color/color_fbfbfb"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/device_list_text"

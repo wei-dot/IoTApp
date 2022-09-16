@@ -3,7 +3,6 @@
     android:id="@+id/list_device_item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?android:attr/selectableItemBackground"
     android:ellipsize="end"
     android:maxLines="1"
     android:textColor="@color/color_4F4F4F"

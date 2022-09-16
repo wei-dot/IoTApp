@@ -51,7 +51,6 @@ class SessionManager(context: Context) {
     }
 
 
-
     /**
      * Function to save family id
      */

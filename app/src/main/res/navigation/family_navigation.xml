@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/family_navigation"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/family_navigation"
     app:startDestination="@id/navigation_family_member_add">
     <fragment
         android:id="@+id/navigation_family_member_add"
         android:name="com.iotApp.view.family.FamilyMemberAddFragment"
         android:label="@string/text_add_member"
-        tools:layout="@layout/fragment_family_member_add"/>
+        tools:layout="@layout/fragment_family_member_add" />
     <fragment
         android:id="@+id/navigation_family_add"
         android:name="com.iotApp.view.family.FamilyAddFragment"
@@ -17,38 +17,38 @@
             android:id="@+id/action_navigation_family_add_to_navigation_create_family"
             app:destination="@id/navigation_create_family"
             app:enterAnim="@android:anim/fade_in"
-            app:exitAnim="@android:anim/fade_out"/>
+            app:exitAnim="@android:anim/fade_out" />
         <action
             android:id="@+id/action_navigation_family_add_to_navigation_exist_family"
             app:destination="@id/navigation_exist_family"
             app:enterAnim="@android:anim/fade_in"
-            app:exitAnim="@android:anim/fade_out"/>
+            app:exitAnim="@android:anim/fade_out" />
     </fragment>
     <fragment
         android:id="@+id/navigation_create_family"
         android:name="com.iotApp.view.family.FamilyCreateFragment"
-        tools:layout="@layout/fragment_family_create"
-        android:label="@string/text_create_family">
+        android:label="@string/text_create_family"
+        tools:layout="@layout/fragment_family_create">
         <action
             android:id="@+id/action_navigation_create_family_to_navigation_family_add"
             app:destination="@id/navigation_family_add"
             app:enterAnim="@android:anim/fade_in"
-            app:exitAnim="@android:anim/fade_out"/>
+            app:exitAnim="@android:anim/fade_out" />
     </fragment>
     <fragment
         android:id="@+id/navigation_family_request"
         android:name="com.iotApp.view.family.FamilyRequestFragment"
-        tools:layout="@layout/fragment_family_request"
-        android:label="@string/text_family_request"/>
+        android:label="@string/text_family_request"
+        tools:layout="@layout/fragment_family_request" />
 
     <fragment
         android:id="@+id/navigation_exist_family"
         android:name="com.iotApp.view.family.FamilyExistFragment"
-        tools:layout="@layout/fragment_family_exist" >
+        tools:layout="@layout/fragment_family_exist">
         <action
             android:id="@+id/action_navigation_exist_family_to_navigation_family_add"
             app:destination="@id/navigation_family_add"
             app:enterAnim="@android:anim/fade_in"
-            app:exitAnim="@android:anim/fade_out"/>
+            app:exitAnim="@android:anim/fade_out" />
     </fragment>
 </navigation>

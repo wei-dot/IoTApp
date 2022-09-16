@@ -28,8 +28,8 @@
         android:layout_marginBottom="3dp"
         android:gravity="top"
         android:lineSpacingExtra="5sp"
-        android:translationY="-2.6sp"
         android:textAppearance="@style/text_family_item_style"
+        android:translationY="-2.6sp"
         app:layout_constraintBottom_toBottomOf="@+id/family_item_box"
         app:layout_constraintEnd_toEndOf="@+id/family_item_box"
         app:layout_constraintHorizontal_bias="0.0"
@@ -37,8 +37,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
-    <ImageView
-        android:visibility="invisible"
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/now_family"
         android:layout_width="18dp"
         android:layout_height="18dp"
@@ -46,6 +45,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginEnd="112dp"
         android:background="@drawable/ic_admin"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/family_name"
         app:layout_constraintEnd_toEndOf="@+id/family_item_box"
         app:layout_constraintStart_toEndOf="@+id/family_name"

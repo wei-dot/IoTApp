@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imageView3"
                 android:layout_width="350dp"
                 android:layout_height="100dp"
@@ -68,7 +68,6 @@
             </LinearLayout>
 
 
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
@@ -86,7 +85,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:rippleColor="@color/color_fbfbfb"
-        app:tint="@color/color_fbfbfb" />
+        app:tint="@color/color_fbfbfb"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/add_mode_key_text"
@@ -111,7 +111,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:rippleColor="@color/color_fbfbfb"
-        app:tint="@color/color_fbfbfb" />
+        app:tint="@color/color_fbfbfb"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/delete_mode_key_text"

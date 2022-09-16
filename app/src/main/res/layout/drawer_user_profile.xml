@@ -150,9 +150,9 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginBottom="20dp"
+        android:letterSpacing="0.8"
         android:text="@string/logout"
         android:textSize="18sp"
-        android:letterSpacing="0.8"
         app:layout_constraintBottom_toBottomOf="@+id/content_space"
         app:layout_constraintEnd_toEndOf="@+id/btn_set"
         app:layout_constraintStart_toStartOf="@+id/btn_set" />

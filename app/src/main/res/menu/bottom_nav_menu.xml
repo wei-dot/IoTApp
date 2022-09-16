@@ -13,8 +13,8 @@
         android:enabled="true"
         android:icon="@drawable/selector_family"
         android:orderInCategory="100"
-        android:visible="true"
-        android:title="@string/fragment_main_family" />
+        android:title="@string/fragment_main_family"
+        android:visible="true" />
     <item
         android:id="@+id/navigation_mode"
         android:enabled="true"

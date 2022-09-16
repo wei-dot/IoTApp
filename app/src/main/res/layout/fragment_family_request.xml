@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.family.FamilyMemberAddFragment"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/background_fullscreen">
+    android:background="@drawable/background_fullscreen"
+    tools:context=".view.family.FamilyMemberAddFragment">
 
 
     <com.google.android.material.button.MaterialButton
@@ -109,6 +109,7 @@
         app:layout_constraintTop_toBottomOf="@+id/some_id" />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_accept"
         style="@style/MaterialButton_square_Style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -118,15 +119,14 @@
         app:layout_constraintHorizontal_bias="0.692"
         app:layout_constraintStart_toEndOf="@+id/btn_reject"
         app:layout_constraintTop_toTopOf="@+id/btn_reject"
-        app:layout_constraintVertical_bias="0.0"
-        android:id="@+id/btn_accept"/>
+        app:layout_constraintVertical_bias="0.0" />
 
     <com.airbnb.lottie.LottieAnimationView
-        android:visibility="invisible"
         android:id="@+id/loading"
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:layout_centerInParent="true"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

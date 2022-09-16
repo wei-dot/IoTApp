@@ -34,8 +34,8 @@
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".view.AccountActivity"
-            android:screenOrientation="portrait"
             android:exported="true"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.IoTApp.NoActionBar"
             tools:ignore="LockedOrientationActivity" />
         <activity

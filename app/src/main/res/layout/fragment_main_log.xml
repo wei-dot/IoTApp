@@ -9,9 +9,6 @@
     tools:context=".view.main.LogFragment">
 
 
-
-
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/log"
         android:layout_width="fill_parent"
@@ -87,9 +84,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
