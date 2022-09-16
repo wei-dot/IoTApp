@@ -44,7 +44,7 @@ object Constants {
 
     const val weather_URL =
         "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-FF475748-282F-4E9F-81CD-89D15DE20B89&format=JSON&locationName=%E8%87%BA%E5%8C%97%E5%B8%82&elementName=&sort=time"
-    const val WEBSOCKET_URL = "ws/device/temp/"
+    const val WEBSOCKET_URL = "ws/device/"
     const val CHAT_URL = "ws/chat/"
     const val IR_URL = "ws/chat/ir/"
     const val DEVICE_DATA_URL = "/auth/device_data/"

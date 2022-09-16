@@ -12,6 +12,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -58,7 +59,7 @@ class HomeFragment : Fragment() {
     private var mDeviceListText: TextView? = null
     private var mIsAllFabVisible: Boolean? = null
 
-    private val mWbSocketUrl = Constants.WEB_URL + Constants.WEBSOCKET_URL
+    private lateinit var mWbSocketUrl: String
     private lateinit var mClient: OkHttpClient
     private lateinit var request: Request
     private lateinit var mWebSocket: WebSocket
@@ -269,7 +270,8 @@ class HomeFragment : Fragment() {
         binding.tplinkSwitch4.text = "開關4 開"
         binding.tplinkSwitch5.text = "開關5 開"
         binding.tplinkSwitch6.text = "開關6 開"
-
+        mWbSocketUrl = "${Constants.WEB_URL}${Constants.WEBSOCKET_URL}${SessionManager(requireContext()).fetchFamilyId()}/"
+        Toast.makeText(requireContext(), mWbSocketUrl, Toast.LENGTH_SHORT).show()
         mClient = OkHttpClient.Builder()
             .pingInterval(10, TimeUnit.SECONDS)
             .build()
