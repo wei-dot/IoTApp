@@ -2,7 +2,7 @@
     <!-- Fragment Title String for MainActivity -->
     <string name="fragment_main_home">居家狀態</string>
     <string name="fragment_main_family">家庭管理</string>
-    <string name="fragment_main_mode">組合鍵設置</string>
+    <string name="fragment_main_mode">一鍵開關設置</string>
     <string name="fragment_main_log">設備日誌</string>
     <string name="fragment_main_notLogin">尚未登入</string>
     <string name="login">登入</string>
@@ -62,10 +62,10 @@
     <string name="mode_key_5">組合鍵5</string>
     <string name="mode_key_6">組合鍵6</string>
     <string name="confirm">確定</string>
-    <string name="mode_key_setting">組合鍵設置</string>
+    <string name="mode_key_setting">一鍵開關設置</string>
     <string name="text_edit_member">編輯成員</string>
     <string name="next_step">下一步</string>
-    <string name="hint_mode_key_name">輸入組合鍵名稱</string>
+    <string name="hint_mode_key_name">輸入鍵名稱</string>
     <string name="complete">完成</string>
     <string name="ac_temperature">冷氣溫度</string>
     <string name="ac_switch">冷氣開關</string>
@@ -86,9 +86,9 @@
     <string name="btn_accept">歡迎</string>
     <string name="text_family_code">請欲加入者於加入家庭功能區，輸入此家庭代碼。</string>
     <string name="hint_family_code">輸入家庭代碼</string>
-    <string name="add_mode_key">添加組合鍵</string>
-    <string name="mode_key">組合鍵功能</string>
-    <string name="delete_mode_key">刪除組合鍵</string>
+    <string name="add_mode_key">添加鍵</string>
+    <string name="mode_key">一鍵開關功能</string>
+    <string name="delete_mode_key">刪除鍵</string>
     <string name="add">新增</string>
     <string name="device_category">設備分類</string>
     <string name="connect_device">連接設備</string>
