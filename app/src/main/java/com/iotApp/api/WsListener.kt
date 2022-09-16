@@ -16,6 +16,7 @@ class WsListener(val context: Context) : WebSocketListener() {
     companion object {
         var handler: Handler = Handler(Looper.getMainLooper())
     }
+
     override fun onOpen(webSocket: WebSocket, response: Response) {
         super.onOpen(webSocket, response)
         Log.d("HomeFragment", "onOpen")
@@ -26,9 +27,8 @@ class WsListener(val context: Context) : WebSocketListener() {
         val json = JSONObject(text)
         val message = JSONObject(json.getString("message"))
         val msg = Message()
-        msg.obj=message
+        msg.obj = message
         handler.sendMessage(msg)
-
 
 
 //        val type = json.getJSONObject("device_type")

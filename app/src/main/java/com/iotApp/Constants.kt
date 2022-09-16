@@ -2,8 +2,12 @@ package com.iotApp
 
 object Constants {
 
-//        const val BASE_URL = "https://api.bap5.cc/"
-    const val BASE_URL = "http://192.168.1.14:8000/" // 伺服器地址
+    private const val HOST = "api.bap5.cc"
+
+    const val BASE_URL = "https://$HOST/"
+
+    //    const val BASE_URL = "http://$HOST/"
+    const val WEB_URL = "wss://$HOST/"
 
     /**
      * 用戶登錄網址
@@ -31,14 +35,17 @@ object Constants {
     const val FAMILY_ADMIN_URL = "/auth/home_admin/"
     const val CHAT_ROOM_URL = "/auth/chat_room/{room_name}/"
     const val MESSAGE_URL = "/auth/chat_room_data/{id}/"
-    const val Power_Strip_URL = "/ws/device/temp/"
 
     /**
      * 設備網址
      */
     const val DEVICE_URL = "/auth/device/"
     const val DEVICE_ID_URL = "/auth/device/{id}/"
-    const val DEVICE_DATA_URL = "/auth/device_data/"
 
-    const val weather_URL = "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-FF475748-282F-4E9F-81CD-89D15DE20B89&format=JSON&locationName=%E8%87%BA%E5%8C%97%E5%B8%82&elementName=&sort=time"
+    const val weather_URL =
+        "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-FF475748-282F-4E9F-81CD-89D15DE20B89&format=JSON&locationName=%E8%87%BA%E5%8C%97%E5%B8%82&elementName=&sort=time"
+    const val WEBSOCKET_URL = "ws/device/temp/"
+    const val CHAT_URL = "ws/chat/"
+    const val IR_URL = "ws/chat/ir/"
+    const val DEVICE_DATA_URL = "/auth/device_data/"
 }

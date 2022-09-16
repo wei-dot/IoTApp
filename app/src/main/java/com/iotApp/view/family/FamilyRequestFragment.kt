@@ -6,8 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.NavHostFragment
-import com.iotApp.R
 import com.iotApp.api.IotApi
 import com.iotApp.databinding.FragmentFamilyRequestBinding
 import com.iotApp.model.AlterHome

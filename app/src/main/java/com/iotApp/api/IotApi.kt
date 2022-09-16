@@ -17,7 +17,6 @@ import com.iotApp.databinding.FragmentFamilyRequestBinding
 import com.iotApp.databinding.FragmentMainFamilyBinding
 import com.iotApp.model.AlterHome
 import com.iotApp.model.CreateHome
-import com.iotApp.model.GetModeKeyDataInfo
 import com.iotApp.model.PostModeKeyDataInfo
 import com.iotApp.repository.SessionManager
 import com.iotApp.view.MainActivity
@@ -350,7 +349,7 @@ class IotApi {
                             Log.d("IotApi", "deleteMode: 刪除組合鍵成功")
                             Toast.makeText(activity, " 刪除modekey成功", Toast.LENGTH_SHORT).show()
                             activity?.let { it1 -> SessionManager(it1) }?.let { it2 ->
-                                IotApi.getModeKeyInfo(
+                                getModeKeyInfo(
                                     activity,
                                     it2
                                 )
@@ -369,20 +368,7 @@ class IotApi {
                 }
         }
 
-        private fun removeModeKey(
-            modeKeyList: ArrayList<GetModeKeyDataInfo>,
-            sessionManager: SessionManager
-        ): ArrayList<GetModeKeyDataInfo> {
 
-            for (i in 0 until modeKeyList.size) {
-                if (modeKeyList[i].home_id != sessionManager.fetchFamilyId()) {
-                    modeKeyList.remove(modeKeyList[i])
-                    removeModeKey(modeKeyList, sessionManager)
-                    break
-                }
-            }
-            return modeKeyList
-        }
 
         fun postModeKeyInfo(
             activity: FragmentActivity?,

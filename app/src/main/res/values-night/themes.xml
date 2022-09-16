@@ -22,8 +22,6 @@
 
     <style name="Theme.IoTApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="Theme.IoTApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
     <!--Customize Your Style -->
 
 

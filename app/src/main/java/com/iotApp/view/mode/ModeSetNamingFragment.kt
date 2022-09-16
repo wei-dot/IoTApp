@@ -46,25 +46,25 @@ class ModeSetNamingFragment : Fragment() {
                 SessionManager(requireActivity())
             )
             if (binding.tilModeKeyName.text?.isNotEmpty() == true) {
-                val mode_key_data_id = modeViewModel?.getTplinkSwitch()
-                val home_id = SessionManager(requireActivity()).fetchFamilyId()
+                val modeKeyDataId = modeViewModel?.getTplinkSwitch()
+                val homeId = SessionManager(requireActivity()).fetchFamilyId()
 //                val home_id = "1"
-                val mode_key_name = binding.tilModeKeyName.text.toString()
-                val ac_temperature = modeViewModel?.getAcTemperature()
-                val ac_switch = modeViewModel?.getAcSwitch()
-                val fan_level = modeViewModel?.getFanLevel()
-                val fan_switch = modeViewModel?.getFanSwitch()
-                val fan_spin = modeViewModel?.getFanSpin()
-                if (mode_key_data_id != null && home_id != null && ac_temperature != null && ac_switch != null && fan_level != null && fan_switch != null && fan_spin != null) {
+                val modeKeyName = binding.tilModeKeyName.text.toString()
+                val acTemperature = modeViewModel?.getAcTemperature()
+                val acSwitch = modeViewModel?.getAcSwitch()
+                val fanLevel = modeViewModel?.getFanLevel()
+                val fanSwitch = modeViewModel?.getFanSwitch()
+                val fanSpin = modeViewModel?.getFanSpin()
+                if (modeKeyDataId != null && homeId != null && acTemperature != null && acSwitch != null && fanLevel != null && fanSwitch != null && fanSpin != null) {
                     val modeKey = PostModeKeyDataInfo(
-                        home_id,
-                        mode_key_data_id,
-                        mode_key_name,
-                        ac_temperature,
-                        ac_switch,
-                        fan_level,
-                        fan_switch,
-                        fan_spin
+                        homeId,
+                        modeKeyDataId,
+                        modeKeyName,
+                        acTemperature,
+                        acSwitch,
+                        fanLevel,
+                        fanSwitch,
+                        fanSpin
                     )
                     IotApi.postModeKeyInfo(
                         requireActivity(),

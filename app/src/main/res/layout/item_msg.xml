@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="13dp">
@@ -36,9 +35,8 @@
             android:layout_width="203dp"
             android:layout_height="wrap_content"
             android:gravity="end"
-            android:text="這是時間"
             android:textColor="@color/color_3F3D3D"
-            android:textSize="9sp" />
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/ThisIsMsgAuthor"
@@ -46,9 +44,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:gravity="end"
-            android:text="這是作者"
             android:textColor="@color/color_3F3D3D"
-            android:textSize="11sp" />
+            android:textSize="12sp" />
 
     </LinearLayout>
 

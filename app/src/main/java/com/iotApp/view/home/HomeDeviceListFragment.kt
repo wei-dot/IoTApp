@@ -50,7 +50,7 @@ class HomeDeviceListFragment : Fragment() {
                 is BaseResponse.Success -> {
                     binding.swipeRefresh.isRefreshing = false
                     mData = it.data!!
-                    adapter = DeviceListAdapter(mData,viewModel)
+                    adapter = DeviceListAdapter(mData, viewModel)
                     recyclerView.adapter = adapter
                 }
                 is BaseResponse.Error -> {

@@ -129,7 +129,7 @@ class DeviceViewModel(private val deviceRepository: DeviceRepository) : ViewMode
     fun changeDeviceName(context: Context, id: String, token: String, name: Device) {
         viewModelScope.launch {
             try {
-                val response = deviceRepository.changeDeviceName(token=token, deviceId = id, name)
+                val response = deviceRepository.changeDeviceName(token = token, deviceId = id, name)
                 if (response != null) {
                     if (response.isSuccessful) {
                         Toast.makeText(context, "修改設備名稱OK", Toast.LENGTH_SHORT)

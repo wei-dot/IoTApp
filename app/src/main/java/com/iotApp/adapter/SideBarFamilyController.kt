@@ -48,7 +48,7 @@ class SideBarController {
                         response.find { num -> num.home_name == familyList[0] }!!.family_member
                     sessionManager.storeFamilyMembers(memberList)
                 } else {
-                    if (sessionManager.fetchFamilyId().isNullOrEmpty()){
+                    if (sessionManager.fetchFamilyId().isNullOrEmpty()) {
                         sessionManager.saveFamilyId(response[familyList.indexOfLast { familyNameInList -> familyNameInList == sessionManager.fetchFamilyName() }].id)
                     }
                     if (sessionManager.fetchFamilyId() == familyItem.getTag(R.id.family_name)) {

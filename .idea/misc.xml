@@ -271,6 +271,15 @@
       </map>
     </option>
   </component>
+  <component name="EntryPointsManager">
+    <entry_points version="2.0">
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.AccountActivity binding" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.AccountActivity viewModel" />
+    </entry_points>
+    <pattern value="com.iotApp.formstate.AccountFormState" method="AccountFormState" />
+    <pattern value="com.iotApp.repository.SessionManager" method="clearFamilyId" />
+    <pattern value="com.iotApp.repository.SessionManager" method="fetchFamilyName" />
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

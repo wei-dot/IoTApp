@@ -17,12 +17,12 @@ import org.json.JSONObject
 import java.util.*
 
 class ChatRoomEmbed {
-    fun chatRoomEmbed(activity: FragmentActivity,binding: FragmentMainFamilyBinding){
+    fun chatRoomEmbed(activity: FragmentActivity, binding: FragmentMainFamilyBinding) {
         binding.chatRoom.messageEdit.isClickable = false
         binding.chatRoom.sendBtn.isClickable = false
         binding.chatRoom.loading.isVisible = true
         IotApi.getChatRoomHistory(
-            activity , binding,
+            activity, binding,
             SessionManager(activity), SessionManager(activity).fetchFamilyId().toString()
         )
 
@@ -91,17 +91,19 @@ class ChatRoomEmbed {
         val client = OkHttpClient()
         val request: Request =
             Request.Builder()
-                .url("wss://api.bap5.cc/ws/chat/${SessionManager(activity).fetchFamilyId()}/").build()
+                .url("wss://api.bap5.cc/ws/chat/${SessionManager(activity).fetchFamilyId()}/")
+                .build()
         val webSocket = client.newWebSocket(request, webSocketListener)
         binding.chatRoom.sendBtn.setOnClickListener {
             if (binding.chatRoom.messageEdit.text.toString().isNotEmpty()) {
-                val jsonObjects = msgFactory(binding.chatRoom.messageEdit.text.toString(),activity)
+                val jsonObjects = msgFactory(binding.chatRoom.messageEdit.text.toString(), activity)
                 webSocket.send(jsonObjects.toString())
                 binding.chatRoom.messageEdit.text?.clear()
             }
         }
     }
-    fun msgFactory(msg: String,activity: FragmentActivity): JSONObject {
+
+    fun msgFactory(msg: String, activity: FragmentActivity): JSONObject {
         val jsonObjects = JSONObject()
         jsonObjects.put("type", "message")
         jsonObjects.put(

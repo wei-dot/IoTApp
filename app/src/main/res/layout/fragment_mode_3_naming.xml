@@ -15,7 +15,6 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="24dp"
         android:background="@drawable/ic_return"
-        app:layout_constraintBottom_toTopOf="@+id/content_space"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"

@@ -4,6 +4,7 @@ import android.app.Service
 import android.os.Binder
 import android.util.Log
 import android.widget.Toast
+import com.iotApp.Constants
 import com.iotApp.repository.SessionManager
 import com.iotApp.view.FamilyActivity
 import okhttp3.OkHttpClient
@@ -37,18 +38,18 @@ class InviteService : Service() {
                 super.onMessage(webSocket, text)
                 thread {
                     Log.d("InviteService", "got invite")
-                    val message = text.split("%@%")
-                            if (message[0].contains("#request#|")) {
-                                val requestUserName = message[0].split("#|")[1]
-                                if (sessionManager.fetchMyOwnFamily()!!
-                                        .contains(sessionManager.fetchFamilyId())
-                                ) {
-                                    val intent =
-                                        android.content.Intent(
-                                            this@InviteService,
-                                            FamilyActivity::class.java
-                                        )
-                                    SessionManager(this@InviteService).storeRequestUserName(requestUserName)
+                    val messageData = text.split("%@%")
+                    if (messageData[0].contains("#request#|")) {
+                        val requestUserName = messageData[0].split("#|")[1]
+                        if (sessionManager.fetchMyOwnFamily()!!
+                                .contains(sessionManager.fetchFamilyId())
+                        ) {
+                            val intent =
+                                android.content.Intent(
+                                    this@InviteService,
+                                    FamilyActivity::class.java
+                                )
+                            SessionManager(this@InviteService).storeRequestUserName(requestUserName)
                             intent.putExtra("FamilyMemberActivity", "request")
                             intent.addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK)
                             startActivity(intent)
@@ -74,8 +75,10 @@ class InviteService : Service() {
         val client = OkHttpClient()
         val request: Request =
             Request.Builder()
-                .url("wss://api.bap5.cc/ws/chat/${SessionManager(this).fetchFamilyId()}/").build()
-        val webSocket = client.newWebSocket(request, webSocketListener)
+                .url("${Constants.WEB_URL}${Constants.CHAT_URL}${SessionManager(this).fetchFamilyId()}/")
+                .build()
+
+        client.newWebSocket(request, webSocketListener)
         return super.onStartCommand(intent, flags, startId)
     }
 

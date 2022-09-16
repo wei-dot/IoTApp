@@ -2,7 +2,6 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mode_navigation"
     app:startDestination="@id/navigation_mode_1_switch_set">
     <fragment
         android:id="@+id/navigation_mode_1_switch_set"

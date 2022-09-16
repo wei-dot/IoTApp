@@ -53,7 +53,7 @@ class ModeSetSwitchFragment : Fragment() {
             switchKey += if (_binding?.modeKeyTplinkSwitch5?.isChecked!!) "1" else "0"
             switchKey += if (_binding?.modeKeyTplinkSwitch6?.isChecked!!) "1" else "0"
 //            Log.d("setOnClickListener", "switchKey: $switchKey")
-            modeViewModel?.setTplinkSwitch(switchKey)
+            modeViewModel?.setTpLinkSwitch(switchKey)
 //            val intent = Intent(activity, MainActivity::class.java)
 //            intent.putExtra("switchKey", switchKey)
 //            requireActivity().startActivity(intent)

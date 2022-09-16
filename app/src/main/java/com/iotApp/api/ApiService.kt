@@ -140,5 +140,5 @@ interface ApiService {
     @GET(Constants.DEVICE_DATA_URL)
     suspend fun getDeviceData(
         @Header("Authorization") token: String,
-        ): Response<ArrayList<DeviceData>>
+    ): Response<ArrayList<DeviceData>>
 }

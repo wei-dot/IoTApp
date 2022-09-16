@@ -118,9 +118,5 @@ class DeviceListAdapter internal constructor(
         return mData.size
     }
 
-    fun dataChange(data: ArrayList<Device>) {
-        mData.clear()
-        mData.addAll(data)
-        notifyDataSetChanged()
-    }
+
 }

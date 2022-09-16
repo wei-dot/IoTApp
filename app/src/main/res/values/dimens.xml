@@ -4,10 +4,8 @@
     <dimen name="margin_vertical" >90dp</dimen>
     <dimen name="margin_horizontal" >30dp</dimen>
     <dimen name="btn_width" >220dp</dimen>
-    <dimen name="btn_height" >48dp</dimen>
     <dimen name="input_width" >260dp</dimen>
     <dimen name="input_height" >50dp</dimen>
-    <dimen name="hamburger_gap">5dp</dimen>
     <dimen name="standard_60">60dp</dimen>
     <dimen name="standard_120">120dp</dimen>
     <dimen name="btn_small">120dp</dimen>

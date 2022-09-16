@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<vector
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:aapt="http://schemas.android.com/aapt"
-    android:width="236dp"
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
     android:height="34dp"
     android:viewportWidth="236"
-    android:viewportHeight="34"
-    >
+    android:viewportHeight="34">
 
     <group>
 

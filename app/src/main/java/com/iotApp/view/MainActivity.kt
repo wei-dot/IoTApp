@@ -42,7 +42,6 @@ class MainActivity : AppCompatActivity() {
     private var firstPressedTime: Long = 0
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -132,13 +131,11 @@ class MainActivity : AppCompatActivity() {
         }
         binding.loginPage.btnLogin.setOnClickListener {
             val intent = Intent(this, AccountActivity::class.java)
-            finish()
             startActivity(intent)
         }
         binding.loginPage.btnSignup.setOnClickListener {
             val intent = Intent(this, AccountActivity::class.java)
             intent.putExtra("Login", "Signup")
-            finish()
             startActivity(intent)
         }
 
@@ -147,7 +144,8 @@ class MainActivity : AppCompatActivity() {
             binding.profilePage.btnLogout.isEnabled = false
             SessionManager(this).fetchAuthToken()?.let { it1 -> viewModel.logoutUser("Token $it1") }
             SessionManager(this).logout()
-
+            finish()
+            startActivity(intent)
         }
         binding.profilePage.btnSet.setOnClickListener {
             val intent = Intent(this, AccountActivity::class.java)

@@ -181,7 +181,7 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="1.0"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textView3">>
+                            app:layout_constraintTop_toBottomOf="@+id/textView3">
 
                             <com.google.android.material.switchmaterial.SwitchMaterial
                                 android:id="@+id/mode_key_tplink_switch3"
@@ -221,7 +221,7 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="1.0"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textView3">>
+                            app:layout_constraintTop_toBottomOf="@+id/textView3">
 
                             <ImageView
                                 android:id="@+id/imageView_power_plugs4_mode_key"
@@ -261,7 +261,7 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="1.0"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textView3">>
+                            app:layout_constraintTop_toBottomOf="@+id/textView3">
 
                             <com.google.android.material.switchmaterial.SwitchMaterial
                                 android:id="@+id/mode_key_tplink_switch5"
@@ -301,7 +301,7 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="1.0"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textView3">>
+                            app:layout_constraintTop_toBottomOf="@+id/textView3">
 
                             <com.google.android.material.switchmaterial.SwitchMaterial
                                 android:id="@+id/mode_key_tplink_switch6"

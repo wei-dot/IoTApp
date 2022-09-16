@@ -32,12 +32,11 @@ class SessionManager(context: Context) {
         val username = prefs.getString(USERNAME, null)
         val email = prefs.getString(EMAIL, null)
         if (username != null && email != null) {
-            return UserInfo(username, "", "",  email)
+            return UserInfo(username, "", "", email)
         }
         return null
 
     }
-
 
 
     /** SessionManager 使用者Token */
@@ -51,11 +50,7 @@ class SessionManager(context: Context) {
         return prefs.getString(USER_TOKEN, null)
     }
 
-    fun clearAuthToken() {
-        val editor = prefs.edit()
-        editor.remove(USER_TOKEN)
-        editor.apply()
-    }
+
 
     /**
      * Function to save family id

@@ -12,16 +12,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.annotation.NonNull
 import androidx.core.content.ContextCompat
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.blankj.utilcode.util.ThreadUtils
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.iotApp.Constants
@@ -33,13 +29,11 @@ import com.iotApp.model.GetModeKeyDataInfo
 import com.iotApp.repository.SessionManager
 import com.iotApp.service.IRService
 import com.iotApp.view.ModeActivity
-import kotlinx.coroutines.*
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.WebSocket
 import org.json.JSONObject
 import java.util.concurrent.TimeUnit
-import kotlin.concurrent.thread
 
 
 class ModeFragment : Fragment() {
@@ -53,7 +47,7 @@ class ModeFragment : Fragment() {
     private var mDeviceListText: TextView? = null
     private var mIsAllFabVisible: Boolean? = null
     private var mInflater: LayoutInflater? = null
-    private var swipe_refresh: SwipeRefreshLayout? = null
+    private var swipeRefresh: SwipeRefreshLayout? = null
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -66,48 +60,46 @@ class ModeFragment : Fragment() {
         mDeviceListFab = binding.deleteModeKeyFab
         mAddDeviceText = binding.addModeKeyText
         mDeviceListText = binding.deleteModeKeyText
-        swipe_refresh = binding.swipeRefresh
-        swipe_refresh!!.setProgressBackgroundColorSchemeResource(android.R.color.white)
-        swipe_refresh!!.setColorSchemeResources(
+        swipeRefresh = binding.swipeRefresh
+        swipeRefresh!!.setProgressBackgroundColorSchemeResource(android.R.color.white)
+        swipeRefresh!!.setColorSchemeResources(
             android.R.color.holo_blue_light,
             android.R.color.holo_red_light,
             android.R.color.holo_orange_light
         )
-        swipe_refresh!!.setSize(SwipeRefreshLayout.LARGE)
-        swipe_refresh!!.setProgressViewOffset(
+        swipeRefresh!!.setSize(SwipeRefreshLayout.LARGE)
+        swipeRefresh!!.setProgressViewOffset(
             false, 0, TypedValue
                 .applyDimension(
                     TypedValue.COMPLEX_UNIT_DIP, 24f, resources
                         .displayMetrics
                 ).toInt()
         )
-        swipe_refresh!!.isEnabled = true
-        swipe_refresh!!.setOnRefreshListener {
+        swipeRefresh!!.isEnabled = true
+        swipeRefresh!!.setOnRefreshListener {
             IotApi.getModeKeyInfo(requireActivity(), SessionManager(requireActivity()))
             val layoutManager = GridLayoutManager(requireActivity(), 1)
             dataList = binding.recyclerViewModeKeySet
-            if (dataList != null) {
-                dataList!!.layoutManager = layoutManager
-                Log.d(
-                    "ModeFragment onResume",
-                    "${SessionManager(requireActivity()).fetchModeKeyData()}"
-                )
-                dataList!!.adapter = SessionManager(requireActivity()).fetchModeKeyData()
-                    .let {
-                        context?.let { it1 ->
-                            mInflater?.let { it2 ->
-                                DataAdapter(
-                                    it,
-                                    it1,
-                                    it2,
-                                    requireActivity()
-                                )
-                            }
+            dataList!!.layoutManager = layoutManager
+            Log.d(
+                "ModeFragment onResume",
+                "${SessionManager(requireActivity()).fetchModeKeyData()}"
+            )
+            dataList!!.adapter = SessionManager(requireActivity()).fetchModeKeyData()
+                .let {
+                    context?.let { it1 ->
+                        mInflater?.let { it2 ->
+                            DataAdapter(
+                                it,
+                                it1,
+                                it2,
+                                requireActivity()
+                            )
                         }
                     }
-                dataList!!.setHasFixedSize(true)
-            }
-            swipe_refresh!!.isRefreshing = false
+                }
+            dataList!!.setHasFixedSize(true)
+            swipeRefresh!!.isRefreshing = false
         }
         fabInVisibility()
         IotApi.getModeKeyInfo(requireActivity(), SessionManager(requireActivity()))
@@ -117,14 +109,8 @@ class ModeFragment : Fragment() {
 
 //        layoutManager.orientation = LinearLayoutManager.VERTICAL
         dataList = binding.recyclerViewModeKeySet
-        if (dataList != null) {
-            dataList!!.layoutManager = layoutManager
-//            dataList!!.adapter = DataAdapter(SessionManager(requireActivity()).fetchModeKeyData())
-//            dataList!!.setHasFixedSize(true)
-//            Log.d("ModeFragment", "dataList is not null")
-        } else {
-            Log.d("ModeFragment dataList", "dataList is null")
-        }
+        dataList!!.layoutManager = layoutManager
+
 
 
         mHomeFab?.setOnClickListener {
@@ -227,7 +213,7 @@ class ModeFragment : Fragment() {
                  */
 
                 override fun onScrollStateChanged(
-                    @NonNull recyclerView: RecyclerView,
+                    recyclerView: RecyclerView,
                     newState: Int
                 ) {
                     super.onScrollStateChanged(recyclerView, newState)
@@ -250,12 +236,14 @@ class ModeFragment : Fragment() {
         private val mContext = context
         private val mInflater = inflater
         private val mActivity = activity
+
         //    private val host: String = "192.168.0.15"
         private val host: String = "192.168.0.10:8000"
-        private val mWbSocketUrl = "ws://" + host + Constants.Power_Strip_URL
+        private val mWbSocketUrl = "ws://" + host + Constants.WEBSOCKET_URL
         private lateinit var mClient: OkHttpClient
         private lateinit var mWebSocket: WebSocket
         private lateinit var request: Request
+
         //        private val mFt = ft
 //        private val mModeFragment = modeFragment
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -267,8 +255,8 @@ class ModeFragment : Fragment() {
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 //        TODO("Not yet implemented")
-            holder.ModeKeyButton.text = listData[position].mode_key_name
-            holder.ModeKeyButton.setOnClickListener {
+            holder.modeKeyButton.text = listData[position].mode_key_name
+            holder.modeKeyButton.setOnClickListener {
                 Log.d("ModeFragment", "ModeKeyButton is clicked")
             }
             val irWebSocket = IRService().webSocket
@@ -283,23 +271,27 @@ class ModeFragment : Fragment() {
             val messageJson = JSONObject()
             val switchJson = JSONObject()
             switchJson.put("device_type", "switch")
-            holder.ModeKeyButton.setOnClickListener {
+            holder.modeKeyButton.setOnClickListener {
                 Toast.makeText(
                     mActivity,
                     listData[position].tplink_switch_mode_key,
                     Toast.LENGTH_SHORT
                 ).show()
-                for(i in 1..6){
-                    Log.d("ModeFragment", "for in $i tplink_switch_mode_key = ${listData[position].tplink_switch_mode_key}")
-                    listData[position].tplink_switch_mode_key[i-1]
-                    if(listData[position].tplink_switch_mode_key[i-1] == '1') {
+                for (i in 1..6) {
+                    Log.d(
+                        "ModeFragment",
+                        "for in $i tplink_switch_mode_key = ${listData[position].tplink_switch_mode_key}"
+                    )
+                    listData[position].tplink_switch_mode_key[i - 1]
+                    if (listData[position].tplink_switch_mode_key[i - 1] == '1') {
                         switchJson.put("switch", "on:$i")
                         messageJson.put("message", switchJson.toString())
                         mWebSocket.send(messageJson.toString())
-                    }else{
+                    } else {
                         switchJson.put("switch", "off:$i")
                         messageJson.put("message", switchJson.toString())
-                        mWebSocket.send(messageJson.toString()) }
+                        mWebSocket.send(messageJson.toString())
+                    }
                 }
 
 //                fan switch
@@ -307,14 +299,14 @@ class ModeFragment : Fragment() {
                 irWebSocket.send("{\"message\":\"light\"}")
             }
 
-            holder.ModeKeyButton.setOnLongClickListener(View.OnLongClickListener {
+            holder.modeKeyButton.setOnLongClickListener {
                 val popupWindow = PopupWindow(mContext)
                 val view =
-                    mInflater.inflate(com.iotApp.R.layout.popup_confirm_delete_mode_key, null)
+                    mInflater.inflate(R.layout.popup_confirm_delete_mode_key, null)
                 val btnDeleteModeKey =
-                    view.findViewById<ImageButton>(com.iotApp.R.id.popup_delete_mode_key)
+                    view.findViewById<ImageButton>(R.id.popup_delete_mode_key)
                 val btnNoDeleteModeKey =
-                    view.findViewById<ImageButton>(com.iotApp.R.id.popup_no_delete_mode_key)
+                    view.findViewById<ImageButton>(R.id.popup_no_delete_mode_key)
                 btnDeleteModeKey.setOnClickListener {
                     IotApi.deleteModeKey(
                         mActivity,
@@ -323,7 +315,7 @@ class ModeFragment : Fragment() {
                     )
 //                    mFt.detach(mModeFragment).attach(mModeFragment).commit()
                     popupWindow.dismiss()
-                    holder.ModeKeyButton.visibility = View.GONE
+                    holder.modeKeyButton.visibility = View.GONE
                 }
                 btnNoDeleteModeKey.setOnClickListener {
 //                    val intent = Intent(mContext, FamilyActivity::class.java)
@@ -343,7 +335,7 @@ class ModeFragment : Fragment() {
                     popupWindow.height = LinearLayout.LayoutParams.WRAP_CONTENT
                     popupWindow.isFocusable = true
                     popupWindow.isOutsideTouchable = true
-                    popupWindow.animationStyle = com.iotApp.R.style.normalAnimationPopup
+                    popupWindow.animationStyle = R.style.normalAnimationPopup
                     popupWindow.setBackgroundDrawable(mContext.let { it1 ->
                         ContextCompat.getColor(
                             it1, com.google.android.material.R.color.mtrl_btn_transparent_bg_color
@@ -352,7 +344,7 @@ class ModeFragment : Fragment() {
                     popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0)
                 }
                 true
-            })
+            }
 
         }
 
@@ -368,16 +360,9 @@ class ModeFragment : Fragment() {
             activity.window?.attributes = lp
         }
 
-        fun updateData(viewModels: ArrayList<GetModeKeyDataInfo>?) {
-            listData.clear()
-            if (viewModels != null) {
-                listData.addAll(viewModels)
-            }
-            notifyDataSetChanged()
-        }
 
         class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
-            val ModeKeyButton: Button = v.findViewById(com.iotApp.R.id.button_mode_key_recyclerView)
+            val modeKeyButton: Button = v.findViewById(R.id.button_mode_key_recyclerView)
         }
     }
 

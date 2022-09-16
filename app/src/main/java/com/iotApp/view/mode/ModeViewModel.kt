@@ -8,87 +8,69 @@ class ModeViewModel : ViewModel() {
     private val _text = MutableLiveData<String>().apply {
         value = "This is Mode Fragment"
     }
-    var tplinkSwitchSet: String = ""
-    var deleteKeyMode: Boolean? = null
-    var AcTemperature: Int = 0
-    var AcSwitch: Boolean = false
-    var FanLevel: Int = 0
-    var FanSwitch: Boolean = false
-    var FanSpin: Boolean = false
-    var FamilyId: String = ""
+    private var tpLinkSwitchSet: String = ""
+    private var acTemperature: Int = 0
+    private var acSwitch: Boolean = false
+    private var fanLevel: Int = 0
+    private var fanSwitch: Boolean = false
+    private var fanSpin: Boolean = false
     val text: LiveData<String> = _text
-    fun setTplinkSwitch(value: String) {
-        tplinkSwitchSet = value
+    fun setTpLinkSwitch(value: String) {
+        tpLinkSwitchSet = value
     }
 
     fun getTplinkSwitch(): String {
-        return tplinkSwitchSet
+        return tpLinkSwitchSet
     }
 
     @JvmName("setAcTemperature1")
     fun setAcTemperature(value: Int) {
-        AcTemperature = value
+        acTemperature = value
     }
 
     @JvmName("setAcTemperature2")
     fun getAcTemperature(): Int {
-        return AcTemperature
+        return acTemperature
     }
 
     @JvmName("setAcSwitch1")
     fun setAcSwitch(value: Boolean) {
-        AcSwitch = value
+        acSwitch = value
     }
 
     @JvmName("getAcSwitch1")
     fun getAcSwitch(): Boolean {
-        return AcSwitch
+        return acSwitch
     }
 
-    @JvmName("setFamilyId1")
-    fun setFamilyId(value: String) {
-        FamilyId = value
-    }
-
-    @JvmName("getFamilyId1")
-    fun getFamilyId(): String {
-        return FamilyId
-    }
-
-    @JvmName("setDeleteKeyMode1")
-    fun setDeleteKeyMode(value: Boolean) {
-        deleteKeyMode = value
-    }
-
-    @JvmName("getDeleteKeyMode1")
-    fun getDeleteKeyMode(): Boolean {
-        return deleteKeyMode!!
-    }
 
     @JvmName("setFanLevel1")
     fun setFanLevel(value: Int) {
-        FanLevel = value
+        fanLevel = value
     }
+
     @JvmName("getFanLevel1")
     fun getFanLevel(): Int {
-        return FanLevel
+        return fanLevel
     }
 
     @JvmName("setFanSwitch1")
     fun setFanSwitch(value: Boolean) {
-        FanSwitch = value
+        fanSwitch = value
     }
+
     @JvmName("getFanSwitch1")
     fun getFanSwitch(): Boolean {
-        return FanSwitch
+        return fanSwitch
     }
 
     @JvmName("setFanSpin1")
     fun setFanSpin(value: Boolean) {
-        FanSpin = value
+        fanSpin = value
     }
+
     @JvmName("getFanSpin1")
     fun getFanSpin(): Boolean {
-        return FanSpin
+        return fanSpin
     }
 }
