@@ -238,7 +238,8 @@ class ModeFragment : Fragment() {
         private val mActivity = activity
 
         //    private val host: String = "192.168.0.15"
-        private val mWbSocketUrl = Constants.WEB_URL + Constants.WEBSOCKET_URL
+//        private val mWbSocketUrl = Constants.WEB_URL + Constants.WEBSOCKET_URL
+        private val mWbSocketUrl = "${Constants.WEB_URL}${Constants.WEBSOCKET_URL}${SessionManager(mContext).fetchFamilyId()}/"
         private lateinit var mClient: OkHttpClient
         private lateinit var mWebSocket: WebSocket
         private lateinit var request: Request
@@ -355,7 +356,6 @@ class ModeFragment : Fragment() {
             lp?.alpha = f
             activity.window?.attributes = lp
         }
-
 
         class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
             val modeKeyButton: Button = v.findViewById(R.id.button_mode_key_recyclerView)
