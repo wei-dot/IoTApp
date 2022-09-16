@@ -33,8 +33,7 @@ class FamilyRequestFragment : Fragment() {
         _binding = FragmentFamilyRequestBinding.inflate(inflater, container, false)
         val root: View = binding.root
         binding.btnBack.setOnClickListener {
-            NavHostFragment.findNavController(this@FamilyRequestFragment)
-                .navigate(R.id.navigation_family_edit)
+            activity?.finish()
         }
 
         binding.btnAccept.setOnClickListener {
