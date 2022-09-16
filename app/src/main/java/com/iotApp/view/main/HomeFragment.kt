@@ -271,7 +271,6 @@ class HomeFragment : Fragment() {
         binding.tplinkSwitch5.text = "開關5 開"
         binding.tplinkSwitch6.text = "開關6 開"
         mWbSocketUrl = "${Constants.WEB_URL}${Constants.WEBSOCKET_URL}${SessionManager(requireContext()).fetchFamilyId()}/"
-        Toast.makeText(requireContext(), mWbSocketUrl, Toast.LENGTH_SHORT).show()
         mClient = OkHttpClient.Builder()
             .pingInterval(10, TimeUnit.SECONDS)
             .build()
@@ -395,6 +394,7 @@ class HomeFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+        mWebSocket.close(1000, "close")
     }
 
 
