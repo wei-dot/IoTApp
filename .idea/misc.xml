@@ -275,10 +275,283 @@
     <entry_points version="2.0">
       <entry_point TYPE="field" FQNAME="com.iotApp.view.AccountActivity binding" />
       <entry_point TYPE="field" FQNAME="com.iotApp.view.AccountActivity viewModel" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.ZoomOutPageTransformerKt MIN_ALPHA" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.ZoomOutPageTransformerKt MIN_SCALE" />
+      <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/iotApp/ZoomOutPageTransformer.kt" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.viewmodel.AccountViewModel accountFormState" />
+      <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/iotApp/viewmodel/AccountViewModel.kt" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.home.HomeAddDeviceFragment adapter" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.home.HomeDeviceListFragment adapter" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.main.LogFragment adapter" />
+      <entry_point TYPE="method" FQNAME="com.iotApp.viewmodel.AccountViewModelKt void afterTextChanged(com.google.android.material.textfield.TextInputLayout $this$afterTextChanged, kotlin.jvm.functions.Function1&lt;? super java.lang.String,kotlin.Unit&gt; afterTextChanged)" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.FamilyActivity binding" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.HomeActivity binding" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.MainActivity binding" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.ModeActivity binding" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.main.ModeFragment dataList" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.MainActivity firstPressedTime" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.api.IotApi handler" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.main.family.FamilyFragment hasFamily" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.main.HomeFragment mAddDeviceFab" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.main.ModeFragment mAddDeviceFab" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.main.HomeFragment mAddDeviceText" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.main.ModeFragment mAddDeviceText" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.main.HomeFragment mClient" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.home.HomeAddDeviceFragment mData" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.home.HomeDeviceListFragment mData" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.main.LogFragment mData" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.main.HomeFragment mDeviceListFab" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.main.ModeFragment mDeviceListFab" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.main.HomeFragment mDeviceListText" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.main.ModeFragment mDeviceListText" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.main.HomeFragment mHomeFab" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.main.ModeFragment mHomeFab" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.main.ModeFragment mInflater" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.main.HomeFragment mIsAllFabVisible" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.main.ModeFragment mIsAllFabVisible" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.mode.ModeSetAcFragment modeViewModel" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.mode.ModeSetNamingFragment modeViewModel" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.mode.ModeSetSwitchFragment modeViewModel" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.home.HomeAddDeviceFragment mType" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.main.HomeFragment mWbSocketUrl" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.main.HomeFragment mWebSocket" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.home.HomeAddDeviceFragment recyclerView" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.home.HomeDeviceListFragment recyclerView" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.main.LogFragment recyclerView" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.main.HomeFragment request" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.main.ModeFragment swipeRefresh" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.mode.ModeViewModel text" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.account.ForgetPasswordFragment viewModel" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.home.HomeAddDeviceFragment viewModel" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.home.HomeDeviceListFragment viewModel" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.main.LogFragment viewModel" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.account.LoginFragment viewModel" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.MainActivity viewModel" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.account.ResendFragment viewModel" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.account.SetPasswordFragment viewModel" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.account.SignupFragment viewModel" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.view.MainActivity viewPager" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.Constants weather_URL" />
+      <entry_point TYPE="field" FQNAME="com.iotApp.service.IRService webSocket" />
     </entry_points>
     <pattern value="com.iotApp.formstate.AccountFormState" method="AccountFormState" />
     <pattern value="com.iotApp.repository.SessionManager" method="clearFamilyId" />
     <pattern value="com.iotApp.repository.SessionManager" method="fetchFamilyName" />
+    <pattern value="com.iotApp.ZoomOutPageTransformer" />
+    <pattern value="com.iotApp.api.WsListener" />
+    <pattern value="com.iotApp.api.WsListener" method="WsListener" />
+    <pattern value="com.iotApp.viewmodel.ViewModelFactory" />
+    <pattern value="com.iotApp.view.AccountActivity" />
+    <pattern value="com.iotApp.formstate.AccountFormState" />
+    <pattern value="com.iotApp.repository.AccountRepository" />
+    <pattern value="com.iotApp.viewmodel.AccountViewModel" />
+    <pattern value="com.iotApp.viewmodel.AccountViewModel" method="AccountViewModel" />
+    <pattern value="com.iotApp.viewmodel.DeviceViewModel" method="addDevice" />
+    <pattern value="com.iotApp.repository.DeviceRepository" method="addDevice" />
+    <pattern value="com.iotApp.adapter.AddDeviceAdapter" />
+    <pattern value="com.iotApp.adapter.AddDeviceAdapter" method="AddDeviceAdapter" />
+    <pattern value="com.iotApp.api.IotApi.Companion" method="addFamilyMember" />
+    <pattern value="com.iotApp.ExampleUnitTest" method="addition_isCorrect" />
+    <pattern value="com.iotApp.model.AlterHome" />
+    <pattern value="com.iotApp.model.AlterHome" method="AlterHome" />
+    <pattern value="com.iotApp.api.ApiClient" />
+    <pattern value="com.iotApp.api.ApiService" />
+    <pattern value="com.iotApp.view.main.family.FamilyFragment" method="backgroundAlpha" />
+    <pattern value="com.iotApp.view.MainActivity" method="backgroundAlpha" />
+    <pattern value="com.iotApp.api.BaseResponse" />
+    <pattern value="com.iotApp.view.MainActivity" method="buttonListener" />
+    <pattern value="com.iotApp.viewmodel.DeviceViewModel" method="changeDeviceName" />
+    <pattern value="com.iotApp.repository.DeviceRepository" method="changeDeviceName" />
+    <pattern value="com.iotApp.view.main.family.ChatRoomEmbed" />
+    <pattern value="com.iotApp.view.main.family.ChatRoomEmbed" method="chatRoomEmbed" />
+    <pattern value="com.iotApp.model.ChatRoomHistory" />
+    <pattern value="com.iotApp.model.ChatRoomHistory" method="ChatRoomHistory" />
+    <pattern value="com.iotApp.adapter.ChatRoomHistoryController" method="chatRoomHistoryBuilder" />
+    <pattern value="com.iotApp.adapter.ChatRoomHistoryController" />
+    <pattern value="com.iotApp.repository.SessionManager" method="clearFamilyMembers" />
+    <pattern value="com.iotApp.repository.SessionManager" method="clearFamilyName" />
+    <pattern value="com.iotApp.api.IotApi.Companion" />
+    <pattern value="com.iotApp.Constants" />
+    <pattern value="com.iotApp.model.CreateHome" />
+    <pattern value="com.iotApp.api.IotApi.Companion" method="createHome" />
+    <pattern value="com.iotApp.model.CreateHome" method="CreateHome" />
+    <pattern value="com.iotApp.adapter.AddDeviceAdapter" method="dataChange" />
+    <pattern value="com.iotApp.viewmodel.DeviceViewModel" method="deleteDevice" />
+    <pattern value="com.iotApp.repository.DeviceRepository" method="deleteDevice" />
+    <pattern value="com.iotApp.api.IotApi.Companion" method="deleteFamily" />
+    <pattern value="com.iotApp.api.IotApi.Companion" method="deleteModeKey" />
+    <pattern value="com.iotApp.api.IotApi.Companion" method="delFamilyMember" />
+    <pattern value="com.iotApp.model.Device" />
+    <pattern value="com.iotApp.model.Device" method="Device" />
+    <pattern value="com.iotApp.model.DeviceData" />
+    <pattern value="com.iotApp.model.DeviceData" method="DeviceData" />
+    <pattern value="com.iotApp.adapter.DeviceListAdapter" />
+    <pattern value="com.iotApp.adapter.DeviceListAdapter" method="DeviceListAdapter" />
+    <pattern value="com.iotApp.repository.DeviceRepository" />
+    <pattern value="com.iotApp.viewmodel.DeviceViewModel" />
+    <pattern value="com.iotApp.viewmodel.DeviceViewModel" method="DeviceViewModel" />
+    <pattern value="com.iotApp.model.DHT11" />
+    <pattern value="com.iotApp.model.DHT11" method="DHT11" />
+    <pattern value="com.iotApp.api.IotApi.Companion" method="enqueue" />
+    <pattern value="com.iotApp.api.BaseResponse.Error" />
+    <pattern value="com.iotApp.api.BaseResponse.Error" method="Error" />
+    <pattern value="com.iotApp.ExampleInstrumentedTest" />
+    <pattern value="com.iotApp.ExampleUnitTest" />
+    <pattern value="com.iotApp.api.IotApi.Companion" method="exitFamily" />
+    <pattern value="com.iotApp.view.main.HomeFragment" method="fabInVisibility" />
+    <pattern value="com.iotApp.view.main.ModeFragment" method="fabInVisibility" />
+    <pattern value="com.iotApp.view.FamilyActivity" />
+    <pattern value="com.iotApp.view.family.FamilyAddFragment" />
+    <pattern value="com.iotApp.model.FamilyAdmin" />
+    <pattern value="com.iotApp.model.FamilyAdmin" method="FamilyAdmin" />
+    <pattern value="com.iotApp.view.family.FamilyCreateFragment" />
+    <pattern value="com.iotApp.view.family.FamilyExistFragment" />
+    <pattern value="com.iotApp.view.main.family.FamilyFragment" />
+    <pattern value="com.iotApp.view.family.FamilyMemberAddFragment" />
+    <pattern value="com.iotApp.view.family.FamilyRequestFragment" />
+    <pattern value="com.iotApp.repository.SessionManager" method="fetchFamilyMembers" />
+    <pattern value="com.iotApp.repository.SessionManager" method="fetchModeKeyData" />
+    <pattern value="com.iotApp.repository.SessionManager" method="fetchMyOwnFamily" />
+    <pattern value="com.iotApp.repository.SessionManager" method="fetchRequestUserName" />
+    <pattern value="com.iotApp.viewmodel.AccountViewModel" method="forgetPassword" />
+    <pattern value="com.iotApp.viewmodel.AccountViewModel" method="forgetPasswordDataChanged" />
+    <pattern value="com.iotApp.view.account.ForgetPasswordFragment" />
+    <pattern value="com.iotApp.repository.AccountRepository" method="forgotPassword" />
+    <pattern value="com.iotApp.view.mode.ModeViewModel" method="getAcSwitch1" />
+    <pattern value="com.iotApp.view.family.FamilyAddFragment" method="getBinding" />
+    <pattern value="com.iotApp.view.family.FamilyCreateFragment" method="getBinding" />
+    <pattern value="com.iotApp.view.family.FamilyExistFragment" method="getBinding" />
+    <pattern value="com.iotApp.view.main.family.FamilyFragment" method="getBinding" />
+    <pattern value="com.iotApp.view.family.FamilyMemberAddFragment" method="getBinding" />
+    <pattern value="com.iotApp.view.family.FamilyRequestFragment" method="getBinding" />
+    <pattern value="com.iotApp.view.account.ForgetPasswordFragment" method="getBinding" />
+    <pattern value="com.iotApp.view.home.HomeAddDeviceFragment" method="getBinding" />
+    <pattern value="com.iotApp.view.home.HomeDeviceListFragment" method="getBinding" />
+    <pattern value="com.iotApp.view.main.HomeFragment" method="getBinding" />
+    <pattern value="com.iotApp.view.main.LogFragment" method="getBinding" />
+    <pattern value="com.iotApp.view.account.LoginFragment" method="getBinding" />
+    <pattern value="com.iotApp.view.main.ModeFragment" method="getBinding" />
+    <pattern value="com.iotApp.view.mode.ModeSetAcFragment" method="getBinding" />
+    <pattern value="com.iotApp.view.mode.ModeSetNamingFragment" method="getBinding" />
+    <pattern value="com.iotApp.view.mode.ModeSetSwitchFragment" method="getBinding" />
+    <pattern value="com.iotApp.view.main.NotLoginFragment" method="getBinding" />
+    <pattern value="com.iotApp.view.account.ResendFragment" method="getBinding" />
+    <pattern value="com.iotApp.view.account.SetPasswordFragment" method="getBinding" />
+    <pattern value="com.iotApp.view.account.SignupFragment" method="getBinding" />
+    <pattern value="com.iotApp.api.IotApi.Companion" method="getChatRoomHistory" />
+    <pattern value="com.iotApp.api.ApiClient" method="getClient" />
+    <pattern value="com.iotApp.adapter.AddDeviceAdapter" method="getCurrentItem" />
+    <pattern value="com.iotApp.viewmodel.DeviceViewModel" method="getDevice" />
+    <pattern value="com.iotApp.repository.DeviceRepository" method="getDevice" />
+    <pattern value="com.iotApp.viewmodel.DeviceViewModel" method="getDeviceData" />
+    <pattern value="com.iotApp.repository.DeviceRepository" method="getDeviceData" />
+    <pattern value="com.iotApp.api.IotApi.Companion" method="getFamily" />
+    <pattern value="com.iotApp.view.mode.ModeViewModel" method="getFanLevel1" />
+    <pattern value="com.iotApp.view.mode.ModeViewModel" method="getFanSpin1" />
+    <pattern value="com.iotApp.view.mode.ModeViewModel" method="getFanSwitch1" />
+    <pattern value="com.iotApp.api.IotApi.Companion" method="getInfo" />
+    <pattern value="com.iotApp.api.IotApi.Companion" method="getMessageContent" />
+    <pattern value="com.iotApp.api.ApiService" method="getMessageContent" />
+    <pattern value="com.iotApp.model.GetModeKeyDataInfo" />
+    <pattern value="com.iotApp.model.GetModeKeyDataInfo" method="GetModeKeyDataInfo" />
+    <pattern value="com.iotApp.api.IotApi.Companion" method="getModeKeyInfo" />
+    <pattern value="com.iotApp.api.IotApi.Companion" method="getMyOwnFamily" />
+    <pattern value="com.iotApp.service.IRService.IRBinder" method="getService" />
+    <pattern value="com.iotApp.view.mode.ModeViewModel" method="getTplinkSwitch" />
+    <pattern value="com.iotApp.model.Home" />
+    <pattern value="com.iotApp.model.Home" method="Home" />
+    <pattern value="com.iotApp.view.HomeActivity" />
+    <pattern value="com.iotApp.view.home.HomeAddDeviceFragment" />
+    <pattern value="com.iotApp.view.home.HomeDeviceListFragment" />
+    <pattern value="com.iotApp.view.main.HomeFragment" />
+    <pattern value="com.iotApp.service.InviteService" />
+    <pattern value="com.iotApp.api.IotApi" />
+    <pattern value="com.iotApp.service.IRService.IRBinder" />
+    <pattern value="com.iotApp.service.IRService" />
+    <pattern value="com.iotApp.view.main.LogFragment" />
+    <pattern value="com.iotApp.view.account.LoginFragment" />
+    <pattern value="com.iotApp.view.MainActivity" />
+    <pattern value="com.iotApp.view.ModeActivity" />
+    <pattern value="com.iotApp.view.main.ModeFragment" />
+    <pattern value="com.iotApp.view.mode.ModeSetAcFragment" />
+    <pattern value="com.iotApp.view.mode.ModeSetNamingFragment" />
+    <pattern value="com.iotApp.view.mode.ModeSetSwitchFragment" />
+    <pattern value="com.iotApp.view.main.NotLoginFragment" />
+    <pattern value="com.iotApp.view.account.ResendFragment" />
+    <pattern value="com.iotApp.view.account.SetPasswordFragment" />
+    <pattern value="com.iotApp.adapter.SideBarController" />
+    <pattern value="com.iotApp.view.account.SignupFragment" />
+    <pattern value="com.iotApp.view.SplashActivity" />
+    <pattern value="com.iotApp.view.MainActivity" method="initPopWindow" />
+    <pattern value="com.iotApp.api.BaseResponse.Loading" />
+    <pattern value="com.iotApp.api.BaseResponse.Loading" method="Loading" />
+    <pattern value="com.iotApp.adapter.LogAdapter" />
+    <pattern value="com.iotApp.adapter.LogAdapter" method="LogAdapter" />
+    <pattern value="com.iotApp.repository.AccountRepository" method="login" />
+    <pattern value="com.iotApp.viewmodel.AccountViewModel" method="loginDataChanged" />
+    <pattern value="com.iotApp.model.LoginRequest" />
+    <pattern value="com.iotApp.model.LoginRequest" method="LoginRequest" />
+    <pattern value="com.iotApp.model.LoginResponse" />
+    <pattern value="com.iotApp.model.LoginResponse" method="LoginResponse" />
+    <pattern value="com.iotApp.viewmodel.AccountViewModel" method="loginUser" />
+    <pattern value="com.iotApp.repository.AccountRepository" method="logout" />
+    <pattern value="com.iotApp.viewmodel.AccountViewModel" method="logoutUser" />
+    <pattern value="com.iotApp.model.MessageContent" />
+    <pattern value="com.iotApp.model.MessageContent" method="MessageContent" />
+    <pattern value="com.iotApp.view.mode.ModeViewModel" />
+    <pattern value="com.iotApp.model.MQ7" />
+    <pattern value="com.iotApp.model.MQ7" method="MQ7" />
+    <pattern value="com.iotApp.view.main.family.ChatRoomEmbed" method="msgFactory" />
+    <pattern value="com.iotApp.viewmodel.DeviceViewModel" method="pairDevice" />
+    <pattern value="com.iotApp.model.PostModeKeyDataInfo" />
+    <pattern value="com.iotApp.model.PostModeKeyDataInfo" method="PostModeKeyDataInfo" />
+    <pattern value="com.iotApp.api.IotApi.Companion" method="postModeKeyInfo" />
+    <pattern value="com.iotApp.repository.AccountRepository" method="resendActivationEmail" />
+    <pattern value="com.iotApp.viewmodel.AccountViewModel" method="resendEmail" />
+    <pattern value="com.iotApp.repository.SessionManager" method="saveAuthToken" />
+    <pattern value="com.iotApp.repository.SessionManager" method="saveFamilyId" />
+    <pattern value="com.iotApp.repository.SessionManager" method="saveFamilyName" />
+    <pattern value="com.iotApp.repository.SessionManager" method="saveModeKeyData" />
+    <pattern value="com.iotApp.repository.SessionManager" method="saveMyOwnFamily" />
+    <pattern value="com.iotApp.model.SendEmail" />
+    <pattern value="com.iotApp.model.SendEmail" method="SendEmail" />
+    <pattern value="com.iotApp.repository.SessionManager" />
+    <pattern value="com.iotApp.view.mode.ModeViewModel" method="setAcSwitch1" />
+    <pattern value="com.iotApp.view.mode.ModeViewModel" method="setAcTemperature1" />
+    <pattern value="com.iotApp.view.mode.ModeViewModel" method="setAcTemperature2" />
+    <pattern value="com.iotApp.view.mode.ModeViewModel" method="setFanLevel1" />
+    <pattern value="com.iotApp.view.mode.ModeViewModel" method="setFanSpin1" />
+    <pattern value="com.iotApp.view.mode.ModeViewModel" method="setFanSwitch1" />
+    <pattern value="com.iotApp.model.SetPassword" />
+    <pattern value="com.iotApp.repository.AccountRepository" method="setPassword" />
+    <pattern value="com.iotApp.model.SetPassword" method="SetPassword" />
+    <pattern value="com.iotApp.viewmodel.AccountViewModel" method="setPassword" />
+    <pattern value="com.iotApp.viewmodel.AccountViewModel" method="setPasswordDataChanged" />
+    <pattern value="com.iotApp.view.mode.ModeViewModel" method="setTpLinkSwitch" />
+    <pattern value="com.iotApp.view.account.LoginFragment" method="showLoading" />
+    <pattern value="com.iotApp.view.account.SignupFragment" method="showLoading" />
+    <pattern value="com.iotApp.adapter.SideBarController" method="sideBar" />
+    <pattern value="com.iotApp.viewmodel.AccountViewModel" method="signup" />
+    <pattern value="com.iotApp.repository.AccountRepository" method="signup" />
+    <pattern value="com.iotApp.viewmodel.AccountViewModel" method="signupDataChanged" />
+    <pattern value="com.iotApp.model.SR501" />
+    <pattern value="com.iotApp.model.SR501" method="SR501" />
+    <pattern value="com.iotApp.view.account.LoginFragment" method="stopLoading" />
+    <pattern value="com.iotApp.view.account.SignupFragment" method="stopLoading" />
+    <pattern value="com.iotApp.repository.SessionManager" method="storeRequestUserName" />
+    <pattern value="com.iotApp.api.BaseResponse.Success" />
+    <pattern value="com.iotApp.api.BaseResponse.Success" method="Success" />
+    <pattern value="com.iotApp.api.IotApi.Companion" method="updateFamilyMemberByFamilyID" />
+    <pattern value="com.iotApp.ExampleInstrumentedTest" method="useAppContext" />
+    <pattern value="com.iotApp.model.UserInfo" />
+    <pattern value="com.iotApp.model.UserInfo" method="UserInfo" />
+    <pattern value="com.iotApp.adapter.AddDeviceAdapter.ViewHolder" />
+    <pattern value="com.iotApp.adapter.DeviceListAdapter.ViewHolder" />
+    <pattern value="com.iotApp.adapter.LogAdapter.ViewHolder" />
+    <pattern value="com.iotApp.adapter.AddDeviceAdapter.ViewHolder" method="ViewHolder" />
+    <pattern value="com.iotApp.adapter.DeviceListAdapter.ViewHolder" method="ViewHolder" />
+    <pattern value="com.iotApp.adapter.LogAdapter.ViewHolder" method="ViewHolder" />
+    <pattern value="com.iotApp.view.MainActivity" method="viewPager" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />

@@ -68,7 +68,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginStart="10dp"
                         android:text="@string/ac"
-                        android:textColor="@color/color_AAAAAA"></TextView>
+                        android:textColor="@color/color_AAAAAA" />
 
                     <com.google.android.material.divider.MaterialDivider
                         android:layout_width="match_parent"
@@ -76,7 +76,7 @@
                         app:dividerColor="@color/color_AAAAAA"
                         app:dividerInsetEnd="0dp"
                         app:dividerInsetStart="2dp"
-                        app:dividerThickness="2dp"></com.google.android.material.divider.MaterialDivider>
+                        app:dividerThickness="2dp" />
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
@@ -172,7 +172,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginStart="10dp"
                         android:text="@string/fan"
-                        android:textColor="@color/color_AAAAAA"></TextView>
+                        android:textColor="@color/color_AAAAAA" />
 
                     <com.google.android.material.divider.MaterialDivider
                         android:layout_width="match_parent"
@@ -180,7 +180,7 @@
                         app:dividerColor="@color/color_AAAAAA"
                         app:dividerInsetEnd="0dp"
                         app:dividerInsetStart="2dp"
-                        app:dividerThickness="2dp"></com.google.android.material.divider.MaterialDivider>
+                        app:dividerThickness="2dp" />
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"

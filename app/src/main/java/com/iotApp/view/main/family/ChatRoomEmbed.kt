@@ -103,7 +103,7 @@ class ChatRoomEmbed {
         }
     }
 
-    fun msgFactory(msg: String, activity: FragmentActivity): JSONObject {
+    private fun msgFactory(msg: String, activity: FragmentActivity): JSONObject {
         val jsonObjects = JSONObject()
         jsonObjects.put("type", "message")
         jsonObjects.put(

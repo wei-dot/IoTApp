@@ -17,7 +17,7 @@ import com.iotApp.repository.SessionManager
 class ModeSetNamingFragment : Fragment() {
     private var _binding: FragmentMode3NamingBinding? = null
     private val binding get() = _binding!!
-    var modeViewModel: ModeViewModel? = null
+    private var modeViewModel: ModeViewModel? = null
     override fun onCreateView(
         inflater: android.view.LayoutInflater,
         container: android.view.ViewGroup?,
