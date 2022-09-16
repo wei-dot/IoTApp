@@ -59,7 +59,7 @@ class HomeFragment : Fragment() {
     private var mIsAllFabVisible: Boolean? = null
 
     //    private val host: String = "192.168.0.15"
-    private val host: String = "192.168.1.14:8000"
+    private val host: String = "192.168.0.10:8000"
     private val mWbSocketUrl = "ws://" + host + Constants.Power_Strip_URL
     private lateinit var mClient: OkHttpClient
     private lateinit var request: Request

@@ -193,7 +193,7 @@ class MainActivity : AppCompatActivity() {
                         navView.menu.getItem(1).isChecked = true
                     }
                     2 -> {
-                        supportActionBar!!.title = "組合鍵設置"
+                        supportActionBar!!.title = "一鍵開關設置"
                         navView.menu.getItem(2).isChecked = true
                     }
                     3 -> {
@@ -220,7 +220,7 @@ class MainActivity : AppCompatActivity() {
                     viewPager.setCurrentItem(201, true)
                 }
                 R.id.navigation_mode -> {
-                    supportActionBar!!.title = "組合鍵設置"
+                    supportActionBar!!.title = "一鍵開關設置"
                     viewPager.setCurrentItem(202, true)
                 }
                 R.id.navigation_log -> {

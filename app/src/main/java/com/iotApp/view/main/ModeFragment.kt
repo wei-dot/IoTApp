@@ -14,12 +14,14 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.annotation.NonNull
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.blankj.utilcode.util.ThreadUtils
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.iotApp.Constants
@@ -29,11 +31,15 @@ import com.iotApp.api.WsListener
 import com.iotApp.databinding.FragmentMainModeBinding
 import com.iotApp.model.GetModeKeyDataInfo
 import com.iotApp.repository.SessionManager
+import com.iotApp.service.IRService
 import com.iotApp.view.ModeActivity
+import kotlinx.coroutines.*
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.WebSocket
+import org.json.JSONObject
 import java.util.concurrent.TimeUnit
+import kotlin.concurrent.thread
 
 
 class ModeFragment : Fragment() {
@@ -163,7 +169,7 @@ class ModeFragment : Fragment() {
             startActivity(Intent(requireActivity(), ModeActivity::class.java))
         }
         binding.deleteModeKeyFab.setOnClickListener {
-            Toast.makeText(activity, "長按要刪除的組合鍵", Toast.LENGTH_SHORT).show()
+            Toast.makeText(activity, "長按要刪除的鍵", Toast.LENGTH_SHORT).show()
         }
 
     }
@@ -219,8 +225,6 @@ class ModeFragment : Fragment() {
                 /**
                  * 当RecyclerView的滑动状态改变时触发
                  */
-                val layoutManager =
-                    LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
 
                 override fun onScrollStateChanged(
                     @NonNull recyclerView: RecyclerView,
@@ -247,24 +251,17 @@ class ModeFragment : Fragment() {
         private val mInflater = inflater
         private val mActivity = activity
         //    private val host: String = "192.168.0.15"
-        private val host: String = "192.168.0.13:8000"
+        private val host: String = "192.168.0.10:8000"
         private val mWbSocketUrl = "ws://" + host + Constants.Power_Strip_URL
         private lateinit var mClient: OkHttpClient
-        private lateinit var request: Request
         private lateinit var mWebSocket: WebSocket
+        private lateinit var request: Request
         //        private val mFt = ft
 //        private val mModeFragment = modeFragment
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
             val v = LayoutInflater.from(parent.context)
                 .inflate(R.layout.mode_key_recycler_view, parent, false)
-            mClient = OkHttpClient.Builder()
-                .pingInterval(10, TimeUnit.SECONDS)
-                .build()
-            request = Request.Builder()
-                .url(mWbSocketUrl)
-                .build()
-            mWebSocket = mClient.newWebSocket(request, WsListener(mContext))
             return ViewHolder(v)
         }
 
@@ -274,6 +271,18 @@ class ModeFragment : Fragment() {
             holder.ModeKeyButton.setOnClickListener {
                 Log.d("ModeFragment", "ModeKeyButton is clicked")
             }
+            val irWebSocket = IRService().webSocket
+
+            mClient = OkHttpClient.Builder()
+                .pingInterval(10, TimeUnit.SECONDS)
+                .build()
+            request = Request.Builder()
+                .url(mWbSocketUrl)
+                .build()
+            mWebSocket = mClient.newWebSocket(request, WsListener(mContext))
+            val messageJson = JSONObject()
+            val switchJson = JSONObject()
+            switchJson.put("device_type", "switch")
             holder.ModeKeyButton.setOnClickListener {
                 Toast.makeText(
                     mActivity,
@@ -284,11 +293,18 @@ class ModeFragment : Fragment() {
                     Log.d("ModeFragment", "for in $i tplink_switch_mode_key = ${listData[position].tplink_switch_mode_key}")
                     listData[position].tplink_switch_mode_key[i-1]
                     if(listData[position].tplink_switch_mode_key[i-1] == '1') {
-                        mWebSocket.send("{\"message\":\"on:$i\"}")
+                        switchJson.put("switch", "on:$i")
+                        messageJson.put("message", switchJson.toString())
+                        mWebSocket.send(messageJson.toString())
                     }else{
-                        mWebSocket.send("{\"message\":\"off:$i\"}")
-                    }
+                        switchJson.put("switch", "off:$i")
+                        messageJson.put("message", switchJson.toString())
+                        mWebSocket.send(messageJson.toString()) }
                 }
+
+//                fan switch
+//                irWebSocket.send("{\"message\":\"power\"}")
+                irWebSocket.send("{\"message\":\"light\"}")
             }
 
             holder.ModeKeyButton.setOnLongClickListener(View.OnLongClickListener {

@@ -62,7 +62,7 @@ data class GetModeKeyDataInfo(
     @SerializedName("fan_spin")
     val fan_spin: Boolean,
     @SerializedName("mode_key_time")
-    val mode_key_time: Date,
+    val mode_key_time: String,
 ) : Serializable
 
 data class PostModeKeyDataInfo(

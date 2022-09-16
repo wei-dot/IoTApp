@@ -324,9 +324,7 @@ class IotApi {
                         if (it.isSuccessful) {
                             Log.d("IotApi", "getModeKeyInfo: 取得組合鍵金鑰成功")
                             val response = it.body()!!
-                            var modeKeyList = response
-                            modeKeyList = removeModeKey(modeKeyList, sessionManager)
-                            sessionManager.saveModeKeyData(modeKeyList)
+                            sessionManager.saveModeKeyData(response)
                         } else {
                             Log.d("IotApi onResponse ", "getModeKeyInfo: 取得組合鍵金鑰失敗")
                             Toast.makeText(
@@ -350,7 +348,7 @@ class IotApi {
                     onResponse = {
                         if (it.isSuccessful) {
                             Log.d("IotApi", "deleteMode: 刪除組合鍵成功")
-                            Toast.makeText(activity, " 刪除組合鍵成功", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(activity, " 刪除modekey成功", Toast.LENGTH_SHORT).show()
                             activity?.let { it1 -> SessionManager(it1) }?.let { it2 ->
                                 IotApi.getModeKeyInfo(
                                     activity,
@@ -361,12 +359,12 @@ class IotApi {
 //                        activity?.startActivity(Intent(activity, MainActivity::class.java))
                         } else {
                             Log.d("IotApi", "deleteFamily: 刪除組合鍵失敗")
-                            Toast.makeText(activity, "刪除組合鍵失敗", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(activity, "刪除modekey失敗", Toast.LENGTH_SHORT).show()
                         }
                     }
                     onFailure = {
                         Log.d("IotApi", "deleteFamily: ${it?.message}")
-                        Toast.makeText(activity, "刪除組合鍵失敗", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(activity, "刪除modekey失敗", Toast.LENGTH_SHORT).show()
                     }
                 }
         }
@@ -396,7 +394,7 @@ class IotApi {
                     onResponse = {
                         if (it.isSuccessful) {
                             Log.d("IotApi", "getModeKeyInfo: 取得組合鍵金鑰成功")
-                            Toast.makeText(activity, "取得組合鍵金鑰成功", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(activity, "取得modekey金鑰成功", Toast.LENGTH_SHORT).show()
 //                            val response = it.body()!!
 //                            Log.d("IotApi", response.toString())
                         } else {
@@ -410,7 +408,7 @@ class IotApi {
                     }
                     onFailure = {
                         Log.d("IotApi", "getModeKeyInfo: ${it?.message}")
-                        Toast.makeText(activity, "取得組合鍵金鑰失敗", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(activity, "取得modekey金鑰失敗", Toast.LENGTH_SHORT).show()
                     }
                 }
         }
